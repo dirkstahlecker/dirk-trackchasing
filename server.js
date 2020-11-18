@@ -6,17 +6,36 @@ const app = express();
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-// Put all API endpoints under '/api'
-app.get('/api/passwords', (req, res) => {
-  const count = 5;
+function getTrackList()
+{
+  const json = parse()
+  let trackList = Object.keys(json["Track Order"]) //tested and appears to work
 
-  // Generate some passwords
-  const passwords = "PASSWORD";
+  return trackList
+}
 
-  // Return them as json
-  res.json(passwords);
+function parse()
+{
+  console.log("parsing")
+  //take the json downloaded from google sheets in json format and parse it
+  var fs=require('fs');
+  var data=fs.readFileSync(path.resolve(__dirname, 'events_data.json'), 'utf8');
+  var json=JSON.parse(data);
 
-  console.log(`Sent ${count} passwords`);
+  return json
+}
+
+// Priority serve any static files.
+app.use(express.static(path.resolve(__dirname, '../react-ui/public')));
+
+//look through the json downloaded from google sheets and parse it
+app.get('/tracksList', function (req, res) {
+	console.log("/tracksList")
+	res.set('Content-Type', 'application/json');
+
+	const tracks = getTrackList();
+
+	res.json({"message": tracks});
 });
 
 // The "catchall" handler: for any request that doesn't
