@@ -16,7 +16,6 @@ function getTrackList()
 
 function parse()
 {
-  console.log("parsing")
   //take the json downloaded from google sheets in json format and parse it
   var fs=require('fs');
   var data=fs.readFileSync(path.resolve(__dirname, 'events_data.json'), 'utf8');
@@ -36,6 +35,34 @@ app.get('/tracksList', function (req, res) {
 	const tracks = getTrackList();
 
 	res.json({"message": tracks});
+});
+
+app.get('/numRaces/:trackName', function (req, res) {
+	console.log("/numRaces")
+	res.set('Content-Type', 'application/json');
+
+	console.log(req.params.trackName)
+	
+	let json = parse();
+	json = json["Races"];
+
+	let count = 0;
+	for (let i = 1; i <= getTrackList().length; i++) //row numbers start at 1 in the database
+	{
+		const jsonRowHeader = "Races: " + i;
+		const raceRow = json[jsonRowHeader];
+		if (raceRow)
+		{
+			console.log(raceRow)
+			// console.log(raceRow[req.params.trackName])
+			if (raceRow[req.params.trackName] != null)
+			{
+				count++
+			}
+		}
+	}
+
+	res.json({"message": count});
 });
 
 // The "catchall" handler: for any request that doesn't

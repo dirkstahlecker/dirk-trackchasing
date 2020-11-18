@@ -1,14 +1,12 @@
 import React from 'react';
 // import ReactDOM from "react-dom";
 import {observer} from "mobx-react";
-import {observable, action, isObservable, runInAction, makeObservable} from "mobx";
+import {observable, action, makeObservable} from "mobx";
 import './App.css';
 
 class AppMachine
 {
   @observable public tracksList: string[] | null = null;
-
-  @observable public isLoaded = false;
 
   constructor() 
   {
@@ -24,10 +22,15 @@ class AppMachine
   public async makeTracks(): Promise<void>
   {
     const tracksRaw = await fetch("/tracksList");
-    console.log(tracksRaw);
     const tracks = await tracksRaw.json();
-    console.log(tracks)
     this.setTracksList(tracks.message);
+  }
+
+  public async getRaceNum(trackName: string): Promise<void>
+  {
+    const numRaw = await fetch("/numRaces/" + trackName);
+    const num = await numRaw.json();
+    alert(num.message);
   }
 }
 
@@ -53,41 +56,25 @@ class App extends React.Component<AppProps>
   componentDidMount()
   {
     this.machine.makeTracks();
-
-    console.log(isObservable(this.machine.tracksList))
-
-    runInAction(() => this.machine.isLoaded = true);
   }
 
   render()
   {
-    // if (this.machine.tracksList == null)
-    // {
-    //   return <></>;
-    // }
-
-    if (!this.machine.isLoaded)
-    {
-      return <>Not Loaded</>
-    }
-
     return (
       <div className="App">
         <header className="App-header">
           {
-            this.machine.tracksList == null ? "NULL" : this.machine.tracksList
-          }
-          {
             this.machine.tracksList != null && 
             this.machine.tracksList.map((track: string) => {
-              return <div>{track}</div>;
+              return <div key={track}>
+                <button onClick={() => this.machine.getRaceNum(track)}>{track}</button>
+              </div>;
             })
           }
         </header>
       </div>
     );
   }
-
 }
 
 export default App;
