@@ -1,12 +1,19 @@
 import React from 'react';
 // import ReactDOM from "react-dom";
 import {observer} from "mobx-react";
-import {observable, action, isObservable} from "mobx";
+import {observable, action, isObservable, runInAction, makeObservable} from "mobx";
 import './App.css';
 
 class AppMachine
 {
   @observable public tracksList: string[] | null = null;
+
+  @observable public isLoaded = false;
+
+  constructor() 
+  {
+    makeObservable(this);
+  }
 
   @action
   private setTracksList(list: string[]): void
@@ -33,8 +40,13 @@ class AppMachine
 //   </p>
 // }
 
+export interface AppProps
+{
+
+}
+
 @observer
-class App extends React.Component
+class App extends React.Component<AppProps>
 {
   private machine: AppMachine = new AppMachine();
 
@@ -43,6 +55,8 @@ class App extends React.Component
     this.machine.makeTracks();
 
     console.log(isObservable(this.machine.tracksList))
+
+    runInAction(() => this.machine.isLoaded = true);
   }
 
   render()
@@ -51,6 +65,11 @@ class App extends React.Component
     // {
     //   return <></>;
     // }
+
+    if (!this.machine.isLoaded)
+    {
+      return <>Not Loaded</>
+    }
 
     return (
       <div className="App">
