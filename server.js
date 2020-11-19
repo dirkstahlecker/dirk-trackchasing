@@ -53,14 +53,14 @@ app.get('/numRaces/:trackName', function (req, res) {
 		trackName = parts[0].trim();
 	}
 
-	// console.log(trackName);
-	// console.log(configuration);
+	console.log("Track name: " + trackName);
+	console.log("Configuration: " + configuration);
 	
 	let json = parse();
 	json = json["Races"];
 
 	let count = 0;
-	for (let i = 1; i <= getTrackList().length; i++) //row numbers start at 1 in the database
+	for (let i = 0; i < getTrackList().length; i++)
 	{
 		const jsonRowHeader = "Races: " + i;
 		const raceRow = json[jsonRowHeader];
@@ -68,7 +68,19 @@ app.get('/numRaces/:trackName', function (req, res) {
 		{
 			if (raceRow[trackName] != null)
 			{
-				count++
+				console.log(raceRow[trackName])
+				if (isConfiguration)
+				{
+					//need to look into the specifics and see if there configuration is in brackets at the end
+					if (raceRow[trackName].includes(configuration))
+					{
+						count++
+					}
+				}
+				else
+				{
+					count++;
+				}
 			}
 		}
 	}
