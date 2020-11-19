@@ -4,6 +4,7 @@ import {observer} from "mobx-react";
 import {observable, action, makeObservable} from "mobx";
 import './App.css';
 import {TrackPlace} from "./TrackPlace";
+import {Map} from "./Map";
 import {NavigationMachine, CurrentPlace} from "./NavigationMachine";
 
 class AppMachine
@@ -57,6 +58,12 @@ class App extends React.Component<AppProps>
 {
   private machine: AppMachine = new AppMachine();
 
+  // constructor(props: AppProps)
+  // {
+  //   super(props);
+  //   this.mapContainer = React.createRef();
+  // }
+
   componentDidMount()
   {
     this.machine.makeTracks();
@@ -89,9 +96,7 @@ class App extends React.Component<AppProps>
           }
           {
             this.machine.navMachine.currentPlace === CurrentPlace.MAP &&
-            <>
-
-            </>
+            <Map/>
           }
         </header>
       </div>
