@@ -392,9 +392,6 @@
       "Macon Speedway": "Oval",
       "Bridgeport Motorsports Park": "Oval"
     },
-    "Venue": {
-      "Seekonk Speedway": "Permanent"
-    },
     "Total Races": {
       "Seekonk Speedway": 46,
       "Thompson Speedway": 28,
@@ -633,8 +630,8 @@
       "Bridgeport Motorsports Park": 2.33
     },
     "Configurations": {
-      "Seekonk Speedway": "2: Figure 8, Asphalt Road Course",
-      "Stafford Motor Speedway": "1: Inner Asphalt Oval (outlaw karts)",
+      "Seekonk Speedway": "2: Asphalt Figure 8, Asphalt Road Course",
+      "Stafford Motor Speedway": "1: Inner Asphalt Oval",
       "New Hampshire Motor Speedway": "1: Legends Oval",
       "Wall Stadium Speedway": "1: Inner Asphalt Oval",
       "Texas Motor Speedway": "1: Asphalt Road Course",
@@ -644,7 +641,7 @@
       "WaKeeney Speedway": null,
       "Slinger Speedway": "2: Asphalt Figure 8, Asphalt Road Course"
     },
-    "Races: 1": {
+    "Races: 0": {
       "Seekonk Speedway": "7-13-16: US Pro stock nationals, INEX legends, pro 4 modifieds",
       "Thompson Speedway": "8-24-16: Sunoco Modifieds, Late Models, Limited Sportsman, Mini Stocks",
       "Thompson Speedway - Rallycross": "6-03-17: Global Rallycross Championship: GRC Supercars, GRC Lites",
@@ -661,7 +658,7 @@
       "Lebanon Valley Speedway": "8-31-17: Super DIRTcar, king of dirt sportsmen",
       "Oxford Plains Speedway": "8-27-17 PASS Oxford 250",
       "Beech Ridge Speedway": "9-17-17: PASS SLMs, PASS modifieds",
-      "Wall Stadium Speedway": "11-24-17:",
+      "Wall Stadium Speedway": "11-24-17: Wall Modifieds, Sportsman, Limited Late Models, Factory Stocks, 4 Cylinders",
       "Texas Motor Speedway": "6-08-18: Camping World Truck Series",
       "Lil' Texas Motor Speedway": "6-08-18: Legends, Bandoleros",
       "Charlotte Motor Speedway Roval": "9-29-18: NASCAR Xfinity Series",
@@ -673,7 +670,7 @@
       "Pocatello Speedway": "at least one race",
       "Atomic Motor Raceway": "9-25-10: IMCA Modifieds, IMCA Sport Mods, Atomic Bombers",
       "Magic Valley Speedway": "2000s",
-      "Rocky Mountain Raceways": "7-24-10:",
+      "Rocky Mountain Raceways": "7-24-10: Figure 8 Cars, Figure 8 Trains, Modifieds, Wingless Sprint Cars, Hornets, Midgets [Asphalt Figure 8]",
       "WaKeeney Speedway": "08-01-12: Modifieds,",
       "Stuart Speedway": "7-29-12: Sprint Cars,",
       "Miller Motorsports Park": "5-17-09: American LeMans Series",
@@ -691,7 +688,7 @@
       "Thunder Road International Speedbowl": "7-18-19: Governor's Cup 150: Late Models, Street Stocks, Flying Tigers",
       "NHMS Flat Track": "7-19-19: USAC Midgets, US Legend Cars",
       "Meridian Speedway": "7-27-19: Speed Tour Regional Sprints, Winged Crate Sprint Cars, Midgets, Street Stocks, Legends",
-      "Slinger Speedway": "8-04-19: Super Late Models, Late Models, Slinger Bees, Super Bees, Figure 8s, Team Cruisers",
+      "Slinger Speedway": "8-04-19: Super Late Models, Late Models, Slinger Bees, Super Bees, Figure 8s, Team Cruisers [Asphalt Figure 8, Asphalt Road Course]",
       "Southern Iowa Speedway": "8-05-19: 410 Sprint Cars, 305 Sprint Cars",
       "Knoxville Raceway": "8-07-19: Knoxville Nationals: World of Outlaws Sprint Cars",
       "Proctor Speedway": "8-11-19: Northern Renegade Wingless Sprint Cars, Wissota Late Models, Wissota Modifieds, Wissota Midwest Modifieds, Wissota Super Stocks, Wissota Hornets, Wissota Pure Stocks",
@@ -723,7 +720,7 @@
       "Macon Speedway": "8-29-20: DIRTcar Modifieds, DIRTcar Pro Modifieds, Pro Late Models, Street Stocks, IMRA Midgets, Hornets",
       "Bridgeport Motorsports Park": "11-06-20: URC 360 Sprint Cars, 602 Sportsman Modifieds, Street Stocks"
     },
-    "Races: 2": {
+    "Races: 1": {
       "Seekonk Speedway": "7-30-16: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "10-15-16: NEMA, Sunoco Modifieds, Late Models, Limited Sportsman, Mini Stocks",
       "Thompson Speedway - Rallycross": "6-04-17: Global Rallycross Championship: GRC Supercars, GRC Lites",
@@ -740,14 +737,14 @@
       "Lebanon Valley Speedway": "4-21-18:",
       "Oxford Plains Speedway": "8-26-18: PASS Oxford 250",
       "Beech Ridge Speedway": "7-02-19: Pro Stocks, Late Models, Street Stocks",
-      "Wall Stadium Speedway": "11-25-17:",
-      "Texas Motor Speedway": "6-09-18: Verizon IndyCar Series, Stadium Super Trucks",
+      "Wall Stadium Speedway": "11-25-17: Tour Modifieds, ATQMRA, Wall Modifieds, Dirt Modifieds, Legends [Inner Asphalt Oval]",
+      "Texas Motor Speedway": "6-09-18: Verizon IndyCar Series, Stadium Super Trucks [Asphalt Road Course]",
       "Charlotte Motor Speedway Roval": "9-30-18: Monster Energy NASCAR Cup Series",
       "Gateway Dirt Nationals": "11-30-18: Super late models, modifieds, midgets",
       "Cure Insurance Arena": "2-22-20: 600cc Micro Sprints",
       "Pocatello Speedway": "at least two races",
-      "Atomic Motor Raceway": "9-16-11: Wild West Modified Tour, IMCA Sport Mods",
-      "Rocky Mountain Raceways": "9-18-10:",
+      "Atomic Motor Raceway": "9-16-11: Wild West Modified Tour, IMCA Sport Mods, Karts [Inner Dirt Oval]",
+      "Rocky Mountain Raceways": "9-18-10: Super Stocks, Midgets, Modifieds, Figure 8 Cars, Figure 8 Trains [Aphalt Figure 8]",
       "Las Vegas Motor Speedway": "2005 (?): NASCAR Nextel Cup Series",
       "Phoenix International Raceway": "11-14-10: NASCAR Sprint Cup Series",
       "Lincoln Speedway": "8-24-19: All Star Circuit of Champions 410 Sprint Cars, Central PA Legends",
@@ -763,7 +760,7 @@
       "Gateway Motorsports Park": "8-30-20: NTT Indycar Series, NASCAR Gander Outdoors Truck Series",
       "Bridgeport Motorsports Park": "11-07-20: Big Block Modifieds, URC 360 Sprint Cars, 602 Sportsman Modifieds, 4 and 8 Cylinders"
     },
-    "Races: 3": {
+    "Races: 2": {
       "Seekonk Speedway": "8-6-16: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "10-16-16: NEMA lites, ISMA, Whelen modifieds",
       "Stafford Motor Speedway": "8-04-17: Whelen Modifieds, SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
@@ -778,11 +775,11 @@
       "Lebanon Valley Speedway": "9-01-18: Super DIRTcar, king of dirt sportsmen, pure stocks, pro stocks",
       "Oxford Plains Speedway": "1-06-19: Reindeer 100 enduro",
       "Beech Ridge Speedway": "9-12-19: 350 Street Stocks, 305 Street Stocks, Mini Stocks, Mad Bombers, Rebels, Beetle Bugs, Street Warriors, Ladies League",
-      "Wall Stadium Speedway": "11-26-17:",
+      "Wall Stadium Speedway": "11-26-17: Factory Stocks, Legends, 4 Cylinders, Dirt Sportsman, Dirt Outlaw Stocks",
       "Gateway Dirt Nationals": "12-01-18: Super late models, modifieds, midgets",
       "Pocatello Speedway": "at least three races",
       "Atomic Motor Raceway": "8-02-13: High Country Dwarf Cars, IMCA Modifieds, IMCA Sport Mods, Street Stocks, Mini Stocks",
-      "Rocky Mountain Raceways": "9-17-11:",
+      "Rocky Mountain Raceways": "9-17-11: Maverick Modifieds, Midgets, Super Stocks, Figure 8 Cars, Figure 8 Trains [Asphalt Figure 8]",
       "Las Vegas Motor Speedway": "3-06-11: NASCAR Sprint Cup Series",
       "Lincoln Speedway": "6-29-20: Pennsylvania Speedweek: 410 Sprint Cars",
       "Glen Ridge Motorsports Park": "9-08-19: Sail Panel Big Block Modifieds, Crate Modifieds, Limited Sportsman, Pro Stocks, Street Stocks, Mini Stocks, Winged Champ Karts, Slingshots",
@@ -791,8 +788,8 @@
       "Kokomo Speedway": "8-28-20: Smackdown IX: USAC National Sprint Cars",
       "Bridgeport Motorsports Park": "11-08-20: Big Block Modifieds, 602 Sportsman Modifieds, USAC SpeedSTRs, Street Stocks"
     },
-    "Races: 4": {
-      "Seekonk Speedway": "8-07-16: Thrill Show",
+    "Races: 3": {
+      "Seekonk Speedway": "8-07-16: Thrill Show [Asphalt Figure 8]",
       "Thompson Speedway": "4-08-17: Mr. rooter pro trucks, NEMA lites, Sunoco Modifieds, Late Models, Limited Sportsman, Mini Stocks",
       "Stafford Motor Speedway": "9-15-17: SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
       "New London Waterford Speedbowl": "10-20-18: NEMA, NEMA lites, GSPSS, Pro 4 modifieds, 375 sportsmen, x cars, super x cars, bandoleros",
@@ -807,12 +804,12 @@
       "Gateway Dirt Nationals": "12-19-19: Super Late Models, Modifieds, Midgets",
       "Pocatello Speedway": "at least four races",
       "Atomic Motor Raceway": "8-03-13: High Country Dwarf Cars, IMCA Modifieds, IMCA Sport Mods, Street Stocks, Mini Stocks",
-      "Rocky Mountain Raceways": "7-06-13: Rocky Mountain Challenge Series late models",
+      "Rocky Mountain Raceways": "7-06-13: Rocky Mountain Challenge Series late models, Modifieds, Figure 8 Trains [Asphalt Figure 8]",
       "Lincoln Speedway": "8-20-20: World of Outlaws Late Models",
       "Thunder Road International Speedbowl": "9-18-20: Late Models, Flying Tigers, Street Stocks, Road Warriors",
       "Knoxville Raceway": "8-10-19: Knoxville Nationals: World of Outlaws Sprint Cars"
     },
-    "Races: 5": {
+    "Races: 4": {
       "Seekonk Speedway": "8-13-16: Pro Stocks, Late Models, Street Stocks, Sport Trucks, NEAR",
       "Thompson Speedway": "4-09-17: whelen modifieds, PASS",
       "Stafford Motor Speedway": "9-22-17: SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
@@ -823,13 +820,13 @@
       "Albany-Saratoga Speedway": "5-17-19: Modifieds, Sportsman, Pro Stocks, Street Stocks, Limited Sportsman, Vintage Modifieds",
       "Bear Ridge Speedway": "8-01-20: Sportsman Modifieds, Sportsman Coupes, Sprint Cars of New England, Limited Late Models, Street Stocks, 4 Cylinders",
       "Lee USA Speedway": "7-17-20: NEMA, NEMA Lites, Late Model Sportsman, Street Stocks, Pure Stocks, Six Shooters",
-      "Wall Stadium Speedway": "11-24-18: ATQMRA, tour modifieds, legends",
+      "Wall Stadium Speedway": "11-24-18: ATQMRA, tour modifieds, legends [Inner Asphalt Oval]",
       "Gateway Dirt Nationals": "12-20-19: Super Late Models, Modifieds, Midgets",
       "Pocatello Speedway": "at least five races",
       "Atomic Motor Raceway": "8-23-14: Wild West Modified Tour, IMCA Sport Mods",
-      "Rocky Mountain Raceways": "8-16-14:"
+      "Rocky Mountain Raceways": "8-16-14: Modifieds, Double Deckers, Figure 8 Trains, Hornets [Asphalt Figure 8, Inner Asphalt Oval]"
     },
-    "Races: 6": {
+    "Races: 5": {
       "Seekonk Speedway": "8-20-16: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "5-21-17: mr rooter pro trucks, Sunoco Modifieds, Late Models, Limited Sportsman, Mini Stocks",
       "Stafford Motor Speedway": "10-01-17: Whelen Modifieds, SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
@@ -841,11 +838,11 @@
       "Bear Ridge Speedway": "8-15-20: Sportsman Modifieds, Sportsman Coupes, Sprint Cars of New England, Limited Late Models, Street Stocks, 4 Cylinders",
       "Wall Stadium Speedway": "11-25-18: sk modifieds, legends, dirt sportsmen, factory stocks, dirt street stocks, four cylinders",
       "Gateway Dirt Nationals": "12-21-19: Super Late Models, Modifieds, Midgets",
-      "Pocatello Speedway": "7-23-16: ASA Pro Trucks, Street Stocks, Modifieds, Hornets, Junkyard Dogs",
+      "Pocatello Speedway": "7-23-16: ASA Pro Trucks, Street Stocks, Modifieds, Hornets, Junkyard Dogs, Karts [Inner Dirt Oval]",
       "Atomic Motor Raceway": "7-22-16:",
-      "Rocky Mountain Raceways": "8-15-15:"
+      "Rocky Mountain Raceways": "8-15-15: Modifieds, Rocky Mountain Challenge Late Models, Midgets, Pro 4s, ISRL Sprint Cars, Jr. Stingers, Double Deckers [Asphalt Road Course]"
     },
-    "Races: 7": {
+    "Races: 6": {
       "Seekonk Speedway": "8-27-16: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "6-14-17: Whelen modifieds, NEMA lites, Sunoco Modifieds, Late Models, Limited Sportsman, Mini Stocks",
       "Stafford Motor Speedway": "5-11-18: SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
@@ -855,10 +852,10 @@
       "Hudson Speedway": "9-02-18: racing myself",
       "Albany-Saratoga Speedway": "6-25-19: Super DIRTcar Big Block Modifieds, Sportsman",
       "Bear Ridge Speedway": "9-12-20: Sportsman Modifieds, Sportsman Coupes, Limited Late Models, Street Stocks, 4 Cylinders, Granite State Mini Sprints 500cc and 600cc",
-      "Wall Stadium Speedway": "10-05-19: SK Modifieds, sportsman modifieds, factory stocks, ATQMRA, 4 cylinders, limited late models",
-      "Rocky Mountain Raceways": "8-22-15:"
+      "Wall Stadium Speedway": "10-05-19: SK Modifieds, sportsman modifieds, factory stocks, ATQMRA, 4 cylinders, limited late models [Inner Asphalt Oval]",
+      "Rocky Mountain Raceways": "8-22-15: Hornets, Figure 8 Cars, Winged Sprints, Mini Cups, Pro Trucks, Figure 8 Trains [Asphalt Figure 8, Asphalt Road Course]"
     },
-    "Races: 8": {
+    "Races: 7": {
       "Seekonk Speedway": "09-03-16: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "7-08-17: K&N Pro East Series",
       "Stafford Motor Speedway": "5-18-18: SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
@@ -868,10 +865,10 @@
       "Albany-Saratoga Speedway": "7-05-19: Modifieds, Sportsman, Limited Sportsman, Pro Stocks, Street Stocks",
       "Bear Ridge Speedway": "9-19-20: Sportsman Modifieds, Sportsman Coupes, Limited Late Models, Street Stocks, 4 Cylinders, Sprint Cars of New England, Midgets",
       "Wall Stadium Speedway": "11-29-19: Sportsman Modifieds, Factory Stocks, Limited Late Models, 4 Cylinders",
-      "Rocky Mountain Raceways": "8-19-17:"
+      "Rocky Mountain Raceways": "8-19-17: Winged Sprints, Limited Sprints, Super Stocks, Hornets, Figure 8 Trains [Asphalt Figure 8]"
     },
-    "Races: 9": {
-      "Seekonk Speedway": "9-04-16: Thrill Show",
+    "Races: 8": {
+      "Seekonk Speedway": "9-04-16: Thrill Show [Asphalt Figure 8]",
       "Thompson Speedway": "9-9-17:",
       "Stafford Motor Speedway": "7-13-18: SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
       "New Hampshire Motor Speedway": "6-24-18: NEMST, GSPSS, Street stock showdown series, VMRS",
@@ -879,9 +876,9 @@
       "Hudson Speedway": "5-27-19: Late Model Sportsman, Street Stocks, Mini Stocks, Six Shooters, V8 Enduro",
       "Albany-Saratoga Speedway": "9-19-19: Modifieds, Sportsman, Limited Sportsman, Pro Stocks, Street Stocks",
       "Bear Ridge Speedway": "9-25-20: Sportsman Modifieds (qualifying only), Sportsman Coupes (qualifying only), Limited Late Models, Street Stocks, 4 Cylinders",
-      "Wall Stadium Speedway": "11-30-19: Tour Modifieds, SK Modifieds, INEX Legends, ATQMRA, Dirt Modifieds"
+      "Wall Stadium Speedway": "11-30-19: Tour Modifieds, SK Modifieds, INEX Legends, ATQMRA, Dirt Modifieds [Inner Asphalt Oval]"
     },
-    "Races: 10": {
+    "Races: 9": {
       "Seekonk Speedway": "9-10-16: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "10-13-17: STAR",
       "Stafford Motor Speedway": "7-20-18: SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
@@ -889,148 +886,148 @@
       "Star Speedway": "9-20-20: Modified Racing Series, Late Models, Street Stocks",
       "Hudson Speedway": "8-18-19: Late Model Sportsman, Street Stocks, Mini Stocks, Six Shooters, Pure Stocks, Mini Cups",
       "Bear Ridge Speedway": "9-26-20: Sportsman Modifieds, Sportsman Coupes, Sprint Cars of New England, 4/6 Cylinder Enduro",
-      "Wall Stadium Speedway": "8-08-20: SK Modifieds, Sportsman Modifieds, ATQMRA, INEX Legends, Factory Stocks"
+      "Wall Stadium Speedway": "8-08-20: SK Modifieds, Sportsman Modifieds, ATQMRA, INEX Legends, Factory Stocks [Inner Asphalt Oval]"
     },
-    "Races: 11": {
+    "Races: 10": {
       "Seekonk Speedway": "5-27-17: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "10-14-17: ACT, NEMST, Pro 4 modifieds,",
-      "Stafford Motor Speedway": "7-27-18: SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
+      "Stafford Motor Speedway": "7-27-18: SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models, Sr. Outlaw Karts [Inner Asphalt Oval]",
       "New Hampshire Motor Speedway": "9-22-18: Whelen modifieds, Nascar K&N Pro East Series, Nascar Pinty’s Series",
       "Hudson Speedway": "10-20-19: V8 Run What You Brung, 6/8 Cylinder Enduro, 4 Cylinder Enduro"
     },
-    "Races: 12": {
-      "Seekonk Speedway": "5-28-17: Thrill Show",
+    "Races: 11": {
+      "Seekonk Speedway": "5-28-17: Thrill Show [Asphalt Figure 8]",
       "Thompson Speedway": "10-15-17: NEMA lites, ISMA, Whelen modifieds",
       "Stafford Motor Speedway": "8-25-18: SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
       "New Hampshire Motor Speedway": "6-23-19: Valenti Modifieds, PASS, Street Stock Showdown Series, NEMST",
       "Hudson Speedway": "7-12-20: Granite State Pro Stocks, Street Stocks, Mini Stocks, Pure Stocks, Six Shooters"
     },
-    "Races: 13": {
+    "Races: 12": {
       "Seekonk Speedway": "06-03-17: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "4-07-18: valenti modifieds, NEMA lites",
       "Stafford Motor Speedway": "09-07-18: SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
       "New Hampshire Motor Speedway": "7-21-19: Monster Energy NASCAR Cup Series",
       "Hudson Speedway": "10-18-20: V8 Run What You Brung, 4 Cylinder Enduro, 8 Cylinder Enduro, 6 Cylinder Enduro"
     },
-    "Races: 14": {
+    "Races: 13": {
       "Seekonk Speedway": "6-17-17: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "4-08-18: PASS, Whelen modifieds",
       "Stafford Motor Speedway": "5-24-19: Limited Late Models, Street Stocks, Late Models, SK Lites, SK Modifieds, Tour Modifieds",
-      "New Hampshire Motor Speedway": "9-12-20: Whelen Modifieds Musket 200, ACT Late Models, Legends (legends oval)"
+      "New Hampshire Motor Speedway": "9-12-20: Whelen Modifieds Musket 200, ACT Late Models, Legends [Legends Asphalt Oval]"
     },
-    "Races: 15": {
+    "Races: 14": {
       "Seekonk Speedway": "6-28-17: tri track open modifieds, NEMA lites, NEMA midgets",
       "Thompson Speedway": "6-14-18: Whelen Modifieds, NEMA lites",
       "Stafford Motor Speedway": "7-12-19: Limited Late Models, Street Stocks, Late Models, SK Lites, SK Modifieds, Tour Modifieds"
     },
-    "Races: 16": {
+    "Races: 15": {
       "Seekonk Speedway": "7-19-17: US pro stock nationals, INEX legends",
       "Thompson Speedway": "8-07-18: Whelen modifieds, NEMA",
       "Stafford Motor Speedway": "7-24-20: SK Modifieds, SK Lites, Late Models, Limited Late Models, Street Stocks"
     },
-    "Races: 17": {
+    "Races: 16": {
       "Seekonk Speedway": "7-22-17: Pro Stocks, Late Models, Street Stocks, Mr. Rooter Pro Trucks",
       "Thompson Speedway": "09-08-18:",
       "Stafford Motor Speedway": "9-11-20: SK Modifieds, SK Lites, Late Models, Limited Late Models, Street Stocks"
     },
-    "Races: 18": {
+    "Races: 17": {
       "Seekonk Speedway": "7-29-17: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "10-12-18: late models, lite modifieds, GSPSS, antique modifieds",
       "Stafford Motor Speedway": "10-24-20: TTOMS, SK Lites, Street Stocks"
     },
-    "Races: 19": {
-      "Seekonk Speedway": "8-06-17: Thrill Show",
+    "Races: 18": {
+      "Seekonk Speedway": "8-06-17: Thrill Show [Asphalt Figure 8]",
       "Thompson Speedway": "10-13-18: ACT, Valenti modifieds, NEMA, street stock showdown, pro truck challenge, pro 4 modifieds, NEMST"
     },
-    "Races: 20": {
+    "Races: 19": {
       "Seekonk Speedway": "8-26-17: Whelen Modifieds, Late Models, Sportsman, Sport Trucks",
       "Thompson Speedway": "10-14-18: ISMA, NEMA lites, Whelen Modifieds, limited sportsmen, mini stocks, Sunoco modifieds"
     },
-    "Races: 21": {
+    "Races: 20": {
       "Seekonk Speedway": "09-02-17: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "4-06-19: Exit Realty Pro Trucks, Valenti Modifieds, 375 Sportsmen, Lite Modifieds"
     },
-    "Races: 22": {
-      "Seekonk Speedway": "9-04-17: Thrill Show",
+    "Races: 21": {
+      "Seekonk Speedway": "9-04-17: Thrill Show [Asphalt Figure 8]",
       "Thompson Speedway": "4-07-19: Sunoco Modifieds, PASS, Limited Sportsmen, Mini Stocks"
     },
-    "Races: 23": {
+    "Races: 22": {
       "Seekonk Speedway": "09-09-17: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "6-05-19: Whelen Modifieds, Sunoco Modifieds, Late Models, Limited Sportsmen, Lite Modifieds, Mini Stocks"
     },
-    "Races: 24": {
+    "Races: 23": {
       "Seekonk Speedway": "9-16-17: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "8-14-19: Whelen Modifieds, NEMA, Sunoco Modifieds, Late Models, Limited Sportsman, Lite Modifieds, Mini Stocks"
     },
-    "Races: 25": {
+    "Races: 24": {
       "Seekonk Speedway": "10-07-17: Pro Stocks, Late Models, Street Stocks, Sport Trucks + Mini Stocks",
       "Thompson Speedway": "9-03-20: Whelen Modifieds, Sunoco Modifieds, Late Models, Limited Sportsman, Lite Modifieds, Mini Stocks"
     },
-    "Races: 26": {
+    "Races: 25": {
       "Seekonk Speedway": "05-06-18: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "10-09-20: World Series 58: Open Street Stocks, Mini Stocks, Open Vintage Modifieds, STAR Modifieds, STAR Sportsman"
     },
-    "Races: 27": {
-      "Seekonk Speedway": "5-26-18: Thrill Show",
+    "Races: 26": {
+      "Seekonk Speedway": "5-26-18: Thrill Show [Asphalt Figure 8]",
       "Thompson Speedway": "10-10-20: World Series 58: Exit Realty Pro Trucks, North East Mini Stock Tour, Pro 4 Modifieds, NEMA Midgets, NEMA Lites, Late Model Open, 350 Supers, PASS, Open Modifieds, SK Lites, ISMA, Limited Sportsman, Sunoco Modifieds"
     },
-    "Races: 28": {
+    "Races: 27": {
       "Seekonk Speedway": "6-02-18: Whelen Modifieds, Late Models, Sportsman, Sport Trucks",
       "Thompson Speedway": "10-11-20: World Series 58: ISMA, PASS, Sunoco Modifieds, Limited Sportsman, NEMA Lites, SK Lites, NASCAR Whelen Modified Tour"
     },
-    "Races: 29": {
+    "Races: 28": {
       "Seekonk Speedway": "6-16-18: Pro Stocks, Late Models, Street Stocks, Sport Trucks"
     },
-    "Races: 30": {
+    "Races: 29": {
       "Seekonk Speedway": "6-30-18: Pro Stocks, Late Models, Street Stocks, Sport Trucks"
     },
-    "Races: 31": {
+    "Races: 30": {
       "Seekonk Speedway": "7-14-18: Pro Stocks, Late Models, Street Stocks, Sport Trucks"
     },
-    "Races: 32": {
+    "Races: 31": {
       "Seekonk Speedway": "7-28-18: Pro Stocks, Late Models, Street Stocks, Sport Trucks"
     },
-    "Races: 33": {
+    "Races: 32": {
       "Seekonk Speedway": "8-25-18: Pro Stocks, Late Models, Street Stocks, Sport Trucks"
     },
-    "Races: 34": {
+    "Races: 33": {
       "Seekonk Speedway": "09-08-18: Pro Stocks, Late Models, Street Stocks, Sport Trucks"
     },
-    "Races: 35": {
+    "Races: 34": {
       "Seekonk Speedway": "10-06-18: Pro Stocks, Late Models, Street Stocks, Sport Trucks"
     },
-    "Races: 36": {
+    "Races: 35": {
       "Seekonk Speedway": "10-28-18: PASS, TTOMS, late models"
     },
-    "Races: 37": {
-      "Seekonk Speedway": "11-17-18: Thrill Show"
+    "Races: 36": {
+      "Seekonk Speedway": "11-17-18: Thrill Show [Asphalt Figure 8]"
     },
-    "Races: 38": {
+    "Races: 37": {
       "Seekonk Speedway": "5-18-19: Sport Trucks, Sportsman, Late Models, Pro Stocks"
     },
-    "Races: 39": {
+    "Races: 38": {
       "Seekonk Speedway": "6-22-19: Sport Trucks, Sportsman, Late Models, Pro Stocks"
     },
-    "Races: 40": {
+    "Races: 39": {
       "Seekonk Speedway": "6-27-19: Tri-Track Open Modifieds, NEMA, NEMA Lites"
     },
-    "Races: 41": {
+    "Races: 40": {
       "Seekonk Speedway": "7-13-19: Pro Stocks, Late Models, Sportsman, Sport Trucks, STAR"
     },
-    "Races: 42": {
+    "Races: 41": {
       "Seekonk Speedway": "7-20-19: Pro Stocks, Late Models, Sportsman, Sport Trucks"
     },
-    "Races: 43": {
-      "Seekonk Speedway": "8-31-19: Thrill Show"
+    "Races: 42": {
+      "Seekonk Speedway": "8-31-19: Thrill Show [Asphalt Figure 8]"
     },
-    "Races: 44": {
+    "Races: 43": {
       "Seekonk Speedway": "9-21-19: Street Stocks, Late Models, Pro Stocks"
     },
-    "Races: 45": {
+    "Races: 44": {
       "Seekonk Speedway": "10-26-19: Tri-Track Open Modifieds, PASS Super Late Models, Late Models"
     },
-    "Races: 46": {
-      "Seekonk Speedway": "11-02-19: Thrill Show"
+    "Races: 45": {
+      "Seekonk Speedway": "11-02-19: Thrill Show [Asphalt Figure 8, Asphalt Road Course]"
     }
   },
   "Stats": {

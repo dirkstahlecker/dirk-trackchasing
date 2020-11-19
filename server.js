@@ -39,9 +39,22 @@ app.get('/tracksList', function (req, res) {
 
 app.get('/numRaces/:trackName', function (req, res) {
 	console.log("/numRaces")
-	res.set('Content-Type', 'application/json');
+	let trackName = req.params.trackName.trim();
 
-	console.log(req.params.trackName)
+	let isConfiguration = false; //an alternative configuration of a base track, named with parentheses
+	const parts = trackName.split(/\(/); //split on left paren
+	let configuration = null;
+	if (parts.length == 2) //if two parts, we have a configuration
+	{
+		isConfiguration = true;
+		//remove the other paren
+		configuration = parts[1].trim();
+		configuration = configuration.replace(/\)/, "").trim();
+		trackName = parts[0].trim();
+	}
+
+	// console.log(trackName);
+	// console.log(configuration);
 	
 	let json = parse();
 	json = json["Races"];
@@ -51,17 +64,16 @@ app.get('/numRaces/:trackName', function (req, res) {
 	{
 		const jsonRowHeader = "Races: " + i;
 		const raceRow = json[jsonRowHeader];
-		if (raceRow)
+		if (raceRow !== undefined)
 		{
-			console.log(raceRow)
-			// console.log(raceRow[req.params.trackName])
-			if (raceRow[req.params.trackName] != null)
+			if (raceRow[trackName] != null)
 			{
 				count++
 			}
 		}
 	}
 
+	res.set('Content-Type', 'application/json');
 	res.json({"message": count});
 });
 
@@ -74,4 +86,4 @@ app.get('*', (req, res) => {
 const port = process.env.PORT || 5000;
 app.listen(port);
 
-console.log(`Password generator listening on ${port}`);
+console.log(`Listening on ${port}`);
