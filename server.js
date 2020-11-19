@@ -68,7 +68,6 @@ app.get('/numRaces/:trackName', function (req, res) {
 		{
 			if (raceRow[trackName] != null)
 			{
-				console.log(raceRow[trackName])
 				if (isConfiguration)
 				{
 					//need to look into the specifics and see if there configuration is in brackets at the end

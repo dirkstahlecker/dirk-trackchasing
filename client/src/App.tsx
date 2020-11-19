@@ -3,10 +3,14 @@ import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable} from "mobx";
 import './App.css';
+import {TrackPlace} from "./TrackPlace";
+import {NavigationMachine, CurrentPlace} from "./NavigationMachine";
 
 class AppMachine
 {
   @observable public tracksList: string[] | null = null;
+
+  public navMachine: NavigationMachine = new NavigationMachine();
 
   constructor() 
   {
@@ -64,12 +68,24 @@ class App extends React.Component<AppProps>
       <div className="App">
         <header className="App-header">
           {
-            this.machine.tracksList != null && 
-            this.machine.tracksList.map((track: string) => {
-              return <div key={track}>
-                <button onClick={() => this.machine.getRaceNum(track)}>{track}</button>
-              </div>;
-            })
+            this.machine.navMachine.currentPlace === CurrentPlace.HOME &&
+            <>
+              {
+                this.machine.tracksList != null && 
+                this.machine.tracksList.map((track: string) => {
+                  return <div key={track}>
+                    <button onClick={() => this.machine.navMachine.goToTrackPage(track)}>{track}</button>
+                  </div>;
+                })
+              }
+            </>
+          }
+          {
+            this.machine.navMachine.currentPlace === CurrentPlace.TRACK &&
+            <TrackPlace 
+              trackName={this.machine.navMachine.currentTrackName!!}
+              navMachine={this.machine.navMachine}
+            />
           }
         </header>
       </div>
