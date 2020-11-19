@@ -87,6 +87,12 @@ class App extends React.Component<AppProps>
               navMachine={this.machine.navMachine}
             />
           }
+          {
+            this.machine.navMachine.currentPlace === CurrentPlace.MAP &&
+            <>
+
+            </>
+          }
         </header>
       </div>
     );

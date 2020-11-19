@@ -3,7 +3,7 @@ import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable} from "mobx";
 
-export enum CurrentPlace {HOME, TRACK}
+export enum CurrentPlace {HOME, TRACK, MAP}
 
 export class NavigationMachine
 {
