@@ -48,12 +48,12 @@ export class Track
 	public name: string;
 	public state: string;
 	public type: TrackTypeEnum;
-	public latitude: string;
-	public longitude: string;
+	public latitude: number;
+	public longitude: number;
 
 	public numberOfRaces: number;
 
-	constructor(name: string, state: string, type: TrackTypeEnum, latitude: string, longitude: string, numberOfRaces: number)
+	constructor(name: string, state: string, type: TrackTypeEnum, latitude: number, longitude: number, numberOfRaces: number)
 	{
 		this.name = name
 		this.state = state

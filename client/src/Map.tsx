@@ -2,7 +2,7 @@ import React from 'react';
 // import ReactDOM from "react-dom";
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, runInAction} from "mobx";
-import {TrackInfoMachine} from "./TrackInfoMachine";
+import {TrackInfoMachine, Track} from "./TrackInfoMachine";
 import {NavigationMachine} from "./NavigationMachine";
 import mapboxgl from 'mapbox-gl';
 import ReactMapboxGl, {Layer, Feature, Marker} from 'react-mapbox-gl';
@@ -55,19 +55,20 @@ export class Map extends React.Component<MapProps>
     // }
   }
 
-	private renderMarkers(): JSX.Element
+	private renderMarkers(): JSX.Element[]
 	{
-		// this.props.machine.trackInfos!!.forEach((info: Object) => {
-		// 	return <Marker
-		// 	  coordinates={[-71.302170, 41.784417]}
-		// 	  anchor="bottom"
-		// 	 // key={trackInfo.key()}
-		// 	>
-		// 	  <img src="assets/oval.png"/>
-		// 	</Marker>
-		// });
-
-		return <></>;
+		return this.props.trackInfoMachine.tracks.map((track: Track) => {
+			if (track.latitude === undefined || track.longitude === undefined)
+			{
+				return <></>;
+			}
+			return <Marker
+			  coordinates={[track.longitude, track.latitude]}
+			  anchor="bottom"
+			>
+			  <img src="assets/oval.png"/>
+			</Marker>
+		});
 	}
 
   render()
@@ -84,7 +85,7 @@ export class Map extends React.Component<MapProps>
 			  center={[-71.302170, 41.784417]} //coordinates are backwards for some reason
 			  zoom={[this.DEFAULT_ZOOM]}
 			>
-
+				{this.renderMarkers()}
 			</GlMap>
   	</div>;
   }
