@@ -4,7 +4,7 @@ import {observable, action, makeObservable, runInAction} from "mobx";
 
 export enum TrackTypeEnum {OVAL, FIGURE_8, ROAD_COURSE}
 
-export class TrackInfo
+export class TrackInfoMachine
 {
 	constructor()
 	{

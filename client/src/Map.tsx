@@ -2,7 +2,7 @@ import React from 'react';
 // import ReactDOM from "react-dom";
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, runInAction} from "mobx";
-import {TrackInfo} from "./TrackInfo";
+import {TrackInfoMachine} from "./TrackInfoMachine";
 import {NavigationMachine} from "./NavigationMachine";
 import mapboxgl from 'mapbox-gl';
 import ReactMapboxGl, {Layer, Feature, Marker} from 'react-mapbox-gl';
@@ -10,13 +10,9 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 export class MapMachine
 {
-	@observable
-	public trackInfo: TrackInfo = new TrackInfo();
-
 	constructor()
 	{
-		makeObservable(this);
-		this.trackInfo.fetchInfo();
+		// makeObservable(this);
 	}
 }
 
@@ -24,6 +20,7 @@ export interface MapProps
 {
 	machine: MapMachine;
 	navMachine: NavigationMachine;
+	trackInfoMachine: TrackInfoMachine;
 }
 
 const GlMap = ReactMapboxGl({

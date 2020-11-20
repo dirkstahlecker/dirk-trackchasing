@@ -4,6 +4,7 @@ import {observer} from "mobx-react";
 import {observable, action, makeObservable} from "mobx";
 import './App.css';
 import {TrackPlace} from "./TrackPlace";
+import {TrackInfoMachine} from "./TrackInfoMachine";
 import {Map, MapMachine} from "./Map";
 import {NavigationMachine, CurrentPlace} from "./NavigationMachine";
 
@@ -11,12 +12,14 @@ class AppMachine
 {
   @observable public tracksList: string[] | null = null;
 
+  public trackInfoMachine: TrackInfoMachine = new TrackInfoMachine();
   public navMachine: NavigationMachine = new NavigationMachine();
   public mapMachine: MapMachine = new MapMachine();
 
   constructor() 
   {
     makeObservable(this);
+    this.trackInfoMachine.fetchInfo();
   }
 
   @action
@@ -99,6 +102,7 @@ class App extends React.Component<AppProps>
           {
             this.machine.navMachine.currentPlace === CurrentPlace.MAP &&
             <Map
+              trackInfoMachine={this.machine.trackInfoMachine}
               machine={this.machine.mapMachine}
               navMachine={this.machine.navMachine}
             />
