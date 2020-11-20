@@ -62,13 +62,15 @@ export class Map extends React.Component<MapProps>
 			{
 				return <></>;
 			}
-			return <Marker
-			  coordinates={[track.longitude, track.latitude]}
-			  anchor="bottom"
-			  onClick={() => this.props.navMachine.goToTrackPage(track.name)}
-			>
-			  <img src="assets/oval.png"/>
-			</Marker>
+			return <div key={track.name}>
+				<Marker
+				  coordinates={[track.longitude, track.latitude]}
+				  anchor="bottom"
+				  onClick={() => this.props.navMachine.goToTrackPage(track.name)}
+				>
+				  <img src="assets/oval.png"/>
+				</Marker>
+			</div>
 		});
 	}
 

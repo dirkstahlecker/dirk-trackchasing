@@ -4,35 +4,20 @@ import {observer} from "mobx-react";
 import {observable, action, makeObservable} from "mobx";
 import './App.css';
 import {TrackPlace} from "./TrackPlace";
-import {TrackInfoMachine} from "./TrackInfoMachine";
+import {TrackInfoMachine, Track} from "./TrackInfoMachine";
 import {Map, MapMachine} from "./Map";
 import {NavigationMachine, CurrentPlace} from "./NavigationMachine";
 
 class AppMachine
 {
-  @observable public tracksList: string[] | null = null;
-
   public trackInfoMachine: TrackInfoMachine = new TrackInfoMachine();
   public navMachine: NavigationMachine = new NavigationMachine();
   public mapMachine: MapMachine = new MapMachine();
 
   constructor() 
   {
-    makeObservable(this);
+    // makeObservable(this);
     this.trackInfoMachine.fetchInfo();
-  }
-
-  @action
-  private setTracksList(list: string[]): void
-  {
-    this.tracksList = list;
-  }
-
-  public async makeTracks(): Promise<void>
-  {
-    const tracksRaw = await fetch("/tracks");
-    const tracks = await tracksRaw.json();
-    this.setTracksList(tracks.message);
   }
 
   //TODO: move to TrackInfo
@@ -63,17 +48,6 @@ class App extends React.Component<AppProps>
 {
   private machine: AppMachine = new AppMachine();
 
-  // constructor(props: AppProps)
-  // {
-  //   super(props);
-  //   this.mapContainer = React.createRef();
-  // }
-
-  componentDidMount()
-  {
-    this.machine.makeTracks();
-  }
-
   render()
   {
     return (
@@ -83,10 +57,10 @@ class App extends React.Component<AppProps>
             this.machine.navMachine.currentPlace === CurrentPlace.HOME &&
             <>
               {
-                this.machine.tracksList != null && 
-                this.machine.tracksList.map((track: string) => {
-                  return <div key={track}>
-                    <button onClick={() => this.machine.navMachine.goToTrackPage(track)}>{track}</button>
+                this.machine.trackInfoMachine.tracks != null && 
+                this.machine.trackInfoMachine.tracks.map((track: Track) => {
+                  return <div key={track.name}>
+                    <button onClick={() => this.machine.navMachine.goToTrackPage(track.name)}>{track.name}</button>
                   </div>;
                 })
               }
