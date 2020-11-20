@@ -3,11 +3,17 @@ import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable} from "mobx";
 import mapboxgl from 'mapbox-gl';
+import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 export interface MapProps
 {
 
 }
+
+const GlMap = ReactMapboxGl({
+  accessToken: 'pk.eyJ1IjoiZGlya3N0YWhsZWNrZXIiLCJhIjoiY2tobzl2NXk3MDFrNTJ5bWw2andtNGN5eiJ9.CN8ziM6moVE85pfhbYiTIw'
+});
 
 @observer
 export class Map extends React.Component<MapProps>
@@ -20,10 +26,6 @@ export class Map extends React.Component<MapProps>
     this.mapContainer = React.createRef();
 
     mapboxgl.accessToken = 'pk.eyJ1IjoiZGlya3N0YWhsZWNrZXIiLCJhIjoiY2tobzl2NXk3MDFrNTJ5bWw2andtNGN5eiJ9.CN8ziM6moVE85pfhbYiTIw';
-    // const map = new mapboxgl.Map({ //this map apparently corresponds to the div with id "map"
-    //   container: 'map',
-    //   style: 'mapbox://styles/mapbox/streets-v11'
-    // });
   }
 
   componentDidMount()
@@ -41,6 +43,19 @@ export class Map extends React.Component<MapProps>
 
   render()
   {
-  	return <div ref={this.mapContainer} style={{width: "75%", height: "500px"}}/>;
+  	return <div id="map-place">
+  		{/*<div ref={this.mapContainer} style={{width: "75%", height: "500px"}}/>*/}
+			<GlMap
+			  style='mapbox://styles/mapbox/satellite-v9'
+			  containerStyle={{
+			    height: '80vh',
+			    width: '75vw'
+			  }}
+			>
+			  <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
+			    <Feature coordinates={[-0.481747846041145, 51.3233379650232]} />
+			  </Layer>
+			</GlMap>
+  	</div>;
   }
 }
