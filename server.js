@@ -6,12 +6,31 @@ const app = express();
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
+const TRACK_ORDER = "Track Order"; //track order sheet, the main reference for each track
+const RACES = "Races";
+
 function getTrackList()
 {
   const json = parse()
-  let trackList = Object.keys(json["Track Order"]) //tested and appears to work
+  let trackList = Object.keys(json[TRACK_ORDER]) //tested and appears to work
 
   return trackList
+}
+
+function getTrackFullInfo()
+{
+	const json = parse();
+	const tracksList = getTrackList();
+
+	let tracksAndCoords = {};
+	for (let i = 0; i < tracksList.length; i++)
+	{
+		const track = tracksList[i];
+		const trackInfo = json[TRACK_ORDER][track];
+		tracksAndCoords[track] = {"state": trackInfo["State"], "latitude": trackInfo["Latitude"], "longitude": trackInfo["Longitude"]};
+	}
+	console.log(tracksAndCoords)
+	return tracksAndCoords
 }
 
 function parse()
@@ -27,15 +46,25 @@ function parse()
 // Priority serve any static files.
 app.use(express.static(path.resolve(__dirname, '../react-ui/public')));
 
-//look through the json downloaded from google sheets and parse it
-app.get('/tracksList', function (req, res) {
-	console.log("/tracksList")
+//get a list of all the tracks, name only
+app.get('/tracks', function (req, res) {
+	console.log("/tracks")
 	res.set('Content-Type', 'application/json');
 
 	const tracks = getTrackList();
 
 	res.json({"message": tracks});
 });
+
+//returns a list of all the tracks along with their specific info
+app.get('/tracks/info', function (req, res) {
+	console.log("/tracks/info")
+	res.set('Content-Type', 'application/json');
+
+	const tracks = getTrackFullInfo();
+
+	res.json({"message": tracks});
+})
 
 app.get('/numRaces/:trackName', function (req, res) {
 	console.log("/numRaces")
@@ -57,7 +86,7 @@ app.get('/numRaces/:trackName', function (req, res) {
 	console.log("Configuration: " + configuration);
 	
 	let json = parse();
-	json = json["Races"];
+	json = json[RACES];
 
 	let count = 0;
 	for (let i = 0; i < getTrackList().length; i++)

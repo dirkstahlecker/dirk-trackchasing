@@ -72,7 +72,7 @@
       "Londonderry Speedway": "New Hampshire",
       "Rumtown Speedway": "New Hampshire",
       "Lucas Oil Raceway": "Indiana",
-      "Lucas Oil Speedway (Off Road Course)": "Missouri",
+      "Lucas Oil Speedway Off Road Course": "Missouri",
       "Lucas Oil Speedway": "Missouri",
       "Indiana State Fairgrounds": "Indiana",
       "Gateway Motorsports Park": "Illinois",
@@ -151,7 +151,7 @@
       "Londonderry Speedway": "Londonderry",
       "Rumtown Speedway": "Rumney",
       "Lucas Oil Raceway": "Indianapolis",
-      "Lucas Oil Speedway (Off Road Course)": "Wheatland",
+      "Lucas Oil Speedway Off Road Course": "Wheatland",
       "Lucas Oil Speedway": "Wheatland",
       "Indiana State Fairgrounds": "Indianapolis",
       "Gateway Motorsports Park": "Madison",
@@ -230,7 +230,7 @@
       "Londonderry Speedway": "Asphalt",
       "Rumtown Speedway": "Dirt",
       "Lucas Oil Raceway": "Asphalt",
-      "Lucas Oil Speedway (Off Road Course)": "Dirt",
+      "Lucas Oil Speedway Off Road Course": "Dirt",
       "Lucas Oil Speedway": "Dirt",
       "Indiana State Fairgrounds": "Dirt",
       "Gateway Motorsports Park": "Asphalt",
@@ -306,7 +306,7 @@
       "Londonderry Speedway": 0.25,
       "Rumtown Speedway": 0.25,
       "Lucas Oil Raceway": 0.686,
-      "Lucas Oil Speedway (Off Road Course)": 1.3,
+      "Lucas Oil Speedway Off Road Course": 1.3,
       "Lucas Oil Speedway": 0.375,
       "Indiana State Fairgrounds": 1,
       "Gateway Motorsports Park": 1.25,
@@ -385,7 +385,7 @@
       "Londonderry Speedway": "Oval",
       "Rumtown Speedway": "Oval",
       "Lucas Oil Raceway": "Oval",
-      "Lucas Oil Speedway (Off Road Course)": "Road Course",
+      "Lucas Oil Speedway Off Road Course": "Road Course",
       "Lucas Oil Speedway": "Oval",
       "Indiana State Fairgrounds": "Oval",
       "Gateway Motorsports Park": "Oval",
@@ -464,7 +464,7 @@
       "Londonderry Speedway": 1,
       "Rumtown Speedway": 2,
       "Lucas Oil Raceway": 1,
-      "Lucas Oil Speedway (Off Road Course)": 1,
+      "Lucas Oil Speedway Off Road Course": 1,
       "Lucas Oil Speedway": 1,
       "Indiana State Fairgrounds": 1,
       "Gateway Motorsports Park": 2,
@@ -543,7 +543,7 @@
       "Londonderry Speedway": 0,
       "Rumtown Speedway": 0,
       "Lucas Oil Raceway": 0,
-      "Lucas Oil Speedway (Off Road Course)": 4,
+      "Lucas Oil Speedway Off Road Course": 0,
       "Lucas Oil Speedway": 0,
       "Indiana State Fairgrounds": 5,
       "Gateway Motorsports Park": 0,
@@ -622,7 +622,7 @@
       "Londonderry Speedway": 0,
       "Rumtown Speedway": 0,
       "Lucas Oil Raceway": 0,
-      "Lucas Oil Speedway (Off Road Course)": 4,
+      "Lucas Oil Speedway Off Road Course": 0,
       "Lucas Oil Speedway": 0,
       "Indiana State Fairgrounds": 5,
       "Gateway Motorsports Park": 0,
@@ -632,7 +632,7 @@
     "Configurations": {
       "Seekonk Speedway": "2: Asphalt Figure 8, Asphalt Road Course",
       "Stafford Motor Speedway": "1: Inner Asphalt Oval",
-      "New Hampshire Motor Speedway": "1: Legends Oval",
+      "New Hampshire Motor Speedway": "1: Asphalt Legends Oval",
       "Wall Stadium Speedway": "1: Inner Asphalt Oval",
       "Texas Motor Speedway": "1: Asphalt Road Course",
       "Pocatello Speedway": "1: Inner Dirt Oval",
@@ -713,7 +713,7 @@
       "Londonderry Speedway": "8-01-20: Mini Cups",
       "Rumtown Speedway": "8-01-20: Wingless B Sprints, Wingless A Sprints, Midgets, Wingless 600cc Mini Sprints",
       "Lucas Oil Raceway": "8-21-20: USAC Silver Crown, Indy Pro 2000, USF2000",
-      "Lucas Oil Speedway (Off Road Course)": "8-22-20: Lucas Oil Off Road Racing: Pro 2, Pro Lite, Pro Buggy, Turbo UTV, Production UTV",
+      "Lucas Oil Speedway Off Road Course": "8-22-20: Lucas Oil Off Road Racing: Pro 2, Pro Lite, Pro Buggy, Turbo UTV, Production UTV",
       "Lucas Oil Speedway": "8-22-20: Late Models, Modifieds, B Modifieds, Street Stocks",
       "Indiana State Fairgrounds": "8-23-20: Hoosier Hundred: USAC Silver Crown",
       "Gateway Motorsports Park": "8-29-20: NTT Indycar Series, Indy Pro 2000",
@@ -913,7 +913,7 @@
       "Seekonk Speedway": "6-17-17: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "4-08-18: PASS, Whelen modifieds",
       "Stafford Motor Speedway": "5-24-19: Limited Late Models, Street Stocks, Late Models, SK Lites, SK Modifieds, Tour Modifieds",
-      "New Hampshire Motor Speedway": "9-12-20: Whelen Modifieds Musket 200, ACT Late Models, Legends [Legends Asphalt Oval]"
+      "New Hampshire Motor Speedway": "9-12-20: Whelen Modifieds Musket 200, ACT Late Models, Legends [Asphalt Legends Oval]"
     },
     "Races: 14": {
       "Seekonk Speedway": "6-28-17: tri track open modifieds, NEMA lites, NEMA midgets",
@@ -1882,361 +1882,457 @@
     }
   },
   "Track Order": {
+    "Pocatello Speedway": {
+      "State": "ID",
+      "Type": "Oval",
+      "Latitude": 42.912684,
+      "Longitude": -112.577022
+    },
     "Las Vegas Motor Speedway": {
-      "ID": "NV",
-      "Oval": "Oval"
+      "State": "NV",
+      "Type": "Oval",
+      "Latitude": 36.272028,
+      "Longitude": -115.01029
     },
     "The Dirt Track at Las Vegas Motor Speedway": {
-      "ID": "NV",
-      "Oval": "Oval"
+      "State": "NV",
+      "Type": "Oval",
+      "Latitude": 36.285462,
+      "Longitude": -115.011854
     },
     "Magic Valley Speedway": {
-      "ID": "ID",
-      "Oval": "Oval"
+      "State": "ID",
+      "Type": "Oval",
+      "Latitude": 42.486547,
+      "Longitude": -114.502064
     },
-    "Atomic Motor Raceway (Inner Oval)": {
-      "ID": "ID",
-      "Oval": "Oval"
+    "Atomic Motor Raceway (Inner Dirt Oval)": {
+      "State": "ID",
+      "Type": "Oval",
+      "Latitude": 43.446251,
+      "Longitude": -112.81248
     },
-    "Rocky Mountain Raceways (Figure 8)": {
-      "ID": "UT",
-      "Oval": "Figure 8"
+    "Rocky Mountain Raceways (Asphalt Figure 8)": {
+      "State": "UT",
+      "Type": "Figure 8"
     },
-    "Rocky Mountain Raceways (Inner Oval)": {
-      "ID": "UT",
-      "Oval": "Oval"
+    "Rocky Mountain Raceways (Inner Asphalt Oval)": {
+      "State": "UT",
+      "Type": "Oval"
     },
-    "Rocky Mountain Raceways (Road Course)": {
-      "ID": "UT",
-      "Oval": "Road Course"
+    "Rocky Mountain Raceways (Asphalt Road Course)": {
+      "State": "UT",
+      "Type": "Road Course"
     },
     "Miller Motorsports Park": {
-      "ID": "UT",
-      "Oval": "Road Course"
+      "Date": "2009-05-17T04:00:00.000Z",
+      "State": "UT",
+      "Type": "Road Course"
     },
     "Phoenix International Raceway": {
-      "ID": "AZ",
-      "Oval": "Oval"
+      "Date": 2009,
+      "State": "AZ",
+      "Type": "Oval"
     },
     "Rocky Mountain Raceways": {
-      "ID": "UT",
-      "Oval": "Oval"
+      "Date": "2010-09-19T04:00:00.000Z",
+      "State": "UT",
+      "Type": "Oval"
     },
     "Atomic Motor Raceway": {
-      "ID": "ID",
-      "Oval": "Oval"
+      "Date": "2010-09-25T04:00:00.000Z",
+      "State": "ID",
+      "Type": "Oval"
     },
     "Stuart Speedway": {
-      "ID": "NE",
-      "Oval": "Oval"
+      "Date": "2012-07-29T04:00:00.000Z",
+      "State": "NE",
+      "Type": "Oval"
     },
     "Wakeeney Speedway": {
-      "ID": "KS",
-      "Oval": "Oval"
+      "Date": "2012-08-01T04:00:00.000Z",
+      "State": "KS",
+      "Type": "Oval"
     },
-    "Miller Motorsports Park (Dirt Off Road Course)": {
-      "ID": "UT",
-      "Oval": "Road Course"
+    "Miller Motorsports Park Off Road Course": {
+      "Date": "2013-06-23T04:00:00.000Z",
+      "State": "UT",
+      "Type": "Road Course"
     },
     "New Hampshire Motor Speedway": {
-      "ID": "NH",
-      "Oval": "Oval"
+      "Date": "2013-09-22T04:00:00.000Z",
+      "State": "NH",
+      "Type": "Oval"
     },
     "Nassau Coliseum Parking Lot": {
-      "ID": "NY",
-      "Oval": "Road Course"
+      "Date": "2014-07-20T04:00:00.000Z",
+      "State": "NY",
+      "Type": "Road Course"
     },
     "Seekonk Speedway": {
-      "ID": "MA",
-      "Oval": "Oval"
+      "Date": "2016-07-13T04:00:00.000Z",
+      "State": "MA",
+      "Type": "Oval"
     },
     "Pocatello Speedway (Inner Dirt Oval)": {
-      "ID": "ID",
-      "Oval": "Oval"
+      "Date": "2016-07-23T04:00:00.000Z",
+      "State": "ID",
+      "Type": "Oval"
     },
-    "Seekonk Speedway (Figure 8)": {
-      "ID": "MA",
-      "Oval": "Figure 8"
+    "Seekonk Speedway (Asphalt Figure 8)": {
+      "Date": "2016-08-07T04:00:00.000Z",
+      "State": "MA",
+      "Type": "Figure 8"
     },
     "Thompson Speedway": {
-      "ID": "CT",
-      "Oval": "Oval"
+      "Date": "2016-08-24T04:00:00.000Z",
+      "State": "CT",
+      "Type": "Oval"
     },
     "Port of LA": {
-      "ID": "CA",
-      "Oval": "Road Course"
+      "Date": "2016-10-09T04:00:00.000Z",
+      "State": "CA",
+      "Type": "Road Course"
     },
     "Star Speedway": {
-      "ID": "NH",
-      "Oval": "Oval"
+      "Date": "2017-04-15T04:00:00.000Z",
+      "State": "NH",
+      "Type": "Oval"
     },
     "Stafford Motor Speedway": {
-      "ID": "CT",
-      "Oval": "Oval"
+      "Date": "2017-04-30T04:00:00.000Z",
+      "State": "CT",
+      "Type": "Oval"
     },
     "Thompson Speedway (Mixed Road Course)": {
-      "ID": "CT",
-      "Oval": "Road Course"
+      "Date": "2017-06-03T04:00:00.000Z",
+      "State": "CT",
+      "Type": "Road Course"
     },
     "Lee USA Speedway": {
-      "ID": "NH",
-      "Oval": "Oval"
+      "Date": "2017-07-21T04:00:00.000Z",
+      "State": "NH",
+      "Type": "Oval"
     },
     "Albany-Saratoga Speedway": {
-      "ID": "NY",
-      "Oval": "Oval"
+      "Date": "2017-07-28T04:00:00.000Z",
+      "State": "NY",
+      "Type": "Oval"
     },
     "New London Waterford Speedbowl": {
-      "ID": "CT",
-      "Oval": "Oval"
+      "Date": "2017-08-12T04:00:00.000Z",
+      "State": "CT",
+      "Type": "Oval"
     },
     "Oxford Plains Speedway": {
-      "ID": "ME",
-      "Oval": "Oval"
+      "Date": "2017-08-27T04:00:00.000Z",
+      "State": "ME",
+      "Type": "Oval"
     },
     "Lebanon Valley Speedway": {
-      "ID": "NY",
-      "Oval": "Oval"
+      "Date": "2017-08-31T04:00:00.000Z",
+      "State": "NY",
+      "Type": "Oval"
     },
     "Beech Ridge Speedway": {
-      "ID": "ME",
-      "Oval": "Oval"
+      "Date": "2017-09-17T04:00:00.000Z",
+      "State": "ME",
+      "Type": "Oval"
     },
     "Wall Stadium Speedway": {
-      "ID": "NJ",
-      "Oval": "Oval"
+      "Date": "2017-11-24T05:00:00.000Z",
+      "State": "NJ",
+      "Type": "Oval"
     },
-    "Wall Stadium Speedway (Inner Oval)": {
-      "ID": "NJ",
-      "Oval": "Oval"
+    "Wall Stadium Speedway (Inner Asphalt Oval)": {
+      "Date": "2017-11-25T05:00:00.000Z",
+      "State": "NJ",
+      "Type": "Oval"
     },
     "Hudson Speedway": {
-      "ID": "NH",
-      "Oval": "Oval"
+      "Date": "2018-05-13T04:00:00.000Z",
+      "State": "NH",
+      "Type": "Oval"
     },
     "Texas Motor Speedway": {
-      "ID": "TX",
-      "Oval": "Oval"
+      "Date": "2018-06-08T04:00:00.000Z",
+      "State": "TX",
+      "Type": "Oval"
     },
     "Lil' Texas Motor Speedway": {
-      "ID": "TX",
-      "Oval": "Oval"
+      "Date": "2018-06-08T04:00:00.000Z",
+      "State": "TX",
+      "Type": "Oval"
     },
-    "Texas Motor Speedway (Road Course)": {
-      "ID": "TX",
-      "Oval": "Road Course"
+    "Texas Motor Speedway (Asphalt Road Course)": {
+      "Date": "2018-06-09T04:00:00.000Z",
+      "State": "TX",
+      "Type": "Road Course"
     },
     "Monadnock Speedway": {
-      "ID": "NH",
-      "Oval": "Oval"
+      "Date": "2018-07-07T04:00:00.000Z",
+      "State": "NH",
+      "Type": "Oval"
     },
-    "Stafford Motor Speedway (Inner Oval)": {
-      "ID": "CT",
-      "Oval": "Oval"
+    "Stafford Motor Speedway (Inner Asphalt Oval)": {
+      "Date": "2018-07-27T04:00:00.000Z",
+      "State": "CT",
+      "Type": "Oval"
     },
     "Bear Ridge Speedway": {
-      "ID": "VT",
-      "Oval": "Oval"
+      "Date": "2018-08-11T04:00:00.000Z",
+      "State": "VT",
+      "Type": "Oval"
     },
     "Devil's Bowl Speedway": {
-      "ID": "VT",
-      "Oval": "Oval"
+      "Date": "2018-09-16T04:00:00.000Z",
+      "State": "VT",
+      "Type": "Oval"
     },
     "Lancaster Speedway": {
-      "ID": "SC",
-      "Oval": "Oval"
+      "Date": "2018-09-28T04:00:00.000Z",
+      "State": "SC",
+      "Type": "Oval"
     },
     "Charlotte Motor Speedway Roval": {
-      "ID": "NC",
-      "Oval": "Road Course"
+      "Date": "2018-09-29T04:00:00.000Z",
+      "State": "NC",
+      "Type": "Road Course"
     },
     "Gateway Dirt Nationals": {
-      "ID": "MO",
-      "Oval": "Oval"
+      "Date": "2018-11-29T05:00:00.000Z",
+      "State": "MO",
+      "Type": "Oval"
     },
     "Cure Insurance Arena": {
-      "ID": "NJ",
-      "Oval": "Oval"
+      "Date": "2018-12-15T05:00:00.000Z",
+      "State": "NJ",
+      "Type": "Oval"
     },
     "Exposition Center": {
-      "ID": "NY",
-      "Oval": "Oval"
+      "Date": "2019-03-09T05:00:00.000Z",
+      "State": "NY",
+      "Type": "Oval"
     },
     "Lincoln Speedway": {
-      "ID": "PA",
-      "Oval": "Oval"
+      "Date": "2019-03-23T04:00:00.000Z",
+      "State": "PA",
+      "Type": "Oval"
     },
     "Port Royal Speedway": {
-      "ID": "PA",
-      "Oval": "Oval"
+      "Date": "2019-03-24T04:00:00.000Z",
+      "State": "PA",
+      "Type": "Oval"
     },
     "Orange County Fair Speedway": {
-      "ID": "NY",
-      "Oval": "Oval"
+      "Date": "2019-04-13T04:00:00.000Z",
+      "State": "NY",
+      "Type": "Oval"
     },
     "New Egypt Speedway": {
-      "ID": "NJ",
-      "Oval": "Oval"
+      "Date": "2019-05-04T04:00:00.000Z",
+      "State": "NJ",
+      "Type": "Oval"
     },
     "Glen Ridge Motorsports Park": {
-      "ID": "NY",
-      "Oval": "Oval"
+      "Date": "2019-06-02T04:00:00.000Z",
+      "State": "NY",
+      "Type": "Oval"
     },
     "Utica-Rome Speedway": {
-      "ID": "NY",
-      "Oval": "Oval"
+      "Date": "2019-07-07T04:00:00.000Z",
+      "State": "NY",
+      "Type": "Oval"
     },
     "Thunder Road International Speedbowl": {
-      "ID": "VT",
-      "Oval": "Oval"
+      "Date": "2019-07-18T04:00:00.000Z",
+      "State": "VT",
+      "Type": "Oval"
     },
     "NHMS Flat Track": {
-      "ID": "NH",
-      "Oval": "Oval"
+      "Date": "2019-07-19T04:00:00.000Z",
+      "State": "NH",
+      "Type": "Oval"
     },
     "Meridian Speedway": {
-      "ID": "ID",
-      "Oval": "Oval"
+      "Date": "2019-07-27T04:00:00.000Z",
+      "State": "ID",
+      "Type": "Oval"
     },
     "Slinger Speedway": {
-      "ID": "WI",
-      "Oval": "Oval"
+      "Date": "2020-08-04T04:00:00.000Z",
+      "State": "WI",
+      "Type": "Oval"
     },
-    "Slinger Speedway (Figure 8)": {
-      "ID": "WI",
-      "Oval": "Figure 8"
+    "Slinger Speedway (Asphalt Figure 8)": {
+      "Date": "2020-08-04T04:00:00.000Z",
+      "State": "WI",
+      "Type": "Figure 8"
     },
-    "Slinger Speedway (Road Course)": {
-      "ID": "WI",
-      "Oval": "Road Course"
+    "Slinger Speedway (Asphalt Road Course)": {
+      "Date": "2020-08-04T04:00:00.000Z",
+      "State": "WI",
+      "Type": "Road Course"
     },
     "Southern Iowa Speedway": {
-      "ID": "IA",
-      "Oval": "Oval"
+      "Date": "2019-08-05T04:00:00.000Z",
+      "State": "IA",
+      "Type": "Oval"
     },
     "Knoxville Raceway": {
-      "ID": "IA",
-      "Oval": "Oval"
+      "Date": "2019-08-07T04:00:00.000Z",
+      "State": "IA",
+      "Type": "Oval"
     },
     "Proctor Speedway": {
-      "ID": "MN",
-      "Oval": "Oval"
+      "Date": "2019-08-11T04:00:00.000Z",
+      "State": "MN",
+      "Type": "Oval"
     },
     "William's Grove Speedway": {
-      "ID": "PA",
-      "Oval": "Oval"
+      "Date": "2019-08-23T04:00:00.000Z",
+      "State": "PA",
+      "Type": "Oval"
     },
     "BAPS Motor Speedway": {
-      "ID": "PA",
-      "Oval": "Oval"
+      "Date": "2019-08-25T04:00:00.000Z",
+      "State": "PA",
+      "Type": "Oval"
     },
-    "Seekonk Speedway (Road Course)": {
-      "ID": "MA",
-      "Oval": "Road Course"
+    "Seekonk Speedway (Asphalt Road Course)": {
+      "Date": "2019-08-31T04:00:00.000Z",
+      "State": "MA",
+      "Type": "Road Course"
     },
     "Eldora Speedway": {
-      "ID": "OH",
-      "Oval": "Oval"
+      "Date": "2019-09-28T04:00:00.000Z",
+      "State": "OH",
+      "Type": "Oval"
     },
     "PPL Center": {
-      "ID": "PA",
-      "Oval": "Oval"
+      "Date": "2020-01-04T05:00:00.000Z",
+      "State": "PA",
+      "Type": "Oval"
     },
     "Riverside Speedway": {
-      "ID": "NH",
-      "Oval": "Oval"
+      "Date": "2020-01-18T05:00:00.000Z",
+      "State": "NH",
+      "Type": "Oval"
     },
     "Boardwalk Hall": {
-      "ID": "NJ",
-      "Oval": "Oval"
+      "Date": "2020-02-01T05:00:00.000Z",
+      "State": "NJ",
+      "Type": "Oval"
     },
     "Paragon Speedway": {
-      "ID": "IN",
-      "Oval": "Oval"
+      "Date": "2020-06-16T04:00:00.000Z",
+      "State": "IN",
+      "Type": "Oval"
     },
     "Gas City Speedway": {
-      "ID": "IN",
-      "Oval": "Oval"
+      "Date": "2020-06-17T04:00:00.000Z",
+      "State": "IN",
+      "Type": "Oval"
     },
     "Lincoln Park Speedway": {
-      "ID": "IN",
-      "Oval": "Oval"
+      "Date": "2020-06-18T04:00:00.000Z",
+      "State": "IN",
+      "Type": "Oval"
     },
     "Tri-State Speedway": {
-      "ID": "IN",
-      "Oval": "Oval"
+      "Date": "2020-06-19T04:00:00.000Z",
+      "State": "IN",
+      "Type": "Oval"
     },
     "Lawrenceburg Speedway": {
-      "ID": "IN",
-      "Oval": "Oval"
+      "Date": "2020-06-20T04:00:00.000Z",
+      "State": "IN",
+      "Type": "Oval"
     },
     "Kokomo Speedway": {
-      "ID": "IN",
-      "Oval": "Oval"
+      "Date": "2020-06-21T04:00:00.000Z",
+      "State": "IN",
+      "Type": "Oval"
     },
     "Claremont Motorsports Park": {
-      "ID": "NH",
-      "Oval": "Oval"
+      "Date": "2020-06-26T04:00:00.000Z",
+      "State": "NH",
+      "Type": "Oval"
     },
     "Selinsgrove Speedway": {
-      "ID": "PA",
-      "Oval": "Oval"
+      "Date": "2020-06-28T04:00:00.000Z",
+      "State": "PA",
+      "Type": "Oval"
     },
     "Grandview Speedway": {
-      "ID": "PA",
-      "Oval": "Oval"
+      "Date": "2020-06-30T04:00:00.000Z",
+      "State": "PA",
+      "Type": "Oval"
     },
     "Hagerstown Speedway": {
-      "ID": "PA",
-      "Oval": "Oval"
+      "Date": "2020-07-02T04:00:00.000Z",
+      "State": "PA",
+      "Type": "Oval"
     },
     "Big Diamond Speedway": {
-      "ID": "PA",
-      "Oval": "Oval"
+      "Date": "2020-07-03T04:00:00.000Z",
+      "State": "PA",
+      "Type": "Oval"
     },
     "White Mountain Motorsports Park": {
-      "ID": "NH",
-      "Oval": "Oval"
+      "Date": "2020-07-04T04:00:00.000Z",
+      "State": "NH",
+      "Type": "Oval"
     },
     "Londonderry Speedway": {
-      "ID": "NH",
-      "Oval": "Oval"
+      "Date": "2020-08-01T04:00:00.000Z",
+      "State": "NH",
+      "Type": "Oval"
     },
     "Rumtown Speedway": {
-      "ID": "NH",
-      "Oval": "Oval"
+      "Date": "2020-08-01T04:00:00.000Z",
+      "State": "NH",
+      "Type": "Oval"
     },
     "Lucas Oil Raceway": {
-      "ID": "IN",
-      "Oval": "Oval"
+      "Date": "2020-08-21T04:00:00.000Z",
+      "State": "IN",
+      "Type": "Oval"
     },
-    "Lucas Oil Speedway (Off Road Course)": {
-      "ID": "MO",
-      "Oval": "Road Course"
+    "Lucas Oil Speedway Off Road Course": {
+      "Date": "2020-08-22T04:00:00.000Z",
+      "State": "MO",
+      "Type": "Road Course"
     },
-    "Lucas Oil Speedway (Dirt Oval)": {
-      "ID": "MO",
-      "Oval": "Oval"
+    "Lucas Oil Speedway": {
+      "Date": "2020-08-22T04:00:00.000Z",
+      "State": "MO",
+      "Type": "Oval"
     },
     "Indiana State Fairgrounds": {
-      "ID": "IN",
-      "Oval": "Oval"
+      "Date": "2020-08-23T04:00:00.000Z",
+      "State": "IN",
+      "Type": "Oval"
     },
     "Gateway Motorsports Park": {
-      "ID": "IL",
-      "Oval": "Oval"
+      "Date": "2020-08-29T04:00:00.000Z",
+      "State": "IL",
+      "Type": "Oval"
     },
     "Macon Speedway": {
-      "ID": "IL",
-      "Oval": "Oval"
+      "Date": "2020-08-29T04:00:00.000Z",
+      "State": "IL",
+      "Type": "Oval"
     },
-    "New Hampshire Motor Speedway (Legends Oval)": {
-      "ID": "NH",
-      "Oval": "Oval"
+    "New Hampshire Motor Speedway (Asphalt Legends Oval)": {
+      "Date": "2020-09-12T04:00:00.000Z",
+      "State": "NH",
+      "Type": "Oval"
     },
     "Bridgeport Motorsports Park": {
-      "ID": "NJ",
-      "Oval": "Oval"
+      "Date": "2020-11-06T05:00:00.000Z",
+      "State": "NJ",
+      "Type": "Oval"
     }
   },
   "Miles": {

@@ -26,7 +26,7 @@ class AppMachine
 
   public async makeTracks(): Promise<void>
   {
-    const tracksRaw = await fetch("/tracksList");
+    const tracksRaw = await fetch("/tracks");
     const tracks = await tracksRaw.json();
     this.setTracksList(tracks.message);
   }
@@ -67,6 +67,8 @@ class App extends React.Component<AppProps>
   componentDidMount()
   {
     this.machine.makeTracks();
+
+    fetch("/tracks/info");
   }
 
   render()
@@ -96,7 +98,9 @@ class App extends React.Component<AppProps>
           }
           {
             this.machine.navMachine.currentPlace === CurrentPlace.MAP &&
-            <Map/>
+            <Map
+              navMachine={this.machine.navMachine}
+            />
           }
         </header>
       </div>

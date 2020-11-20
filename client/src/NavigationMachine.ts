@@ -7,7 +7,7 @@ export enum CurrentPlace {HOME, TRACK, MAP}
 
 export class NavigationMachine
 {
-  @observable public currentPlace: CurrentPlace = CurrentPlace.MAP;
+  @observable public currentPlace: CurrentPlace = CurrentPlace.HOME;
   @observable public currentTrackName: string | null = null;
 
   constructor() 
