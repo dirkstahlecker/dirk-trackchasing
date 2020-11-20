@@ -4,7 +4,7 @@ import {observer} from "mobx-react";
 import {observable, action, makeObservable} from "mobx";
 import './App.css';
 import {TrackPlace} from "./TrackPlace";
-import {Map} from "./Map";
+import {Map, MapMachine} from "./Map";
 import {NavigationMachine, CurrentPlace} from "./NavigationMachine";
 
 class AppMachine
@@ -12,6 +12,7 @@ class AppMachine
   @observable public tracksList: string[] | null = null;
 
   public navMachine: NavigationMachine = new NavigationMachine();
+  public mapMachine: MapMachine = new MapMachine();
 
   constructor() 
   {
@@ -31,6 +32,7 @@ class AppMachine
     this.setTracksList(tracks.message);
   }
 
+  //TODO: move to TrackInfo
   public async getRaceNum(trackName: string): Promise<void>
   {
     const numRaw = await fetch("/numRaces/" + trackName);
@@ -67,8 +69,6 @@ class App extends React.Component<AppProps>
   componentDidMount()
   {
     this.machine.makeTracks();
-
-    fetch("/tracks/info");
   }
 
   render()
@@ -99,6 +99,7 @@ class App extends React.Component<AppProps>
           {
             this.machine.navMachine.currentPlace === CurrentPlace.MAP &&
             <Map
+              machine={this.machine.mapMachine}
               navMachine={this.machine.navMachine}
             />
           }

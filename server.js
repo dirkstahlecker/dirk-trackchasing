@@ -29,7 +29,6 @@ function getTrackFullInfo()
 		const trackInfo = json[TRACK_ORDER][track];
 		tracksAndCoords[track] = {"state": trackInfo["State"], "latitude": trackInfo["Latitude"], "longitude": trackInfo["Longitude"]};
 	}
-	console.log(tracksAndCoords)
 	return tracksAndCoords
 }
 
@@ -53,7 +52,7 @@ app.get('/tracks', function (req, res) {
 
 	const tracks = getTrackList();
 
-	res.json({"message": tracks});
+	res.json(tracks);
 });
 
 //returns a list of all the tracks along with their specific info
@@ -61,9 +60,9 @@ app.get('/tracks/info', function (req, res) {
 	console.log("/tracks/info")
 	res.set('Content-Type', 'application/json');
 
-	const tracks = getTrackFullInfo();
+	const trackInfos = getTrackFullInfo();
 
-	res.json({"message": tracks});
+	res.json(trackInfos);
 })
 
 app.get('/numRaces/:trackName', function (req, res) {
