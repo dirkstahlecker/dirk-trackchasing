@@ -60,7 +60,7 @@ class App extends React.Component<AppProps>
                 this.machine.trackInfoMachine.tracks != null && 
                 this.machine.trackInfoMachine.tracks.map((track: Track) => {
                   return <div key={track.name}>
-                    <button onClick={() => this.machine.navMachine.goToTrackPage(track.name)}>{track.name}</button>
+                    <button onClick={() => this.machine.navMachine.goToTrackPage(track)}>{track.name}</button>
                   </div>;
                 })
               }
@@ -68,8 +68,8 @@ class App extends React.Component<AppProps>
           }
           {
             this.machine.navMachine.currentPlace === CurrentPlace.TRACK &&
-            <TrackPlace 
-              trackName={this.machine.navMachine.currentTrackName!!}
+            <TrackPlace
+              trackInfo={this.machine.trackInfoMachine}
               navMachine={this.machine.navMachine}
             />
           }

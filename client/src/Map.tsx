@@ -33,6 +33,7 @@ export class Map extends React.Component<MapProps>
 	// private mapContainer: React.RefObject<HTMLDivElement>;
 
 	private readonly DEFAULT_ZOOM = 16;
+	private readonly INITIAL_ZOOM = 1;
 
   constructor(props: MapProps)
   {
@@ -66,7 +67,7 @@ export class Map extends React.Component<MapProps>
 				<Marker
 				  coordinates={[track.longitude, track.latitude]}
 				  anchor="bottom"
-				  onClick={() => this.props.navMachine.goToTrackPage(track.name)}
+				  onClick={() => this.props.navMachine.goToTrackPage(track)}
 				>
 				  <img src="assets/oval.png"/>
 				</Marker>
@@ -85,8 +86,8 @@ export class Map extends React.Component<MapProps>
 			    height: '80vh',
 			    width: '75vw'
 			  }}
-			  center={[-71.302170, 41.784417]} //coordinates are backwards for some reason
-			  zoom={[this.DEFAULT_ZOOM]}
+			  center={[98.583333, 39.833333]} //coordinates are backwards for some reason
+			  zoom={[this.INITIAL_ZOOM]}
 			>
 				{this.renderMarkers()}
 			</GlMap>

@@ -14,6 +14,11 @@ export class TrackInfoMachine
 	@observable
 	public tracks: Track[] = [];
 
+	public getTrackFromName(trackName: string)
+	{
+		return this.tracks.find((track) => {return track.name === trackName});
+	}
+
 	//Update with new information from the server
 	public async fetchInfo(): Promise<void>
 	{
