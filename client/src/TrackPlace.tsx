@@ -3,7 +3,7 @@ import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, computed} from "mobx";
 import {NavigationMachine} from "./NavigationMachine";
-import {TrackInfoMachine, Track} from "./TrackInfoMachine";
+import {TrackInfoMachine, Track, Flip} from "./TrackInfoMachine";
 
 export class TrackPlaceMachine
 {
@@ -43,6 +43,17 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 				Number of Races I've Attended: {this.currentTrack.count}
 				<br/>
 				Flips: Total Number: {this.currentTrack.flips.length}
+				<br/>
+				<br/>
+				{
+					this.currentTrack.flips.map((flip: Flip) => {
+						return <img 
+							src={TrackInfoMachine.flipGifPath(this.currentTrack!!.name, flip.flipId)}
+							key={flip.flipId}
+						/>
+					})
+				}
+				
 			</div>
 		);
 	}

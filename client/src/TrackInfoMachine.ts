@@ -29,6 +29,7 @@ export class TrackInfoMachine
 		const flips: Flip[] = [];
 		flipJson.forEach((flipObj: any) => {
 			flips.push(new Flip(
+				flipObj["flipId"],
 				flipObj["date"], 
 				flipObj["class"], 
 				flipObj["rotations"], 
@@ -81,6 +82,11 @@ export class TrackInfoMachine
     alert(num.message);
   }
 
+  public static flipGifPath(trackName: string, flipId: string): string
+  {
+  	return "assets/flips/gifs/" + flipId + "_" + trackName.replaceAll(" ", "_") + ".gif";
+  }
+
   // public async getFlipsForTrack(trackName: string): Promise<void>
   // {
   // 	const flipsRaw = await (fetch("/"))
@@ -116,6 +122,7 @@ export class Track
 
 export class Flip
 {
+	public flipId: string;
 	public date: string;
 	public carClass: string;
 	public rotations: string;
@@ -125,8 +132,9 @@ export class Flip
 	public video: boolean;
 	public notes: string;
 
-	constructor(date: string, carClass: string, rotations: string, surface: string, openWheel: boolean, when: string, video: boolean, notes: string)
+	constructor(flipId: string, date: string, carClass: string, rotations: string, surface: string, openWheel: boolean, when: string, video: boolean, notes: string)
 	{
+		this.flipId = flipId;
 		this.date = date;
 		this.carClass = carClass;
 		this.rotations = rotations;

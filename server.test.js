@@ -99,6 +99,9 @@ it('number of flips per track', async() => {
 
 	flips = await server.getFlipsForTrack("Atomic Motor Raceway");
 	expect(flips.length).toBe(1);
+
+	flips = await server.getFlipsForTrack("Lucas Oil Speedway Off Road Course");
+	expect(flips.length).toBe(4);
 });
 
 it('flip objects', async() => {
@@ -106,6 +109,7 @@ it('flip objects', async() => {
 	expect(flips.length).toBe(1);
 
 	let flip = flips[0];
+	expect(flip.flipId).toEqual("20");
 	expect(flip.class).toEqual("Champ Kart");
 	expect(flip.openWheel).toBeTruthy();
 	expect(flip.rotations).toEqual("1/4");
@@ -115,6 +119,7 @@ it('flip objects', async() => {
 	flip = flips.find((f) => {
 		return f.when === "A Main"; //Knoxville only has one flip in a A main
 	});
+	expect(flip.flipId).toEqual("81");
 	expect(flip.class).toEqual("410 Sprint Car");
 	expect(flip.openWheel).toBeTruthy();
 	expect(flip.rotations).toEqual("1");
@@ -126,6 +131,7 @@ it('flip objects', async() => {
 	flip = flips.find((f) => {
 		return f.class === "Super Late Model";
 	});
+	expect(flip.flipId).toEqual("158");
 	expect(flip.openWheel).toBeFalsy();
 	expect(flip.rotations).toEqual("1/2+");
 	expect(flip.video).toBeFalsy();

@@ -47,6 +47,7 @@ async function makeFlipsData(json)
 			openWheel = true;
 		}
 		const newObjToAdd = {
+			"flipId": flipId,
 			"date": flipInfo["Date"], 
 			"class": flipInfo["Class"], 
 			"rotations": flipInfo["Rotations"], 
