@@ -11,6 +11,8 @@ const RACES = "Races";
 const DATA_PATH = "events_data.json";
 const TEST_DATA_PATH = "events_data_test.json";
 
+let parsedJson = null;
+
 function runningJestTest() 
 {
 	return process.env.JEST_WORKER_ID !== undefined;
@@ -103,14 +105,23 @@ function getCountForTrack(rawName)
 	return count;
 }
 
+function getFlipsForTrack(rawName)
+{
+	const json = parse();
+}
+
 function parse()
 {
-  //take the json downloaded from google sheets in json format and parse it
-  var fs=require('fs');
-  var data=fs.readFileSync(path.resolve(__dirname, dataPath()), 'utf8');
-  var json=JSON.parse(data);
+	if (parsedJson == null)
+	{
+		 //take the json downloaded from google sheets in json format and parse it
+		var fs=require('fs');
+		var data=fs.readFileSync(path.resolve(__dirname, dataPath()), 'utf8');
+		var json=JSON.parse(data);
 
-  return json
+		return json
+	}
+	return parsedJson;
 }
 
 // Priority serve any static files.
