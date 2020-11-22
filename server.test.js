@@ -54,20 +54,34 @@ test('getTrackFullInfo', async() => {
 	const seekonk = info["Seekonk Speedway"];
 	expect(seekonk.state).toBe("MA");
 	expect(seekonk.count).toBe(46);
+	expect(seekonk.flips.length).toEqual(12);
 
 	const pocatello = info["Pocatello Speedway"];
 	expect(pocatello.state).toBe("ID");
 	expect(pocatello.latitude).toBe(42.912684);
 	expect(pocatello.longitude).toBe(-112.577022);
 	expect(pocatello.count).toBe(6);
+	expect(pocatello.flips.length).toEqual(1);
+
+	const rmr = info["Rocky Mountain Raceways"];
+	expect(rmr.state).toBe("UT");
+	expect(rmr.count).toBe(8);
+	expect(rmr.flips.length).toEqual(2);
 
 	const rmr8 = info["Rocky Mountain Raceways (Asphalt Figure 8)"];
 	expect(rmr8.state).toBe("UT");
 	expect(rmr8.count).toBe(7);
+	expect(rmr8.flips).toBeUndefined();
+
+	const stafford = info["Stafford Motor Speedway (Inner Asphalt Oval)"];
+	expect(stafford.state).toBe("CT");
+	expect(stafford.count).toBe(1);
+	expect(stafford.flips).toBeUndefined();
 
 	const la = info["Port of LA"];
 	expect(la.state).toBe("CA");
-	expect(la.count).toBe(1);
+	expect(la.count).toEqual(1);
+	expect(la.flips).toBeUndefined();
 });
 
 test('flips', async() => {

@@ -48,11 +48,13 @@ async function getTrackFullInfo()
 		const track = tracksList[i];
 		const trackInfo = json[TRACK_ORDER_HEADER][track];
 		const count = await getCountForTrack(track);
+		const flips = await getFlipsForTrack(track);
 		tracksAndCoords[track] = {
 			"state": trackInfo["State"], 
 			"latitude": trackInfo["Latitude"], 
 			"longitude": trackInfo["Longitude"],
-			"count": count
+			"count": count,
+			"flips": flips
 		};
 	}
 	return tracksAndCoords
@@ -97,7 +99,7 @@ async function getCountForTrack(rawName)
 
 async function getFlipsForTrack(rawName)
 {
-	flipData = await parser.flipsData();
+	const flipData = await parser.flipsData();
 	return flipData[rawName];
 }
 
