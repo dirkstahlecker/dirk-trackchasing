@@ -1141,1625 +1141,2422 @@
       "Track": "Rocky Mountain Raceways",
       "Class": "Figure 8 Car",
       "Rotations": "1",
-      "Surface": "Asphalt"
+      "Surface": "Asphalt",
+      "Open Wheel": false,
+      "Video": false
     },
     "3": {
       "Track": "Seekonk Speedway",
       "Class": "Sports Truck",
       "Rotations": "1/4",
       "Surface": "Asphalt",
-      "When": "Feature"
+      "Open Wheel": false,
+      "When": "Feature",
+      "Video": false
     },
     "4": {
       "Track": "Seekonk Speedway",
       "Class": "Street Stock",
       "Rotations": "1/4",
       "Surface": "Asphalt",
-      "When": "Feature"
+      "Open Wheel": false,
+      "When": "Feature",
+      "Video": false
     },
     "5": {
       "Track": "Seekonk Speedway",
       "Class": "Enduro Truck",
       "Surface": "Asphalt",
-      "When": "Enduro"
+      "Open Wheel": false,
+      "When": "Enduro",
+      "Video": false
     },
     "6": {
       "Track": "Seekonk Speedway",
       "Class": "Enduro Truck",
       "Surface": "Asphalt",
-      "When": "Enduro"
+      "Open Wheel": false,
+      "When": "Enduro",
+      "Video": false
     },
     "7": {
       "Track": "Seekonk Speedway",
       "Class": "Enduro Truck",
       "Surface": "Asphalt",
-      "When": "Enduro"
+      "Open Wheel": false,
+      "When": "Enduro",
+      "Video": false
     },
     "8": {
       "Track": "Seekonk Speedway",
       "Class": "Enduro Truck",
       "Surface": "Asphalt",
-      "When": "Enduro"
+      "Open Wheel": false,
+      "When": "Enduro",
+      "Video": false
     },
     "9": {
       "Track": "Seekonk Speedway",
       "Class": "Enduro Car",
       "Surface": "Asphalt",
-      "When": "Enduro"
+      "Open Wheel": false,
+      "When": "Enduro",
+      "Video": false
     },
     "10": {
+      "Date": 2010,
       "Track": "Atomic Motor Raceway",
       "Class": "Modified",
       "Rotations": "1/2",
       "Surface": "Dirt",
-      "When": "Heat"
+      "Open Wheel": false,
+      "When": "Heat",
+      "Video": false
     },
     "11": {
+      "Date": "2013-06-23T04:00:00.000Z",
       "Track": "Miller Motorsports Park Off Road Course",
       "Class": "Lucas Oil Off Road Racing Pro 4",
-      "Surface": "Dirt"
+      "Surface": "Dirt",
+      "Open Wheel": false,
+      "Video": false
     },
     "12": {
+      "Date": "2013-06-23T04:00:00.000Z",
       "Track": "Miller Motorsports Park Off Road Course",
       "Class": "Lucas Oil Off Road Racing Pro 4",
-      "Surface": "Dirt"
+      "Surface": "Dirt",
+      "Open Wheel": false,
+      "Video": false
     },
     "13": {
+      "Date": "2013-06-23T04:00:00.000Z",
       "Track": "Miller Motorsports Park Off Road Course",
       "Class": "Lucas Oil Off Road Racing Mod Kart",
-      "Surface": "Dirt"
+      "Surface": "Dirt",
+      "Open Wheel": false,
+      "Video": false
     },
     "14": {
+      "Date": "2013-06-23T04:00:00.000Z",
       "Track": "Miller Motorsports Park Off Road Course",
       "Class": "Lucas Oil Off Road Racing Pro 4",
-      "Surface": "Dirt"
+      "Surface": "Dirt",
+      "Open Wheel": false,
+      "Video": false
     },
     "15": {
+      "Date": "2013-06-23T04:00:00.000Z",
       "Track": "Miller Motorsports Park Off Road Course",
       "Class": "Lucas Oil Off Road Racing Buggy",
-      "Surface": "Dirt"
+      "Surface": "Dirt",
+      "Open Wheel": false,
+      "Video": false
     },
     "16": {
+      "Date": "2013-06-23T04:00:00.000Z",
       "Track": "Miller Motorsports Park Off Road Course",
       "Class": "Lucas Oil Off Road Racing Pro Lite",
-      "Surface": "Dirt"
+      "Surface": "Dirt",
+      "Open Wheel": false,
+      "Video": false
     },
     "17": {
+      "Date": "2013-06-23T04:00:00.000Z",
       "Track": "Miller Motorsports Park Off Road Course",
       "Class": "Lucas Oil Off Road Racing Pro Lite",
-      "Surface": "Dirt"
+      "Surface": "Dirt",
+      "Open Wheel": false,
+      "Video": false
     },
     "18": {
+      "Date": "2013-06-23T04:00:00.000Z",
       "Track": "Miller Motorsports Park Off Road Course",
       "Class": "Lucas Oil Off Road Racing Pro Lite",
-      "Surface": "Dirt"
+      "Surface": "Dirt",
+      "Open Wheel": false,
+      "Video": false
     },
     "19": {
+      "Date": "2015-08-15T04:00:00.000Z",
       "Track": "Rocky Mountain Raceways",
       "Class": "Double Decker",
       "Rotations": "1/4",
       "Surface": "Asphalt",
-      "When": "Feature"
+      "Open Wheel": false,
+      "When": "Feature",
+      "Video": false
     },
     "20": {
+      "Date": "2016-07-23T04:00:00.000Z",
       "Track": "Pocatello Speedway",
       "Class": "Champ Kart",
       "Rotations": "1/4",
       "Surface": "Dirt",
-      "Open Wheel": "x"
+      "Open Wheel": true,
+      "Video": false
     },
     "21": {
+      "Date": "2017-08-31T04:00:00.000Z",
       "Track": "Lebanon Valley Speedway",
       "Class": "Super DIRTcar Big Block Modified",
       "Rotations": "1/2",
       "Surface": "Dirt",
+      "Open Wheel": false,
       "When": "Heat",
+      "Video": false,
       "Notes": "Stack up in front, spun sideways to try to avoid and flipped on roof after making contact."
     },
     "22": {
+      "Date": "2017-09-02T04:00:00.000Z",
       "Track": "Seekonk Speedway",
       "Class": "Pro Stock",
       "Rotations": "1/2",
       "Surface": "Asphalt",
+      "Open Wheel": false,
       "When": "Heat",
-      "Video": "x",
+      "Video": true,
       "Notes": "Larry Gelinas got put into the wall exiting 2 in the heat, climbed the wall and slid on the roof into 3, where he hit the outside wall and rolled back on the wheels, ending up in the middle of 3"
     },
     "23": {
+      "Date": "2017-09-04T04:00:00.000Z",
       "Track": "Seekonk Speedway",
       "Class": "Enduro Truck",
-      "Surface": "Asphalt"
+      "Surface": "Asphalt",
+      "Open Wheel": false,
+      "Video": false
     },
     "24": {
+      "Date": "2017-10-01T04:00:00.000Z",
       "Track": "Thompson Speedway",
       "Class": "Street Stock",
       "Rotations": "1/4",
       "Surface": "Asphalt",
-      "When": "Feature"
+      "Open Wheel": false,
+      "When": "Feature",
+      "Video": false
     },
     "25": {
+      "Date": "2017-11-25T05:00:00.000Z",
       "Track": "Wall Stadium Speedway",
       "Class": "Legend",
       "Rotations": "1+",
       "Surface": "Asphalt",
-      "Video": "x"
+      "Open Wheel": false,
+      "Video": true
     },
     "26": {
+      "Date": "2017-11-25T05:00:00.000Z",
       "Track": "Wall Stadium Speedway",
       "Class": "Three Quarter Midget",
       "Rotations": "1+",
       "Surface": "Asphalt",
-      "Open Wheel": "x",
-      "Video": "x"
+      "Open Wheel": true,
+      "Video": true
     },
     "27": {
+      "Date": "2017-11-26T05:00:00.000Z",
       "Track": "Wall Stadium Speedway",
       "Class": "Legend",
       "Rotations": "1+",
-      "Surface": "Asphalt"
+      "Surface": "Asphalt",
+      "Open Wheel": false,
+      "Video": false
     },
     "28": {
+      "Date": "2018-04-07T04:00:00.000Z",
       "Track": "Thompson Speedway",
       "Class": "NEMA Lite",
       "Rotations": "1/4",
       "Surface": "Asphalt",
-      "Open Wheel": "x",
-      "When": "Feature"
+      "Open Wheel": true,
+      "When": "Feature",
+      "Video": false
     },
     "29": {
+      "Date": "2018-04-08T04:00:00.000Z",
       "Track": "Thompson Speedway",
       "Class": "Whelen Modified",
       "Rotations": "1/2",
       "Surface": "Asphalt",
+      "Open Wheel": false,
       "When": "Feature",
-      "Video": "x"
+      "Video": true
     },
     "30": {
+      "Date": "2018-05-05T04:00:00.000Z",
       "Track": "New London Waterford Speedbowl",
       "Class": "Three Quarter Midget",
       "Rotations": "1/4",
       "Surface": "Asphalt",
-      "Open Wheel": "x"
+      "Open Wheel": true,
+      "Video": false
     },
     "31": {
+      "Date": "2018-05-05T04:00:00.000Z",
       "Track": "New London Waterford Speedbowl",
       "Class": "Bandolero",
       "Rotations": "2+",
-      "Surface": "Asphalt"
+      "Surface": "Asphalt",
+      "Open Wheel": false,
+      "Video": false
     },
     "32": {
+      "Date": "2018-05-26T04:00:00.000Z",
       "Track": "Seekonk Speedway",
       "Class": "Enduro Truck",
       "Surface": "Asphalt",
-      "When": "Enduro"
+      "Open Wheel": false,
+      "When": "Enduro",
+      "Video": false
     },
     "33": {
+      "Date": "2018-05-26T04:00:00.000Z",
       "Track": "Seekonk Speedway",
       "Class": "Enduro Truck",
       "Surface": "Asphalt",
-      "When": "Enduro"
+      "Open Wheel": false,
+      "When": "Enduro",
+      "Video": false
     },
     "34": {
+      "Date": "2018-06-09T04:00:00.000Z",
       "Track": "Texas Motor Speedway",
       "Class": "Stadium Super Truck",
       "Rotations": "1+",
       "Surface": "Asphalt",
+      "Open Wheel": false,
       "When": "Feature",
-      "Video": "x"
+      "Video": true
     },
     "35": {
+      "Date": "2018-06-26T04:00:00.000Z",
       "Track": "Albany-Saratoga Speedway",
       "Class": "Super DIRTcar Big Block Modified",
       "Rotations": "2+",
-      "Surface": "Dirt"
+      "Surface": "Dirt",
+      "Open Wheel": false,
+      "Video": false
     },
     "36": {
+      "Date": "2018-07-15T04:00:00.000Z",
       "Track": "Hudson Speedway",
       "Class": "Pro Stock",
       "Rotations": "1/2",
-      "Surface": "Asphalt"
+      "Surface": "Asphalt",
+      "Open Wheel": false,
+      "Video": false
     },
     "37": {
+      "Date": "2018-08-11T04:00:00.000Z",
       "Track": "Bear Ridge Speedway",
       "Class": "Sportsman Coupe",
       "Rotations": "1",
-      "Surface": "Dirt"
+      "Surface": "Dirt",
+      "Open Wheel": false,
+      "Video": false
     },
     "38": {
+      "Date": "2018-09-08T04:00:00.000Z",
       "Track": "Thompson Speedway",
       "Class": "Mini Stock",
       "Rotations": "1/4",
-      "Surface": "Asphalt"
+      "Surface": "Asphalt",
+      "Open Wheel": false,
+      "Video": false
     },
     "39": {
+      "Date": "2018-09-15T04:00:00.000Z",
       "Track": "Bear Ridge Speedway",
       "Class": "Granite State Mini Sprint 500cc",
       "Rotations": "1+",
       "Surface": "Dirt",
-      "Open Wheel": "x"
+      "Open Wheel": true,
+      "Video": false
     },
     "40": {
+      "Date": "2018-09-15T04:00:00.000Z",
       "Track": "Bear Ridge Speedway",
       "Class": "Granite State Mini Sprint 600cc",
       "Rotations": "1+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
+      "Video": false,
       "Didn't see": "*"
     },
     "41": {
+      "Date": "2018-09-15T04:00:00.000Z",
       "Track": "Bear Ridge Speedway",
       "Class": "4 Cylinder",
       "Rotations": "1/2",
-      "Surface": "Dirt"
+      "Surface": "Dirt",
+      "Open Wheel": false,
+      "Video": false
     },
     "42": {
+      "Date": "2018-11-17T05:00:00.000Z",
       "Track": "Seekonk Speedway",
       "Class": "Enduro Car",
       "Surface": "Asphalt",
-      "When": "Enduro"
+      "Open Wheel": false,
+      "When": "Enduro",
+      "Video": false
     },
     "43": {
+      "Date": "2018-11-24T05:00:00.000Z",
       "Track": "Wall Stadium Speedway",
       "Class": "Three Quarter Midget",
       "Rotations": "1+",
       "Surface": "Asphalt",
-      "Open Wheel": "x",
-      "When": "Feature"
+      "Open Wheel": true,
+      "When": "Feature",
+      "Video": false
     },
     "44": {
+      "Date": "2018-11-30T05:00:00.000Z",
       "Track": "Gateway Dirt Nationals",
       "Class": "Midget",
       "Surface": "Dirt",
-      "Open Wheel": "x"
+      "Open Wheel": true,
+      "Video": false
     },
     "45": {
+      "Date": "2018-12-01T05:00:00.000Z",
       "Track": "Gateway Dirt Nationals",
       "Class": "Super Late Model",
       "Rotations": "1/2",
       "Surface": "Dirt",
-      "Video": "x"
+      "Open Wheel": false,
+      "Video": true
     },
     "46": {
+      "Date": "2018-12-01T05:00:00.000Z",
       "Track": "Gateway Dirt Nationals",
       "Class": "Midget",
       "Rotations": "2.5",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Feature",
-      "Video": "x",
+      "Video": true,
       "Notes": "Ricky Stenhouse Jr"
     },
     "47": {
+      "Date": "2018-12-01T05:00:00.000Z",
       "Track": "Gateway Dirt Nationals",
       "Class": "Midget",
       "Rotations": "1/4",
       "Surface": "Dirt",
-      "Open Wheel": "x"
+      "Open Wheel": true,
+      "Video": false
     },
     "48": {
+      "Date": "2018-12-15T05:00:00.000Z",
       "Track": "Cure Insurance Arena",
       "Class": "Micro Sprint",
       "Surface": "Dirt",
-      "Open Wheel": "x"
+      "Open Wheel": true,
+      "Video": false
     },
     "49": {
+      "Date": "2018-12-15T05:00:00.000Z",
       "Track": "Cure Insurance Arena",
       "Class": "Micro Sprint",
       "Surface": "Dirt",
-      "Open Wheel": "x"
+      "Open Wheel": true,
+      "Video": false
     },
     "50": {
+      "Date": "2018-12-15T05:00:00.000Z",
       "Track": "Cure Insurance Arena",
       "Class": "Micro Sprint",
       "Surface": "Dirt",
-      "Open Wheel": "x"
+      "Open Wheel": true,
+      "Video": false
     },
     "51": {
+      "Date": "2018-12-15T05:00:00.000Z",
       "Track": "Cure Insurance Arena",
       "Class": "Micro Sprint",
       "Surface": "Dirt",
-      "Open Wheel": "x"
+      "Open Wheel": true,
+      "Video": false
     },
     "52": {
+      "Date": "2019-03-09T05:00:00.000Z",
       "Track": "Exposition Center",
       "Class": "Three Quarter Midget",
       "Surface": "Concrete",
-      "Open Wheel": "x"
+      "Open Wheel": true,
+      "Video": false
     },
     "53": {
+      "Date": "2019-03-09T05:00:00.000Z",
       "Track": "Exposition Center",
       "Class": "Champ Kart",
       "Surface": "Concrete",
-      "Open Wheel": "x"
+      "Open Wheel": true,
+      "Video": false
     },
     "54": {
+      "Date": "2019-03-09T05:00:00.000Z",
       "Track": "Exposition Center",
       "Class": "Three Quarter Midget",
       "Surface": "Concrete",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Feature",
-      "Video": "x"
+      "Video": true
     },
     "55": {
+      "Date": "2019-03-23T04:00:00.000Z",
       "Track": "Lincoln Speedway",
       "Class": "410 Sprint Car",
       "Surface": "Dirt",
-      "Open Wheel": "x"
+      "Open Wheel": true,
+      "Video": false
     },
     "56": {
+      "Date": "2019-03-23T04:00:00.000Z",
       "Track": "Lincoln Speedway",
       "Class": "358 Sprint Car",
       "Surface": "Dirt",
-      "Open Wheel": "x"
+      "Open Wheel": true,
+      "Video": false
     },
     "57": {
+      "Date": "2019-03-23T04:00:00.000Z",
       "Track": "Lincoln Speedway",
       "Class": "358 Sprint Car",
       "Rotations": "1/4",
       "Surface": "Dirt",
-      "Open Wheel": "x"
+      "Open Wheel": true,
+      "Video": false
     },
     "58": {
+      "Date": "2019-03-23T04:00:00.000Z",
       "Track": "Lincoln Speedway",
       "Class": "358 Sprint Car",
       "Rotations": "3+",
       "Surface": "Dirt",
-      "Open Wheel": "x"
+      "Open Wheel": true,
+      "Video": false
     },
     "59": {
+      "Date": "2019-03-23T04:00:00.000Z",
       "Track": "Lincoln Speedway",
       "Class": "410 Sprint Car",
       "Rotations": "1/4",
       "Surface": "Dirt",
-      "Open Wheel": "x"
+      "Open Wheel": true,
+      "Video": false
     },
     "60": {
+      "Date": "2019-05-04T04:00:00.000Z",
       "Track": "New Egypt Speedway",
       "Class": "305 Sprint Car",
       "Rotations": "1/4",
       "Surface": "Dirt",
-      "Open Wheel": "x",
-      "When": "Feature"
+      "Open Wheel": true,
+      "When": "Feature",
+      "Video": false
     },
     "61": {
+      "Date": "2019-05-17T04:00:00.000Z",
       "Track": "Albany-Saratoga Speedway",
       "Class": "Modified",
       "Rotations": "3+",
-      "Surface": "Dirt"
+      "Surface": "Dirt",
+      "Open Wheel": false,
+      "Video": false
     },
     "62": {
+      "Date": "2019-06-08T04:00:00.000Z",
       "Track": "Bear Ridge Speedway",
       "Class": "500cc Mini Sprint",
       "Rotations": "3+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
-      "Video": "x"
+      "Open Wheel": true,
+      "Video": true
     },
     "63": {
+      "Date": "2019-06-08T04:00:00.000Z",
       "Track": "Bear Ridge Speedway",
       "Class": "Sportsman Coupe",
       "Rotations": "1+",
-      "Surface": "Dirt"
+      "Surface": "Dirt",
+      "Open Wheel": false,
+      "Video": false
     },
     "64": {
+      "Date": "2019-06-14T04:00:00.000Z",
       "Track": "Albany-Saratoga Speedway",
       "Class": "Modified",
       "Rotations": "1.5",
-      "Surface": "Dirt"
+      "Surface": "Dirt",
+      "Open Wheel": false,
+      "Video": false
     },
     "65": {
+      "Date": "2019-06-14T04:00:00.000Z",
       "Track": "Albany-Saratoga Speedway",
       "Class": "360 Sprint Car",
       "Rotations": "1/4",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
+      "Video": false,
       "Notes": "landed upright on rear"
     },
     "66": {
+      "Date": "2019-06-14T04:00:00.000Z",
       "Track": "Albany-Saratoga Speedway",
       "Class": "360 Sprint Car",
       "Rotations": "3/4",
       "Surface": "Dirt",
-      "Open Wheel": "x",
-      "Video": "x",
+      "Open Wheel": true,
+      "Video": true,
       "Notes": "Pileup in turn 2, got spun and rolled over and onto side"
     },
     "67": {
+      "Date": "2019-06-30T04:00:00.000Z",
       "Track": "Glen Ridge Motorsports Park",
       "Class": "Wingless 360 Sprint Car",
       "Rotations": "1",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
+      "Video": false,
       "Didn't see": "*",
       "Notes": "Under caution on the backstretch, I think caught a wheel and rolled once"
     },
     "68": {
+      "Date": "2019-07-07T04:00:00.000Z",
       "Track": "Utica-Rome Speedway",
       "Class": "360 Sprint Car",
       "Rotations": "2",
       "Surface": "Dirt",
-      "Open Wheel": "x",
-      "Video": "x"
+      "Open Wheel": true,
+      "Video": true
     },
     "69": {
+      "Date": "2019-07-14T04:00:00.000Z",
       "Track": "Lebanon Valley Speedway",
       "Class": "410 Sprint Car",
       "Rotations": "1/4",
       "Surface": "Dirt",
-      "Open Wheel": "x"
+      "Open Wheel": true,
+      "Video": false
     },
     "70": {
+      "Date": "2019-07-14T04:00:00.000Z",
       "Track": "Lebanon Valley Speedway",
       "Class": "410 Sprint Car",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
+      "Video": false,
       "Didn't see": "*"
     },
     "71": {
+      "Date": "2019-07-14T04:00:00.000Z",
       "Track": "Lebanon Valley Speedway",
       "Class": "410 Sprint Car",
       "Rotations": "1+",
       "Surface": "Dirt",
-      "Open Wheel": "x"
+      "Open Wheel": true,
+      "Video": false
     },
     "72": {
+      "Date": "2019-07-14T04:00:00.000Z",
       "Track": "Lebanon Valley Speedway",
       "Class": "410 Sprint Car",
       "Rotations": "1",
       "Surface": "Dirt",
-      "Open Wheel": "x",
-      "Video": "x"
+      "Open Wheel": true,
+      "Video": true
     },
     "73": {
+      "Date": "2019-07-19T04:00:00.000Z",
       "Track": "NHMS Flat Track",
       "Class": "Midget",
       "Rotations": "1/2",
       "Surface": "Dirt",
-      "Open Wheel": "x"
+      "Open Wheel": true,
+      "Video": false
     },
     "74": {
+      "Date": "2019-08-05T04:00:00.000Z",
       "Track": "Southern Iowa Speedway",
       "Class": "410 Sprint Car",
       "Rotations": "1+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Feature",
-      "Video": "x",
+      "Video": true,
       "Notes": "Jumped cushion in turn 1"
     },
     "75": {
+      "Date": "2019-08-07T04:00:00.000Z",
       "Track": "Knoxville Raceway",
       "Class": "410 Sprint Car",
       "Rotations": "1+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
-      "When": "C Main",
+      "Open Wheel": true,
+      "Video": false,
       "Notes": "C main"
     },
     "76": {
+      "Date": "2019-08-08T04:00:00.000Z",
       "Track": "Knoxville Raceway",
       "Class": "410 Sprint Car",
       "Rotations": "3.5",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Heat",
-      "Video": "x",
+      "Video": true,
       "Notes": "Heat 1 - Fast qualifier Shane Stewart jumps cushion in 3 and rolls many times"
     },
     "77": {
+      "Date": "2019-08-08T04:00:00.000Z",
       "Track": "Knoxville Raceway",
       "Class": "410 Sprint Car",
       "Rotations": "1+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "B Main",
+      "Video": false,
       "Notes": "B main"
     },
     "78": {
+      "Date": "2019-08-09T04:00:00.000Z",
       "Track": "Knoxville Raceway",
       "Class": "410 Sprint Car",
       "Rotations": "2.5",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Heat",
-      "Video": "x",
+      "Video": true,
       "Notes": "Heat 2 - Danny Deitrich loses a tire on the final lap and goes into the turn 3 fence, ripping down a banner"
     },
     "79": {
+      "Date": "2019-08-09T04:00:00.000Z",
       "Track": "Knoxville Raceway",
       "Class": "410 Sprint Car",
       "Rotations": "3+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Heat",
+      "Video": false,
       "Notes": "Heat 6"
     },
     "80": {
+      "Date": "2019-08-09T04:00:00.000Z",
       "Track": "Knoxville Raceway",
       "Class": "410 Sprint Car",
       "Rotations": "1/4",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "B Main",
+      "Video": false,
       "Notes": "B main 1"
     },
     "81": {
+      "Date": "2019-08-09T04:00:00.000Z",
       "Track": "Knoxville Raceway",
       "Class": "410 Sprint Car",
       "Rotations": "1",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "A Main",
-      "Video": "x",
+      "Video": true,
       "Notes": "A main"
     },
     "82": {
+      "Date": "2019-08-10T04:00:00.000Z",
       "Track": "Knoxville Raceway",
       "Class": "410 Sprint Car",
       "Rotations": "4+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "D Main",
+      "Video": false,
       "Notes": "D main"
     },
     "83": {
+      "Date": "2019-08-10T04:00:00.000Z",
       "Track": "Knoxville Raceway",
       "Class": "410 Sprint Car",
       "Rotations": "4+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "C Main",
+      "Video": false,
       "Notes": "C main"
     },
     "84": {
+      "Date": "2019-08-10T04:00:00.000Z",
       "Track": "Knoxville Raceway",
       "Class": "410 Sprint Car",
       "Rotations": "1/2",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "B Main",
+      "Video": false,
       "Notes": "B main"
     },
     "85": {
+      "Date": "2019-08-10T04:00:00.000Z",
       "Track": "Knoxville Raceway",
       "Class": "410 Sprint Car",
       "Rotations": "3+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "B Main",
+      "Video": false,
       "Notes": "B main (simultaneous with one below)"
     },
     "86": {
+      "Date": "2019-08-10T04:00:00.000Z",
       "Track": "Knoxville Raceway",
       "Class": "410 Sprint Car",
       "Rotations": "3+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "B Main",
+      "Video": false,
       "Notes": "B main (simultaneous with one above)"
     },
     "87": {
+      "Date": "2019-08-25T04:00:00.000Z",
       "Track": "BAPS Motor Speedway",
       "Class": "410 Sprint Car",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
+      "Video": false,
       "Notes": "Jumped cushion in turn 1"
     },
     "88": {
+      "Date": "2019-09-08T04:00:00.000Z",
       "Track": "Glen Ridge Motorsports Park",
       "Class": "Big Block Modified",
       "Rotations": "1",
       "Surface": "Dirt",
+      "Open Wheel": false,
       "When": "Heat",
+      "Video": false,
       "Notes": "went too high into 3, right rear into wall, climbed wall with right front, rolled once"
     },
     "89": {
+      "Date": "2019-09-15T04:00:00.000Z",
       "Track": "Devil's Bowl Speedway",
       "Class": "Enduro Car",
       "Rotations": "1.5+",
       "Surface": "Dirt",
+      "Open Wheel": false,
       "When": "Enduro",
+      "Video": false,
       "Notes": "Didn't see initial cause but went barrel rolling through turn 3 at least one and a half times, landing on roof. Uncaged car."
     },
     "90": {
+      "Date": "2019-09-28T04:00:00.000Z",
       "Track": "Eldora Speedway",
       "Class": "410 Sprint Car",
       "Rotations": "1/2",
       "Surface": "Dirt",
-      "Open Wheel": "x"
+      "Open Wheel": true,
+      "Video": false
     },
     "91": {
+      "Date": "2019-09-28T04:00:00.000Z",
       "Track": "Eldora Speedway",
       "Class": "410 Sprint Car",
       "Rotations": "1/2",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
+      "Video": false,
       "Notes": "Jumped cushion in 4, 360 spin in the air then almost another on the dirt before rolling onto top then back on all fours."
     },
     "92": {
+      "Date": "2019-09-28T04:00:00.000Z",
       "Track": "Eldora Speedway",
       "Class": "Midget",
       "Rotations": "2+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
+      "Video": false,
       "Notes": "Feature, got into catch fence in 4"
     },
     "93": {
+      "Date": "2019-11-30T05:00:00.000Z",
       "Track": "Wall Stadium Speedway",
       "Class": "Three Quarter Midget",
       "Rotations": "1+",
       "Surface": "Asphalt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
+      "Video": false,
       "Notes": "Front stretch, I think jumped a wheel and rolled"
     },
     "94": {
+      "Date": "2019-12-19T05:00:00.000Z",
       "Track": "Gateway Dirt Nationals",
       "Class": "UMP/IMCA Modified",
       "Rotations": "1",
       "Surface": "Dirt",
+      "Open Wheel": false,
       "When": "Hot Laps",
+      "Video": false,
       "Notes": "Hot laps, bicycle in 1 and rolled once"
     },
     "95": {
+      "Date": "2019-12-19T05:00:00.000Z",
       "Track": "Gateway Dirt Nationals",
       "Class": "Midget",
       "Rotations": "1/2",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Qualifying",
+      "Video": false,
       "Notes": "Qualifying, turn 4, good bite on throttle, lifted front wheels, back wheel caught, sending him over to the side then upside doen"
     },
     "96": {
+      "Date": "2019-12-19T05:00:00.000Z",
       "Track": "Gateway Dirt Nationals",
       "Class": "Midget",
       "Rotations": "1",
       "Surface": "Dirt",
-      "Open Wheel": "x",
-      "Video": "x",
+      "Open Wheel": true,
+      "Video": true,
       "Notes": "Contact from the outside, dug in left side wheels and did one flip in the air, with a bit of a twist, landing back on all fours"
     },
     "97": {
+      "Date": "2019-12-19T05:00:00.000Z",
       "Track": "Gateway Dirt Nationals",
       "Class": "Midget",
       "Rotations": "2+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
+      "Video": false,
       "Notes": "Middle of 1 and 2, bicycle and flip multiple times"
     },
     "98": {
+      "Date": "2019-12-19T05:00:00.000Z",
       "Track": "Gateway Dirt Nationals",
       "Class": "UMP/IMCA Modified",
       "Rotations": "1/2",
       "Surface": "Dirt",
-      "Video": "x",
+      "Open Wheel": false,
+      "Video": true,
       "Notes": "Entering 1, snapped around and backed into the wall, rolled on roof. Bobby Pierce, out of third place"
     },
     "99": {
+      "Date": "2019-12-20T05:00:00.000Z",
       "Track": "Gateway Dirt Nationals",
       "Class": "Super Late Model",
       "Rotations": "1/2",
       "Surface": "Dirt",
-      "Video": "x",
+      "Open Wheel": false,
+      "Video": true,
       "Notes": "High line in 1, backed in, front wheels climbed the k rail and caught the fence, slow roll onto roof"
     },
     "100": {
+      "Date": "2019-12-20T05:00:00.000Z",
       "Track": "Gateway Dirt Nationals",
       "Class": "Midget",
       "Rotations": "2+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
+      "Video": false,
       "Notes": "Turn 2, side to side contact, dug in right sided and rolled several times. Simultaneous with below"
     },
     "101": {
+      "Date": "2019-12-20T05:00:00.000Z",
       "Track": "Gateway Dirt Nationals",
       "Class": "Midget",
       "Rotations": "1+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
+      "Video": false,
       "Notes": "Turn 2, didn’t see cause. Rolled at least once. Simultaneous with above"
     },
     "102": {
+      "Date": "2019-12-21T05:00:00.000Z",
       "Track": "Gateway Dirt Nationals",
       "Class": "Super Late Model",
       "Rotations": "1/2",
       "Surface": "Dirt",
+      "Open Wheel": false,
+      "Video": false,
       "Notes": "Going down front stretch, car on inside squeezed outside car into wall. Outside car bounced off, turning inside car back toward wall. He hit the curved opening with the back wheels, bounced on the left side wheels and rolled on roof"
     },
     "103": {
+      "Date": "2019-12-21T05:00:00.000Z",
       "Track": "Gateway Dirt Nationals",
       "Class": "UMP/IMCA Modified",
       "Rotations": "1/2",
       "Surface": "Dirt",
+      "Open Wheel": false,
+      "Video": false,
       "Notes": "turn 1, I think a bicycle and went on the roof"
     },
     "104": {
+      "Date": "2019-12-21T05:00:00.000Z",
       "Track": "Gateway Dirt Nationals",
       "Class": "Super Late Model",
       "Rotations": "1/2",
       "Surface": "Dirt",
-      "Video": "x",
+      "Open Wheel": false,
+      "Video": true,
       "Notes": "Extended battle for 1st and 2nd, back and forth. Car got crossed below going down front stretch, entered high, then tried to cut low below the other car sliding up through the center of the corner. Caught a rut, rolled on roof"
     },
     "105": {
+      "Date": "2019-12-21T05:00:00.000Z",
       "Track": "Gateway Dirt Nationals",
       "Class": "Midget",
       "Rotations": "1/2",
       "Surface": "Dirt",
-      "Open Wheel": "x",
-      "Video": "x",
+      "Open Wheel": true,
+      "Video": true,
       "Notes": "Caught wheels with another car, multiple flat spins, almost cartwheeling before rolling on the roof"
     },
     "106": {
+      "Date": "2019-12-21T05:00:00.000Z",
       "Track": "Gateway Dirt Nationals",
       "Class": "Midget",
       "Rotations": "1/2",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
+      "Video": false,
       "Notes": "Caught a rut with the left side, then with the right and went over"
     },
     "107": {
+      "Date": "2020-01-04T05:00:00.000Z",
       "Track": "PPL Center",
       "Class": "TQ Midget",
       "Rotations": "1/2+",
       "Surface": "Concrete",
-      "Open Wheel": "x",
+      "Open Wheel": true,
+      "Video": false,
       "Didn't see": "x",
       "Notes": "Probably climbed the k rail and rolled. Backstretch after the checkered flag"
     },
     "108": {
+      "Date": "2020-01-04T05:00:00.000Z",
       "Track": "PPL Center",
       "Class": "Slingshot",
       "Rotations": "1+",
       "Surface": "Concrete",
+      "Open Wheel": false,
+      "Video": false,
       "Didn't see": "x",
       "Notes": "Rolled in the middle of 1 and 2, slid into the k rail on the exit of 2"
     },
     "109": {
+      "Date": "2020-01-04T05:00:00.000Z",
       "Track": "PPL Center",
       "Class": "Slingshot",
       "Rotations": "1/2",
       "Surface": "Concrete",
+      "Open Wheel": false,
+      "Video": false,
       "Notes": "Spun in 1, rolled on roof"
     },
     "110": {
+      "Date": "2020-01-04T05:00:00.000Z",
       "Track": "PPL Center",
       "Class": "TQ Midget",
       "Rotations": "3/4",
       "Surface": "Concrete",
-      "Open Wheel": "x",
-      "Video": "x",
+      "Open Wheel": true,
+      "Video": true,
       "Notes": "Climbed a wheel on front stretch, rolled on roof"
     },
     "111": {
+      "Date": "2020-01-04T05:00:00.000Z",
       "Track": "PPL Center",
       "Class": "TQ Midget",
       "Rotations": "1/2",
       "Surface": "Concrete",
-      "Open Wheel": "x",
-      "Video": "x",
+      "Open Wheel": true,
+      "Video": true,
       "Notes": "Jumped a wheel as part of a large stackup entering 1, rolled on roof"
     },
     "112": {
+      "Date": "2020-02-22T05:00:00.000Z",
       "Track": "Cure Insurance Arena",
       "Class": "600cc Micro Sprint",
       "Rotations": "1/2",
       "Surface": "Clay",
-      "Open Wheel": "x",
+      "Open Wheel": true,
+      "Video": false,
       "Notes": "Turn 1 off restart in a multi-car pileup. Car got up on two side wheels and another car got underneath and rolled him rear over nose, landing on roof"
     },
     "113": {
+      "Date": "2020-02-22T05:00:00.000Z",
       "Track": "Cure Insurance Arena",
       "Class": "600cc Micro Sprint",
       "Rotations": "1",
       "Surface": "Clay",
-      "Open Wheel": "x",
+      "Open Wheel": true,
+      "Video": false,
       "Notes": "Exit of turn 2 three cars got together. One rolled once and one got airborne and into the wall without flipping."
     },
     "114": {
+      "Date": "2020-02-22T05:00:00.000Z",
       "Track": "Cure Insurance Arena",
       "Class": "600cc Micro Sprint",
       "Rotations": "1/4",
       "Surface": "Clay",
-      "Open Wheel": "x",
+      "Open Wheel": true,
+      "Video": false,
       "Notes": "Car in front spun, then car hit him side to side and rolled on the side."
     },
     "115": {
+      "Date": "2020-02-22T05:00:00.000Z",
       "Track": "Cure Insurance Arena",
       "Class": "600cc Micro Sprint",
       "Rotations": "1/2",
       "Surface": "Clay",
-      "Open Wheel": "x",
+      "Open Wheel": true,
+      "Video": false,
       "Notes": "After checkered flag, car in front checked up after getting into the outside wall, car behind jumped a wheel and nose picked, rolling onto the roof."
     },
     "116": {
+      "Date": "2020-02-22T05:00:00.000Z",
       "Track": "Cure Insurance Arena",
       "Class": "600cc Micro Sprint",
       "Rotations": "1",
       "Surface": "Clay",
-      "Open Wheel": "x",
+      "Open Wheel": true,
+      "Video": false,
       "Notes": "Turn 4, car got sideways in front and tagged another car's right rear, sending it over very fast in a barrel roll, almost landing back on the wheels."
     },
     "117": {
+      "Date": "2020-03-15T04:00:00.000Z",
       "Track": "William's Grove Speedway",
       "Class": "410 Sprint Car",
       "Rotations": "1",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Heat",
+      "Video": false,
       "Notes": "Turn 2, car in front spin and Lucas Wolfe had nowhere to go, clipping the car with the rear and rolling onto roof"
     },
     "118": {
+      "Date": "2020-06-16T04:00:00.000Z",
       "Track": "Paragon Speedway",
       "Class": "Midget",
       "Rotations": "2+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Hot Laps",
+      "Video": false,
       "Notes": "Hot laps Going into turn 1, went over the top of the banking and rolled multiple times"
     },
     "119": {
+      "Date": "2020-06-16T04:00:00.000Z",
       "Track": "Paragon Speedway",
       "Class": "Midget",
       "Rotations": "3+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Qualifying",
-      "Video": "x",
+      "Video": true,
       "Notes": "Zeb Wise in qualifying, too hot into 1, bicycle into wild flips"
     },
     "120": {
+      "Date": "2020-06-16T04:00:00.000Z",
       "Track": "Paragon Speedway",
       "Class": "Midget",
       "Rotations": "1",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Heat",
+      "Video": false,
       "Notes": "Heat, turn 2, car in front spun, Brady Bacon got sideways trying to stop and hit him, rolling once"
     },
     "121": {
+      "Date": "2020-06-16T04:00:00.000Z",
       "Track": "Paragon Speedway",
       "Class": "Midget",
       "Rotations": "3+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "B Main",
+      "Video": false,
       "Notes": "B main, turn 2, didn't see cause but multiple flips"
     },
     "122": {
+      "Date": "2020-06-16T04:00:00.000Z",
       "Track": "Paragon Speedway",
       "Class": "Midget",
       "Rotations": "1",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "B Main",
+      "Video": false,
       "Notes": "B main, got burm on bottom of track, got sideways and did a pirouette then rolled"
     },
     "123": {
+      "Date": "2020-06-16T04:00:00.000Z",
       "Track": "Paragon Speedway",
       "Class": "Midget",
       "Rotations": "5+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "A Main",
+      "Video": false,
       "Notes": "Feature, turn 2 jumped cushion, dug in lefts and barel rolled many times very quickly"
     },
     "124": {
+      "Date": "2020-06-16T04:00:00.000Z",
       "Track": "Paragon Speedway",
       "Class": "Midget",
       "Rotations": "1+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "A Main",
+      "Video": false,
       "Notes": "Feature, 3rd place I turn 2 flipped and landed on wheels, I only saw very end"
     },
     "125": {
+      "Date": "2020-06-16T04:00:00.000Z",
       "Track": "Paragon Speedway",
       "Class": "Wingless 410 Sprint Car",
       "Rotations": "1/2+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "A Main",
+      "Video": false,
       "Didn't see": "*",
       "Notes": "Feature, didn't see. Turn 2, landed on side"
     },
     "126": {
+      "Date": "2020-06-16T04:00:00.000Z",
       "Track": "Paragon Speedway",
       "Class": "Wingless 410 Sprint Car",
       "Rotations": "3",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "A Main",
-      "Video": "x",
+      "Video": true,
       "Notes": "Feature in turn 2. Third place tried to take first, slid in front and first place car launched over wheel and into air, clipping forward end over end at least twice with big air."
     },
     "127": {
+      "Date": "2020-06-17T04:00:00.000Z",
       "Track": "Gas City Speedway",
       "Class": "Midget",
       "Rotations": "3+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Hot Laps",
-      "Video": "x",
+      "Video": true,
       "Notes": "Hot laps. Wheelie coming out of two, tilted over into right side and caught front wheel, tumbling many times end over end. Max McLaughlin flip for second night in a row"
     },
     "128": {
+      "Date": "2020-06-17T04:00:00.000Z",
       "Track": "Gas City Speedway",
       "Class": "Midget",
       "Rotations": "2",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Qualifying",
-      "Video": "x",
+      "Video": true,
       "Notes": "Qualifying. T mez popped wheelie in 2 then caught the right front, flipping end over end"
     },
     "129": {
+      "Date": "2020-06-17T04:00:00.000Z",
       "Track": "Gas City Speedway",
       "Class": "Midget",
       "Rotations": "2+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Heat",
+      "Video": false,
       "Notes": "Heat 2, didn't see start but I did see part of a car above the catch fence"
     },
     "130": {
+      "Date": "2020-06-17T04:00:00.000Z",
       "Track": "Gas City Speedway",
       "Class": "Wingless 410 Sprint Car",
       "Rotations": "1+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Heat",
+      "Video": false,
       "Notes": "Heat, turn 3, car behind drove in deep and hit car in front, front car popped into air and dug in, flipping over forward"
     },
     "131": {
+      "Date": "2020-06-17T04:00:00.000Z",
       "Track": "Gas City Speedway",
       "Class": "Midget",
       "Rotations": "1",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "C Main",
+      "Video": false,
       "Notes": "C main. Got turned, hooked the side and flipped once landing on the wheels"
     },
     "132": {
+      "Date": "2020-06-17T04:00:00.000Z",
       "Track": "Gas City Speedway",
       "Class": "Midget",
       "Rotations": "2+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "C Main",
+      "Video": false,
       "Notes": "C main. Didn't see start, think it just bicycled and tumbled a few times"
     },
     "133": {
+      "Date": "2020-06-17T04:00:00.000Z",
       "Track": "Gas City Speedway",
       "Class": "Midget",
       "Rotations": "2.5",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "A Main",
+      "Video": false,
       "Notes": "Main, t mez again in turn 4. Was going caution for another car, didn't see start but I guess he spun after going over the top of the turn and rolled at least one and a half, landing on roof"
     },
     "134": {
+      "Date": "2020-06-18T04:00:00.000Z",
       "Track": "Lincoln Park Speedway",
       "Class": "Midget",
       "Rotations": "3+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Heat",
+      "Video": false,
       "Notes": "Multiple flips in turn 4, landing on wheels. Logan seavey"
     },
     "135": {
+      "Date": "2020-06-18T04:00:00.000Z",
       "Track": "Lincoln Park Speedway",
       "Class": "Wingless 410 Sprint Car",
       "Rotations": "1",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "B main",
+      "Video": false,
       "Notes": "Turn 2, hit wheels with another car, turned sideways and flipped once"
     },
     "136": {
+      "Date": "2020-06-18T04:00:00.000Z",
       "Track": "Lincoln Park Speedway",
       "Class": "Midget",
       "Rotations": "1/2+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Main",
+      "Video": false,
       "Notes": "Turn 3, didn't really see but ended on roof"
     },
     "137": {
+      "Date": "2020-06-19T04:00:00.000Z",
       "Track": "Tri-State Speedway",
       "Class": "410 Sprint Car",
       "Rotations": "1/4",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Heat",
+      "Video": false,
       "Notes": "On initial green, car in front didn't accelerate as quickly. Caught wheels, popped front end up high, came down a bit sideways then caught the lefts and rolled on side"
     },
     "138": {
+      "Date": "2020-06-19T04:00:00.000Z",
       "Track": "Tri-State Speedway",
       "Class": "410 Sprint Car",
       "Rotations": "3+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Main",
+      "Video": false,
       "Notes": "Turn 1, Jeff Swindell jumped cushion and tumbled, knocking the top off the wooden banners and clearing the wall! They apparently had to cut the car away from the sign post"
     },
     "139": {
+      "Date": "2020-06-19T04:00:00.000Z",
       "Track": "Tri-State Speedway",
       "Class": "UMP Modified",
       "Rotations": "1",
       "Surface": "Dirt",
+      "Open Wheel": false,
       "When": "Main",
+      "Video": false,
       "Notes": "Turn 2, car spun on exit. Another car went low suddenly, third car behind swerved to try to avoid and just clipped the second car on its left side, climbing up a bit and rolling once"
     },
     "140": {
+      "Date": "2020-06-20T04:00:00.000Z",
       "Track": "Lawrenceburg Speedway",
       "Class": "Wingless 410 Sprint Car",
       "Rotations": "1/2",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Heat",
-      "Video": "x",
+      "Video": true,
       "Notes": "Car 1 loses a front tire and slows. Car 2 goes low to avoid, clips wheels. The flat tire causes car 2 to dig into the front stretch and tumble forward several times. Car 1 also rolled, I think because of the contact broke a front tire that also dug and more slowly rolled him over."
     },
     "141": {
+      "Date": "2020-06-20T04:00:00.000Z",
       "Track": "Lawrenceburg Speedway",
       "Class": "Wingless 410 Sprint Car",
       "Rotations": "1.5",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Heat",
-      "Video": "x",
+      "Video": true,
       "Notes": "Described above"
     },
     "142": {
+      "Date": "2020-06-20T04:00:00.000Z",
       "Track": "Lawrenceburg Speedway",
       "Class": "Midget",
       "Rotations": "4",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Main",
-      "Video": "x",
+      "Video": true,
       "Notes": "Andrew Layser jumper cushion in 4 and rolled many times"
     },
     "143": {
+      "Date": "2020-06-20T04:00:00.000Z",
       "Track": "Lawrenceburg Speedway",
       "Class": "Wingless 410 Sprint Car",
       "Rotations": "1/2+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Main",
+      "Video": false,
       "Notes": "Two together in 4, didn't see start"
     },
     "144": {
+      "Date": "2020-06-20T04:00:00.000Z",
       "Track": "Lawrenceburg Speedway",
       "Class": "Wingless 410 Sprint Car",
       "Rotations": "1/2+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Main",
+      "Video": false,
       "Notes": "Described above"
     },
     "145": {
+      "Date": "2020-06-21T04:00:00.000Z",
       "Track": "Kokomo Speedway",
       "Class": "Wingless 410 Sprint Car",
       "Rotations": "1.5",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Heat",
-      "Video": "x",
+      "Video": true,
       "Notes": "Overran cushion, backed into wall, rolled once then did a bit of a pirouette on back and landed on roof"
     },
     "146": {
+      "Date": "2020-06-21T04:00:00.000Z",
       "Track": "Kokomo Speedway",
       "Class": "Wingless 410 Sprint Car",
       "Rotations": "4+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "B main",
-      "Video": "x",
+      "Video": true,
       "Notes": "Started flipping in the middle of 3 and 4, I assume a bike. Rolled violently many times."
     },
     "147": {
+      "Date": "2020-06-21T04:00:00.000Z",
       "Track": "Kokomo Speedway",
       "Class": "Midget",
       "Rotations": "2.5",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Main",
-      "Video": "x",
+      "Video": true,
       "Notes": "Tyler Courtney out of the lead on a restart going into 1 caught a rut and rolled two and a half times, ending on side"
     },
     "148": {
+      "Date": "2020-06-21T04:00:00.000Z",
       "Track": "Kokomo Speedway",
       "Class": "Wingless 410 Sprint Car",
       "Rotations": "2",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Main",
+      "Video": false,
       "Notes": "T mez, Turn 3 and 4, caught a rut and flipped twice, landing on wheels"
     },
     "149": {
+      "Date": "2020-06-28T04:00:00.000Z",
       "Track": "Selinsgrove Speedway",
       "Class": "410 Sprint Car",
       "Rotations": "2",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Heat",
-      "Video": "x",
+      "Video": true,
       "Notes": "Turn 3, didn't see start. Flipped over guardrail and out of track, landing on wheels"
     },
     "150": {
+      "Date": "2020-06-29T04:00:00.000Z",
       "Track": "Lincoln Speedway",
       "Class": "410 Sprint Car",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Heat",
+      "Video": false,
       "Didn't see": "x",
       "Notes": "Turn 2 / Backstretch"
     },
     "151": {
+      "Date": "2020-06-29T04:00:00.000Z",
       "Track": "Lincoln Speedway",
       "Class": "410 Sprint Car",
       "Rotations": "2+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "B Main",
+      "Video": false,
       "Notes": "Turn 2, didn't see start but was up high and barrel rolling multiple times"
     },
     "152": {
+      "Date": "2020-06-30T04:00:00.000Z",
       "Track": "Grandview Speedway",
       "Class": "410 Sprint Car",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Heat",
+      "Video": false,
       "Didn't see": "x",
       "Notes": "Turn 2, Cory Eliason out of the lead with a good gap on second"
     },
     "153": {
+      "Date": "2020-07-01T04:00:00.000Z",
       "Track": "Port Royal Speedway",
       "Class": "410 Sprint Car",
       "Rotations": "1/2",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Main",
+      "Video": false,
       "Notes": "Turn 1 initial start, Cory Eliason spun, car came behind and couldn't avoid, clipped wheel and went over on roof"
     },
     "154": {
+      "Date": "2020-07-03T04:00:00.000Z",
       "Track": "Big Diamond Speedway",
       "Class": "USAC 360 Sprint Car",
       "Rotations": "4+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Main",
-      "Video": "x",
+      "Video": true,
       "Notes": "Turn 3, caught bike and tumbled multiple times, going well over the guardrail and out of the track. He was end over end over the wall, it looked like he even landed the nose on the wall as he was going over."
     },
     "155": {
+      "Date": "2020-07-18T04:00:00.000Z",
       "Track": "Bear Ridge Speedway",
       "Class": "Sportsman Coupe",
       "Rotations": "1/2",
       "Surface": "Dirt",
+      "Open Wheel": false,
       "When": "Heat",
+      "Video": false,
       "Notes": "Exit of 4, got turned to infield, went down embankment and dug in right sides, rolling on roof"
     },
     "156": {
+      "Date": "2020-07-18T04:00:00.000Z",
       "Track": "Bear Ridge Speedway",
       "Class": "Midget",
       "Rotations": "1.5",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Main",
+      "Video": false,
       "Notes": "Turn 2, two wide. Cars got together, bottom car got forced down under the berm at the bottom and caught with the left sides, flipping one complete time and landing on the side"
     },
     "157": {
+      "Date": "2020-08-15T04:00:00.000Z",
       "Track": "Bear Ridge Speedway",
       "Class": "4 Cylinder",
       "Rotations": "1+",
       "Surface": "Dirt",
+      "Open Wheel": false,
       "When": "Main",
+      "Video": false,
       "Notes": "Backstretch going into 3, didn't see cause. Car rolled once at least, I saw it on the roof and land back on wheels. My guess is he caught the wall with the rear, of got turned nose into the wall, and hooked the lefts and rolled."
     },
     "158": {
+      "Date": "2020-08-20T04:00:00.000Z",
       "Track": "Lincoln Speedway",
       "Class": "Super Late Model",
       "Rotations": "1/2+",
       "Surface": "Dirt",
+      "Open Wheel": false,
       "When": "Main",
+      "Video": false,
       "Notes": "Turn 3, not sure the exact cause, driver said he got in too hot and the top of the cage hit the wall."
     },
     "159": {
+      "Date": "2020-08-22T04:00:00.000Z",
       "Track": "Lucas Oil Speedway (Off Road Course)",
       "Class": "Pro Lite",
       "Rotations": "3/4",
       "Surface": "Dirt",
+      "Open Wheel": false,
       "When": "Main",
+      "Video": false,
       "Notes": "Going into esses, caught the bike (might have hit the inside tire) and rolled 3/4 over and stopped up on the side"
     },
     "160": {
+      "Date": "2020-08-22T04:00:00.000Z",
       "Track": "Lucas Oil Speedway (Off Road Course)",
       "Class": "Turbo UTV",
       "Rotations": "2+",
       "Surface": "Dirt",
+      "Open Wheel": false,
       "When": "Main",
+      "Video": false,
       "Notes": "Off ski jump, didn't see start but tumbled multiple times."
     },
     "161": {
+      "Date": "2020-08-22T04:00:00.000Z",
       "Track": "Lucas Oil Speedway Off Road Course",
       "Class": "Production UTV",
       "Rotations": "1/2",
       "Surface": "Dirt",
+      "Open Wheel": false,
       "When": "Main",
+      "Video": false,
       "Notes": "Didn't see cause, rolled over onto side in esses"
     },
     "162": {
+      "Date": "2020-08-22T04:00:00.000Z",
       "Track": "Lucas Oil Speedway Off Road Course",
       "Class": "Production UTV",
       "Rotations": "2+",
       "Surface": "Dirt",
+      "Open Wheel": false,
       "When": "Main",
+      "Video": false,
       "Notes": "Exiting first turn, tumbled multiple times and landed on wheels. Drove away"
     },
     "163": {
+      "Date": "2020-08-23T04:00:00.000Z",
       "Track": "Indiana State Fairgrounds",
       "Class": "USAC Silver Crown",
       "Rotations": "1+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Main",
+      "Video": false,
       "Notes": "Exit of 2 down backstretch. Didn't see start as the caution had just come out for a car hitting the wall exiting 4. Kody Swanson flipped, and another car flipped over inside guardrail."
     },
     "164": {
+      "Date": "2020-08-23T04:00:00.000Z",
       "Track": "Indiana State Fairgrounds",
       "Class": "USAC Silver Crown",
       "Rotations": "1+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Main",
+      "Video": false,
       "Notes": "^^^"
     },
     "165": {
+      "Date": "2020-08-23T04:00:00.000Z",
       "Track": "Indiana State Fairgrounds",
       "Class": "USAC Silver Crown",
       "Rotations": "1+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Main",
+      "Video": false,
       "Notes": "Stack up exiting two. Brady Bacon came in late and hopped the rear wheel of a car in front, going kind of up over him and rolling down the backstretch."
     },
     "166": {
+      "Date": "2020-08-23T04:00:00.000Z",
       "Track": "Indiana State Fairgrounds",
       "Class": "USAC Silver Crown",
       "Rotations": "1+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Main",
+      "Video": false,
       "Notes": "Same incident as above, didn't see cause in the mayhem but saw him flipping. Ended up side down against the outside wall down the backstretch."
     },
     "167": {
+      "Date": "2020-08-23T04:00:00.000Z",
       "Track": "Indiana State Fairgrounds",
       "Class": "USAC Silver Crown",
       "Rotations": "2+ (?)",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Main",
+      "Video": false,
       "Didn't see": "x",
       "Notes": "Exit of 4, went into wall (in a manner akin to cutting a right front). The wall itself was out of view because of buildings in the way but I believe he flipped because the reflections and dirt flying were consistent with such and they immediately went red."
     },
     "168": {
+      "Date": "2020-08-27T04:00:00.000Z",
       "Track": "Kokomo Speedway",
       "Class": "Wingless 410 Sprint Car",
       "Rotations": "1/2",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Qualifying",
+      "Video": false,
       "Notes": "Exit of 4, looked tight and didn't get the car rotated. Went into outside wall with the side of the car, bounced off and caught the left side tires, rolling onto roof"
     },
     "169": {
+      "Date": "2020-08-27T04:00:00.000Z",
       "Track": "Kokomo Speedway",
       "Class": "Wingless 410 Sprint Car",
       "Rotations": "2+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Heat",
+      "Video": false,
       "Notes": "Lapped car, on the bottom of 3 and 4. Hit the infield tire, flipped multiple times."
     },
     "170": {
+      "Date": "2020-08-28T04:00:00.000Z",
       "Track": "Kokomo Speedway",
       "Class": "Wingless 410 Sprint Car",
       "Rotations": "2+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "B Main",
+      "Video": false,
       "Notes": "Stack up on front stretch. One car got into the wall exiting 4, another car got clipped in the right rear, turned toward the front stretch wall, corrected, and caught the right sides, flipping multiple times at the end of the front stretch."
     },
     "171": {
+      "Date": "2020-08-28T04:00:00.000Z",
       "Track": "Kokomo Speedway",
       "Class": "Wingless 410 Sprint Car",
       "Rotations": "1/2+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Main",
+      "Video": false,
       "Notes": "Justin Grant. Didn't see cause. Ended up upside down on front stretch."
     },
     "172": {
+      "Date": "2020-08-28T04:00:00.000Z",
       "Track": "Kokomo Speedway",
       "Class": "Wingless 410 Sprint Car",
       "Rotations": "1+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Main",
+      "Video": false,
       "Notes": "Simultaneous with above. Didn't see cause, tumbled down front stretch. I know Grant was running the top and I assume they came together exiting the turn, one drifting into the other."
     },
     "173": {
+      "Date": "2020-08-29T04:00:00.000Z",
       "Track": "Macon Speedway",
       "Class": "D2 Midget",
       "Rotations": "1.5",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Heat",
-      "Video": "x",
+      "Video": true,
       "Notes": "Bike in turn 1, overcorrected and got up on the left sides, rolling once and a half"
     },
     "174": {
+      "Date": "2020-08-29T04:00:00.000Z",
       "Track": "Macon Speedway",
       "Class": "D2 Midget",
       "Rotations": "2",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Heat",
-      "Video": "x",
+      "Video": true,
       "Notes": "Two cars came together in turn 3. Bottom car got clipped in the right rear and flipped violently, multiple times in the air, and hit the corner of the wall with the top of the roll cage, denting in the cage significantly."
     },
     "175": {
+      "Date": "2020-08-29T04:00:00.000Z",
       "Track": "Macon Speedway",
       "Class": "D2 Midget",
       "Rotations": "2",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Main",
-      "Video": "x",
+      "Video": true,
       "Notes": "Exit of 2. Contact, tumbled twice down backstretch"
     },
     "176": {
+      "Date": "2020-09-12T04:00:00.000Z",
       "Track": "Bear Ridge Speedway",
       "Class": "600cc Mini Sprint",
       "Rotations": "1.5",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Heat",
+      "Video": false,
       "Notes": "Coming down front straight on initial start, two cars had contact and one was turned up the track, caught lefts and rolled one and a half times"
     },
     "177": {
+      "Date": "2020-09-12T04:00:00.000Z",
       "Track": "Bear Ridge Speedway",
       "Class": "600cc Mini Sprint",
       "Rotations": "1/4",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Main",
+      "Video": false,
       "Notes": "Caution was out, cars were in the process of slowing. Car got turned from behind up the track in turn 3, rolling on side. Car was righted and continued on, getting his third spot back"
     },
     "178": {
+      "Date": "2020-09-19T04:00:00.000Z",
       "Track": "Bear Ridge Speedway",
       "Class": "4 Cylinder",
       "Rotations": "1/2",
       "Surface": "Dirt",
+      "Open Wheel": false,
       "When": "Main",
+      "Video": false,
       "Notes": "A car was slow on the front stretch, another car came below to avoid and clipped the left front with the right rear, got spun up toward the wall and rolled onto the roof."
     },
     "179": {
+      "Date": "2020-09-26T04:00:00.000Z",
       "Track": "Bear Ridge Speedway",
       "Class": "Enduro car",
       "Rotations": "1/2",
       "Surface": "Dirt",
+      "Open Wheel": false,
       "When": "Enduro",
+      "Video": false,
       "Notes": "Didn't see cause, rolled onto roof on the backstretch. Presumably got hooked up the track and caught an edge."
     },
     "180": {
+      "Date": "2020-09-26T04:00:00.000Z",
       "Track": "Bear Ridge Speedway",
       "Class": "Enduro truck",
       "Rotations": "1/4",
       "Surface": "Dirt",
+      "Open Wheel": false,
       "When": "Enduro",
+      "Video": false,
       "Notes": "Got turned up the track at the end of the backstretch, hooked the left sides and rolled onto side."
     },
     "181": {
+      "Date": "2020-11-06T05:00:00.000Z",
       "Track": "Bridgeport Motorsports Park",
       "Class": "360 Sprint Car",
       "Rotations": "1.5",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "B Main",
+      "Video": false,
       "Notes": "Caught bike in 2, bounced on right side then dug in with lefts and rolled once in the air and another half on the ground"
     },
     "182": {
+      "Date": "2020-11-06T05:00:00.000Z",
       "Track": "Bridgeport Motorsports Park",
       "Class": "360 Sprint Car",
       "Rotations": "2",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Main",
+      "Video": false,
       "Notes": "Looks to have went too high in 2 and got into the wall, I caught it as he was starting to roll. Went over the left wheels and flipped twice and landed on all fours."
     },
     "183": {
+      "Date": "2020-11-07T05:00:00.000Z",
       "Track": "Bridgeport Motorsports Park",
       "Class": "360 Sprint Car",
       "Rotations": "3",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "B Main",
+      "Video": false,
       "Notes": "Went too high in 3, right rear got into the wall, pulling the front into it and he rolled I think 3 times down the track, landing on the wheels."
     },
     "184": {
+      "Date": "2020-11-07T05:00:00.000Z",
       "Track": "Bridgeport Motorsports Park",
       "Class": "Big Block Modified",
       "Rotations": "1",
       "Surface": "Dirt",
+      "Open Wheel": false,
       "When": "Main",
+      "Video": false,
       "Notes": "After taking the checkered flag, the winner kept on the gas through the cooldown lap. He got into a lapped car in 4, spinning the lapped car out and then got collected by another car and put into the front stretch wall. The right front climbed the wall and he kept on the gas, riding a wheelie shortly until the right front caught the catch fence, tearing out multiple poles and rolling the car over once, landing on the wheels at the start finish line."
     },
     "185": {
+      "Date": "2020-11-08T05:00:00.000Z",
       "Track": "Bridgeport Motorsports Park",
       "Class": "USAC SpeedSTR",
       "Rotations": "1+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Heat",
+      "Video": false,
       "Notes": "Car A spun in 4. Car B had nowhere to go and hit him in the driver's side. Car B flipped over the right side wheels and did a long pirouette on the rear before landing on the roof. Car A rolled once and landed on the wheels."
     },
     "186": {
+      "Date": "2020-11-08T05:00:00.000Z",
       "Track": "Bridgeport Motorsports Park",
       "Class": "USAC SpeedSTR",
       "Rotations": "1",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Heat",
+      "Video": false,
       "Notes": "Described above"
     },
     "187": {
+      "Date": "2020-11-08T05:00:00.000Z",
       "Track": "Bridgeport Motorsports Park",
       "Class": "USAC SpeedSTR",
       "Rotations": "3+",
       "Surface": "Dirt",
-      "Open Wheel": "x",
+      "Open Wheel": true,
       "When": "Main",
-      "Video": "x",
+      "Video": true,
       "Notes": "Turn 3, I think spun and backed into the wall, hit with the left rear which sent him cartwheeling mutliple times down the track, landing on the wheels"
     },
-    "188": {},
-    "189": {},
-    "190": {},
-    "191": {},
-    "192": {},
-    "193": {},
-    "194": {},
-    "195": {},
-    "196": {},
-    "197": {},
-    "198": {},
-    "199": {},
-    "200": {},
-    "201": {},
-    "202": {},
-    "203": {},
-    "204": {},
-    "205": {},
-    "206": {},
-    "207": {},
-    "208": {},
-    "209": {},
-    "210": {},
-    "211": {},
-    "212": {},
-    "213": {},
-    "214": {},
-    "215": {},
-    "216": {},
-    "217": {},
-    "218": {},
-    "219": {},
-    "220": {},
-    "221": {},
-    "222": {},
-    "223": {},
-    "224": {},
-    "225": {},
-    "226": {},
-    "227": {},
-    "228": {},
-    "229": {},
-    "230": {},
-    "231": {},
-    "232": {},
-    "233": {},
-    "234": {},
-    "235": {},
-    "236": {},
-    "237": {},
-    "238": {},
-    "239": {},
-    "240": {},
-    "241": {},
-    "242": {},
-    "243": {},
-    "244": {},
-    "245": {},
-    "246": {},
-    "247": {},
-    "248": {},
-    "249": {},
-    "250": {},
-    "251": {},
-    "252": {},
-    "253": {},
-    "254": {},
-    "255": {},
-    "256": {},
-    "257": {},
-    "258": {},
-    "259": {},
-    "260": {},
-    "261": {},
-    "262": {},
-    "263": {},
-    "264": {},
-    "265": {},
-    "266": {},
-    "267": {},
-    "268": {},
-    "269": {},
-    "270": {},
-    "271": {},
-    "272": {},
-    "273": {},
-    "274": {},
-    "275": {},
-    "276": {},
-    "277": {},
-    "278": {},
-    "279": {},
-    "280": {},
-    "281": {},
-    "282": {},
-    "283": {},
-    "284": {},
-    "285": {},
-    "286": {},
-    "287": {},
-    "288": {},
-    "289": {},
-    "290": {},
-    "291": {},
-    "292": {},
-    "293": {},
-    "294": {},
-    "295": {},
-    "296": {},
-    "297": {},
-    "298": {},
-    "299": {},
-    "300": {},
-    "301": {},
-    "302": {},
-    "303": {},
-    "304": {},
-    "305": {},
-    "306": {},
-    "307": {},
-    "308": {},
-    "309": {},
-    "310": {},
-    "311": {},
-    "312": {},
-    "313": {},
-    "314": {},
-    "315": {},
-    "316": {},
-    "317": {},
-    "318": {},
-    "319": {},
-    "320": {},
-    "321": {},
-    "322": {},
-    "323": {}
+    "188": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "189": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "190": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "191": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "192": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "193": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "194": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "195": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "196": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "197": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "198": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "199": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "200": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "201": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "202": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "203": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "204": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "205": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "206": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "207": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "208": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "209": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "210": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "211": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "212": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "213": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "214": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "215": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "216": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "217": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "218": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "219": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "220": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "221": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "222": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "223": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "224": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "225": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "226": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "227": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "228": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "229": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "230": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "231": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "232": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "233": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "234": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "235": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "236": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "237": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "238": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "239": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "240": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "241": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "242": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "243": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "244": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "245": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "246": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "247": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "248": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "249": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "250": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "251": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "252": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "253": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "254": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "255": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "256": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "257": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "258": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "259": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "260": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "261": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "262": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "263": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "264": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "265": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "266": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "267": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "268": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "269": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "270": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "271": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "272": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "273": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "274": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "275": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "276": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "277": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "278": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "279": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "280": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "281": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "282": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "283": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "284": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "285": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "286": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "287": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "288": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "289": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "290": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "291": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "292": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "293": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "294": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "295": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "296": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "297": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "298": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "299": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "300": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "301": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "302": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "303": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "304": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "305": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "306": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "307": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "308": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "309": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "310": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "311": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "312": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "313": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "314": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "315": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "316": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "317": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "318": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "319": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "320": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "321": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "322": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "323": {
+      "Open Wheel": false,
+      "Video": false
+    },
+    "": {
+      "Open Wheel": false,
+      "Video": false
+    }
   },
   "Helper": {
     "Asphalt Flips": {

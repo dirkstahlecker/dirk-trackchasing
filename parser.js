@@ -38,15 +38,20 @@ async function makeFlipsData(json)
 	
 	flipsJson = json[FLIPS_HEADER];
 	const flips = {};
-	Object.keys(flipsJson).forEach((date) => {
-		const flipInfo = flipsJson[date];
+	Object.keys(flipsJson).forEach((flipId) => {
+		const flipInfo = flipsJson[flipId];
 		const trackName = flipInfo["Track"];
+		let openWheel = false;
+		if (flipInfo["Open Wheel"])
+		{
+			openWheel = true;
+		}
 		const newObjToAdd = {
-			"date": date, 
+			"date": flipInfo["Date"], 
 			"class": flipInfo["Class"], 
 			"rotations": flipInfo["Rotations"], 
 			"surface": flipInfo["Surface"],
-			"openwheel": flipInfo["'Open Wheel'"],
+			"openWheel": openWheel,
 			"when": flipInfo["When"],
 			"video": flipInfo["Video"],
 			"notes": flipInfo["Notes"]

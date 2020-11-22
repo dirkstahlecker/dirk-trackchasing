@@ -84,7 +84,7 @@ test('getTrackFullInfo', async() => {
 	expect(la.flips).toBeUndefined();
 });
 
-test('flips', async() => {
+it('number of flips per track', async() => {
 	let flips = await server.getFlipsForTrack("Eldora Speedway");
 	expect(flips.length).toBe(3);
 
@@ -101,7 +101,31 @@ test('flips', async() => {
 	expect(flips.length).toBe(1);
 });
 
+it('flip objects', async() => {
+	let flips = await server.getFlipsForTrack("Pocatello Speedway");
+	expect(flips.length).toBe(1);
+
+	let flip = flips[0];
+	expect(flip.class).toEqual("Champ Kart");
+	expect(flip.openWheel).toBeTruthy();
+	expect(flip.rotations).toEqual("1/4");
+	expect(flip.video).toBeFalsy();
+
+	flips = await server.getFlipsForTrack("Knoxville Raceway");
+	flip = flips.find((f) => {
+		return f.when === "A Main"; //Knoxville only has one flip in a A main
+	});
+	expect(flip.class).toEqual("410 Sprint Car");
+	expect(flip.openWheel).toBeTruthy();
+	expect(flip.rotations).toEqual("1");
+	expect(flip.video).toBeTruthy();
+	expect(flip.surface).toEqual("Dirt");
+	expect(flip.date).toEqual("2019-08-09T04:00:00.000Z");
+});
+
 //TODO: currently breaks
 // test('capitalization', () => {
 // 	expect(server.getCountForTrack("seeKoNK speedWAY")).toBe(46);
 // });
+
+
