@@ -97,7 +97,8 @@ async function getCountForTrack(rawName)
 
 async function getFlipsForTrack(rawName)
 {
-	return parser.flipsData()[rawName];
+	flipData = await parser.flipsData();
+	return flipData[rawName];
 }
 
 

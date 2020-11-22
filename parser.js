@@ -6,7 +6,7 @@ const DATA_PATH = "events_data.json";
 const TEST_DATA_PATH = "events_data_test.json";
 
 let parsedJson = null;
-let flipsData = null; // {name : [ date, track, class, rotations, surface, open wheel, when, video, notes ] }
+let _flipsData = null; // {name : [ date, track, class, rotations, surface, open wheel, when, video, notes ] }
 
 function runningJestTest() 
 {
@@ -18,12 +18,22 @@ function dataPath()
 	return runningJestTest() ? TEST_DATA_PATH : DATA_PATH;
 }
 
-//flips are keyed by date as they come from json, so we need to rearrange to key by track
+async function flipsData()
+{
+	if (_flipsData == null)
+	{
+		await parse();
+	}
+	return _flipsData;
+}
+
+//Flips are keyed by date as they come from json, so we need to rearrange to key by track
+//Should only be called from parse()
 async function makeFlipsData(json)
 {
-	if (flipsData != null)
+	if (this._flipsData != null)
 	{
-		return flipsData;
+		return _flipsData;
 	}
 	
 	flipsJson = json[FLIPS_HEADER];
@@ -52,8 +62,7 @@ async function makeFlipsData(json)
 		}
 	});
 
-	// console.log(flips)
-	this.flipsData = flips
+	_flipsData = flips
 }
 
 async function parse()

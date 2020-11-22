@@ -70,13 +70,13 @@ test('getTrackFullInfo', async() => {
 	expect(la.count).toBe(1);
 });
 
-// test('flips', () => {
-// 	parser.TESTPIN_parse().then(() => {
-// 		const flips = server.getFlipsForTrack("Gateway Dirt Nationals");
-// 		// console.log(flips);
-// 		expect(flips.length).toBe(12);
-// 	});
-// });
+test('flips', async() => {
+	const flips = await server.getFlipsForTrack("Eldora Speedway");
+	expect(flips.length).toBe(3);
+
+	flips = await server.getFlipsForTrack("Bridgeport Motorsports Park");
+	expect(flips.length).toBe(7);
+});
 
 //TODO: currently breaks
 // test('capitalization', () => {
