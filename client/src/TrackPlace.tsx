@@ -22,9 +22,14 @@ export interface TrackPlaceProps
 @observer
 export class TrackPlace extends React.Component<TrackPlaceProps>
 {
+	private get currentTrack(): Track | null
+	{
+		return this.props.navMachine.currentTrack;
+	}
+
 	render()
 	{
-		if (this.props.navMachine.currentTrack == null)
+		if (this.currentTrack== null)
 		{
 			return <></>;
 		}
@@ -33,9 +38,11 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 			<div id="track-place">
 				<button onClick={() => this.props.navMachine.goHome()}>Go Home</button>
 				<br/>
-				{this.props.navMachine.currentTrack.name}
+				{this.currentTrack.name}
 				<br/>
-				Number of Races I've Attended: {this.props.navMachine.currentTrack.count}
+				Number of Races I've Attended: {this.currentTrack.count}
+				<br/>
+				Flips: Total Number: {this.currentTrack.flips.length}
 			</div>
 		);
 	}
