@@ -10,13 +10,14 @@ import {NavigationMachine, CurrentPlace} from "./NavigationMachine";
 
 class AppMachine
 {
-  public trackInfoMachine: TrackInfoMachine = new TrackInfoMachine();
+  public trackInfoMachine: TrackInfoMachine;
   public navMachine: NavigationMachine = new NavigationMachine();
   public mapMachine: MapMachine = new MapMachine();
 
   constructor() 
   {
     // makeObservable(this);
+    this.trackInfoMachine = new TrackInfoMachine();
     this.trackInfoMachine.fetchInfo();
   }
 }
@@ -38,7 +39,13 @@ export interface AppProps
 @observer
 class App extends React.Component<AppProps>
 {
-  private machine: AppMachine = new AppMachine();
+  private machine: AppMachine;
+
+  constructor(props: AppProps)
+  {
+    super(props);
+    this.machine = new AppMachine();
+  }
 
   render()
   {

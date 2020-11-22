@@ -23,7 +23,7 @@ function dataPath()
 
 function getTrackNameAndConfiguration(rawName)
 {
-	let trackName = req.params.trackName.trim();
+	let trackName = rawName.trim();
 
 	let isConfiguration = false; //an alternative configuration of a base track, named with parentheses
 	const parts = trackName.split(/\(/); //split on left paren
@@ -37,9 +37,6 @@ function getTrackNameAndConfiguration(rawName)
 		trackName = parts[0].trim();
 	}
 
-	console.log(trackName);
-	console.log(configuration);
-	console.log(isConfiguration);
 	return {trackName, configuration, isConfiguration};
 }
 
@@ -71,10 +68,12 @@ function getTrackFullInfo()
 	return tracksAndCoords
 }
 
-function getCountForTrack(trackName, configuration, isConfiguration)
+function getCountForTrack(rawName)
 {
 	let json = parse();
 	json = json[RACES];
+
+	const {trackName, configuration, isConfiguration} = getTrackNameAndConfiguration(rawName);
 
 	let count = 0;
 	for (let i = 0; i < getTrackList().length; i++)
@@ -165,3 +164,5 @@ console.log(`Listening on ${port}`);
 
 //exports for testing
 exports.getCountForTrack = getCountForTrack;
+exports.getTrackNameAndConfiguration = getTrackNameAndConfiguration;
+exports.getTrackFullInfo = getTrackFullInfo;
