@@ -121,6 +121,19 @@ it('flip objects', async() => {
 	expect(flip.video).toBeTruthy();
 	expect(flip.surface).toEqual("Dirt");
 	expect(flip.date).toEqual("2019-08-09T04:00:00.000Z");
+
+	flips = await server.getFlipsForTrack("Lincoln Speedway");
+	flip = flips.find((f) => {
+		return f.class === "Super Late Model";
+	});
+	expect(flip.openWheel).toBeFalsy();
+	expect(flip.rotations).toEqual("1/2+");
+	expect(flip.video).toBeFalsy();
+	expect(flip.surface).toEqual("Dirt");
+	expect(flip.when).toEqual("Main")
+	expect(flip.notes).toBeTruthy();
+	expect(flip.notes.includes("Turn 3")).toBeTruthy();
+	expect(flip.date).toEqual("2020-08-20T04:00:00.000Z");
 });
 
 //TODO: currently breaks
