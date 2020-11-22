@@ -71,11 +71,20 @@ test('getTrackFullInfo', async() => {
 });
 
 test('flips', async() => {
-	const flips = await server.getFlipsForTrack("Eldora Speedway");
+	let flips = await server.getFlipsForTrack("Eldora Speedway");
 	expect(flips.length).toBe(3);
 
 	flips = await server.getFlipsForTrack("Bridgeport Motorsports Park");
 	expect(flips.length).toBe(7);
+
+	flips = await server.getFlipsForTrack("Gateway Dirt Nationals");
+	expect(flips.length).toBe(17);
+
+	flips = await server.getFlipsForTrack("Pocatello Speedway");
+	expect(flips.length).toBe(1);
+
+	flips = await server.getFlipsForTrack("Atomic Motor Raceway");
+	expect(flips.length).toBe(1);
 });
 
 //TODO: currently breaks

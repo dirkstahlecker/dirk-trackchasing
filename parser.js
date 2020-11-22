@@ -37,7 +37,7 @@ async function makeFlipsData(json)
 	}
 	
 	flipsJson = json[FLIPS_HEADER];
-	const flips = {};
+	let flips = {};
 	Object.keys(flipsJson).forEach((date) => {
 		const flipInfo = flipsJson[date];
 		const trackName = flipInfo["Track"];
