@@ -8,6 +8,40 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 const TRACK_ORDER = "Track Order"; //track order sheet, the main reference for each track
 const RACES = "Races";
+const DATA_PATH = "events_data.json";
+const TEST_DATA_PATH = "events_data_test.json";
+
+function runningJestTest() 
+{
+	return process.env.JEST_WORKER_ID !== undefined;
+}
+
+function dataPath()
+{
+	return runningJestTest() ? TEST_DATA_PATH : DATA_PATH;
+}
+
+function getTrackNameAndConfiguration(rawName)
+{
+	let trackName = req.params.trackName.trim();
+
+	let isConfiguration = false; //an alternative configuration of a base track, named with parentheses
+	const parts = trackName.split(/\(/); //split on left paren
+	let configuration = null;
+	if (parts.length == 2) //if two parts, we have a configuration
+	{
+		isConfiguration = true;
+		//remove the other paren
+		configuration = parts[1].trim();
+		configuration = configuration.replace(/\)/, "").trim();
+		trackName = parts[0].trim();
+	}
+
+	console.log(trackName);
+	console.log(configuration);
+	console.log(isConfiguration);
+	return {trackName, configuration, isConfiguration};
+}
 
 function getTrackList()
 {
@@ -27,63 +61,18 @@ function getTrackFullInfo()
 	{
 		const track = tracksList[i];
 		const trackInfo = json[TRACK_ORDER][track];
-		tracksAndCoords[track] = {"state": trackInfo["State"], "latitude": trackInfo["Latitude"], "longitude": trackInfo["Longitude"]};
+		tracksAndCoords[track] = {
+			"state": trackInfo["State"], 
+			"latitude": trackInfo["Latitude"], 
+			"longitude": trackInfo["Longitude"],
+			"count": getCountForTrack(track)
+		};
 	}
 	return tracksAndCoords
 }
 
-function parse()
+function getCountForTrack(trackName, configuration, isConfiguration)
 {
-  //take the json downloaded from google sheets in json format and parse it
-  var fs=require('fs');
-  var data=fs.readFileSync(path.resolve(__dirname, 'events_data.json'), 'utf8');
-  var json=JSON.parse(data);
-
-  return json
-}
-
-// Priority serve any static files.
-app.use(express.static(path.resolve(__dirname, '../react-ui/public')));
-
-//get a list of all the tracks, name only
-app.get('/tracks', function (req, res) {
-	console.log("/tracks")
-	res.set('Content-Type', 'application/json');
-
-	const tracks = getTrackList();
-
-	res.json(tracks);
-});
-
-//returns a list of all the tracks along with their specific info
-app.get('/tracks/info', function (req, res) {
-	console.log("/tracks/info")
-	res.set('Content-Type', 'application/json');
-
-	const trackInfos = getTrackFullInfo();
-
-	res.json(trackInfos);
-})
-
-app.get('/numRaces/:trackName', function (req, res) {
-	console.log("/numRaces")
-	let trackName = req.params.trackName.trim();
-
-	let isConfiguration = false; //an alternative configuration of a base track, named with parentheses
-	const parts = trackName.split(/\(/); //split on left paren
-	let configuration = null;
-	if (parts.length == 2) //if two parts, we have a configuration
-	{
-		isConfiguration = true;
-		//remove the other paren
-		configuration = parts[1].trim();
-		configuration = configuration.replace(/\)/, "").trim();
-		trackName = parts[0].trim();
-	}
-
-	console.log("Track name: " + trackName);
-	console.log("Configuration: " + configuration);
-	
 	let json = parse();
 	json = json[RACES];
 
@@ -112,6 +101,52 @@ app.get('/numRaces/:trackName', function (req, res) {
 		}
 	}
 
+	return count;
+}
+
+function parse()
+{
+  //take the json downloaded from google sheets in json format and parse it
+  var fs=require('fs');
+  var data=fs.readFileSync(path.resolve(__dirname, dataPath()), 'utf8');
+  var json=JSON.parse(data);
+
+  return json
+}
+
+// Priority serve any static files.
+app.use(express.static(path.resolve(__dirname, '../react-ui/public')));
+
+//get a list of all the tracks, name only
+app.get('/tracks', function (req, res) {
+	console.log("/tracks")
+	res.set('Content-Type', 'application/json');
+
+	const tracks = getTrackList();
+
+	res.json(tracks);
+});
+
+//returns a list of all the tracks along with their specific info
+app.get('/tracks/info', function (req, res) {
+	console.log("/tracks/info")
+	res.set('Content-Type', 'application/json');
+
+	const trackInfos = getTrackFullInfo();
+
+	res.json(trackInfos);
+})
+
+app.get('/numRaces/:trackName/raceCount', function (req, res) { //TODO: does this still work?
+	console.log("/numRaces")
+
+	const {trackName, configuration, isConfiguration} = getTrackNameAndConfiguration(req.params.trackName);
+
+	console.log("Track name: " + trackName);
+	console.log("Configuration: " + configuration);
+	
+	const count = getCountForTrack(trackName, configuration, isConfiguration);
+
 	res.set('Content-Type', 'application/json');
 	res.json({"message": count});
 });
@@ -126,3 +161,7 @@ const port = process.env.PORT || 5000;
 app.listen(port);
 
 console.log(`Listening on ${port}`);
+
+
+//exports for testing
+exports.getCountForTrack = getCountForTrack;

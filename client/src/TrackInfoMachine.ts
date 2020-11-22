@@ -42,9 +42,14 @@ export class TrackInfoMachine
 
     	runInAction(() => this.tracks.push(trackObj));
     }
-
-    console.log(this.tracks);
 	}
+
+	public async getRaceNum(trackName: string): Promise<void>
+  {
+    const numRaw = await fetch("/numRaces/" + trackName);
+    const num = await numRaw.json();
+    alert(num.message);
+  }
 }
 
 export class Track

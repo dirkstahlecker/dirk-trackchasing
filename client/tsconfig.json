@@ -18,9 +18,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react",
     "experimentalDecorators": true,
     "useDefineForClassFields": true,
+    "jsx": "react"
   },
   "include": [
     "src"

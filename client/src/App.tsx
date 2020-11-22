@@ -19,14 +19,6 @@ class AppMachine
     // makeObservable(this);
     this.trackInfoMachine.fetchInfo();
   }
-
-  //TODO: move to TrackInfo
-  public async getRaceNum(trackName: string): Promise<void>
-  {
-    const numRaw = await fetch("/numRaces/" + trackName);
-    const num = await numRaw.json();
-    alert(num.message);
-  }
 }
 
 // { process.env.NODE_ENV === 'production' ?
