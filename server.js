@@ -1,27 +1,14 @@
 const express = require('express');
 const path = require('path');
+const parser = require('./parser');
 
 const app = express();
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-const TRACK_ORDER = "Track Order"; //track order sheet, the main reference for each track
-const RACES = "Races";
-const DATA_PATH = "events_data.json";
-const TEST_DATA_PATH = "events_data_test.json";
-
-let parsedJson = null;
-
-function runningJestTest() 
-{
-	return process.env.JEST_WORKER_ID !== undefined;
-}
-
-function dataPath()
-{
-	return runningJestTest() ? TEST_DATA_PATH : DATA_PATH;
-}
+const TRACK_ORDER_HEADER = "Track Order"; //track order sheet, the main reference for each track
+const RACES_HEADER = "Races";
 
 function getTrackNameAndConfiguration(rawName)
 {
@@ -42,24 +29,24 @@ function getTrackNameAndConfiguration(rawName)
 	return {trackName, configuration, isConfiguration};
 }
 
-function getTrackList()
+async function getTrackList()
 {
-  const json = parse()
-  let trackList = Object.keys(json[TRACK_ORDER]) //tested and appears to work
+  const json = await parser.parse()
+  let trackList = Object.keys(json[TRACK_ORDER_HEADER]) //tested and appears to work
 
   return trackList
 }
 
-function getTrackFullInfo()
+async function getTrackFullInfo()
 {
-	const json = parse();
+	const json = await parser.parse();
 	const tracksList = getTrackList();
 
 	let tracksAndCoords = {};
 	for (let i = 0; i < tracksList.length; i++)
 	{
 		const track = tracksList[i];
-		const trackInfo = json[TRACK_ORDER][track];
+		const trackInfo = json[TRACK_ORDER_HEADER][track];
 		tracksAndCoords[track] = {
 			"state": trackInfo["State"], 
 			"latitude": trackInfo["Latitude"], 
@@ -70,10 +57,10 @@ function getTrackFullInfo()
 	return tracksAndCoords
 }
 
-function getCountForTrack(rawName)
+async function getCountForTrack(rawName)
 {
-	let json = parse();
-	json = json[RACES];
+	let json = await parser.parse();
+	json = json[RACES_HEADER];
 
 	const {trackName, configuration, isConfiguration} = getTrackNameAndConfiguration(rawName);
 
@@ -105,49 +92,35 @@ function getCountForTrack(rawName)
 	return count;
 }
 
-function getFlipsForTrack(rawName)
+async function getFlipsForTrack(rawName)
 {
-	const json = parse();
-}
-
-function parse()
-{
-	if (parsedJson == null)
-	{
-		 //take the json downloaded from google sheets in json format and parse it
-		var fs=require('fs');
-		var data=fs.readFileSync(path.resolve(__dirname, dataPath()), 'utf8');
-		var json=JSON.parse(data);
-
-		return json
-	}
-	return parsedJson;
+	return parser.flipsData()[rawName];
 }
 
 // Priority serve any static files.
 app.use(express.static(path.resolve(__dirname, '../react-ui/public')));
 
 //get a list of all the tracks, name only
-app.get('/tracks', function (req, res) {
+app.get('/tracks', async function (req, res) {
 	console.log("/tracks")
 	res.set('Content-Type', 'application/json');
 
-	const tracks = getTrackList();
+	const tracks = await getTrackList();
 
 	res.json(tracks);
 });
 
 //returns a list of all the tracks along with their specific info
-app.get('/tracks/info', function (req, res) {
+app.get('/tracks/info', async function (req, res) {
 	console.log("/tracks/info")
 	res.set('Content-Type', 'application/json');
 
-	const trackInfos = getTrackFullInfo();
+	const trackInfos = await getTrackFullInfo();
 
 	res.json(trackInfos);
 })
 
-app.get('/numRaces/:trackName/raceCount', function (req, res) { //TODO: does this still work?
+app.get('/numRaces/:trackName/raceCount', async function (req, res) { //TODO: does this still work?
 	console.log("/numRaces")
 
 	const {trackName, configuration, isConfiguration} = getTrackNameAndConfiguration(req.params.trackName);
@@ -155,7 +128,7 @@ app.get('/numRaces/:trackName/raceCount', function (req, res) { //TODO: does thi
 	console.log("Track name: " + trackName);
 	console.log("Configuration: " + configuration);
 	
-	const count = getCountForTrack(trackName, configuration, isConfiguration);
+	const count = await getCountForTrack(trackName, configuration, isConfiguration);
 
 	res.set('Content-Type', 'application/json');
 	res.json({"message": count});
@@ -177,3 +150,4 @@ console.log(`Listening on ${port}`);
 exports.getCountForTrack = getCountForTrack;
 exports.getTrackNameAndConfiguration = getTrackNameAndConfiguration;
 exports.getTrackFullInfo = getTrackFullInfo;
+exports.getFlipsForTrack = getFlipsForTrack;

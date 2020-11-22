@@ -1,0 +1,92 @@
+const path = require('path');
+var fs = require('fs');
+
+const FLIPS_HEADER = "Flips";
+const DATA_PATH = "events_data.json";
+const TEST_DATA_PATH = "events_data_test.json";
+
+let parsedJson = null;
+let _flipsData = null; // {name : [ date, track, class, rotations, surface, open wheel, when, video, notes ] }
+
+function runningJestTest() 
+{
+	return process.env.JEST_WORKER_ID !== undefined;
+}
+
+function dataPath()
+{
+	return runningJestTest() ? TEST_DATA_PATH : DATA_PATH;
+}
+
+function flipsData()
+{
+	// if (_flipsData == null)
+	// {
+	// 	makeFlipsData();
+	// }
+	console.log("returning flipsData")
+	console.log(_flipsData)
+	return _flipsData;
+}
+
+//flips are keyed by date as they come from json, so we need to rearrange to key by track
+async function makeFlipsData(json)
+{
+	console.log("makeFlipsData");
+	if (flipsData != null)
+	{
+		return flipsData;
+	}
+	
+	flipsJson = json[FLIPS_HEADER];
+	const flips = {};
+	Object.keys(flipsJson).forEach((date) => {
+		const flipInfo = flipsJson[date];
+		const trackName = flipInfo["Track"];
+		const newObjToAdd = {
+			"date": date, 
+			"class": flipInfo["Class"], 
+			"rotations": flipInfo["Rotations"], 
+			"surface": flipInfo["Surface"],
+			"openwheel": flipInfo["'Open Wheel'"],
+			"when": flipInfo["When"],
+			"video": flipInfo["Video"],
+			"notes": flipInfo["Notes"]
+		}
+
+		if (flips[trackName] === undefined)
+		{
+			flips[trackName] = [newObjToAdd];
+		}
+		else
+		{
+			console.log("exists already:")
+			console.log(flips[trackName])
+			flips[trackName].push(newObjToAdd);
+		}
+	});
+
+	console.log('setting')
+	// console.log(flips)
+	this._flipsData = flips
+}
+
+async function parse()
+{
+	if (parsedJson == null)
+	{
+		 //take the json downloaded from google sheets in json format and parse it
+		
+		var data=fs.readFileSync(path.resolve(__dirname, dataPath()), 'utf8');
+		var json=JSON.parse(data);
+
+		await makeFlipsData(json);
+		console.log('setting parsedJson')
+		parsedJson = json
+	}
+	return parsedJson;
+}
+
+exports.parse = parse;
+exports.flipsData = flipsData;
+exports.TESTPIN_parse = parse; //for testing only

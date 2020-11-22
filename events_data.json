@@ -461,7 +461,7 @@
       "Hagerstown Speedway": 1,
       "Big Diamond Speedway": 1,
       "White Mountain Motorsports Park": 1,
-      "Londonderry Speedway": 1,
+      "Londonderry Speedway": 2,
       "Rumtown Speedway": 2,
       "Lucas Oil Raceway": 1,
       "Lucas Oil Speedway Off Road Course": 1,
@@ -543,7 +543,7 @@
       "Londonderry Speedway": 0,
       "Rumtown Speedway": 0,
       "Lucas Oil Raceway": 0,
-      "Lucas Oil Speedway Off Road Course": 0,
+      "Lucas Oil Speedway Off Road Course": 2,
       "Lucas Oil Speedway": 0,
       "Indiana State Fairgrounds": 5,
       "Gateway Motorsports Park": 0,
@@ -622,7 +622,7 @@
       "Londonderry Speedway": 0,
       "Rumtown Speedway": 0,
       "Lucas Oil Raceway": 0,
-      "Lucas Oil Speedway Off Road Course": 0,
+      "Lucas Oil Speedway Off Road Course": 2,
       "Lucas Oil Speedway": 0,
       "Indiana State Fairgrounds": 5,
       "Gateway Motorsports Park": 0,
@@ -744,7 +744,7 @@
       "Cure Insurance Arena": "2-22-20: 600cc Micro Sprints",
       "Pocatello Speedway": "at least two races",
       "Atomic Motor Raceway": "9-16-11: Wild West Modified Tour, IMCA Sport Mods, Karts [Inner Dirt Oval]",
-      "Rocky Mountain Raceways": "9-18-10: Super Stocks, Midgets, Modifieds, Figure 8 Cars, Figure 8 Trains [Aphalt Figure 8]",
+      "Rocky Mountain Raceways": "9-18-10: Super Stocks, Midgets, Modifieds, Figure 8 Cars, Figure 8 Trains [Asphalt Figure 8]",
       "Las Vegas Motor Speedway": "2005 (?): NASCAR Nextel Cup Series",
       "Phoenix International Raceway": "11-14-10: NASCAR Sprint Cup Series",
       "Lincoln Speedway": "8-24-19: All Star Circuit of Champions 410 Sprint Cars, Central PA Legends",
@@ -756,6 +756,7 @@
       "BAPS Motor Speedway": "11-16-19: 410 Sprint Cars, 358 Sprint Cars",
       "Kokomo Speedway": "8-27-20: Smackdown IX: USAC National Sprint Cars",
       "Claremont Motorsports Park": "7-31-20: Sportsman Modifieds, Late Model Sportsman, Street Stocks, Pure Stocks, Six Shooters, 4 Cylinder Enduro",
+      "Londonderry Speedway": "11-21-20: Bandoleros, Senior Champ Karts, Mini Cups",
       "Rumtown Speedway": "8-15-20: Wingless B Sprints, Midgets, Wingless 500cc Mini Sprints",
       "Gateway Motorsports Park": "8-30-20: NTT Indycar Series, NASCAR Gander Outdoors Truck Series",
       "Bridgeport Motorsports Park": "11-07-20: Big Block Modifieds, URC 360 Sprint Cars, 602 Sportsman Modifieds, 4 and 8 Cylinders"
@@ -1032,107 +1033,107 @@
   },
   "Stats": {
     "Total Facilities": {
-      "64": 68,
-      "296": 77,
+      "65": 68,
+      "297": 77,
       "Races in 2020": "Races in 2019",
-      "0.17534246575342466": 0.1863013698630137,
+      "0.1780821917808219": 0.1863013698630137,
       "TODO: this doesn't count configurations": 24,
       "MA": "CT"
     },
     "Countable Tracks": {
-      "64": 65,
-      "296": 90,
+      "65": 65,
+      "297": 90,
       "Races in 2020": "Races in 2018",
-      "0.17534246575342466": 0.1780821917808219,
+      "0.1780821917808219": 0.1780821917808219,
       "TODO: this doesn't count configurations": 17,
       "MA": "IN"
     },
     "": {},
     "Total States": {
-      "64": 17,
-      "296": 26,
+      "65": 17,
+      "297": 26,
       "Races in 2020": "Races in 2016",
-      "0.17534246575342466": 0.04657534246575343,
+      "0.1780821917808219": 0.04657534246575343,
       "TODO: this doesn't count configurations": 9,
       "MA": "VT"
     },
     "Paved Tracks": {
-      "64": 3,
-      "296": 33,
+      "65": 3,
+      "297": 33,
       "Races in 2020": "Races in 2014",
-      "0.17534246575342466": 0.00821917808219178,
+      "0.1780821917808219": 0.00821917808219178,
       "TODO: this doesn't count configurations": 0,
       "MA": "ME"
     },
     "Dirt Tracks": {
-      "64": 5,
-      "296": 41,
+      "65": 5,
+      "297": 41,
       "Races in 2020": "Races in 2013",
-      "0.17534246575342466": 0.0136986301369863,
+      "0.1780821917808219": 0.0136986301369863,
       "TODO: this doesn't count configurations": 1,
       "MA": "NJ"
     },
     "Mixed Tracks": {
-      "64": 2,
-      "296": 3,
+      "65": 2,
+      "297": 3,
       "Races in 2020": "Races in 2012",
-      "0.17534246575342466": 0.005479452054794521,
+      "0.1780821917808219": 0.005479452054794521,
       "TODO: this doesn't count configurations": 2,
       "MA": "TX"
     },
     "Paved Races": {
-      "64": 4,
-      "296": 202,
+      "65": 4,
+      "297": 203,
       "Races in 2020": "Races in 2010",
-      "0.17534246575342466": 0.010958904109589041,
+      "0.1780821917808219": 0.010958904109589041,
       "TODO: this doesn't count configurations": 0,
       "MA": "SC"
     },
     "Dirt Races": {
-      "296": 90,
+      "297": 90,
       "TODO: this doesn't count configurations": 2,
       "MA": "MO"
     },
     "Mixed Races": {
-      "296": 4,
+      "297": 4,
       "MA": "ID"
     },
     "Total Flips": {
-      "296": 186,
+      "297": 186,
       "MA": "NE"
     },
     "Dirt Flips": {
-      "296": 151,
+      "297": 151,
       "Races in 2020": 0.8323353293413174,
       "MA": "NV"
     },
     "Paved Flips": {
-      "296": 35,
+      "297": 35,
       "Races in 2020": 0.16766467065868262,
       "MA": "AZ"
     },
     "Mixed Filps": {
-      "296": 0,
+      "297": 0,
       "Races in 2020": 0,
       "MA": "IA"
     },
     "Monster Truck Shows": {
-      "296": 37,
+      "297": 37,
       "MA": "OH"
     },
     "Average Length (paved)": {
-      "296": 0.6,
+      "297": 0.6,
       "MA": "MD"
     },
     "Average Length (dirt)": {
-      "296": 0.42,
+      "297": 0.42,
       "MA": "NC"
     },
     "Average Length (mixed)": {
       "MA": "IL"
     },
     "TODO": {
-      "296": "Syracuse should be concrete, and formulas should work with concrete too"
+      "297": "Syracuse should be concrete, and formulas should work with concrete too"
     }
   },
   "Flips": {
@@ -1143,7 +1144,51 @@
       "Surface": "Dirt",
       "When": "Heat"
     },
-    "": {
+    "-1": {
+      "Track": "Rocky Mountain Raceways",
+      "Class": "Figure 8 Car",
+      "Rotations": "1",
+      "Surface": "Asphalt"
+    },
+    "-2": {
+      "Track": "Seekonk Speedway",
+      "Class": "Sports Truck",
+      "Rotations": "1/4",
+      "Surface": "Asphalt",
+      "When": "Feature"
+    },
+    "-3": {
+      "Track": "Seekonk Speedway",
+      "Class": "Street Stock",
+      "Rotations": "1/4",
+      "Surface": "Asphalt",
+      "When": "Feature"
+    },
+    "-4": {
+      "Track": "Seekonk Speedway",
+      "Class": "Enduro Truck",
+      "Surface": "Asphalt",
+      "When": "Enduro"
+    },
+    "-5": {
+      "Track": "Seekonk Speedway",
+      "Class": "Enduro Truck",
+      "Surface": "Asphalt",
+      "When": "Enduro"
+    },
+    "-6": {
+      "Track": "Seekonk Speedway",
+      "Class": "Enduro Truck",
+      "Surface": "Asphalt",
+      "When": "Enduro"
+    },
+    "-7": {
+      "Track": "Seekonk Speedway",
+      "Class": "Enduro Truck",
+      "Surface": "Asphalt",
+      "When": "Enduro"
+    },
+    "-8": {
       "Track": "Seekonk Speedway",
       "Class": "Enduro Car",
       "Surface": "Asphalt",
@@ -1649,7 +1694,7 @@
       "Notes": "Turn 3, not sure the exact cause, driver said he got in too hot and the top of the cage hit the wall."
     },
     "Sat Aug 22 2020 00:00:00 GMT-0400 (Eastern Daylight Time)": {
-      "Track": "Lucas Oil Speedway (Off Road Course)",
+      "Track": "Lucas Oil Speedway Off Road Course",
       "Class": "Production UTV",
       "Rotations": "2+",
       "Surface": "Dirt",
@@ -1749,7 +1794,7 @@
   },
   "Helper": {
     "Asphalt Flips": {
-      "200": 2,
+      "201": 2,
       "Total Flips": 27,
       "1/4 Flips": 7,
       "> 1/4 Flips": 20,
@@ -1758,7 +1803,7 @@
       "Oval": "Figure 8"
     },
     "Concrete Flips": {
-      "200": 83,
+      "201": 83,
       "Total Flips": 8,
       "1/4 Flips": 0,
       "> 1/4 Flips": 8,
@@ -1767,7 +1812,7 @@
       "Oval": "Road Course"
     },
     "Dirt Flips": {
-      "200": 7,
+      "201": 7,
       "Total Flips": 146,
       "1/4 Flips": 11,
       "> 1/4 Flips": 135,
@@ -1775,7 +1820,7 @@
       "Asphalt": "Clay"
     },
     "Clay Flips": {
-      "200": 4,
+      "201": 4,
       "Total Flips": 5,
       "1/4 Flips": 1,
       "> 1/4 Flips": 4,
