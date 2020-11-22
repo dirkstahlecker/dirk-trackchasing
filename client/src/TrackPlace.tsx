@@ -35,7 +35,7 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 				<br/>
 				{this.props.navMachine.currentTrack.name}
 				<br/>
-				Number of Races I've Attended: {this.props.navMachine.currentTrack.numberOfRaces}
+				Number of Races I've Attended: {this.props.navMachine.currentTrack.count}
 			</div>
 		);
 	}

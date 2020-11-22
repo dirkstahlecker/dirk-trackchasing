@@ -38,7 +38,7 @@ export class TrackInfoMachine
     		TrackTypeEnum.OVAL, //TODO: fix type
     		trackInfo["latitude"], 
     		trackInfo["longitude"], 
-    		trackInfo["numberOfRaces"]); 
+    		trackInfo["count"]); 
 
     	runInAction(() => this.tracks.push(trackObj));
     }
@@ -61,16 +61,16 @@ export class Track
 	public latitude: number;
 	public longitude: number;
 
-	public numberOfRaces: number;
+	public count: number;
 
-	constructor(name: string, state: string, type: TrackTypeEnum, latitude: number, longitude: number, numberOfRaces: number)
+	constructor(name: string, state: string, type: TrackTypeEnum, latitude: number, longitude: number, count: number)
 	{
 		this.name = name
 		this.state = state
 		this.type = type;
 		this.latitude = latitude
 		this.longitude = longitude
-		this.numberOfRaces = numberOfRaces;
+		this.count = count;
 	}
 
 	//more to come...
