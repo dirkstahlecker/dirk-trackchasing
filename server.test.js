@@ -20,6 +20,16 @@ test('track name and configuration', () => {
 	expect(info.isConfiguration).toBe(true);
 });
 
+it('returns proper track list', async() => {
+	//order isn't definitively set for the first 7
+	const list = await server.getTrackList();
+	expect(list[8]).toEqual("Miller Motorsports Park");
+	expect(list[21]).toEqual("Port of LA");
+	expect(list[32]).toEqual("Wall Stadium Speedway (Inner Asphalt Oval)");
+	expect(list[89]).toEqual("Bridgeport Motorsports Park");
+});
+
+//TODO: Currently broken
 // test('invalid track names', () => {
 // 	let info = server.getTrackNameAndConfiguration("Not a Real Track");
 // 	expect(info.trackName).toBe("");
@@ -27,46 +37,45 @@ test('track name and configuration', () => {
 // 	expect(info.isConfiguration).toBe(false);
 // });
 
-test('proper counts for track', () => {
-	parser.TESTPIN_parse().then(() => { //do the async parsing that needs to happen once, then run the test since it will now run synchronously
-		expect(getCountForTrack("Seekonk Speedway")).toBe(46);
-  	expect(server.getCountForTrack("Thompson Speedway")).toBe(28);
-  	expect(server.getCountForTrack("Rocky Mountain Raceways")).toBe(8);
+it('proper counts for track', async() => {
+	server.getCountForTrack("Seekonk Speedway").then(data => expect(data).toEqual(46));
+  server.getCountForTrack("Thompson Speedway").then(data => expect(data).toEqual(28));
+  server.getCountForTrack("Rocky Mountain Raceways").then(data => expect(data).toEqual(8));
 
-	  //configurations
-	  expect(server.getCountForTrack("Rocky Mountain Raceways (Asphalt Figure 8)")).toBe(7);
-	  expect(server.getCountForTrack("Seekonk Speedway (Asphalt Road Course)")).toBe(1);
-	  expect(server.getCountForTrack("Stafford Motor Speedway (Inner Asphalt Oval)")).toBe(1);
-	});
+  //configurations
+  server.getCountForTrack("Rocky Mountain Raceways (Asphalt Figure 8)").then(data => expect(data).toEqual(7));
+  server.getCountForTrack("Seekonk Speedway (Asphalt Road Course)").then(data => expect(data).toEqual(1));
+  server.getCountForTrack("Stafford Motor Speedway (Inner Asphalt Oval)").then(data => expect(data).toEqual(1));
 });
 
-test('getTrackFullInfo', () => {
-	parser.TESTPIN_parse().then(() => {
-		const info = server.getTrackFullInfo();
-		const seekonk = info["Seekonk Speedway"];
-		expect(seekonk.state).toBe("MA");
-		expect(seekonk.count).toBe(46);
+test('getTrackFullInfo', async() => {
+	const info = await server.getTrackFullInfo();
 
-		const pocatello = info["Pocatello Speedway"];
-		expect(pocatello.state).toBe("ID");
-		expect(pocatello.latitude).toBe(42.912684);
-		expect(pocatello.longitude).toBe(-112.577022);
-		expect(pocatello.count).toBe(6);
+	const seekonk = info["Seekonk Speedway"];
+	expect(seekonk.state).toBe("MA");
+	expect(seekonk.count).toBe(46);
 
-		const rmr8 = info["Rocky Mountain Raceways (Asphalt Figure 8)"];
-		expect(rmr8.state).toBe("UT");
-		expect(rmr8.count).toBe(7);
+	const pocatello = info["Pocatello Speedway"];
+	expect(pocatello.state).toBe("ID");
+	expect(pocatello.latitude).toBe(42.912684);
+	expect(pocatello.longitude).toBe(-112.577022);
+	expect(pocatello.count).toBe(6);
 
-		const la = info["Port of LA"];
-		expect(la.state).toBe("CA");
-		expect(la.count).toBe(1);
-	});
+	const rmr8 = info["Rocky Mountain Raceways (Asphalt Figure 8)"];
+	expect(rmr8.state).toBe("UT");
+	expect(rmr8.count).toBe(7);
+
+	const la = info["Port of LA"];
+	expect(la.state).toBe("CA");
+	expect(la.count).toBe(1);
 });
 
 // test('flips', () => {
-// 	const flips = server.getFlipsForTrack("Gateway Dirt Nationals");
-// 	// console.log(flips);
-// 	expect(flips.length).toBe(12);
+// 	parser.TESTPIN_parse().then(() => {
+// 		const flips = server.getFlipsForTrack("Gateway Dirt Nationals");
+// 		// console.log(flips);
+// 		expect(flips.length).toBe(12);
+// 	});
 // });
 
 //TODO: currently breaks

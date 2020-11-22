@@ -40,18 +40,19 @@ async function getTrackList()
 async function getTrackFullInfo()
 {
 	const json = await parser.parse();
-	const tracksList = getTrackList();
+	const tracksList = await getTrackList();
 
 	let tracksAndCoords = {};
 	for (let i = 0; i < tracksList.length; i++)
 	{
 		const track = tracksList[i];
 		const trackInfo = json[TRACK_ORDER_HEADER][track];
+		const count = await getCountForTrack(track);
 		tracksAndCoords[track] = {
 			"state": trackInfo["State"], 
 			"latitude": trackInfo["Latitude"], 
 			"longitude": trackInfo["Longitude"],
-			"count": getCountForTrack(track)
+			"count": count
 		};
 	}
 	return tracksAndCoords
@@ -64,8 +65,10 @@ async function getCountForTrack(rawName)
 
 	const {trackName, configuration, isConfiguration} = getTrackNameAndConfiguration(rawName);
 
+	const trackList = await getTrackList()
+
 	let count = 0;
-	for (let i = 0; i < getTrackList().length; i++)
+	for (let i = 0; i < trackList.length; i++)
 	{
 		const jsonRowHeader = "Races: " + i;
 		const raceRow = json[jsonRowHeader];
@@ -96,6 +99,13 @@ async function getFlipsForTrack(rawName)
 {
 	return parser.flipsData()[rawName];
 }
+
+
+
+
+//=========================================================================================
+//                                     Endpoints
+//=========================================================================================
 
 // Priority serve any static files.
 app.use(express.static(path.resolve(__dirname, '../react-ui/public')));
@@ -151,3 +161,4 @@ exports.getCountForTrack = getCountForTrack;
 exports.getTrackNameAndConfiguration = getTrackNameAndConfiguration;
 exports.getTrackFullInfo = getTrackFullInfo;
 exports.getFlipsForTrack = getFlipsForTrack;
+exports.getTrackList = getTrackList;
