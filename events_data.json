@@ -543,7 +543,7 @@
       "Londonderry Speedway": 0,
       "Rumtown Speedway": 0,
       "Lucas Oil Raceway": 0,
-      "Lucas Oil Speedway Off Road Course": 2,
+      "Lucas Oil Speedway Off Road Course": 4,
       "Lucas Oil Speedway": 0,
       "Indiana State Fairgrounds": 5,
       "Gateway Motorsports Park": 0,
@@ -622,7 +622,7 @@
       "Londonderry Speedway": 0,
       "Rumtown Speedway": 0,
       "Lucas Oil Raceway": 0,
-      "Lucas Oil Speedway Off Road Course": 2,
+      "Lucas Oil Speedway Off Road Course": 4,
       "Lucas Oil Speedway": 0,
       "Indiana State Fairgrounds": 5,
       "Gateway Motorsports Park": 0,
@@ -2691,7 +2691,7 @@
     },
     "159": {
       "Date": "2020-08-22T04:00:00.000Z",
-      "Track": "Lucas Oil Speedway (Off Road Course)",
+      "Track": "Lucas Oil Speedway Off Road Course",
       "Class": "Pro Lite",
       "Rotations": "3/4",
       "Surface": "Dirt",
@@ -2702,7 +2702,7 @@
     },
     "160": {
       "Date": "2020-08-22T04:00:00.000Z",
-      "Track": "Lucas Oil Speedway (Off Road Course)",
+      "Track": "Lucas Oil Speedway Off Road Course",
       "Class": "Turbo UTV",
       "Rotations": "2+",
       "Surface": "Dirt",
@@ -2973,7 +2973,7 @@
       "Surface": "Dirt",
       "Open Wheel": false,
       "When": "Main",
-      "Video": false,
+      "Video": true,
       "Notes": "After taking the checkered flag, the winner kept on the gas through the cooldown lap. He got into a lapped car in 4, spinning the lapped car out and then got collected by another car and put into the front stretch wall. The right front climbed the wall and he kept on the gas, riding a wheelie shortly until the right front caught the catch fence, tearing out multiple poles and rolling the car over once, landing on the wheels at the start finish line."
     },
     "185": {
@@ -3738,7 +3738,9 @@
     "Miller Motorsports Park": {
       "Date": "2009-05-17T04:00:00.000Z",
       "State": "UT",
-      "Type": "Road Course"
+      "Type": "Road Course",
+      "Latitude": 40.5807157241469,
+      "Longitude": -112.379035334407
     },
     "Phoenix International Raceway": {
       "Date": 2009,

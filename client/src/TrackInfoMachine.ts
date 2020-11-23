@@ -42,8 +42,6 @@ export class TrackInfoMachine
 		});
 
 		return flips;
-
-
 	}
 
 	//Update with new information from the server
@@ -61,10 +59,11 @@ export class TrackInfoMachine
     	const trackInfo = infos[trackName];
 
     	const flips: Flip[] | null = this.makeFlipObject(trackInfo["flips"]);
+    	const trackType: TrackTypeEnum = TrackInfoMachine.getTrackTypeEnumFromString(trackInfo["trackType"]);
 
     	const trackObj: Track = new Track(
     		trackName, trackInfo["state"], 
-    		TrackTypeEnum.OVAL, //TODO: fix type
+    		trackType,
     		trackInfo["latitude"], 
     		trackInfo["longitude"], 
     		trackInfo["count"],
@@ -87,6 +86,21 @@ export class TrackInfoMachine
   	return "assets/flips/gifs/" + flipId + "_" + trackName.replaceAll(" ", "_") + ".gif";
   }
 
+  public static getTrackTypeEnumFromString(typeStr: string): TrackTypeEnum
+  {
+  	switch (typeStr)
+  	{
+  		case "Oval":
+  			return TrackTypeEnum.OVAL;
+  		case "Road Course":
+  			return TrackTypeEnum.ROAD_COURSE;
+  		case "Figure 8":
+  			return TrackTypeEnum.FIGURE_8;
+  		default:
+  			throw new Error("Invalid track type")
+  	}
+  }
+
   // public async getFlipsForTrack(trackName: string): Promise<void>
   // {
   // 	const flipsRaw = await (fetch("/"))
@@ -98,19 +112,18 @@ export class Track
 	//everything is static, so don't need to be observable (nothing changes without a page reload)
 	public name: string;
 	public state: string;
-	public type: TrackTypeEnum;
+	public trackType: TrackTypeEnum;
 	public latitude: number;
 	public longitude: number;
-
 	public flips: Flip[];
 
 	public count: number;
 
-	constructor(name: string, state: string, type: TrackTypeEnum, latitude: number, longitude: number, count: number, flips: Flip[])
+	constructor(name: string, state: string, trackType: TrackTypeEnum, latitude: number, longitude: number, count: number, flips: Flip[])
 	{
 		this.name = name
 		this.state = state
-		this.type = type;
+		this.trackType = trackType;
 		this.latitude = latitude
 		this.longitude = longitude
 		this.count = count;

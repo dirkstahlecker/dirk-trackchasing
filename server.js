@@ -54,7 +54,8 @@ async function getTrackFullInfo()
 			"latitude": trackInfo["Latitude"], 
 			"longitude": trackInfo["Longitude"],
 			"count": count,
-			"flips": flips
+			"flips": flips,
+			"trackType": trackInfo["Type"]
 		};
 	}
 	return tracksAndCoords
