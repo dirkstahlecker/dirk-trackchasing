@@ -29,12 +29,29 @@ function getTrackNameAndConfiguration(rawName)
 	return {trackName, configuration, isConfiguration};
 }
 
+//gets list of all the tracks (configurations are sent as separate tracks)
 async function getTrackList()
 {
   const json = await parser.parse()
   let trackList = Object.keys(json[TRACK_ORDER_HEADER]) //tested and appears to work
 
   return trackList
+}
+
+async function getTrackListNoConfigurations()
+{
+	const list = await getTrackList();
+	
+	const filteredList = [];
+	for (let i = 0; i < list.length; i++)
+	{
+		const track = list[i];
+		if (track.match(/\(.*\)/) == null)
+		{
+			filteredList.push(track);
+		}
+	};
+	return filteredList;
 }
 
 async function getTrackFullInfo()
@@ -166,3 +183,4 @@ exports.getTrackNameAndConfiguration = getTrackNameAndConfiguration;
 exports.getTrackFullInfo = getTrackFullInfo;
 exports.getFlipsForTrack = getFlipsForTrack;
 exports.getTrackList = getTrackList;
+exports.getTrackListNoConfigurations = getTrackListNoConfigurations;

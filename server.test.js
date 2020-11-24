@@ -23,10 +23,20 @@ test('track name and configuration', () => {
 it('returns proper track list', async() => {
 	//order isn't definitively set for the first 7
 	const list = await server.getTrackList();
+	expect(list.length).toEqual(90);
 	expect(list[8]).toEqual("Miller Motorsports Park");
 	expect(list[21]).toEqual("Port of LA");
 	expect(list[32]).toEqual("Wall Stadium Speedway (Inner Asphalt Oval)");
 	expect(list[89]).toEqual("Bridgeport Motorsports Park");
+});
+
+it('returns proper track list without configurations', async() => {
+	const list = await server.getTrackListNoConfigurations();
+	expect(list.length).toEqual(77);
+	expect(list[76]).toEqual("Bridgeport Motorsports Park");
+	expect(list[46]).toEqual("Slinger Speedway");
+	expect(list[69]).toEqual("Rumtown Speedway");
+	expect(list[0]).toEqual("Pocatello Speedway");
 });
 
 //TODO: Currently broken
