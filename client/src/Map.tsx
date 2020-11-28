@@ -79,7 +79,6 @@ export class Map extends React.Component<MapProps>
   render()
   {
   	return <div id="map-place">
-  		<button onClick={() => this.props.navMachine.goHome()}>Home</button>
   		{/*<div ref={this.mapContainer} style={{width: "75%", height: "500px"}}/>*/}
 			<GlMap
 			  style='mapbox://styles/mapbox/satellite-v9'

@@ -4,11 +4,11 @@ import {observer} from "mobx-react";
 import {observable, action, makeObservable} from "mobx";
 import {Track} from "./TrackInfoMachine";
 
-export enum CurrentPlace {HOME, TRACK, MAP}
+export enum CurrentPlace {HOME, TRACK}
 
 export class NavigationMachine
 {
-  @observable public currentPlace: CurrentPlace = CurrentPlace.MAP;
+  @observable public currentPlace: CurrentPlace = CurrentPlace.HOME;
   @observable public currentTrack: Track | null = null;
 
   constructor() 
