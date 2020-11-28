@@ -7,6 +7,7 @@ import {TrackPlace} from "./TrackPlace";
 import {TrackInfoMachine, Track} from "./TrackInfoMachine";
 import {Map, MapMachine} from "./Map";
 import {NavigationMachine, CurrentPlace} from "./NavigationMachine";
+import { TrackTile } from './components/TrackTile';
 
 class AppMachine
 {
@@ -65,9 +66,11 @@ class App extends React.Component<AppProps>
                   />
                   {
                     this.machine.trackInfoMachine.tracks.map((track: Track) => {
-                      return <div key={track.name}>
-                        <button onClick={() => this.machine.navMachine.goToTrackPage(track)}>{track.name}</button>
-                      </div>;
+                      return <TrackTile
+                        key={track.name}
+                        track={track}
+                        navMachine={this.machine.navMachine}
+                      />;
                     })
                   }
                 </div>
