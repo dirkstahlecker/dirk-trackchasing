@@ -85,34 +85,68 @@ async function getCountForTrack(rawName)
 
 	const {trackName, configuration, isConfiguration} = getTrackNameAndConfiguration(rawName);
 
-	const trackList = await getTrackList()
+	// const trackList = await getTrackList()
 
 	let count = 0;
-	for (let i = 0; i < trackList.length; i++)
+	let i = 0;
+	while (true)
 	{
 		const jsonRowHeader = "Races: " + i;
 		const raceRow = json[jsonRowHeader];
-		if (raceRow !== undefined)
+		if (raceRow === undefined)
 		{
-			if (raceRow[trackName] != null)
+			break;
+		}
+
+		//TODO: consolidate with getEventsForTrack, some property bag thing
+		if (raceRow[trackName] != null)
+		{
+			if (isConfiguration)
 			{
-				if (isConfiguration)
+				//need to look into the specifics and see if there configuration is in brackets at the end
+				if (raceRow[trackName].includes(configuration))
 				{
-					//need to look into the specifics and see if there configuration is in brackets at the end
-					if (raceRow[trackName].includes(configuration))
-					{
-						count++
-					}
-				}
-				else
-				{
-					count++;
+					count++
 				}
 			}
+			else
+			{
+				count++;
+			}
 		}
+		i++;
 	}
 
 	return count;
+}
+
+async function getEventsForTrack(rawName)
+{
+	let json = await parser.parse();
+	json = json[RACES_HEADER];
+	const {trackName, configuration, isConfiguration} = getTrackNameAndConfiguration(rawName);
+	const events = [];
+
+	let i = 0;
+	while (true)
+	{
+		const jsonRowHeader = "Races: " + i;
+		const raceRow = json[jsonRowHeader];
+		if (raceRow === undefined)
+		{
+			break;
+		}
+
+		const event = raceRow[trackName];
+		if (event != null)
+		{
+			events.push(event);
+		}
+		i++;
+	}
+
+	console.log(events)
+	return events;
 }
 
 async function getFlipsForTrack(rawName)
@@ -149,7 +183,16 @@ app.get('/tracks/info', async function (req, res) {
 	const trackInfos = await getTrackFullInfo();
 
 	res.json(trackInfos);
-})
+});
+
+//returns a list of all the events for a particular track
+app.get('/tracks/:trackName/events', async function (req, res) {
+	res.set('Content-Type', 'application/json');
+
+	const eventInfo = await getTrackFullInfo();
+
+	res.json(eventInfo);
+});
 
 app.get('/numRaces/:trackName/raceCount', async function (req, res) { //TODO: does this still work?
 	console.log("/numRaces")
@@ -184,3 +227,4 @@ exports.getTrackFullInfo = getTrackFullInfo;
 exports.getFlipsForTrack = getFlipsForTrack;
 exports.getTrackList = getTrackList;
 exports.getTrackListNoConfigurations = getTrackListNoConfigurations;
+exports.getEventsForTrack = getEventsForTrack;

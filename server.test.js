@@ -94,6 +94,20 @@ test('getTrackFullInfo', async() => {
 	expect(la.flips).toBeUndefined();
 });
 
+it('getEventsForTrack', async() => {
+	let info = await server.getEventsForTrack("Seekonk Speedway");
+	expect(info.length).toEqual(46);
+	expect(info[0]).toEqual("7-13-16: US Pro stock nationals, INEX legends, pro 4 modifieds");
+
+	info = await server.getEventsForTrack("Pocatello Speedway");
+	expect(info.length).toEqual(6);
+
+	info = await server.getEventsForTrack("Thompson Speedway - Rallycross");
+	expect(info.length).toEqual(2);
+	expect(info[0]).toEqual("6-03-17: Global Rallycross Championship: GRC Supercars, GRC Lites");
+	expect(info[1]).toEqual("6-04-17: Global Rallycross Championship: GRC Supercars, GRC Lites");
+})
+
 it('number of flips per track', async() => {
 	let flips = await server.getFlipsForTrack("Eldora Speedway");
 	expect(flips.length).toBe(3);
