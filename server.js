@@ -197,10 +197,10 @@ app.get('/tracks/info', async function (req, res) {
 
 //returns a list of all the events for a particular track
 app.get('/tracks/:trackName/events', async function (req, res) {
+	console.log("/tracks/" + req.params.trackName + "/events");
 	res.set('Content-Type', 'application/json');
 
 	const eventInfo = await getEventsForTrack(req.params.trackName);
-	console.log(eventInfo)
 
 	res.json(eventInfo);
 });

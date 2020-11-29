@@ -3719,27 +3719,19 @@
     },
     "Atomic Motor Raceway (Inner Dirt Oval)": {
       "State": "ID",
-      "Type": "Oval",
-      "Latitude": 43.446251,
-      "Longitude": -112.81248
+      "Type": "Oval"
     },
     "Rocky Mountain Raceways (Asphalt Figure 8)": {
       "State": "UT",
-      "Type": "Figure 8",
-      "Latitude": 40.71917,
-      "Longitude": -112.046914
+      "Type": "Figure 8"
     },
     "Rocky Mountain Raceways (Inner Asphalt Oval)": {
       "State": "UT",
-      "Type": "Oval",
-      "Latitude": 40.71917,
-      "Longitude": -112.046914
+      "Type": "Oval"
     },
     "Rocky Mountain Raceways (Asphalt Road Course)": {
       "State": "UT",
-      "Type": "Road Course",
-      "Latitude": 40.71917,
-      "Longitude": -112.046914
+      "Type": "Road Course"
     },
     "Miller Motorsports Park": {
       "Date": "2009-05-17T04:00:00.000Z",
@@ -3814,16 +3806,12 @@
     "Pocatello Speedway (Inner Dirt Oval)": {
       "Date": "2016-07-23T04:00:00.000Z",
       "State": "ID",
-      "Type": "Oval",
-      "Latitude": 42.912684,
-      "Longitude": -112.577022
+      "Type": "Oval"
     },
     "Seekonk Speedway (Asphalt Figure 8)": {
       "Date": "2016-08-07T04:00:00.000Z",
       "State": "MA",
-      "Type": "Figure 8",
-      "Latitude": 41.784545,
-      "Longitude": -71.302063
+      "Type": "Figure 8"
     },
     "Thompson Speedway": {
       "Date": "2016-08-24T04:00:00.000Z",
@@ -3912,9 +3900,7 @@
     "Wall Stadium Speedway (Inner Asphalt Oval)": {
       "Date": "2017-11-25T05:00:00.000Z",
       "State": "NJ",
-      "Type": "Oval",
-      "Latitude": 40.175186,
-      "Longitude": -74.115242
+      "Type": "Oval"
     },
     "Hudson Speedway": {
       "Date": "2018-05-13T04:00:00.000Z",
@@ -3940,9 +3926,7 @@
     "Texas Motor Speedway (Asphalt Road Course)": {
       "Date": "2018-06-09T04:00:00.000Z",
       "State": "TX",
-      "Type": "Road Course",
-      "Latitude": 33.036961,
-      "Longitude": -97.281602
+      "Type": "Road Course"
     },
     "Monadnock Speedway": {
       "Date": "2018-07-07T04:00:00.000Z",
@@ -3954,9 +3938,7 @@
     "Stafford Motor Speedway (Inner Asphalt Oval)": {
       "Date": "2018-07-27T04:00:00.000Z",
       "State": "CT",
-      "Type": "Oval",
-      "Latitude": 41.955244,
-      "Longitude": -72.32045
+      "Type": "Oval"
     },
     "Bear Ridge Speedway": {
       "Date": "2018-08-11T04:00:00.000Z",
@@ -4080,16 +4062,12 @@
     "Slinger Speedway (Asphalt Figure 8)": {
       "Date": "2020-08-04T04:00:00.000Z",
       "State": "WI",
-      "Type": "Figure 8",
-      "Latitude": 43.340632,
-      "Longitude": -88.277351
+      "Type": "Figure 8"
     },
     "Slinger Speedway (Asphalt Road Course)": {
       "Date": "2020-08-04T04:00:00.000Z",
       "State": "WI",
-      "Type": "Road Course",
-      "Latitude": 43.340632,
-      "Longitude": -88.277351
+      "Type": "Road Course"
     },
     "Southern Iowa Speedway": {
       "Date": "2019-08-05T04:00:00.000Z",
@@ -4129,9 +4107,7 @@
     "Seekonk Speedway (Asphalt Road Course)": {
       "Date": "2019-08-31T04:00:00.000Z",
       "State": "MA",
-      "Type": "Road Course",
-      "Latitude": 41.784545,
-      "Longitude": -71.302063
+      "Type": "Road Course"
     },
     "Eldora Speedway": {
       "Date": "2019-09-28T04:00:00.000Z",
@@ -4304,9 +4280,7 @@
     "New Hampshire Motor Speedway (Asphalt Legends Oval)": {
       "Date": "2020-09-12T04:00:00.000Z",
       "State": "NH",
-      "Type": "Oval",
-      "Latitude": 43.36241,
-      "Longitude": -71.460713
+      "Type": "Oval"
     },
     "Bridgeport Motorsports Park": {
       "Date": "2020-11-06T05:00:00.000Z",

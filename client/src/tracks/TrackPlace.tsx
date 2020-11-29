@@ -59,7 +59,7 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 
 		return <>
 			{events.map((event: string) => {
-				return <div>{event}</div>
+				return <div key={event}>{event}</div>
 			})}
 		</>;
 	}
@@ -86,7 +86,7 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 				<br/>
 				{
 					this.currentTrack.flips.map((flip: Flip) => {
-						return <img 
+						return <img
 							src={TrackInfoMachine.flipGifPath(this.currentTrack!!.name, flip.flipId)}
 							key={flip.flipId}
 						/>
