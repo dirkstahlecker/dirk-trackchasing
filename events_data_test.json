@@ -3725,427 +3725,595 @@
     },
     "Rocky Mountain Raceways (Asphalt Figure 8)": {
       "State": "UT",
-      "Type": "Figure 8"
+      "Type": "Figure 8",
+      "Latitude": 40.71917,
+      "Longitude": -112.046914
     },
     "Rocky Mountain Raceways (Inner Asphalt Oval)": {
       "State": "UT",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 40.71917,
+      "Longitude": -112.046914
     },
     "Rocky Mountain Raceways (Asphalt Road Course)": {
       "State": "UT",
-      "Type": "Road Course"
+      "Type": "Road Course",
+      "Latitude": 40.71917,
+      "Longitude": -112.046914
     },
     "Miller Motorsports Park": {
       "Date": "2009-05-17T04:00:00.000Z",
       "State": "UT",
       "Type": "Road Course",
-      "Latitude": 40.5807157241469,
-      "Longitude": -112.379035334407
+      "Latitude": 40.580394,
+      "Longitude": -112.378375
     },
     "Phoenix International Raceway": {
       "Date": 2009,
       "State": "AZ",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 33.37478,
+      "Longitude": -112.310508
     },
     "Rocky Mountain Raceways": {
       "Date": "2010-09-19T04:00:00.000Z",
       "State": "UT",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 40.71917,
+      "Longitude": -112.046914
     },
     "Atomic Motor Raceway": {
       "Date": "2010-09-25T04:00:00.000Z",
       "State": "ID",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 43.446541,
+      "Longitude": -112.811413
     },
     "Stuart Speedway": {
       "Date": "2012-07-29T04:00:00.000Z",
       "State": "NE",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 42.607193,
+      "Longitude": -99.139804
     },
     "Wakeeney Speedway": {
       "Date": "2012-08-01T04:00:00.000Z",
       "State": "KS",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 39.024411,
+      "Longitude": -99.86834
     },
     "Miller Motorsports Park Off Road Course": {
       "Date": "2013-06-23T04:00:00.000Z",
       "State": "UT",
-      "Type": "Road Course"
+      "Type": "Road Course",
+      "Latitude": 40.585406,
+      "Longitude": -112.385315
     },
     "New Hampshire Motor Speedway": {
       "Date": "2013-09-22T04:00:00.000Z",
       "State": "NH",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 43.36241,
+      "Longitude": -71.460713
     },
     "Nassau Coliseum Parking Lot": {
       "Date": "2014-07-20T04:00:00.000Z",
       "State": "NY",
-      "Type": "Road Course"
+      "Type": "Road Course",
+      "Latitude": 40.72072,
+      "Longitude": -73.589474
     },
     "Seekonk Speedway": {
       "Date": "2016-07-13T04:00:00.000Z",
       "State": "MA",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 41.784545,
+      "Longitude": -71.302063
     },
     "Pocatello Speedway (Inner Dirt Oval)": {
       "Date": "2016-07-23T04:00:00.000Z",
       "State": "ID",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 42.912684,
+      "Longitude": -112.577022
     },
     "Seekonk Speedway (Asphalt Figure 8)": {
       "Date": "2016-08-07T04:00:00.000Z",
       "State": "MA",
-      "Type": "Figure 8"
+      "Type": "Figure 8",
+      "Latitude": 41.784545,
+      "Longitude": -71.302063
     },
     "Thompson Speedway": {
       "Date": "2016-08-24T04:00:00.000Z",
       "State": "CT",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 41.981539,
+      "Longitude": -71.824777
     },
     "Port of LA": {
       "Date": "2016-10-09T04:00:00.000Z",
       "State": "CA",
-      "Type": "Road Course"
+      "Type": "Road Course",
+      "Latitude": 33.715601,
+      "Longitude": -118.274313
     },
     "Star Speedway": {
       "Date": "2017-04-15T04:00:00.000Z",
       "State": "NH",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 43.029218,
+      "Longitude": -71.040663
     },
     "Stafford Motor Speedway": {
       "Date": "2017-04-30T04:00:00.000Z",
       "State": "CT",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 41.955244,
+      "Longitude": -72.32045
     },
     "Thompson Speedway - Rallycross": {
       "Date": "2017-06-03T04:00:00.000Z",
       "State": "CT",
-      "Type": "Road Course"
+      "Type": "Road Course",
+      "Latitude": 41.981539,
+      "Longitude": -71.824777
     },
     "Lee USA Speedway": {
       "Date": "2017-07-21T04:00:00.000Z",
       "State": "NH",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 43.115867,
+      "Longitude": -71.039733
     },
     "Albany-Saratoga Speedway": {
       "Date": "2017-07-28T04:00:00.000Z",
       "State": "NY",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 42.988542,
+      "Longitude": -73.78216
     },
     "New London Waterford Speedbowl": {
       "Date": "2017-08-12T04:00:00.000Z",
       "State": "CT",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 41.396765,
+      "Longitude": -72.17621
     },
     "Oxford Plains Speedway": {
       "Date": "2017-08-27T04:00:00.000Z",
       "State": "ME",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 44.153846,
+      "Longitude": -70.484541
     },
     "Lebanon Valley Speedway": {
       "Date": "2017-08-31T04:00:00.000Z",
       "State": "NY",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 42.491995,
+      "Longitude": -73.488908
     },
     "Beech Ridge Speedway": {
       "Date": "2017-09-17T04:00:00.000Z",
       "State": "ME",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 43.610212,
+      "Longitude": -70.380652
     },
     "Wall Stadium Speedway": {
       "Date": "2017-11-24T05:00:00.000Z",
       "State": "NJ",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 40.175186,
+      "Longitude": -74.115242
     },
     "Wall Stadium Speedway (Inner Asphalt Oval)": {
       "Date": "2017-11-25T05:00:00.000Z",
       "State": "NJ",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 40.175186,
+      "Longitude": -74.115242
     },
     "Hudson Speedway": {
       "Date": "2018-05-13T04:00:00.000Z",
       "State": "NH",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 42.813592,
+      "Longitude": -71.410685
     },
     "Texas Motor Speedway": {
       "Date": "2018-06-08T04:00:00.000Z",
       "State": "TX",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 33.036961,
+      "Longitude": -97.281602
     },
     "Lil' Texas Motor Speedway": {
       "Date": "2018-06-08T04:00:00.000Z",
       "State": "TX",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 33.035957,
+      "Longitude": -97.27588
     },
     "Texas Motor Speedway (Asphalt Road Course)": {
       "Date": "2018-06-09T04:00:00.000Z",
       "State": "TX",
-      "Type": "Road Course"
+      "Type": "Road Course",
+      "Latitude": 33.036961,
+      "Longitude": -97.281602
     },
     "Monadnock Speedway": {
       "Date": "2018-07-07T04:00:00.000Z",
       "State": "NH",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 42.831283,
+      "Longitude": -72.362489
     },
     "Stafford Motor Speedway (Inner Asphalt Oval)": {
       "Date": "2018-07-27T04:00:00.000Z",
       "State": "CT",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 41.955244,
+      "Longitude": -72.32045
     },
     "Bear Ridge Speedway": {
       "Date": "2018-08-11T04:00:00.000Z",
       "State": "VT",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 43.998119,
+      "Longitude": -72.168196
     },
     "Devil's Bowl Speedway": {
       "Date": "2018-09-16T04:00:00.000Z",
       "State": "VT",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 43.667992,
+      "Longitude": -73.294175
     },
     "Lancaster Speedway": {
       "Date": "2018-09-28T04:00:00.000Z",
       "State": "SC",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 34.779166,
+      "Longitude": -80.78716
     },
     "Charlotte Motor Speedway Roval": {
       "Date": "2018-09-29T04:00:00.000Z",
       "State": "NC",
-      "Type": "Road Course"
+      "Type": "Road Course",
+      "Latitude": 35.352002,
+      "Longitude": -80.683515
     },
     "Gateway Dirt Nationals": {
       "Date": "2018-11-29T05:00:00.000Z",
       "State": "MO",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 38.632739,
+      "Longitude": -90.188636
     },
     "Cure Insurance Arena": {
       "Date": "2018-12-15T05:00:00.000Z",
       "State": "NJ",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 40.21272,
+      "Longitude": -74.757592
     },
     "Exposition Center": {
       "Date": "2019-03-09T05:00:00.000Z",
       "State": "NY",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 43.074406,
+      "Longitude": -76.221899
     },
     "Lincoln Speedway": {
       "Date": "2019-03-23T04:00:00.000Z",
       "State": "PA",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 39.870591,
+      "Longitude": -76.994714
     },
     "Port Royal Speedway": {
       "Date": "2019-03-24T04:00:00.000Z",
       "State": "PA",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 40.535688,
+      "Longitude": -77.389519
     },
     "Orange County Fair Speedway": {
       "Date": "2019-04-13T04:00:00.000Z",
       "State": "NY",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 41.447578,
+      "Longitude": -74.393426
     },
     "New Egypt Speedway": {
       "Date": "2019-05-04T04:00:00.000Z",
       "State": "NJ",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 40.070578,
+      "Longitude": -74.467841
     },
     "Glen Ridge Motorsports Park": {
       "Date": "2019-06-02T04:00:00.000Z",
       "State": "NY",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 42.933938,
+      "Longitude": -74.4051
     },
     "Utica-Rome Speedway": {
       "Date": "2019-07-07T04:00:00.000Z",
       "State": "NY",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 43.078706,
+      "Longitude": -75.516282
     },
     "Thunder Road International Speedbowl": {
       "Date": "2019-07-18T04:00:00.000Z",
       "State": "VT",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 44.179899,
+      "Longitude": -72.487877
     },
     "NHMS Flat Track": {
       "Date": "2019-07-19T04:00:00.000Z",
       "State": "NH",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 43.34798,
+      "Longitude": -71.463928
     },
     "Meridian Speedway": {
       "Date": "2019-07-27T04:00:00.000Z",
       "State": "ID",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 43.601855,
+      "Longitude": -116.390666
     },
     "Slinger Speedway": {
       "Date": "2020-08-04T04:00:00.000Z",
       "State": "WI",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 43.340632,
+      "Longitude": -88.277351
     },
     "Slinger Speedway (Asphalt Figure 8)": {
       "Date": "2020-08-04T04:00:00.000Z",
       "State": "WI",
-      "Type": "Figure 8"
+      "Type": "Figure 8",
+      "Latitude": 43.340632,
+      "Longitude": -88.277351
     },
     "Slinger Speedway (Asphalt Road Course)": {
       "Date": "2020-08-04T04:00:00.000Z",
       "State": "WI",
-      "Type": "Road Course"
+      "Type": "Road Course",
+      "Latitude": 43.340632,
+      "Longitude": -88.277351
     },
     "Southern Iowa Speedway": {
       "Date": "2019-08-05T04:00:00.000Z",
       "State": "IA",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 41.303158,
+      "Longitude": -92.657883
     },
     "Knoxville Raceway": {
       "Date": "2019-08-07T04:00:00.000Z",
       "State": "IA",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 41.326589,
+      "Longitude": -93.111788
     },
     "Proctor Speedway": {
       "Date": "2019-08-11T04:00:00.000Z",
       "State": "MN",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 46.750912,
+      "Longitude": -92.214314
     },
     "William's Grove Speedway": {
       "Date": "2019-08-23T04:00:00.000Z",
       "State": "PA",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 40.155486,
+      "Longitude": -77.033648
     },
     "BAPS Motor Speedway": {
       "Date": "2019-08-25T04:00:00.000Z",
       "State": "PA",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 40.112489,
+      "Longitude": -76.825789
     },
     "Seekonk Speedway (Asphalt Road Course)": {
       "Date": "2019-08-31T04:00:00.000Z",
       "State": "MA",
-      "Type": "Road Course"
+      "Type": "Road Course",
+      "Latitude": 41.784545,
+      "Longitude": -71.302063
     },
     "Eldora Speedway": {
       "Date": "2019-09-28T04:00:00.000Z",
       "State": "OH",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 40.318608,
+      "Longitude": -84.633776
     },
     "PPL Center": {
       "Date": "2020-01-04T05:00:00.000Z",
       "State": "PA",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 40.602711,
+      "Longitude": -75.473078
     },
     "Riverside Speedway": {
       "Date": "2020-01-18T05:00:00.000Z",
       "State": "NH",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 44.596926,
+      "Longitude": -71.542518
     },
     "Boardwalk Hall": {
       "Date": "2020-02-01T05:00:00.000Z",
       "State": "NJ",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 39.355096,
+      "Longitude": -74.438648
     },
     "Paragon Speedway": {
       "Date": "2020-06-16T04:00:00.000Z",
       "State": "IN",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 39.391225,
+      "Longitude": -86.587073
     },
     "Gas City Speedway": {
       "Date": "2020-06-17T04:00:00.000Z",
       "State": "IN",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 40.483466,
+      "Longitude": -85.563242
     },
     "Lincoln Park Speedway": {
       "Date": "2020-06-18T04:00:00.000Z",
       "State": "IN",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 39.57626,
+      "Longitude": -86.869947
     },
     "Tri-State Speedway": {
       "Date": "2020-06-19T04:00:00.000Z",
       "State": "IN",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 38.205983,
+      "Longitude": -87.553621
     },
     "Lawrenceburg Speedway": {
       "Date": "2020-06-20T04:00:00.000Z",
       "State": "IN",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 39.104738,
+      "Longitude": -84.856087
     },
     "Kokomo Speedway": {
       "Date": "2020-06-21T04:00:00.000Z",
       "State": "IN",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 40.51123,
+      "Longitude": -86.143393
     },
     "Claremont Motorsports Park": {
       "Date": "2020-06-26T04:00:00.000Z",
       "State": "NH",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 43.392067,
+      "Longitude": -72.352005
     },
     "Selinsgrove Speedway": {
       "Date": "2020-06-28T04:00:00.000Z",
       "State": "PA",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 40.787057,
+      "Longitude": -76.870238
     },
     "Grandview Speedway": {
       "Date": "2020-06-30T04:00:00.000Z",
       "State": "PA",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 40.372544,
+      "Longitude": -75.610115
     },
     "Hagerstown Speedway": {
       "Date": "2020-07-02T04:00:00.000Z",
       "State": "PA",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 39.660672,
+      "Longitude": -77.843921
     },
     "Big Diamond Speedway": {
       "Date": "2020-07-03T04:00:00.000Z",
       "State": "PA",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 40.684617,
+      "Longitude": -76.303246
     },
     "White Mountain Motorsports Park": {
       "Date": "2020-07-04T04:00:00.000Z",
       "State": "NH",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 44.006522,
+      "Longitude": -71.681925
     },
     "Londonderry Speedway": {
       "Date": "2020-08-01T04:00:00.000Z",
       "State": "NH",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 42.920848,
+      "Longitude": -71.414851
     },
     "Rumtown Speedway": {
       "Date": "2020-08-01T04:00:00.000Z",
       "State": "NH",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 43.818725,
+      "Longitude": -71.8937
     },
     "Lucas Oil Raceway": {
       "Date": "2020-08-21T04:00:00.000Z",
       "State": "IN",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 39.812582,
+      "Longitude": -86.340586
     },
     "Lucas Oil Speedway Off Road Course": {
       "Date": "2020-08-22T04:00:00.000Z",
       "State": "MO",
-      "Type": "Road Course"
+      "Type": "Road Course",
+      "Latitude": 37.936849,
+      "Longitude": -93.392579
     },
     "Lucas Oil Speedway": {
       "Date": "2020-08-22T04:00:00.000Z",
       "State": "MO",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 37.940222,
+      "Longitude": -93.397699
     },
     "Indiana State Fairgrounds": {
       "Date": "2020-08-23T04:00:00.000Z",
       "State": "IN",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 39.829557,
+      "Longitude": -86.134228
     },
     "Gateway Motorsports Park": {
       "Date": "2020-08-29T04:00:00.000Z",
       "State": "IL",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 38.651483,
+      "Longitude": -90.135503
     },
     "Macon Speedway": {
       "Date": "2020-08-29T04:00:00.000Z",
       "State": "IL",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 39.712101,
+      "Longitude": -89.006834
     },
     "New Hampshire Motor Speedway (Asphalt Legends Oval)": {
       "Date": "2020-09-12T04:00:00.000Z",
       "State": "NH",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 43.36241,
+      "Longitude": -71.460713
     },
     "Bridgeport Motorsports Park": {
       "Date": "2020-11-06T05:00:00.000Z",
       "State": "NJ",
-      "Type": "Oval"
+      "Type": "Oval",
+      "Latitude": 39.819307,
+      "Longitude": -75.317575
     }
   },
   "Miles": {

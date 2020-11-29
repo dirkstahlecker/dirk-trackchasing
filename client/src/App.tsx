@@ -52,7 +52,7 @@ class App extends React.Component<AppProps>
   {
     return (
       <div className="App">
-        <header className="App-header">
+        <div className="App-body">
           {
             this.machine.navMachine.currentPlace === CurrentPlace.HOME &&
             <>
@@ -85,7 +85,12 @@ class App extends React.Component<AppProps>
               navMachine={this.machine.navMachine}
             />
           }
-        </header>
+        </div>
+        <div className="footer">
+          Contact: <a href="mailto:TrackchaserDirk@gmail.com">TrackchaserDirk@gmail.com</a>
+          &nbsp;&nbsp;&nbsp;
+          Site copyright Dirk Stahlecker &#169; {new Date().getFullYear()}
+        </div>
       </div>
     );
   }
