@@ -102,10 +102,18 @@ it('getEventsForTrack', async() => {
 	info = await server.getEventsForTrack("Pocatello Speedway");
 	expect(info.length).toEqual(6);
 
+	info = await server.getEventsForTrack("Pocatello Speedway (Inner Dirt Oval)");
+	expect(info.length).toEqual(1);
+	expect(info[0]).toEqual("7-23-16: ASA Pro Trucks, Street Stocks, Modifieds, Hornets, Junkyard Dogs, Karts [Inner Dirt Oval]")
+
 	info = await server.getEventsForTrack("Thompson Speedway - Rallycross");
 	expect(info.length).toEqual(2);
 	expect(info[0]).toEqual("6-03-17: Global Rallycross Championship: GRC Supercars, GRC Lites");
 	expect(info[1]).toEqual("6-04-17: Global Rallycross Championship: GRC Supercars, GRC Lites");
+
+	info = await server.getEventsForTrack("New Hampshire Motor Speedway (Asphalt Legends Oval)");
+	expect(info.length).toEqual(1);
+	expect(info[0]).toEqual("9-12-20: Whelen Modifieds Musket 200, ACT Late Models, Legends [Asphalt Legends Oval]");
 })
 
 it('number of flips per track', async() => {

@@ -3,7 +3,7 @@ import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable} from "mobx";
 import './App.css';
-import {TrackPlace} from "./tracks/TrackPlace";
+import {TrackPlace, TrackPlaceMachine} from "./tracks/TrackPlace";
 import {TrackInfoMachine, Track} from "./tracks/TrackInfoMachine";
 import {Map, MapMachine} from "./Map";
 import {NavigationMachine, CurrentPlace} from "./NavigationMachine";
@@ -80,6 +80,7 @@ class App extends React.Component<AppProps>
           {
             this.machine.navMachine.currentPlace === CurrentPlace.TRACK &&
             <TrackPlace
+              machine={new TrackPlaceMachine() /* TODO: look at this */}
               trackInfo={this.machine.trackInfoMachine}
               navMachine={this.machine.navMachine}
             />

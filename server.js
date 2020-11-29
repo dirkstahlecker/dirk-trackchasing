@@ -137,15 +137,25 @@ async function getEventsForTrack(rawName)
 			break;
 		}
 
+		//TODO: look at configurations
 		const event = raceRow[trackName];
 		if (event != null)
 		{
-			events.push(event);
+			if (isConfiguration)
+			{
+				if (event.includes(configuration))
+				{
+					events.push(event);
+				}
+			}
+			else //not a configuration, add all
+			{
+				events.push(event);
+			}
 		}
 		i++;
 	}
 
-	console.log(events)
 	return events;
 }
 
@@ -189,7 +199,8 @@ app.get('/tracks/info', async function (req, res) {
 app.get('/tracks/:trackName/events', async function (req, res) {
 	res.set('Content-Type', 'application/json');
 
-	const eventInfo = await getTrackFullInfo();
+	const eventInfo = await getEventsForTrack(req.params.trackName);
+	console.log(eventInfo)
 
 	res.json(eventInfo);
 });

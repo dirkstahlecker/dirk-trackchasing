@@ -4,17 +4,30 @@ import {observer} from "mobx-react";
 import {observable, action, makeObservable, computed} from "mobx";
 import {NavigationMachine} from "../NavigationMachine";
 import {TrackInfoMachine, Track, Flip} from "./TrackInfoMachine";
+import { trackDerivedFunction } from 'mobx/dist/internal';
+import { AssertionError } from 'assert';
 
 export class TrackPlaceMachine
 {
+	@observable
+	public events = [];
+
 	constructor()
 	{
 		makeObservable(this);
+	}
+
+	@action
+	public async fetchEvents(trackName: string): Promise<void>
+	{
+		const eventsRaw = await fetch('/tracks/' + trackName + "/events");
+		this.events = await eventsRaw.json();
 	}
 }
 
 export interface TrackPlaceProps
 {
+	machine: TrackPlaceMachine;
 	trackInfo: TrackInfoMachine;
 	navMachine: NavigationMachine;
 }
@@ -22,9 +35,33 @@ export interface TrackPlaceProps
 @observer
 export class TrackPlace extends React.Component<TrackPlaceProps>
 {
-	private get currentTrack(): Track | null
+	private get currentTrack(): Track
 	{
-		return this.props.navMachine.currentTrack;
+		const currentTrack: Track | null = this.props.navMachine.currentTrack;
+		if (currentTrack != null)
+		{
+			return currentTrack
+		}
+		throw Error("current track is null");
+	}
+
+	componentDidMount()
+	{
+		this.props.machine.fetchEvents(this.currentTrack.name);
+	}
+
+	private renderEvents(): JSX.Element
+	{
+		const events: string[] = [];
+		this.props.machine.events.forEach((event: string) => {
+			events.push(event);
+		});
+
+		return <>
+			{events.map((event: string) => {
+				return <div>{event}</div>
+			})}
+		</>;
 	}
 
 	render()
@@ -33,6 +70,8 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 		{
 			return <></>;
 		}
+
+		console.log(this.props.machine.events);
 
 		return (
 			<div id="track-place">
@@ -53,6 +92,8 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 						/>
 					})
 				}
+				<br/>
+				Events: {this.renderEvents()}
 				
 			</div>
 		);
