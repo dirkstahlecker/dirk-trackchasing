@@ -3,11 +3,11 @@ import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable} from "mobx";
 import './App.css';
-import {TrackPlace} from "./TrackPlace";
-import {TrackInfoMachine, Track} from "./TrackInfoMachine";
+import {TrackPlace} from "./tracks/TrackPlace";
+import {TrackInfoMachine, Track} from "./tracks/TrackInfoMachine";
 import {Map, MapMachine} from "./Map";
 import {NavigationMachine, CurrentPlace} from "./NavigationMachine";
-import { TrackTile } from './components/TrackTile';
+import {TrackTile} from './components/TrackTile';
 
 class AppMachine
 {

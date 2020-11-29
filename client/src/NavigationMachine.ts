@@ -2,7 +2,7 @@ import React from 'react';
 // import ReactDOM from "react-dom";
 import {observer} from "mobx-react";
 import {observable, action, makeObservable} from "mobx";
-import {Track} from "./TrackInfoMachine";
+import {Track} from "./tracks/TrackInfoMachine";
 
 export enum CurrentPlace {HOME, TRACK}
 
