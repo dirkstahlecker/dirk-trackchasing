@@ -7,6 +7,7 @@ import {NavigationMachine} from "../NavigationMachine";
 import mapboxgl from 'mapbox-gl';
 import ReactMapboxGl, {Layer, Feature, Marker} from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import "./TrackPopup.css";
 
 enum PopupState {ICON, INFO} //no need to export
 
@@ -56,28 +57,46 @@ export interface TrackPopupProps
 @observer
 export class TrackPopup extends React.Component<TrackPopupProps>
 {
+	private renderIcon(srcPath: string): JSX.Element
+	{
+		return <div className="track-popup-icon">
+			<button onClick={() => this.props.machine.changePopupState(PopupState.INFO)}>
+				<img src={srcPath} width="16px" height="16px"/>
+			</button>
+		</div>;
+	}
+
+	private renderInfo(track: Track): JSX.Element
+	{
+		return <div className="track-popup-info">
+			<button onClick={() => this.props.machine.changePopupState(PopupState.ICON)}>
+				X
+			</button>
+			<br/>
+			TEST
+			<br/>
+			<button onClick={() => this.props.navMachine.goToTrackPage(track)}>Go to track page</button>
+		</div>;
+	}
+
 	render()
 	{
 		const track: Track = this.props.track;
 		const srcPath = TrackPopupMachine.getMarkerSrcPathForType(track.trackType);
 
 		return <Marker
+			className="track-popup-marker"
 		  coordinates={[track.longitude, track.latitude]}
 		  anchor="bottom"
 		>
 			<>
 				{
 					this.props.machine.popupState === PopupState.ICON &&
-				  <button onClick={() => this.props.machine.changePopupState(PopupState.INFO)}>
-				  	<img src={srcPath} width="16px" height="16px"/>
-				  </button>
+					this.renderIcon(srcPath)
 				}
 				{
 					this.props.machine.popupState === PopupState.INFO &&
-					<div>
-						TEST
-						<button onClick={() => this.props.navMachine.goToTrackPage(track)}>Go to track page</button>
-					</div>
+					this.renderInfo(track)
 				}
 			</>
 		</Marker>;
