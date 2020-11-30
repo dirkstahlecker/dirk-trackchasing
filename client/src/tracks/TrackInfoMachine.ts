@@ -130,6 +130,11 @@ export class Track
 		this.flips = flips;
 	}
 
+	public get coordinates(): number[]
+	{
+		return [this.longitude, this.latitude]; //need to be reversed for some reason
+	}
+
 	//more to come...
 }
 

@@ -9,12 +9,22 @@ import mapboxgl from 'mapbox-gl';
 import ReactMapboxGl, {Layer, Feature, Marker} from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import oval from "./oval.png";
+import { TrackPopup2 } from './tracks/TrackPopup2';
 
 export class MapMachine
 {
+	@observable
+	public trackForPopup: Track | null = null;
+
 	constructor()
 	{
-		// makeObservable(this);
+		makeObservable(this);
+	}
+
+	@action
+	public setTrackForPopup(value: Track | null): void
+	{
+		this.trackForPopup = value;
 	}
 }
 
@@ -64,7 +74,12 @@ export class Map extends React.Component<MapProps>
      //  	// zoom: this.state.zoom
     	// });
     // }
-  }
+	}
+
+	private onDrag = () => {
+		this.props.machine.setTrackForPopup(null);
+	};
+
 
 	private renderMarkers(): JSX.Element[]
 	{
@@ -95,28 +110,46 @@ export class Map extends React.Component<MapProps>
 			    height: '80vh',
 			    width: '75vw'
 				}}
-			  center={this.INITIAL_CENTER} //coordinates are backwards for some reason
-			  zoom={[this.INITIAL_ZOOM]}
+			  center={this.INITIAL_CENTER}
+				zoom={[this.INITIAL_ZOOM]}
+				onDrag={this.onDrag}
 			>
-				<Layer
-					type="symbol"
-					id="marker"
-					layout={{
-						"icon-image": "customImage",
-						"icon-allow-overlap": true
-					}}
-					images={images}
-				>
-					{this.props.trackInfoMachine.tracks.map((track, index) => (
-						<Feature
-							key={track.name}
-							// onMouseEnter={this.onToggleHover.bind(this, 'pointer')}
-							// onMouseLeave={this.onToggleHover.bind(this, '')}
-							// onClick={}
-							coordinates={[track.longitude, track.latitude]}
+				<>
+					<Layer
+						type="symbol"
+						id="marker"
+						layout={{
+							"icon-image": "customImage",
+							"icon-allow-overlap": true
+						}}
+						images={images}
+					>
+						{this.props.trackInfoMachine.tracks.map((track, index) => (
+							// <TrackPopup
+							// 	machine={new TrackPopupMachine()}
+							// 	navMachine={this.props.navMachine}
+							// 	track={track}
+							// />
+
+								<Feature
+									key={track.name}
+									// onMouseEnter={this.onToggleHover.bind(this, 'pointer')}
+									// onMouseLeave={this.onToggleHover.bind(this, '')}
+									onClick={() => this.props.machine.setTrackForPopup(track)}
+									coordinates={track.coordinates}
+								/>
+
+
+						))}
+					</Layer>
+					{
+						this.props.machine.trackForPopup &&
+						<TrackPopup2
+							track={this.props.machine.trackForPopup}
 						/>
-					))}
-				</Layer>
+					}
+				</>
+
 			</GlMap>
   	</div>;
   }

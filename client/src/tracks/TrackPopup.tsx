@@ -14,7 +14,7 @@ enum PopupState {ICON, INFO} //no need to export
 export class TrackPopupMachine
 {
 	@observable
-	public popupState: PopupState = PopupState.ICON;
+	public popupState: PopupState = PopupState.INFO;
 
 	constructor()
 	{
@@ -69,11 +69,8 @@ export class TrackPopup extends React.Component<TrackPopupProps>
 	private renderInfo(track: Track): JSX.Element
 	{
 		return <div className="track-popup-info">
-			<button onClick={() => this.props.machine.changePopupState(PopupState.ICON)}>
-				X
-			</button>
-			<br/>
-			{track.name}
+			<button onClick={() => this.props.machine.changePopupState(PopupState.ICON)}></button>
+			TEST
 			<br/>
 			<button onClick={() => this.props.navMachine.goToTrackPage(track)}>Go to track page</button>
 		</div>;
@@ -84,21 +81,29 @@ export class TrackPopup extends React.Component<TrackPopupProps>
 		const track: Track = this.props.track;
 		const srcPath = TrackPopupMachine.getMarkerSrcPathForType(track.trackType);
 
-		return <Marker
-			className="track-popup-marker"
-		  coordinates={[track.longitude, track.latitude]}
-		  anchor="bottom"
-		>
-			<>
-				{
-					this.props.machine.popupState === PopupState.ICON &&
-					this.renderIcon(srcPath)
-				}
-				{
-					this.props.machine.popupState === PopupState.INFO &&
-					this.renderInfo(track)
-				}
-			</>
-		</Marker>;
+		return <Feature
+			key={track.name}
+			// onMouseEnter={this.onToggleHover.bind(this, 'pointer')}
+			// onMouseLeave={this.onToggleHover.bind(this, '')}
+			// onClick={}
+			coordinates={track.coordinates}
+		/>;
+
+		// return <Marker
+		// 	className="track-popup-marker"
+		//   coordinates={[track.longitude, track.latitude]}
+		//   anchor="bottom"
+		// >
+		// 	<>
+		// 		{
+		// 			this.props.machine.popupState === PopupState.ICON &&
+		// 			this.renderIcon(srcPath)
+		// 		}
+		// 		{
+		// 			this.props.machine.popupState === PopupState.INFO &&
+		// 			this.renderInfo(track)
+		// 		}
+		// 	</>
+		// </Marker>;
 	}
 }
