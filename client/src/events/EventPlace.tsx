@@ -10,6 +10,7 @@ export class EventPlaceMachine
 export interface EventPlaceProps
 {
   machine: EventPlaceMachine;
+  eventInfo: string;
 }
 
 @observer
@@ -17,6 +18,8 @@ export class EventPlace extends React.Component<EventPlaceProps>
 {
   render()
   {
-    return <>Event Place</>;
+    return <div className="event-place">
+      {this.props.eventInfo}
+      </div>;
   }
 }

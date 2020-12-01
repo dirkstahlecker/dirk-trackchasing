@@ -105,6 +105,17 @@ export class Map extends React.Component<MapProps>
 		});
 	}
 
+	private renderFeature(track: Track): JSX.Element
+	{
+		return <Feature
+			key={track.name}
+			// onMouseEnter={this.onToggleHover.bind(this, 'pointer')}
+			// onMouseLeave={this.onToggleHover.bind(this, '')}
+			onClick={() => this.props.machine.setTrackForPopup(track)}
+			coordinates={track.coordinates}
+		/>;
+	}
+
   render()
   {
   	return <div id="map-place">
@@ -131,13 +142,7 @@ export class Map extends React.Component<MapProps>
 						images={ovalImages}
 					>
 						{this.props.trackInfoMachine.ovalTracks.map((track, index) => (
-							<Feature
-								key={track.name}
-								// onMouseEnter={this.onToggleHover.bind(this, 'pointer')}
-								// onMouseLeave={this.onToggleHover.bind(this, '')}
-								onClick={() => this.props.machine.setTrackForPopup(track)}
-								coordinates={track.coordinates}
-							/>
+							this.renderFeature(track)
 						))}
 					</Layer>
 
@@ -151,13 +156,7 @@ export class Map extends React.Component<MapProps>
 						images={roadImages}
 					>
 						{this.props.trackInfoMachine.roadTracks.map((track, index) => (
-							<Feature
-								key={track.name}
-								// onMouseEnter={this.onToggleHover.bind(this, 'pointer')}
-								// onMouseLeave={this.onToggleHover.bind(this, '')}
-								onClick={() => this.props.machine.setTrackForPopup(track)}
-								coordinates={track.coordinates}
-							/>
+							this.renderFeature(track)
 						))}
 					</Layer>
 
