@@ -174,6 +174,11 @@ it('flip objects', async() => {
 	expect(flip.date).toEqual("2020-08-20T04:00:00.000Z");
 });
 
+it('returns event specific info', async() => {
+	let eventInfo = await server.getEventInfo("Seekonk Speedway", "9-09-17");
+	expect(eventInfo.classes).toEqual("Pro Stocks, Late Models, Street Stocks, Sport Trucks");
+});
+
 //TODO: currently breaks
 // test('capitalization', () => {
 // 	expect(server.getCountForTrack("seeKoNK speedWAY")).toBe(46);

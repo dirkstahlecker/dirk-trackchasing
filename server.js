@@ -165,6 +165,76 @@ async function getFlipsForTrack(rawName)
 	return flipData[rawName];
 }
 
+function cleanDate(dateRaw)
+{
+	date = "";
+	dateParts = dateRaw.split("-");
+
+	const month = dateParts[0];
+	const monthNum = parseInt(month)
+	if (monthNum < 10)
+	{
+		date += "0" + monthNum.toString();
+	}
+	else
+	{
+		date += month;
+	}
+	date += "-"
+
+	const day = dateParts[1];
+	const dayNum = parseInt(day);
+	if (dayNum < 10)
+	{
+		date += "0" + dayNum.toString();
+	}
+	else
+	{
+		date += day;
+	}
+	date += "-";
+
+	const year = dateParts[2];
+	const yearNum = parseInt(year);
+	if (yearNum < 10)
+	{
+		date += "0" + yearNum.toString();
+	}
+	else
+	{
+		date += year;
+	}
+
+	if (date.length !== 8)
+	{
+		throw Error("Invalid date: " + date);
+	}
+	return date;
+}
+
+function getDateFromEventString(eventString)
+{
+	let dateRaw = eventString.split(":")[0];
+	return cleanDate(dateRaw);
+}
+
+async function getEventInfo(trackName, date)
+{
+	const events = await getEventsForTrack(trackName); //TODO: inefficient - stop when we find it
+	const event = events.find((event) => {
+		return getDateFromEventString(event) === cleanDate(date);
+	});
+
+	if (event === undefined)
+	{
+		throw Error("Event for track " + trackName + " on date " + date + " cannot be found");
+	}
+	console.log(event);
+
+	//TODO: get actual info
+	return event;
+}
+
 
 
 
@@ -200,8 +270,17 @@ app.get('/tracks/:trackName/events', async function (req, res) {
 	console.log("/tracks/" + req.params.trackName + "/events");
 	res.set('Content-Type', 'application/json');
 
-	const eventInfo = await getEventsForTrack(req.params.trackName);
+	const events = await getEventsForTrack(req.params.trackName);
 
+	res.json(events);
+});
+
+app.get('/events/:trackName/:date', async function (req, res) {
+	console.log('/events/' + req.params.trackName + '/' + req.params.date);
+	res.set('Content-Type', 'application/json');
+
+	const eventInfo = await getEventInfo(req.params.track, req.params.date);
+	
 	res.json(eventInfo);
 });
 
@@ -239,3 +318,4 @@ exports.getFlipsForTrack = getFlipsForTrack;
 exports.getTrackList = getTrackList;
 exports.getTrackListNoConfigurations = getTrackListNoConfigurations;
 exports.getEventsForTrack = getEventsForTrack;
+exports.getEventInfo = getEventInfo;
