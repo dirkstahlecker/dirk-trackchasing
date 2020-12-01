@@ -5,7 +5,7 @@ import {observable, action, makeObservable, runInAction} from "mobx";
 import {TrackInfoMachine, Track, TrackTypeEnum} from "./TrackInfoMachine";
 import {NavigationMachine} from "../NavigationMachine";
 import mapboxgl from 'mapbox-gl';
-import ReactMapboxGl, {Layer, Feature, Marker} from 'react-mapbox-gl';
+import ReactMapboxGl, {Layer, Feature, Marker, Popup} from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import "./TrackPopup.css";
 
@@ -57,14 +57,14 @@ export interface TrackPopupProps
 @observer
 export class TrackPopup extends React.Component<TrackPopupProps>
 {
-	private renderIcon(srcPath: string): JSX.Element
-	{
-		return <div className="track-popup-icon">
-			<button onClick={() => this.props.machine.changePopupState(PopupState.INFO)}>
-				<img src={srcPath} width="16px" height="16px"/>
-			</button>
-		</div>;
-	}
+	// private renderIcon(srcPath: string): JSX.Element
+	// {
+	// 	return <div className="track-popup-icon">
+	// 		<button onClick={() => this.props.machine.changePopupState(PopupState.INFO)}>
+	// 			<img src={srcPath} width="16px" height="16px"/>
+	// 		</button>
+	// 	</div>;
+	// }
 
 	private renderInfo(track: Track): JSX.Element
 	{
@@ -79,31 +79,14 @@ export class TrackPopup extends React.Component<TrackPopupProps>
 	render()
 	{
 		const track: Track = this.props.track;
-		const srcPath = TrackPopupMachine.getMarkerSrcPathForType(track.trackType);
 
-		return <Feature
-			key={track.name}
-			// onMouseEnter={this.onToggleHover.bind(this, 'pointer')}
-			// onMouseLeave={this.onToggleHover.bind(this, '')}
-			// onClick={}
-			coordinates={track.coordinates}
-		/>;
-
-		// return <Marker
-		// 	className="track-popup-marker"
-		//   coordinates={[track.longitude, track.latitude]}
-		//   anchor="bottom"
-		// >
-		// 	<>
-		// 		{
-		// 			this.props.machine.popupState === PopupState.ICON &&
-		// 			this.renderIcon(srcPath)
-		// 		}
-		// 		{
-		// 			this.props.machine.popupState === PopupState.INFO &&
-		// 			this.renderInfo(track)
-		// 		}
-		// 	</>
-		// </Marker>;
+		return (
+			<Popup
+				key={track.name}
+				coordinates={track.coordinates}	
+			>
+				{this.renderInfo(track)}
+			</Popup>
+		)
 	}
 }

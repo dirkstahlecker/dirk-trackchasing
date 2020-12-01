@@ -19,6 +19,7 @@ export class TrackPopup2 extends React.Component<TrackPopup2Props>
       <Popup
         key={track.name}
         coordinates={track.coordinates}
+        
       >
         {track.name}
       </Popup>

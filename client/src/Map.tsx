@@ -125,27 +125,21 @@ export class Map extends React.Component<MapProps>
 						images={images}
 					>
 						{this.props.trackInfoMachine.tracks.map((track, index) => (
-							// <TrackPopup
-							// 	machine={new TrackPopupMachine()}
-							// 	navMachine={this.props.navMachine}
-							// 	track={track}
-							// />
-
-								<Feature
-									key={track.name}
-									// onMouseEnter={this.onToggleHover.bind(this, 'pointer')}
-									// onMouseLeave={this.onToggleHover.bind(this, '')}
-									onClick={() => this.props.machine.setTrackForPopup(track)}
-									coordinates={track.coordinates}
-								/>
-
-
+							<Feature
+								key={track.name}
+								// onMouseEnter={this.onToggleHover.bind(this, 'pointer')}
+								// onMouseLeave={this.onToggleHover.bind(this, '')}
+								onClick={() => this.props.machine.setTrackForPopup(track)}
+								coordinates={track.coordinates}
+							/>
 						))}
 					</Layer>
 					{
 						this.props.machine.trackForPopup &&
-						<TrackPopup2
+						<TrackPopup
 							track={this.props.machine.trackForPopup}
+							navMachine={this.props.navMachine}
+							machine={new TrackPopupMachine()}
 						/>
 					}
 				</>
