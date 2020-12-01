@@ -9,7 +9,6 @@ import mapboxgl from 'mapbox-gl';
 import ReactMapboxGl, {Layer, Feature, Marker} from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import oval from "./oval.png";
-import { TrackPopup2 } from './tracks/TrackPopup2';
 
 export class MapMachine
 {
@@ -39,11 +38,11 @@ const GlMap = ReactMapboxGl({
   accessToken: 'pk.eyJ1IjoiZGlya3N0YWhsZWNrZXIiLCJhIjoiY2tobzl2NXk3MDFrNTJ5bWw2andtNGN5eiJ9.CN8ziM6moVE85pfhbYiTIw'
 });
 
-const image = new Image();
-image.src = oval;
-image.width = 30;
-image.height = 30;
-const images = ['customImage', image];
+const ovalImg = new Image();
+ovalImg.src = oval;
+ovalImg.width = 30;
+ovalImg.height = 30;
+const images = ['ovalImg', ovalImg];
 
 @observer
 export class Map extends React.Component<MapProps>
@@ -119,7 +118,7 @@ export class Map extends React.Component<MapProps>
 						type="symbol"
 						id="marker"
 						layout={{
-							"icon-image": "customImage",
+							"icon-image": "ovalImg",
 							"icon-allow-overlap": true
 						}}
 						images={images}
