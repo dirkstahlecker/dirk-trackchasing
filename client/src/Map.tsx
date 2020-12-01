@@ -9,6 +9,7 @@ import mapboxgl from 'mapbox-gl';
 import ReactMapboxGl, {Layer, Feature, Marker} from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import oval from "./oval.png";
+import road from "./road.png";
 
 export class MapMachine
 {
@@ -42,7 +43,13 @@ const ovalImg = new Image();
 ovalImg.src = oval;
 ovalImg.width = 30;
 ovalImg.height = 30;
-const images = ['ovalImg', ovalImg];
+const ovalImages = ['ovalImg', ovalImg];
+
+const roadImg = new Image();
+roadImg.src = road;
+roadImg.width = 30;
+roadImg.height = 30;
+const roadImages = ['roadImg', roadImg];
 
 @observer
 export class Map extends React.Component<MapProps>
@@ -116,14 +123,14 @@ export class Map extends React.Component<MapProps>
 				<>
 					<Layer
 						type="symbol"
-						id="marker"
+						id="ovalTracks"
 						layout={{
 							"icon-image": "ovalImg",
 							"icon-allow-overlap": true
 						}}
-						images={images}
+						images={ovalImages}
 					>
-						{this.props.trackInfoMachine.tracks.map((track, index) => (
+						{this.props.trackInfoMachine.ovalTracks.map((track, index) => (
 							<Feature
 								key={track.name}
 								// onMouseEnter={this.onToggleHover.bind(this, 'pointer')}
@@ -133,6 +140,28 @@ export class Map extends React.Component<MapProps>
 							/>
 						))}
 					</Layer>
+
+					<Layer
+						type="symbol"
+						id="roadTracks"
+						layout={{
+							"icon-image": "roadImg",
+							"icon-allow-overlap": true
+						}}
+						images={roadImages}
+					>
+						{this.props.trackInfoMachine.roadTracks.map((track, index) => (
+							<Feature
+								key={track.name}
+								// onMouseEnter={this.onToggleHover.bind(this, 'pointer')}
+								// onMouseLeave={this.onToggleHover.bind(this, '')}
+								onClick={() => this.props.machine.setTrackForPopup(track)}
+								coordinates={track.coordinates}
+							/>
+						))}
+					</Layer>
+
+
 					{
 						this.props.machine.trackForPopup &&
 						<TrackPopup

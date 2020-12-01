@@ -1,6 +1,6 @@
 import React from 'react';
 import {observer} from "mobx-react";
-import {observable, action, makeObservable, runInAction} from "mobx";
+import {observable, action, makeObservable, runInAction, computed} from "mobx";
 
 export enum TrackTypeEnum {OVAL, FIGURE_8, ROAD_COURSE}
 
@@ -13,6 +13,30 @@ export class TrackInfoMachine
 
 	@observable
 	public tracks: Track[] = [];
+
+	@computed
+	public get ovalTracks(): Track[]
+	{
+		return this.tracks.filter((track: Track) => {
+			return track.trackType === TrackTypeEnum.OVAL;
+		});
+	}
+
+	@computed
+	public get roadTracks(): Track[]
+	{
+		return this.tracks.filter((track: Track) => {
+			return track.trackType === TrackTypeEnum.ROAD_COURSE;
+		});
+	}
+
+	@computed
+	public get figure8Tracks(): Track[]
+	{
+		return this.tracks.filter((track: Track) => {
+			return track.trackType === TrackTypeEnum.FIGURE_8;
+		});
+	}
 
 	public getTrackFromName(trackName: string)
 	{
