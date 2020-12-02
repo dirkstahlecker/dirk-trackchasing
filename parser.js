@@ -48,7 +48,7 @@ async function makeFlipsData(json)
 		}
 		const newObjToAdd = {
 			"flipId": flipId,
-			"date": flipInfo["Date"], 
+			"date": new Date(flipInfo["Date"]), 
 			"class": flipInfo["Class"], 
 			"rotations": flipInfo["Rotations"], 
 			"surface": flipInfo["Surface"],

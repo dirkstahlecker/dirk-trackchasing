@@ -20,6 +20,6 @@ export class EventPlace extends React.Component<EventPlaceProps>
   {
     return <div className="event-place">
       {this.props.eventInfo}
-      </div>;
+    </div>;
   }
 }

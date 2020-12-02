@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const parser = require('./parser');
+const utilities = require('./utilities');
 
 const app = express();
 
@@ -161,75 +162,58 @@ async function getEventsForTrack(rawName)
 
 async function getFlipsForTrack(rawName)
 {
-	const flipData = await parser.flipsData();
-	return flipData[rawName];
+	const flipDataAllTracks = await parser.flipsData();
+
+	// {name : [ date, track, class, rotations, surface, open wheel, when, video, notes ] }
+
+	// const flipsForTrack = [];
+
+	
+	// console.log(flipsForTrack)
+	return flipDataAllTracks[rawName];
 }
 
-function cleanDate(dateRaw)
+function getDateFromFlip(flip)
 {
-	date = "";
-	dateParts = dateRaw.split("-");
+	return new Date(flip["date"]);
+}
 
-	const month = dateParts[0];
-	const monthNum = parseInt(month)
-	if (monthNum < 10)
-	{
-		date += "0" + monthNum.toString();
-	}
-	else
-	{
-		date += month;
-	}
-	date += "-"
+async function getFlipsForEvent(trackName, date)
+{
+	// date = utilities.cleanDate(date);
+	const dateObj = new Date(date);
+	const flipsForTrack = await getFlipsForTrack(trackName); //TODO: inefficient
+	const flipsForEvent = flipsForTrack.filter((flip) => {
+		// return utilities.cleanDate(flip.date) === dateObj;
+		return getDateFromFlip(flip) === dateObj;
+	});
 
-	const day = dateParts[1];
-	const dayNum = parseInt(day);
-	if (dayNum < 10)
-	{
-		date += "0" + dayNum.toString();
-	}
-	else
-	{
-		date += day;
-	}
-	date += "-";
-
-	const year = dateParts[2];
-	const yearNum = parseInt(year);
-	if (yearNum < 10)
-	{
-		date += "0" + yearNum.toString();
-	}
-	else
-	{
-		date += year;
-	}
-
-	if (date.length !== 8)
-	{
-		throw Error("Invalid date: " + date);
-	}
-	return date;
+	console.log("found flip in getFlipForEvent:" + flipsForEvent)
+	return flipsForEvent; //TODO: not done yet
 }
 
 function getDateFromEventString(eventString)
 {
 	let dateRaw = eventString.split(":")[0];
-	return cleanDate(dateRaw);
+	// return utilities.cleanDate(dateRaw);
+	return new Date(dateRaw);
 }
 
 async function getEventInfo(trackName, date)
 {
+	// date = utilities.cleanDate(date);
+	const dateObj = new Date(date);
 	const events = await getEventsForTrack(trackName); //TODO: inefficient - stop when we find it
 	const event = events.find((event) => {
-		return getDateFromEventString(event) === cleanDate(date);
+		return getDateFromEventString(event) === date;
 	});
 
 	if (event === undefined)
 	{
 		throw Error("Event for track " + trackName + " on date " + date + " cannot be found");
 	}
-	console.log(event);
+
+	const flipsForEvent = await getFlipsForEvent(trackName, date)
 
 	//TODO: get actual info
 	return event;
