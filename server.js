@@ -163,33 +163,24 @@ async function getEventsForTrack(rawName)
 async function getFlipsForTrack(rawName)
 {
 	const flipDataAllTracks = await parser.flipsData();
-
-	// {name : [ date, track, class, rotations, surface, open wheel, when, video, notes ] }
-
-	// const flipsForTrack = [];
-
-	
-	// console.log(flipsForTrack)
 	return flipDataAllTracks[rawName];
 }
 
 function getDateFromFlip(flip)
 {
-	return new Date(flip["date"]);
+	return new Date(flip.date);
 }
 
 async function getFlipsForEvent(trackName, date)
 {
-	// date = utilities.cleanDate(date);
 	const dateObj = new Date(date);
 	const flipsForTrack = await getFlipsForTrack(trackName); //TODO: inefficient
+
 	const flipsForEvent = flipsForTrack.filter((flip) => {
-		// return utilities.cleanDate(flip.date) === dateObj;
-		return getDateFromFlip(flip) === dateObj;
+		return getDateFromFlip(flip).getTime() === dateObj.getTime();
 	});
 
-	console.log("found flip in getFlipForEvent:" + flipsForEvent)
-	return flipsForEvent; //TODO: not done yet
+	return flipsForEvent;
 }
 
 function getDateFromEventString(eventString)
@@ -199,24 +190,33 @@ function getDateFromEventString(eventString)
 	return new Date(dateRaw);
 }
 
+//returns { date: string , classes: string , flips: [flip] , notableCrashes: ?? }
 async function getEventInfo(trackName, date)
 {
 	// date = utilities.cleanDate(date);
 	const dateObj = new Date(date);
 	const events = await getEventsForTrack(trackName); //TODO: inefficient - stop when we find it
-	const event = events.find((event) => {
-		return getDateFromEventString(event) === date;
+	const eventString = events.find((event) => {
+		const eventDate = getDateFromEventString(event);
+		return eventDate.getTime() === dateObj.getTime();
 	});
 
-	if (event === undefined)
+	if (eventString === undefined)
 	{
 		throw Error("Event for track " + trackName + " on date " + date + " cannot be found");
 	}
 
 	const flipsForEvent = await getFlipsForEvent(trackName, date)
 
-	//TODO: get actual info
-	return event;
+	const classes = eventString.substring(eventString.indexOf(":") + 2);
+
+	const eventInfoObj = {};
+	eventInfoObj["date"] = dateObj;
+	eventInfoObj["classes"] = classes;
+	eventInfoObj["flips"] = flipsForEvent;
+	//TODO: notable crashes
+
+	return eventInfoObj;
 }
 
 

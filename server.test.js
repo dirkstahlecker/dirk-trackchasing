@@ -174,11 +174,21 @@ it('flip objects', async() => {
 	expect(flip.date).toEqual(new Date("8-20-20"));
 });
 
-//not implemented yet
-// it('returns event specific info', async() => {
-// 	let eventInfo = await server.getEventInfo("Bridgeport Speedway", "11-08-20");
-// 	// expect(eventInfo.classes).toEqual("Pro Stocks, Late Models, Street Stocks, Sport Trucks");
-// });
+it('returns event specific info', async() => {
+	let eventInfo = await server.getEventInfo("Bridgeport Motorsports Park", "11-08-20");
+	expect(eventInfo.classes).toEqual("Big Block Modifieds, 602 Sportsman Modifieds, USAC SpeedSTRs, Street Stocks");
+	expect(eventInfo.date).toEqual(new Date("11-08-20"));
+	expect(eventInfo.flips.length).toEqual(3);
+	expect(eventInfo.flips[0].class).toEqual("USAC SpeedSTR");
+
+	//TODO: test flips on configuration once I actually have one
+
+	eventInfo = await server.getEventInfo("Kokomo Speedway", "8-27-20");
+	expect(eventInfo.classes).toEqual("Smackdown IX: USAC National Sprint Cars");
+	expect(eventInfo.date).toEqual(new Date("8-27-20"));
+	expect(eventInfo.flips.length).toEqual(2);
+	expect(eventInfo.flips[0].class).toEqual("Wingless 410 Sprint Car");
+});
 
 //TODO: currently breaks
 // test('capitalization', () => {
