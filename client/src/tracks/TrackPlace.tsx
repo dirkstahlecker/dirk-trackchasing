@@ -8,11 +8,12 @@ import { trackDerivedFunction } from 'mobx/dist/internal';
 import { AssertionError } from 'assert';
 import { EventPlace, EventPlaceMachine } from '../events/EventPlace';
 import { Flip } from '../events/Flip';
+import { EventObj } from '../events/EventObj';
 
 export class TrackPlaceMachine
 {
 	@observable
-	public events = [];
+	public events: EventObj[] = [];
 
 	constructor()
 	{
@@ -23,7 +24,9 @@ export class TrackPlaceMachine
 	public async fetchEvents(trackName: string): Promise<void>
 	{
 		const eventsRaw = await fetch('/tracks/' + trackName + "/events");
-		this.events = await eventsRaw.json();
+		const eventsJson = await eventsRaw.json();
+
+		console.log(eventsJson);
 	}
 }
 
@@ -55,10 +58,10 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 	private renderEvents(): JSX.Element
 	{
 		return <>
-			{this.props.machine.events.map((event: string) => (
+			{this.props.machine.events.map((event: EventObj) => (
 				<EventPlace
-					key={event}
-					eventInfo={event}
+					key={event.date}
+					event={event}
 					machine={new EventPlaceMachine()}
 				/>
 			))}

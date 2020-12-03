@@ -1,8 +1,7 @@
 import { Flip } from "./Flip";
 
-export class Event
+export class EventObj
 {
-  // { date: string , classes: string , flips: [flip] , notableCrashes: ?? }
   public date: string;
   public classes: string;
   public flips: Flip[];
@@ -13,5 +12,10 @@ export class Event
     this.date = date;
     this.classes = classes;
     this.flips = flips;
+  }
+
+  static parseEvent(json: any): EventObj
+  {
+    return new EventObj(json["date"], json["classes"], json["flips"]); //TODO: flips probably won't work
   }
 }
