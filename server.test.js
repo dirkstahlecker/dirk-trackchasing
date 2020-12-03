@@ -176,7 +176,7 @@ it('flip objects', async() => {
 });
 
 //more detailed, enriched with other information
-it('returns event specific info', async() => {
+it('returns enriched event info', async() => {
 	let eventInfo = await server.getEnrichedEventInfo("Bridgeport Motorsports Park", "11-08-20");
 	expect(eventInfo.classes).toEqual("Big Block Modifieds, 602 Sportsman Modifieds, USAC SpeedSTRs, Street Stocks");
 	expect(eventInfo.date).toEqual(new Date("11-08-20"));

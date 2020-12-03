@@ -192,23 +192,14 @@ function getDateFromEventString(eventString)
 	return new Date(dateRaw);
 }
 
-//returns { date: string , classes: string , flips: [flip] , notableCrashes: ?? }
-async function getEnrichedEventInfo(trackName, date)
+async function makeEnrichedEventInfo(eventString, trackName, dateObj)
 {
-	// date = utilities.cleanDate(date);
-	const dateObj = new Date(date);
-	const eventStrings = await getEventStringsForTrack(trackName); //TODO: inefficient - stop when we find it
-	const eventString = eventStrings.find((event) => {
-		const eventDate = getDateFromEventString(event);
-		return eventDate.getTime() === dateObj.getTime();
-	});
-
 	if (eventString === undefined)
 	{
-		throw Error("Event for track " + trackName + " on date " + date + " cannot be found");
+		throw Error("Event for track " + trackName + " on date " + dateObj + " cannot be found");
 	}
 
-	const flipsForEvent = await getFlipsForEvent(trackName, date)
+	const flipsForEvent = await getFlipsForEvent(trackName, dateObj)
 
 	const classes = eventString.substring(eventString.indexOf(":") + 2);
 
@@ -219,6 +210,24 @@ async function getEnrichedEventInfo(trackName, date)
 	//TODO: notable crashes
 
 	return eventInfoObj;
+}
+
+//returns { date: string , classes: string , flips: [flip] , notableCrashes: ?? }
+async function getEnrichedEventInfo(trackName, date)
+{
+	const dateObj = new Date(date);
+	const eventStrings = await getEventStringsForTrack(trackName); //TODO: inefficient - stop when we find it
+	const eventString = eventStrings.find((event) => {
+		const eventDate = getDateFromEventString(event);
+		return eventDate.getTime() === dateObj.getTime();
+	});
+
+	return makeEnrichedEventInfo(eventString, trackName, dateObj);
+}
+
+async function getAllEnrichedEventInfosForTrack(trackName)
+{
+	const eventStrings = await getEventStringsForTrack(trackName); //TODO: inefficient - stop when we find it
 }
 
 
@@ -251,7 +260,7 @@ app.get('/tracks/info', async function (req, res) {
 	res.json(trackInfos);
 });
 
-//returns a list of all the events for a particular track
+//returns a list of all event strings for a particular track
 app.get('/tracks/:trackName/events', async function (req, res) {
 	console.log("/tracks/" + req.params.trackName + "/events");
 	res.set('Content-Type', 'application/json');
@@ -261,23 +270,31 @@ app.get('/tracks/:trackName/events', async function (req, res) {
 	res.json(events);
 });
 
-// app.get('/events/:trackName/:date', async function (req, res) {
-// 	console.log('/events/' + req.params.trackName + '/' + req.params.date);
-// 	res.set('Content-Type', 'application/json');
+//get enriched event details for a track and a date
+app.get('/eventDetails/:trackName/:date', async function (req, res) {
+	console.log('/events/' + req.params.trackName + '/' + req.params.date);
+	res.set('Content-Type', 'application/json');
 
-// 	const eventInfo = await getEventInfo(req.params.track, req.params.date);
+	const eventInfo = await getEnrichedEventInfo(req.params.track, req.params.date);
 	
-// 	res.json(eventInfo);
-// });
+	res.json(eventInfo);
+});
+
+//get enriched event details for all events for a track
+app.get('/eventDetails/:trackName', async function (req, res) {
+	console.log('/events/' + req.params.trackName + '/' + req.params.date);
+	res.set('Content-Type', 'application/json');
+
+	const eventInfo = await getEnrichedEventInfo(req.params.track, req.params.date);
+	
+	res.json(eventInfo);
+});
 
 app.get('/numRaces/:trackName/raceCount', async function (req, res) { //TODO: does this still work?
 	console.log("/numRaces/" + req.params.trackName + "/raceCount")
 
 	const {trackName, configuration, isConfiguration} = getTrackNameAndConfiguration(req.params.trackName);
 
-	console.log("Track name: " + trackName);
-	console.log("Configuration: " + configuration);
-	
 	const count = await getCountForTrack(trackName, configuration, isConfiguration);
 
 	res.set('Content-Type', 'application/json');
