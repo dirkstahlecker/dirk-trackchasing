@@ -3,10 +3,11 @@ import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, computed} from "mobx";
 import {NavigationMachine} from "../NavigationMachine";
-import {TrackInfoMachine, Track, Flip} from "./TrackInfoMachine";
+import {TrackInfoMachine, Track} from "./TrackInfoMachine";
 import { trackDerivedFunction } from 'mobx/dist/internal';
 import { AssertionError } from 'assert';
 import { EventPlace, EventPlaceMachine } from '../events/EventPlace';
+import { Flip } from '../events/Flip';
 
 export class TrackPlaceMachine
 {
@@ -53,13 +54,8 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 
 	private renderEvents(): JSX.Element
 	{
-		const events: string[] = [];
-		this.props.machine.events.forEach((event: string) => {
-			events.push(event);
-		});
-
 		return <>
-			{events.map((event: string) => (
+			{this.props.machine.events.map((event: string) => (
 				<EventPlace
 					key={event}
 					eventInfo={event}

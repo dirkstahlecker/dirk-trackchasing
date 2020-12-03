@@ -1,6 +1,7 @@
 import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, runInAction, computed} from "mobx";
+import { Flip } from '../events/Flip';
 
 export enum TrackTypeEnum {OVAL, FIGURE_8, ROAD_COURSE}
 
@@ -161,30 +162,3 @@ export class Track
 
 	//more to come...
 }
-
-export class Flip
-{
-	public flipId: string;
-	public date: string;
-	public carClass: string;
-	public rotations: string;
-	public surface: string;
-	public openWheel: boolean;
-	public when: string;
-	public video: boolean;
-	public notes: string;
-
-	constructor(flipId: string, date: string, carClass: string, rotations: string, surface: string, openWheel: boolean, when: string, video: boolean, notes: string)
-	{
-		this.flipId = flipId;
-		this.date = date;
-		this.carClass = carClass;
-		this.rotations = rotations;
-		this.surface = surface;
-		this.openWheel = openWheel;
-		this.when = when;
-		this.video = video;
-		this.notes = notes;
-	}
-}
-
