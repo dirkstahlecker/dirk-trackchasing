@@ -175,9 +175,17 @@ it('flip objects', async() => {
 	expect(flip.date).toEqual(new Date("8-20-20"));
 });
 
+it('gets date from event string', () => {
+	let date = server.getDateFromEventString('11-06-20: URC 360 Sprint Cars');
+	expect(date).toEqual(new Date('11-06-20'));
+
+	date = server.getDateFromEventString("2-5-19: Doesn't matter what we put here");
+	expect(date).toEqual(new Date('02-05-19'));
+});
+
 //more detailed, enriched with other information
 it('returns enriched event info', async() => {
-	let eventInfo = await server.getEnrichedEventInfo("Bridgeport Motorsports Park", "11-08-20");
+	let eventInfo = await server.getEnrichedEventInfoForDate("Bridgeport Motorsports Park", "11-08-20");
 	expect(eventInfo.classes).toEqual("Big Block Modifieds, 602 Sportsman Modifieds, USAC SpeedSTRs, Street Stocks");
 	expect(eventInfo.date).toEqual(new Date("11-08-20"));
 	expect(eventInfo.flips.length).toEqual(3);
@@ -185,12 +193,22 @@ it('returns enriched event info', async() => {
 
 	//TODO: test flips on configuration once I actually have one
 
-	eventInfo = await server.getEnrichedEventInfo("Kokomo Speedway", "8-27-20");
+	eventInfo = await server.getEnrichedEventInfoForDate("Kokomo Speedway", "8-27-20");
 	expect(eventInfo.classes).toEqual("Smackdown IX: USAC National Sprint Cars");
 	expect(eventInfo.date).toEqual(new Date("8-27-20"));
 	expect(eventInfo.flips.length).toEqual(2);
 	expect(eventInfo.flips[0].class).toEqual("Wingless 410 Sprint Car");
 });
+
+it('returns all enriched event infos for a track', async() => {
+	let eventInfos = await server.getAllEnrichedEventInfosForTrack("Bridgeport Motorsports Park");
+	expect(eventInfos.length).toBe(3);
+	expect(eventInfos[0].date).toEqual(new Date("11-06-20"));
+	expect(eventInfos[0].flips.length).toEqual(2);
+	expect(eventInfos[2].date).toEqual(new Date("11-08-20"));
+	expect(eventInfos[2].classes).toContain("Big Block Modifieds, 602 Sportsman Modifieds");
+});
+
 
 //TODO: currently breaks
 // test('capitalization', () => {

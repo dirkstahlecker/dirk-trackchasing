@@ -192,7 +192,7 @@ function getDateFromEventString(eventString)
 	return new Date(dateRaw);
 }
 
-async function makeEnrichedEventInfo(eventString, trackName, dateObj)
+async function makeEnrichedEventInfoHelper(eventString, trackName, dateObj)
 {
 	if (eventString === undefined)
 	{
@@ -213,7 +213,7 @@ async function makeEnrichedEventInfo(eventString, trackName, dateObj)
 }
 
 //returns { date: string , classes: string , flips: [flip] , notableCrashes: ?? }
-async function getEnrichedEventInfo(trackName, date)
+async function getEnrichedEventInfoForDate(trackName, date)
 {
 	const dateObj = new Date(date);
 	const eventStrings = await getEventStringsForTrack(trackName); //TODO: inefficient - stop when we find it
@@ -222,12 +222,21 @@ async function getEnrichedEventInfo(trackName, date)
 		return eventDate.getTime() === dateObj.getTime();
 	});
 
-	return makeEnrichedEventInfo(eventString, trackName, dateObj);
+	return makeEnrichedEventInfoHelper(eventString, trackName, dateObj);
 }
 
 async function getAllEnrichedEventInfosForTrack(trackName)
 {
 	const eventStrings = await getEventStringsForTrack(trackName); //TODO: inefficient - stop when we find it
+
+	const promises = eventStrings.map(async(eventStr) => {
+		const date = getDateFromEventString(eventStr);
+		const eventInfo = await getEnrichedEventInfoForDate(trackName, date);
+		return eventInfo;
+	});
+
+	const eventInfos = await Promise.all(promises);
+	return eventInfos;
 }
 
 
@@ -275,7 +284,7 @@ app.get('/eventDetails/:trackName/:date', async function (req, res) {
 	console.log('/events/' + req.params.trackName + '/' + req.params.date);
 	res.set('Content-Type', 'application/json');
 
-	const eventInfo = await getEnrichedEventInfo(req.params.track, req.params.date);
+	const eventInfo = await getEnrichedEventInfoForDate(req.params.track, req.params.date);
 	
 	res.json(eventInfo);
 });
@@ -285,9 +294,9 @@ app.get('/eventDetails/:trackName', async function (req, res) {
 	console.log('/events/' + req.params.trackName + '/' + req.params.date);
 	res.set('Content-Type', 'application/json');
 
-	const eventInfo = await getEnrichedEventInfo(req.params.track, req.params.date);
+	const eventInfos = await getAllEnrichedEventInfosForTrack(req.params.track);
 	
-	res.json(eventInfo);
+	res.json(eventInfos);
 });
 
 app.get('/numRaces/:trackName/raceCount', async function (req, res) { //TODO: does this still work?
@@ -321,4 +330,6 @@ exports.getFlipsForTrack = getFlipsForTrack;
 exports.getTrackList = getTrackList;
 exports.getTrackListNoConfigurations = getTrackListNoConfigurations;
 exports.getEventStringsForTrack = getEventStringsForTrack;
-exports.getEnrichedEventInfo = getEnrichedEventInfo;
+exports.getEnrichedEventInfoForDate = getEnrichedEventInfoForDate;
+exports.getAllEnrichedEventInfosForTrack = getAllEnrichedEventInfosForTrack;
+exports.getDateFromEventString = getDateFromEventString;

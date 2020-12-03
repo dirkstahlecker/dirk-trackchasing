@@ -24,9 +24,9 @@ export class TrackPlaceMachine
 	public async fetchEvents(trackName: string): Promise<void>
 	{
 		const eventsRaw = await fetch('/tracks/' + trackName + "/events");
-		const eventsJson = await eventsRaw.json();
+		const eventString = await eventsRaw.json();
 
-		console.log(eventsJson);
+		console.log(eventString);
 	}
 }
 
