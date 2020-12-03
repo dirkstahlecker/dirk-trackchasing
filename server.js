@@ -291,10 +291,10 @@ app.get('/eventDetails/:trackName/:date', async function (req, res) {
 
 //get enriched event details for all events for a track
 app.get('/eventDetails/:trackName', async function (req, res) {
-	console.log('/events/' + req.params.trackName + '/' + req.params.date);
+	console.log('/eventsDetails/' + req.params.trackName);
 	res.set('Content-Type', 'application/json');
 
-	const eventInfos = await getAllEnrichedEventInfosForTrack(req.params.track);
+	const eventInfos = await getAllEnrichedEventInfosForTrack(req.params.trackName);
 	
 	res.json(eventInfos);
 });
