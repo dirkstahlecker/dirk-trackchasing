@@ -9,17 +9,48 @@ import {Map, MapMachine} from "./Map";
 import {NavigationMachine, CurrentPlace} from "./NavigationMachine";
 import {TrackTile} from './components/TrackTile';
 
+class QuickStats
+{
+  public totalRaces: number;
+  public totalFacilities: number;
+  public totalCountableTracks: number;
+  public totalStates: number;
+
+  constructor(totalRaces: number, totalFacilities: number, totalCountableTracks: number, totalStates: number)
+  {
+    this.totalRaces = totalRaces;
+    this.totalFacilities = totalFacilities;
+    this.totalCountableTracks = totalCountableTracks;
+    this.totalStates = totalStates;
+  }
+
+  static fromJson(json: any): QuickStats
+  {
+    return new QuickStats(json["totalRaces"], json["totalFacilities"], json["totalCountableTracks"], 
+      json["totalStates"]);
+  }
+}
+
 class AppMachine
 {
   public trackInfoMachine: TrackInfoMachine;
   public navMachine: NavigationMachine = new NavigationMachine();
   public mapMachine: MapMachine = new MapMachine();
+  
+  @observable public quickStats: QuickStats | null = null;
 
   constructor() 
   {
-    // makeObservable(this);
+    makeObservable(this);
     this.trackInfoMachine = new TrackInfoMachine();
     this.trackInfoMachine.fetchInfo();
+  }
+
+  public async fetchQuickStats(): Promise<void>
+  {
+    const statsRaw = await fetch('/quickStats');
+    const stats = await statsRaw.json();
+    this.quickStats = QuickStats.fromJson(stats);
   }
 }
 
@@ -48,6 +79,11 @@ class App extends React.Component<AppProps>
     this.machine = new AppMachine();
   }
 
+  componentDidMount()
+  {
+    this.machine.fetchQuickStats(); //no need to await
+  }
+
   render()
   {
     return (
@@ -64,6 +100,9 @@ class App extends React.Component<AppProps>
                     machine={this.machine.mapMachine}
                     navMachine={this.machine.navMachine}
                   />
+                  <div className="quick-stats-area">
+                    Quick Stats: 
+                  </div>
                   {
                     this.machine.trackInfoMachine.tracks.map((track: Track) => {
                       return <TrackTile

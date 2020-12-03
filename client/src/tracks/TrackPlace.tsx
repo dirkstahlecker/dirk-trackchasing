@@ -25,8 +25,11 @@ export class TrackPlaceMachine
 	{
 		const eventsRaw = await fetch('/eventDetails/' + trackName);
 		const eventInfos = await eventsRaw.json();
-
-		console.log(eventInfos);
+		eventInfos.forEach((eventInfo: any) => {
+			this.events.push(EventObj.parseJson(eventInfo));
+		})
+		// this.events = eventInfos;
+		console.log(this.events)
 	}
 }
 

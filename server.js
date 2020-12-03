@@ -310,6 +310,15 @@ app.get('/numRaces/:trackName/raceCount', async function (req, res) { //TODO: do
 	res.json({"message": count});
 });
 
+app.get('/quickStats', async function (req, res) {
+	console.log("/quickStats");
+
+	const stats = await getQuickStats();
+
+	res.set('Content-Type', 'application/json');
+	res.json(stats);
+});
+
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
 app.get('*', (req, res) => {

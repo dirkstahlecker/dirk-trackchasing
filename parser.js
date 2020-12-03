@@ -4,6 +4,7 @@ var fs = require('fs');
 const FLIPS_HEADER = "Flips";
 const DATA_PATH = "events_data.json";
 const TEST_DATA_PATH = "events_data_test.json";
+const STATS_HEADER = "Stats";
 
 let parsedJson = null;
 let _flipsData = null; // {name : [ date, track, class, rotations, surface, open wheel, when, video, notes ] }
@@ -84,6 +85,14 @@ async function parse()
 		parsedJson = json
 	}
 	return parsedJson;
+}
+
+async function getQuickStats()
+{
+	const json = await parser.parse();
+	const statsJson = json[STATS_HEADER];
+
+	
 }
 
 exports.parse = parse;

@@ -14,7 +14,7 @@ export class EventObj
     this.flips = flips;
   }
 
-  static parseEvent(json: any): EventObj
+  static parseJson(json: any): EventObj
   {
     return new EventObj(json["date"], json["classes"], json["flips"]); //TODO: flips probably won't work
   }
