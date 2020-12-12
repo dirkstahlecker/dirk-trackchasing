@@ -215,6 +215,7 @@ async function makeEnrichedEventInfoHelper(eventString, trackName, dateObj)
 //returns { date: string , classes: string , flips: [flip] , notableCrashes: ?? }
 async function getEnrichedEventInfoForDate(trackName, date)
 {
+	//TODO: deal with invalid dates that come from old events where I don't know the date
 	const dateObj = new Date(date);
 	const eventStrings = await getEventStringsForTrack(trackName); //TODO: inefficient - stop when we find it
 	const eventString = eventStrings.find((event) => {
@@ -231,12 +232,29 @@ async function getAllEnrichedEventInfosForTrack(trackName)
 
 	const promises = eventStrings.map(async(eventStr) => {
 		const date = getDateFromEventString(eventStr);
+		// if (date.getTime() != date.getTime()) //getTime is NaN for invalid dates, NaN never equals NaN, so invalid
+		// {
+		// 	console.error("Invalid date")
+		// 	return null;
+		// }
+		//TODO: error handling for invalid date
 		const eventInfo = await getEnrichedEventInfoForDate(trackName, date);
+		console.log(eventInfo)
 		return eventInfo;
 	});
 
+	console.log("starting promises")
 	const eventInfos = await Promise.all(promises);
+	console.log(eventInfos);
 	return eventInfos;
+}
+
+async function getBasicStats()
+{
+	let json = await parser.parse();
+	// json = json[RACES_HEADER];
+
+
 }
 
 
@@ -310,10 +328,10 @@ app.get('/numRaces/:trackName/raceCount', async function (req, res) { //TODO: do
 	res.json({"message": count});
 });
 
-app.get('/quickStats', async function (req, res) {
-	console.log("/quickStats");
+app.get('/stats', async function (req, res) {
+	console.log("/stats");
 
-	const stats = await getQuickStats();
+	const stats = await getBasicStats();
 
 	res.set('Content-Type', 'application/json');
 	res.json(stats);
@@ -342,3 +360,8 @@ exports.getEventStringsForTrack = getEventStringsForTrack;
 exports.getEnrichedEventInfoForDate = getEnrichedEventInfoForDate;
 exports.getAllEnrichedEventInfosForTrack = getAllEnrichedEventInfosForTrack;
 exports.getDateFromEventString = getDateFromEventString;
+
+
+//TODO: do we even need stats to be sent from the server? There's no unique info on that page
+
+//TODO: flips need to include their configuration

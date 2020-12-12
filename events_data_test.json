@@ -766,7 +766,7 @@
       "Thompson Speedway": "10-16-16: NEMA lites, ISMA, Whelen modifieds",
       "Stafford Motor Speedway": "8-04-17: Whelen Modifieds, SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
       "New London Waterford Speedbowl": "5-05-18: valenti modifieds, ATQMRA, NEMA, NEMA lites",
-      "New Hampshire Motor Speedway": "9-24-16 Whelen Modifieds, Camping World Trucks, ACT",
+      "New Hampshire Motor Speedway": "9-24-16: Whelen Modifieds, Camping World Trucks, ACT",
       "Star Speedway": "4-28-18: racing myself",
       "Hudson Speedway": "6-17-18: racing myself",
       "Albany-Saratoga Speedway": "5-25-18: Patriot Sprint Tour",
@@ -870,7 +870,7 @@
     },
     "Races: 8": {
       "Seekonk Speedway": "9-04-16: Thrill Show [Asphalt Figure 8]",
-      "Thompson Speedway": "9-9-17:",
+      "Thompson Speedway": "9-10-17: Sunoco Modifieds, Late Models, Limited Sportsman, Mini Stocks, Lite Modifieds",
       "Stafford Motor Speedway": "7-13-18: SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
       "New Hampshire Motor Speedway": "6-24-18: NEMST, GSPSS, Street stock showdown series, VMRS",
       "Star Speedway": "7-25-20: TTOMS, Street Stocks, Pure Stocks, Slingshots",
@@ -881,7 +881,7 @@
     },
     "Races: 9": {
       "Seekonk Speedway": "9-10-16: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
-      "Thompson Speedway": "10-13-17: STAR",
+      "Thompson Speedway": "10-13-17: Late Models, Lite Modifieds, Mini Stocks, NEMST, Valenti Modifieds",
       "Stafford Motor Speedway": "7-20-18: SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
       "New Hampshire Motor Speedway": "7-21-18: Whelen modifieds, nascar xfinity Series",
       "Star Speedway": "9-20-20: Modified Racing Series, Late Models, Street Stocks",
@@ -898,7 +898,7 @@
     },
     "Races: 11": {
       "Seekonk Speedway": "5-28-17: Thrill Show [Asphalt Figure 8]",
-      "Thompson Speedway": "10-15-17: NEMA lites, ISMA, Whelen modifieds",
+      "Thompson Speedway": "10-15-17: NEMA lites, ISMA, Whelen modifieds, Valenti Modifieds",
       "Stafford Motor Speedway": "8-25-18: SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
       "New Hampshire Motor Speedway": "6-23-19: Valenti Modifieds, PASS, Street Stock Showdown Series, NEMST",
       "Hudson Speedway": "7-12-20: Granite State Pro Stocks, Street Stocks, Mini Stocks, Pure Stocks, Six Shooters"
@@ -1032,108 +1032,61 @@
     }
   },
   "Stats": {
+    "Total Races": {
+      "Value": 297
+    },
     "Total Facilities": {
-      "65": 68,
-      "297": 77,
-      "Races in 2020": "Races in 2019",
-      "0.1780821917808219": 0.1863013698630137,
-      "TODO: this doesn't count configurations": 24,
-      "MA": "CT"
+      "Value": 77
     },
     "Countable Tracks": {
-      "65": 65,
-      "297": 90,
-      "Races in 2020": "Races in 2018",
-      "0.1780821917808219": 0.1780821917808219,
-      "TODO: this doesn't count configurations": 17,
-      "MA": "IN"
+      "Value": 90
     },
     "": {},
     "Total States": {
-      "65": 17,
-      "297": 26,
-      "Races in 2020": "Races in 2016",
-      "0.1780821917808219": 0.04657534246575343,
-      "TODO: this doesn't count configurations": 9,
-      "MA": "VT"
+      "Value": 26
     },
     "Paved Tracks": {
-      "65": 3,
-      "297": 33,
-      "Races in 2020": "Races in 2014",
-      "0.1780821917808219": 0.00821917808219178,
-      "TODO: this doesn't count configurations": 0,
-      "MA": "ME"
+      "Value": 33
     },
     "Dirt Tracks": {
-      "65": 5,
-      "297": 41,
-      "Races in 2020": "Races in 2013",
-      "0.1780821917808219": 0.0136986301369863,
-      "TODO: this doesn't count configurations": 1,
-      "MA": "NJ"
+      "Value": 41
     },
     "Mixed Tracks": {
-      "65": 2,
-      "297": 3,
-      "Races in 2020": "Races in 2012",
-      "0.1780821917808219": 0.005479452054794521,
-      "TODO: this doesn't count configurations": 2,
-      "MA": "TX"
+      "Value": 3
     },
     "Paved Races": {
-      "65": 4,
-      "297": 203,
-      "Races in 2020": "Races in 2010",
-      "0.1780821917808219": 0.010958904109589041,
-      "TODO: this doesn't count configurations": 0,
-      "MA": "SC"
+      "Value": 203
     },
     "Dirt Races": {
-      "297": 90,
-      "TODO: this doesn't count configurations": 2,
-      "MA": "MO"
+      "Value": 90
     },
     "Mixed Races": {
-      "297": 4,
-      "MA": "ID"
+      "Value": 4
     },
     "Total Flips": {
-      "297": 186,
-      "MA": "NE"
+      "Value": 186
     },
     "Dirt Flips": {
-      "297": 151,
-      "Races in 2020": 0.8323353293413174,
-      "MA": "NV"
+      "Value": 151
     },
     "Paved Flips": {
-      "297": 35,
-      "Races in 2020": 0.16766467065868262,
-      "MA": "AZ"
+      "Value": 35
     },
     "Mixed Filps": {
-      "297": 0,
-      "Races in 2020": 0,
-      "MA": "IA"
+      "Value": 0
     },
     "Monster Truck Shows": {
-      "297": 37,
-      "MA": "OH"
+      "Value": 37
     },
     "Average Length (paved)": {
-      "297": 0.6,
-      "MA": "MD"
+      "Value": 0.6
     },
     "Average Length (dirt)": {
-      "297": 0.42,
-      "MA": "NC"
+      "Value": 0.42
     },
-    "Average Length (mixed)": {
-      "MA": "IL"
-    },
+    "Average Length (mixed)": {},
     "TODO": {
-      "297": "Syracuse should be concrete, and formulas should work with concrete too"
+      "Value": "Syracuse should be concrete, and formulas should work with concrete too"
     }
   },
   "Flips": {
@@ -4116,8 +4069,7 @@
       "Track (done)": "New Hampshire"
     },
     "": {
-      "Type of Car": "Dirt sprint cars",
-      "Track": "Australia (Perth, Western Springs, etc)"
+      "Type of Car": "Australian/NZ stock cars"
     },
     "Indianapolis 500": {
       "Type of Car": "Indycar",
@@ -4135,7 +4087,8 @@
     "Daytona 500": {
       "Type of Car": "NASCAR Cup Series",
       "Track": "Daytona"
-    }
+    },
+    "Flip over catch fence": {}
   },
   "Visited but no racing": {
     "Iowa Speedway": {

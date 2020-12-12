@@ -92,9 +92,10 @@ async function getQuickStats()
 	const json = await parser.parse();
 	const statsJson = json[STATS_HEADER];
 
-	
+	console.log(statsJson);
 }
 
 exports.parse = parse;
 exports.flipsData = flipsData;
 exports.TESTPIN_parse = parse; //for testing only
+exports.getQuickStats = getQuickStats;
