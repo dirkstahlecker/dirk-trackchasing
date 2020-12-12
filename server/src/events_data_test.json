@@ -489,7 +489,7 @@
       "Oxford Plains Speedway": 0,
       "Beech Ridge Speedway": 0,
       "Wall Stadium Speedway": 5,
-      "Texas Motor Speedway": 1,
+      "Texas Motor Speedway": 0,
       "Lil' Texas Motor Speedway": 0,
       "Charlotte Motor Speedway Roval": 0,
       "Lancaster Speedway": 0,
@@ -568,7 +568,7 @@
       "Oxford Plains Speedway": 0,
       "Beech Ridge Speedway": 0,
       "Wall Stadium Speedway": 0.5,
-      "Texas Motor Speedway": 0.5,
+      "Texas Motor Speedway": 0,
       "Lil' Texas Motor Speedway": 0,
       "Charlotte Motor Speedway Roval": 0,
       "Lancaster Speedway": 0,
@@ -1269,6 +1269,7 @@
       "Open Wheel": false,
       "When": "Heat",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Larry Gelinas got put into the wall exiting 2 in the heat, climbed the wall and slid on the roof into 3, where he hit the outside wall and rolled back on the wheels, ending up in the middle of 3"
     },
     "23": {
@@ -1296,7 +1297,8 @@
       "Rotations": "1+",
       "Surface": "Asphalt",
       "Open Wheel": false,
-      "Video": true
+      "Video": true,
+      "Cut for site": "x"
     },
     "26": {
       "Date": "2017-11-25T05:00:00.000Z",
@@ -1305,7 +1307,8 @@
       "Rotations": "1+",
       "Surface": "Asphalt",
       "Open Wheel": true,
-      "Video": true
+      "Video": true,
+      "Cut for site": "x"
     },
     "27": {
       "Date": "2017-11-26T05:00:00.000Z",
@@ -1334,7 +1337,8 @@
       "Surface": "Asphalt",
       "Open Wheel": false,
       "When": "Feature",
-      "Video": true
+      "Video": true,
+      "Cut for site": "x"
     },
     "30": {
       "Date": "2018-05-05T04:00:00.000Z",
@@ -1374,13 +1378,14 @@
     },
     "34": {
       "Date": "2018-06-09T04:00:00.000Z",
-      "Track": "Texas Motor Speedway",
+      "Track": "Texas Motor Speedway (Asphalt Road Course)",
       "Class": "Stadium Super Truck",
       "Rotations": "1+",
       "Surface": "Asphalt",
       "Open Wheel": false,
       "When": "Feature",
-      "Video": true
+      "Video": true,
+      "Cut for site": "x"
     },
     "35": {
       "Date": "2018-06-26T04:00:00.000Z",
@@ -1389,7 +1394,9 @@
       "Rotations": "2+",
       "Surface": "Dirt",
       "Open Wheel": false,
-      "Video": false
+      "When": "Heat",
+      "Video": true,
+      "Cut for site": "x"
     },
     "36": {
       "Date": "2018-07-15T04:00:00.000Z",
@@ -1398,7 +1405,8 @@
       "Rotations": "1/2",
       "Surface": "Asphalt",
       "Open Wheel": false,
-      "Video": false
+      "Video": true,
+      "Cut for site": "x"
     },
     "37": {
       "Date": "2018-08-11T04:00:00.000Z",
@@ -1480,7 +1488,8 @@
       "Rotations": "1/2",
       "Surface": "Dirt",
       "Open Wheel": false,
-      "Video": true
+      "Video": true,
+      "Cut for site": "x"
     },
     "46": {
       "Date": "2018-12-01T05:00:00.000Z",
@@ -1491,6 +1500,7 @@
       "Open Wheel": true,
       "When": "Feature",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Ricky Stenhouse Jr"
     },
     "47": {
@@ -1557,7 +1567,8 @@
       "Surface": "Concrete",
       "Open Wheel": true,
       "When": "Feature",
-      "Video": true
+      "Video": true,
+      "Cut for site": "x"
     },
     "55": {
       "Date": "2019-03-23T04:00:00.000Z",
@@ -1628,7 +1639,8 @@
       "Rotations": "3+",
       "Surface": "Dirt",
       "Open Wheel": true,
-      "Video": true
+      "Video": true,
+      "Cut for site": "x"
     },
     "63": {
       "Date": "2019-06-08T04:00:00.000Z",
@@ -1686,7 +1698,8 @@
       "Rotations": "2",
       "Surface": "Dirt",
       "Open Wheel": true,
-      "Video": true
+      "Video": true,
+      "Cut for site": "x"
     },
     "69": {
       "Date": "2019-07-14T04:00:00.000Z",
@@ -1742,6 +1755,7 @@
       "Open Wheel": true,
       "When": "Feature",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Jumped cushion in turn 1"
     },
     "75": {
@@ -1763,6 +1777,7 @@
       "Open Wheel": true,
       "When": "Heat",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Heat 1 - Fast qualifier Shane Stewart jumps cushion in 3 and rolls many times"
     },
     "77": {
@@ -1785,6 +1800,7 @@
       "Open Wheel": true,
       "When": "Heat",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Heat 2 - Danny Deitrich loses a tire on the final lap and goes into the turn 3 fence, ripping down a banner"
     },
     "79": {
@@ -1818,6 +1834,7 @@
       "Open Wheel": true,
       "When": "A Main",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "A main"
     },
     "82": {
@@ -2117,6 +2134,7 @@
       "Surface": "Concrete",
       "Open Wheel": true,
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Climbed a wheel on front stretch, rolled on roof"
     },
     "111": {
@@ -2127,6 +2145,7 @@
       "Surface": "Concrete",
       "Open Wheel": true,
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Jumped a wheel as part of a large stackup entering 1, rolled on roof"
     },
     "112": {
@@ -2541,6 +2560,7 @@
       "Open Wheel": true,
       "When": "Heat",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Turn 3, didn't see start. Flipped over guardrail and out of track, landing on wheels"
     },
     "150": {
@@ -2596,6 +2616,7 @@
       "Open Wheel": true,
       "When": "Main",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Turn 3, caught bike and tumbled multiple times, going well over the guardrail and out of the track. He was end over end over the wall, it looked like he even landed the nose on the wall as he was going over."
     },
     "155": {
@@ -2806,6 +2827,7 @@
       "Open Wheel": true,
       "When": "Heat",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Bike in turn 1, overcorrected and got up on the left sides, rolling once and a half"
     },
     "174": {
@@ -2817,6 +2839,7 @@
       "Open Wheel": true,
       "When": "Heat",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Two cars came together in turn 3. Bottom car got clipped in the right rear and flipped violently, multiple times in the air, and hit the corner of the wall with the top of the roll cage, denting in the cage significantly."
     },
     "175": {
@@ -2828,6 +2851,7 @@
       "Open Wheel": true,
       "When": "Main",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Exit of 2. Contact, tumbled twice down backstretch"
     },
     "176": {
@@ -2893,7 +2917,8 @@
       "Surface": "Dirt",
       "Open Wheel": true,
       "When": "B Main",
-      "Video": false,
+      "Video": true,
+      "Cut for site": "x",
       "Notes": "Caught bike in 2, bounced on right side then dug in with lefts and rolled once in the air and another half on the ground"
     },
     "182": {
@@ -2904,7 +2929,8 @@
       "Surface": "Dirt",
       "Open Wheel": true,
       "When": "Main",
-      "Video": false,
+      "Video": true,
+      "Cut for site": "x",
       "Notes": "Looks to have went too high in 2 and got into the wall, I caught it as he was starting to roll. Went over the left wheels and flipped twice and landed on all fours."
     },
     "183": {
@@ -2915,7 +2941,7 @@
       "Surface": "Dirt",
       "Open Wheel": true,
       "When": "B Main",
-      "Video": false,
+      "Video": true,
       "Notes": "Went too high in 3, right rear got into the wall, pulling the front into it and he rolled I think 3 times down the track, landing on the wheels."
     },
     "184": {

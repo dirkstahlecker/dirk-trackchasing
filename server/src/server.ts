@@ -82,24 +82,27 @@ export class Server
 			{
 				break;
 			}
-			console.log(raceRow)
+			// {
+				// 'Seekonk Speedway': '11-02-19: Thrill Show [Asphalt Figure 8, Asphalt Road Course]'
+			// }
+	
 	
 			//TODO: consolidate with getEventsForTrack, some property bag thing
-			// if (raceRow[trackName] != null)
-			// {
-			// 	if (trackNameObj.isConfiguration)
-			// 	{
-			// 		//need to look into the specifics and see if there configuration is in brackets at the end
-			// 		if (raceRow[trackName].includes(trackNameObj.configuration))
-			// 		{
-			// 			count++
-			// 		}
-			// 	}
-			// 	else
-			// 	{
-			// 		count++;
-			// 	}
-			// }
+			if (raceRow[trackNameObj.baseName] != null)
+			{
+				if (trackNameObj.isConfiguration)
+				{
+					//need to look into the specifics and see if there configuration is in brackets at the end
+					if (raceRow[trackNameObj.baseName].includes(trackNameObj.configuration))
+					{
+						count++
+					}
+				}
+				else
+				{
+					count++;
+				}
+			}
 			i++;
 		}
 	
@@ -232,7 +235,6 @@ export class Server
 			// }
 			//TODO: error handling for invalid date
 			const eventInfo = await this.getEnrichedEventInfoForDate(trackName, date as any); //TODO
-			console.log(eventInfo)
 			return eventInfo;
 		});
 	

@@ -50,7 +50,7 @@ it('returns proper track list without configurations', async() => {
 // // 	expect(info.isConfiguration).toBe(false);
 // // });
 
-fit('proper counts for track', async() => {
+it('proper counts for track', async() => {
 	server.getCountForTrack("Seekonk Speedway").then(data => expect(data).toEqual(46));
   server.getCountForTrack("Thompson Speedway").then(data => expect(data).toEqual(28));
   server.getCountForTrack("Rocky Mountain Raceways").then(data => expect(data).toEqual(8));
@@ -61,42 +61,51 @@ fit('proper counts for track', async() => {
   server.getCountForTrack("Stafford Motor Speedway (Inner Asphalt Oval)").then(data => expect(data).toEqual(1));
 });
 
-// it('getTrackFullInfo', async() => {
-// 	const info = await getTrackFullInfo();
+it('getTrackFullInfo', async() => {
+	const info = await server.getTrackFullInfo();
 
-// 	// const seekonk = info["Seekonk Speedway"]; //failing due to flips not having dates
-// 	// expect(seekonk.state).toBe("MA");
-// 	// expect(seekonk.count).toBe(46);
-// 	// expect(seekonk.flips.length).toEqual(12);
+	// const seekonk = info["Seekonk Speedway"]; //failing due to flips not having dates
+	// expect(seekonk.state).toBe("MA");
+	// expect(seekonk.count).toBe(46);
+	// expect(seekonk.flips.length).toEqual(12);
 
-// 	const pocatello = info["Pocatello Speedway"];
-// 	console.log(pocatello)
-// 	expect(pocatello.state).toBe("ID");
-// 	expect(pocatello.latitude).toBe(42.912684);
-// 	expect(pocatello.longitude).toBe(-112.577022);
-// 	expect(pocatello.count).toBe(6);
-// 	expect(pocatello.flips.length).toEqual(1);
+	const pocatello = info["Pocatello Speedway"];
+	expect(pocatello.state).toBe("ID");
+	expect(pocatello.latitude).toBe(42.912684);
+	expect(pocatello.longitude).toBe(-112.577022);
+	expect(pocatello.count).toBe(6);
+	expect(pocatello.flips.length).toEqual(1);
 
-// 	const rmr = info["Rocky Mountain Raceways"];
-// 	expect(rmr.state).toBe("UT");
-// 	expect(rmr.count).toBe(8);
-// 	expect(rmr.flips.length).toEqual(2);
+	const rmr = info["Rocky Mountain Raceways"];
+	expect(rmr.state).toBe("UT");
+	expect(rmr.count).toBe(8);
+	expect(rmr.flips.length).toEqual(2);
 
-// 	const rmr8 = info["Rocky Mountain Raceways (Asphalt Figure 8)"];
-// 	expect(rmr8.state).toBe("UT");
-// 	expect(rmr8.count).toBe(7);
-// 	expect(rmr8.flips).toBeUndefined();
+	const rmr8 = info["Rocky Mountain Raceways (Asphalt Figure 8)"];
+	expect(rmr8.state).toBe("UT");
+	expect(rmr8.count).toBe(7);
+	expect(rmr8.flips.length).toEqual(0);
 
-// 	const stafford = info["Stafford Motor Speedway (Inner Asphalt Oval)"];
-// 	expect(stafford.state).toBe("CT");
-// 	expect(stafford.count).toBe(1);
-// 	expect(stafford.flips).toBeUndefined();
+	const stafford = info["Stafford Motor Speedway (Inner Asphalt Oval)"];
+	expect(stafford.state).toBe("CT");
+	expect(stafford.count).toBe(1);
+	expect(stafford.flips.length).toEqual(0);
 
-// 	const la = info["Port of LA"];
-// 	expect(la.state).toBe("CA");
-// 	expect(la.count).toEqual(1);
-// 	expect(la.flips).toBeUndefined();
-// });
+	const la = info["Port of LA"];
+	expect(la.state).toBe("CA");
+	expect(la.count).toEqual(1);
+	expect(la.flips.length).toEqual(0);
+
+	const texas = info["Texas Motor Speedway"]
+	expect(texas.state).toEqual("TX");
+	expect(texas.count).toEqual(2);
+	expect(texas.flips.length).toEqual(0);
+
+	const texasRC = info["Texas Motor Speedway (Asphalt Road Course)"]
+	expect(texasRC.state).toEqual("TX");
+	expect(texasRC.count).toEqual(1);
+	expect(texasRC.flips.length).toEqual(1);
+});
 
 // //just the basic strings from the json
 // it('getEventStringsForTrack', async() => {

@@ -1,5 +1,6 @@
+import { raw } from 'express';
 import path from 'path';
-import {Flip} from "./Types";
+import {Flip, TrackName} from "./Types";
 var fs = require('fs');
 
 let parsedJson: any = null;
@@ -43,8 +44,14 @@ export class Parser
 		const flipsJson = json[FLIPS_HEADER];
 		const flips: Flip[] = [];
 		Object.keys(flipsJson).forEach((flipId) => {
+			if (flipId === "") //this can happen since the checkboxes are extended below the end of the flips list
+			{
+				return; //do nothing
+			}
+
 			const flipInfo = flipsJson[flipId];
-			const trackName: string = flipInfo["Track"];
+			const rawTrackStr: string = flipInfo["Track"];
+			const trackNameObj: TrackName = TrackName.parse(rawTrackStr); //contains configuration
 			let openWheel = false;
 			if (flipInfo["Open Wheel"])
 			{
@@ -52,7 +59,7 @@ export class Parser
 			}
 			const newObjToAdd: Flip = {
 				flipId: flipId,
-				trackName: trackName,
+				trackNameObj: trackNameObj,
 				date: new Date(flipInfo["Date"]), 
 				class: flipInfo["Class"], 
 				rotations: flipInfo["Rotations"], 
@@ -64,15 +71,6 @@ export class Parser
 			}
 
 			flips.push(newObjToAdd);
-
-			// if (flips.trackName === undefined)
-			// {
-			// 	flips[trackName] = [newObjToAdd];
-			// }
-			// else
-			// {
-			// 	flips[trackName].push(newObjToAdd);
-			// }
 		});
 
 		_flipsData = flips
