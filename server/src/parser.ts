@@ -1,8 +1,9 @@
 import path from 'path';
+import {Flip} from "./Types";
 var fs = require('fs');
 
 let parsedJson: any = null;
-let _flipsData: any = null; // {name : [ date, track, class, rotations, surface, open wheel, when, video, notes ] }
+let _flipsData: Flip[] | null = null; //now using a list of objects // {name : [ date, track, class, rotations, surface, open wheel, when, video, notes ] }
 
 const FLIPS_HEADER = "Flips";
 const DATA_PATH = "events_data.json";
@@ -21,7 +22,7 @@ export class Parser
 		return this.runningJestTest() ? TEST_DATA_PATH : DATA_PATH;
 	}
 
-	public async flipsData()
+	public async flipsData(): Promise<Flip[]>
 	{
 		if (_flipsData == null)
 		{
@@ -40,28 +41,31 @@ export class Parser
 		}
 		
 		const flipsJson = json[FLIPS_HEADER];
-		const flips = {};
+		const flips: Flip[] = [];
 		Object.keys(flipsJson).forEach((flipId) => {
 			const flipInfo = flipsJson[flipId];
-			const trackName = flipInfo["Track"];
+			const trackName: string = flipInfo["Track"];
 			let openWheel = false;
 			if (flipInfo["Open Wheel"])
 			{
 				openWheel = true;
 			}
-			const newObjToAdd = {
-				"flipId": flipId,
-				"date": new Date(flipInfo["Date"]), 
-				"class": flipInfo["Class"], 
-				"rotations": flipInfo["Rotations"], 
-				"surface": flipInfo["Surface"],
-				"openWheel": openWheel,
-				"when": flipInfo["When"],
-				"video": flipInfo["Video"],
-				"notes": flipInfo["Notes"]
+			const newObjToAdd: Flip = {
+				flipId: flipId,
+				trackName: trackName,
+				date: new Date(flipInfo["Date"]), 
+				class: flipInfo["Class"], 
+				rotations: flipInfo["Rotations"], 
+				surface: flipInfo["Surface"],
+				openWheel: openWheel,
+				when: flipInfo["When"],
+				video: flipInfo["Video"],
+				notes: flipInfo["Notes"]
 			}
 
-			// if (flips[trackName] === undefined)
+			flips.push(newObjToAdd);
+
+			// if (flips.trackName === undefined)
 			// {
 			// 	flips[trackName] = [newObjToAdd];
 			// }

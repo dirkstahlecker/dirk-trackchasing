@@ -1,43 +1,46 @@
-import {getTrackNameAndConfiguration} from "./server";
+import {Server} from "./server";
 // const parser = require('./parser')
+import {TrackName} from "./Types";
 
 //npm run test
 
+const server: Server = new Server();
+
 it('track name and configuration', () => {
-	let info = getTrackNameAndConfiguration("Seekonk Speedway");
-	expect(info.trackName).toBe("Seekonk Speedway");
+	let info: TrackName = TrackName.parse("Seekonk Speedway");
+	expect(info.baseName).toBe("Seekonk Speedway");
 	expect(info.configuration).toBeNull();
 	expect(info.isConfiguration).toBe(false);
 
-	info = getTrackNameAndConfiguration("Seekonk Speedway (Asphalt Figure 8)");
-	expect(info.trackName).toBe("Seekonk Speedway");
+	info = TrackName.parse("Seekonk Speedway (Asphalt Figure 8)");
+	expect(info.baseName).toBe("Seekonk Speedway");
 	expect(info.configuration).toBe("Asphalt Figure 8");
 	expect(info.isConfiguration).toBe(true);
 
-	info = getTrackNameAndConfiguration("Texas Motor Speedway (Asphalt Road Course)");
-	expect(info.trackName).toBe("Texas Motor Speedway");
+	info = TrackName.parse("Texas Motor Speedway (Asphalt Road Course)");
+	expect(info.baseName).toBe("Texas Motor Speedway");
 	expect(info.configuration).toBe("Asphalt Road Course");
 	expect(info.isConfiguration).toBe(true);
 });
 
-// it('returns proper track list', async() => {
-// 	//order isn't definitively set for the first 7
-// 	const list = await getTrackList();
-// 	expect(list.length).toEqual(90);
-// 	expect(list[8]).toEqual("Miller Motorsports Park");
-// 	expect(list[21]).toEqual("Port of LA");
-// 	expect(list[32]).toEqual("Wall Stadium Speedway (Inner Asphalt Oval)");
-// 	expect(list[89]).toEqual("Bridgeport Motorsports Park");
-// });
+it('returns proper track list', async() => {
+	//order isn't definitively set for the first 7
+	const list = await server.getTrackList();
+	expect(list.length).toEqual(90);
+	expect(list[8]).toEqual("Miller Motorsports Park");
+	expect(list[21]).toEqual("Port of LA");
+	expect(list[32]).toEqual("Wall Stadium Speedway (Inner Asphalt Oval)");
+	expect(list[89]).toEqual("Bridgeport Motorsports Park");
+});
 
-// it('returns proper track list without configurations', async() => {
-// 	const list = await getTrackListNoConfigurations();
-// 	expect(list.length).toEqual(77);
-// 	expect(list[76]).toEqual("Bridgeport Motorsports Park");
-// 	expect(list[46]).toEqual("Slinger Speedway");
-// 	expect(list[69]).toEqual("Rumtown Speedway");
-// 	expect(list[0]).toEqual("Pocatello Speedway");
-// });
+it('returns proper track list without configurations', async() => {
+	const list = await server.getTrackListNoConfigurations();
+	expect(list.length).toEqual(77);
+	expect(list[76]).toEqual("Bridgeport Motorsports Park");
+	expect(list[46]).toEqual("Slinger Speedway");
+	expect(list[69]).toEqual("Rumtown Speedway");
+	expect(list[0]).toEqual("Pocatello Speedway");
+});
 
 // //TODO: Currently broken
 // // test('invalid track names', () => {
@@ -47,16 +50,16 @@ it('track name and configuration', () => {
 // // 	expect(info.isConfiguration).toBe(false);
 // // });
 
-// it('proper counts for track', async() => {
-// 	getCountForTrack("Seekonk Speedway").then(data => expect(data).toEqual(46));
-//   getCountForTrack("Thompson Speedway").then(data => expect(data).toEqual(28));
-//   getCountForTrack("Rocky Mountain Raceways").then(data => expect(data).toEqual(8));
+fit('proper counts for track', async() => {
+	server.getCountForTrack("Seekonk Speedway").then(data => expect(data).toEqual(46));
+  server.getCountForTrack("Thompson Speedway").then(data => expect(data).toEqual(28));
+  server.getCountForTrack("Rocky Mountain Raceways").then(data => expect(data).toEqual(8));
 
-//   //configurations
-//   getCountForTrack("Rocky Mountain Raceways (Asphalt Figure 8)").then(data => expect(data).toEqual(7));
-//   getCountForTrack("Seekonk Speedway (Asphalt Road Course)").then(data => expect(data).toEqual(1));
-//   getCountForTrack("Stafford Motor Speedway (Inner Asphalt Oval)").then(data => expect(data).toEqual(1));
-// });
+  //configurations
+  server.getCountForTrack("Rocky Mountain Raceways (Asphalt Figure 8)").then(data => expect(data).toEqual(7));
+  server.getCountForTrack("Seekonk Speedway (Asphalt Road Course)").then(data => expect(data).toEqual(1));
+  server.getCountForTrack("Stafford Motor Speedway (Inner Asphalt Oval)").then(data => expect(data).toEqual(1));
+});
 
 // it('getTrackFullInfo', async() => {
 // 	const info = await getTrackFullInfo();
@@ -67,6 +70,7 @@ it('track name and configuration', () => {
 // 	// expect(seekonk.flips.length).toEqual(12);
 
 // 	const pocatello = info["Pocatello Speedway"];
+// 	console.log(pocatello)
 // 	expect(pocatello.state).toBe("ID");
 // 	expect(pocatello.latitude).toBe(42.912684);
 // 	expect(pocatello.longitude).toBe(-112.577022);
