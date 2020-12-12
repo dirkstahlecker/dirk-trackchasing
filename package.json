@@ -11,7 +11,7 @@
     "dev": "ts-node ./src/server.ts",
     "prod": "tsc && node ./built/server.js",
     "debug": "tsc && node --inspect ./built/server.js",
-    "heroku-postbuild": "tsc && cd client && npm install && npm run build",
+    "heroku-postbuild": "npm run start && cd client && npm install && npm run build",
     "postinstall": "npm run tsc",
     "tsc": "tsc"
   },
