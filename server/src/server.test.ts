@@ -108,119 +108,125 @@ it('getTrackFullInfo', async() => {
 });
 
 // //just the basic strings from the json
-// it('getEventStringsForTrack', async() => {
-// 	let info = await getEventStringsForTrack("Seekonk Speedway");
-// 	expect(info.length).toEqual(46);
-// 	expect(info[0]).toEqual("7-13-16: US Pro stock nationals, INEX legends, pro 4 modifieds");
+it('getEventStringsForTrack', async() => {
+	let info = await server.getEventStringsForTrack("Seekonk Speedway");
+	expect(info.length).toEqual(46);
+	expect(info[0]).toEqual("7-13-16: US Pro stock nationals, INEX legends, pro 4 modifieds");
 
-// 	info = await getEventStringsForTrack("Pocatello Speedway");
-// 	expect(info.length).toEqual(6);
+	info = await server.getEventStringsForTrack("Pocatello Speedway");
+	expect(info.length).toEqual(6);
 
-// 	info = await getEventStringsForTrack("Pocatello Speedway (Inner Dirt Oval)");
-// 	expect(info.length).toEqual(1);
-// 	expect(info[0]).toEqual("7-23-16: ASA Pro Trucks, Street Stocks, Modifieds, Hornets, Junkyard Dogs, Karts [Inner Dirt Oval]")
+	info = await server.getEventStringsForTrack("Pocatello Speedway (Inner Dirt Oval)");
+	expect(info.length).toEqual(1);
+	expect(info[0]).toEqual("7-23-16: ASA Pro Trucks, Street Stocks, Modifieds, Hornets, Junkyard Dogs, Karts [Inner Dirt Oval]")
 
-// 	info = await getEventStringsForTrack("Thompson Speedway - Rallycross");
-// 	expect(info.length).toEqual(2);
-// 	expect(info[0]).toEqual("6-03-17: Global Rallycross Championship: GRC Supercars, GRC Lites");
-// 	expect(info[1]).toEqual("6-04-17: Global Rallycross Championship: GRC Supercars, GRC Lites");
+	info = await server.getEventStringsForTrack("Thompson Speedway - Rallycross");
+	expect(info.length).toEqual(2);
+	expect(info[0]).toEqual("6-03-17: Global Rallycross Championship: GRC Supercars, GRC Lites");
+	expect(info[1]).toEqual("6-04-17: Global Rallycross Championship: GRC Supercars, GRC Lites");
 
-// 	info = await getEventStringsForTrack("New Hampshire Motor Speedway (Asphalt Legends Oval)");
-// 	expect(info.length).toEqual(1);
-// 	expect(info[0]).toEqual("9-12-20: Whelen Modifieds Musket 200, ACT Late Models, Legends [Asphalt Legends Oval]");
-// })
+	info = await server.getEventStringsForTrack("New Hampshire Motor Speedway (Asphalt Legends Oval)");
+	expect(info.length).toEqual(1);
+	expect(info[0]).toEqual("9-12-20: Whelen Modifieds Musket 200, ACT Late Models, Legends [Asphalt Legends Oval]");
+})
 
-// it('number of flips per track', async() => {
-// 	let flips = await getFlipsForTrack("Eldora Speedway");
-// 	expect(flips.length).toBe(3);
+it('number of flips per track', async() => {
+	let flips = await server.getFlipsForTrack("Eldora Speedway");
+	expect(flips.length).toBe(3);
 
-// 	flips = await getFlipsForTrack("Bridgeport Motorsports Park");
-// 	expect(flips.length).toBe(7);
+	flips = await server.getFlipsForTrack("Bridgeport Motorsports Park");
+	expect(flips.length).toBe(7);
 
-// 	flips = await getFlipsForTrack("Gateway Dirt Nationals");
-// 	expect(flips.length).toBe(17);
+	flips = await server.getFlipsForTrack("Gateway Dirt Nationals");
+	expect(flips.length).toBe(17);
 
-// 	flips = await getFlipsForTrack("Pocatello Speedway");
-// 	expect(flips.length).toBe(1);
+	flips = await server.getFlipsForTrack("Pocatello Speedway");
+	expect(flips.length).toBe(1);
 
-// 	flips = await getFlipsForTrack("Atomic Motor Raceway");
-// 	expect(flips.length).toBe(1);
+	flips = await server.getFlipsForTrack("Atomic Motor Raceway");
+	expect(flips.length).toBe(1);
 
-// 	flips = await getFlipsForTrack("Lucas Oil Speedway Off Road Course");
-// 	expect(flips.length).toBe(4);
-// });
+	flips = await server.getFlipsForTrack("Lucas Oil Speedway Off Road Course");
+	expect(flips.length).toBe(4);
 
-// it('flip objects', async() => {
-// 	let flips = await getFlipsForTrack("Pocatello Speedway");
-// 	expect(flips.length).toBe(1);
+	flips = await server.getFlipsForTrack("Texas Motor Speedway"); //only a flip at the configuration
+	expect(flips.length).toEqual(0);
 
-// 	let flip = flips[0];
-// 	expect(flip.flipId).toEqual("20");
-// 	expect(flip.class).toEqual("Champ Kart");
-// 	expect(flip.openWheel).toBeTruthy();
-// 	expect(flip.rotations).toEqual("1/4");
-// 	expect(flip.video).toBeFalsy();
+	flips = await server.getFlipsForTrack("Texas Motor Speedway (Asphalt Road Course)");
+	expect(flips.length).toEqual(1);
+});
 
-// 	flips = await getFlipsForTrack("Knoxville Raceway");
-// 	flip = flips.find((f) => {
-// 		return f.when === "A Main"; //Knoxville only has one flip in a A main
-// 	});
-// 	expect(flip.flipId).toEqual("81");
-// 	expect(flip.class).toEqual("410 Sprint Car");
-// 	expect(flip.openWheel).toBeTruthy();
-// 	expect(flip.rotations).toEqual("1");
-// 	expect(flip.video).toBeTruthy();
-// 	expect(flip.surface).toEqual("Dirt");
-// 	expect(flip.date).toEqual(new Date("8-09-19"));
+it('flip objects', async() => {
+	let flips = await server.getFlipsForTrack("Pocatello Speedway");
+	expect(flips.length).toBe(1);
 
-// 	flips = await getFlipsForTrack("Lincoln Speedway");
-// 	flip = flips.find((f) => {
-// 		return f.class === "Super Late Model";
-// 	});
-// 	expect(flip.flipId).toEqual("158");
-// 	expect(flip.openWheel).toBeFalsy();
-// 	expect(flip.rotations).toEqual("1/2+");
-// 	expect(flip.video).toBeFalsy();
-// 	expect(flip.surface).toEqual("Dirt");
-// 	expect(flip.when).toEqual("Main")
-// 	expect(flip.notes).toBeTruthy();
-// 	expect(flip.notes.includes("Turn 3")).toBeTruthy();
-// 	expect(flip.date).toEqual(new Date("8-20-20"));
-// });
+	let flip = flips[0];
+	expect(flip.flipId).toEqual("20");
+	expect(flip.class).toEqual("Champ Kart");
+	expect(flip.openWheel).toBeTruthy();
+	expect(flip.rotations).toEqual("1/4");
+	expect(flip.video).toBeFalsy();
 
-// it('gets date from event string', () => {
-// 	let date = getDateFromEventString('11-06-20: URC 360 Sprint Cars');
-// 	expect(date).toEqual(new Date('11-06-20'));
+	flips = await server.getFlipsForTrack("Knoxville Raceway");
+	flip = flips.find((f) => {
+		return f.when === "A Main"; //Knoxville only has one flip in a A main
+	});
+	expect(flip.flipId).toEqual("81");
+	expect(flip.class).toEqual("410 Sprint Car");
+	expect(flip.openWheel).toBeTruthy();
+	expect(flip.rotations).toEqual("1");
+	expect(flip.video).toBeTruthy();
+	expect(flip.surface).toEqual("Dirt");
+	expect(flip.date).toEqual(new Date("8-09-19"));
 
-// 	date = getDateFromEventString("2-5-19: Doesn't matter what we put here");
-// 	expect(date).toEqual(new Date('02-05-19'));
-// });
+	flips = await server.getFlipsForTrack("Lincoln Speedway");
+	flip = flips.find((f) => {
+		return f.class === "Super Late Model";
+	});
+	expect(flip.flipId).toEqual("158");
+	expect(flip.openWheel).toBeFalsy();
+	expect(flip.rotations).toEqual("1/2+");
+	expect(flip.video).toBeFalsy();
+	expect(flip.surface).toEqual("Dirt");
+	expect(flip.when).toEqual("Main")
+	expect(flip.notes).toBeTruthy();
+	expect(flip.notes.includes("Turn 3")).toBeTruthy();
+	expect(flip.date).toEqual(new Date("8-20-20"));
+});
 
-// //more detailed, enriched with other information
-// it('returns enriched event info', async() => {
-// 	let eventInfo = await getEnrichedEventInfoForDate("Bridgeport Motorsports Park", "11-08-20");
-// 	expect(eventInfo.classes).toEqual("Big Block Modifieds, 602 Sportsman Modifieds, USAC SpeedSTRs, Street Stocks");
-// 	expect(eventInfo.date).toEqual(new Date("11-08-20"));
-// 	expect(eventInfo.flips.length).toEqual(3);
-// 	expect(eventInfo.flips[0].class).toEqual("USAC SpeedSTR");
+it('gets date from event string', () => {
+	let date = server.getDateFromEventString('11-06-20: URC 360 Sprint Cars');
+	expect(date).toEqual(new Date('11-06-20'));
 
-// 	//TODO: test flips on configuration once I actually have one
+	date = server.getDateFromEventString("2-5-19: Doesn't matter what we put here");
+	expect(date).toEqual(new Date('02-05-19'));
+});
 
-// 	eventInfo = await getEnrichedEventInfoForDate("Kokomo Speedway", "8-27-20");
-// 	expect(eventInfo.classes).toEqual("Smackdown IX: USAC National Sprint Cars");
-// 	expect(eventInfo.date).toEqual(new Date("8-27-20"));
-// 	expect(eventInfo.flips.length).toEqual(2);
-// 	expect(eventInfo.flips[0].class).toEqual("Wingless 410 Sprint Car");
-// });
+//more detailed, enriched with other information
+it('returns enriched event info', async() => {
+	let eventInfo = await server.getEnrichedEventInfoForDate("Bridgeport Motorsports Park", "11-08-20");
+	expect(eventInfo.classes).toEqual("Big Block Modifieds, 602 Sportsman Modifieds, USAC SpeedSTRs, Street Stocks");
+	expect(eventInfo.date).toEqual(new Date("11-08-20"));
+	expect(eventInfo.flips.length).toEqual(3);
+	expect(eventInfo.flips[0].class).toEqual("USAC SpeedSTR");
 
-// it('returns all enriched event infos for a track', async() => {
-// 	let eventInfos = await getAllEnrichedEventInfosForTrack("Bridgeport Motorsports Park");
-// 	expect(eventInfos.length).toBe(3);
-// 	expect(eventInfos[0].date).toEqual(new Date("11-06-20"));
-// 	expect(eventInfos[0].flips.length).toEqual(2);
-// 	expect(eventInfos[2].date).toEqual(new Date("11-08-20"));
-// 	expect(eventInfos[2].classes).toContain("Big Block Modifieds, 602 Sportsman Modifieds");
-// });
+	//TODO: test flips on configuration once I actually have one
+
+	eventInfo = await server.getEnrichedEventInfoForDate("Kokomo Speedway", "8-27-20");
+	expect(eventInfo.classes).toEqual("Smackdown IX: USAC National Sprint Cars");
+	expect(eventInfo.date).toEqual(new Date("8-27-20"));
+	expect(eventInfo.flips.length).toEqual(2);
+	expect(eventInfo.flips[0].class).toEqual("Wingless 410 Sprint Car");
+});
+
+it('returns all enriched event infos for a track', async() => {
+	let eventInfos = await server.getAllEnrichedEventInfosForTrack("Bridgeport Motorsports Park");
+	expect(eventInfos.length).toBe(3);
+	expect(eventInfos[0].date).toEqual(new Date("11-06-20"));
+	expect(eventInfos[0].flips.length).toEqual(2);
+	expect(eventInfos[2].date).toEqual(new Date("11-08-20"));
+	expect(eventInfos[2].classes).toContain("Big Block Modifieds, 602 Sportsman Modifieds");
+});
 
 
 //TODO: currently breaks

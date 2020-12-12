@@ -1,6 +1,8 @@
 export type Flip = {flipId: string; trackNameObj: TrackName; date: Date; class: string; rotations: string; 
   surface: string; openWheel: boolean; when: string; video: boolean; notes: string};
 
+export type EventInfo = {date: Date; classes: string; flips: Flip[]}
+
 //use this instead of passing around raw string track names
 export class TrackName
 {
@@ -14,7 +16,7 @@ export class TrackName
     {
       throw new Error("Track object isConfiguration is false, but configuration is null");
     }
-    
+
 		this.baseName = baseName;
 		this.configuration = configuration;
 		this.isConfiguration = isConfiguration;

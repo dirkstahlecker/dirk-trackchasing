@@ -2,7 +2,7 @@ import express from "express";
 import path from 'path';
 import {Parser} from './parser';
 // import utilities from './utilities';
-import {Flip, TrackName} from "./Types";
+import {EventInfo, Flip, TrackName} from "./Types";
 
 const app = express();
 
@@ -127,28 +127,25 @@ export class Server
 				break;
 			}
 			
-
-			//TODO: look at configurations
-			// const event = raceRow[trackName];
-			// if (event != null)
-			// {
-			// 	if (isConfiguration)
-			// 	{
-			// 		if (event.includes(configuration))
-			// 		{
-			// 			events.push(event);
-			// 		}
-			// 	}
-			// 	else //not a configuration, add all
-			// 	{
-			// 		events.push(event);
-				// }
-			// }
+			const event = raceRow[trackNameObj.baseName];
+			if (event != null)
+			{
+				if (trackNameObj.isConfiguration)
+				{
+					if (event.includes(trackNameObj.configuration))
+					{
+						events.push(event);
+					}
+				}
+				else //not a configuration, add all
+				{
+					events.push(event);
+				}
+			}
 			i++;
 		}
 
-		return [];
-		// return events;
+		return events;
 	}
 
 	public async getFlipsForTrack(rawName: string): Promise<Flip[]>
@@ -181,14 +178,14 @@ export class Server
 		return flipsForEvent;
 	}
 
-	private getDateFromEventString(eventString: string): Date
+	public getDateFromEventString(eventString: string): Date
 	{
 		let dateRaw = eventString.split(":")[0];
 		// return utilities.cleanDate(dateRaw);
 		return new Date(dateRaw);
 	}
 
-	public async makeEnrichedEventInfoHelper(eventString: string, trackName: string, dateObj: Date): Promise<any> //TODO
+	public async makeEnrichedEventInfoHelper(eventString: string, trackName: string, dateObj: Date): Promise<EventInfo>
 	{
 		if (eventString === undefined)
 		{
@@ -199,17 +196,18 @@ export class Server
 	
 		const classes = eventString.substring(eventString.indexOf(":") + 2);
 	
-		const eventInfoObj = {};
-		// eventInfoObj["date"] = dateObj;
-		// eventInfoObj["classes"] = classes;
-		// eventInfoObj["flips"] = flipsForEvent;
+		const eventInfoObj: EventInfo = {
+			date: dateObj, 
+			classes: classes, 
+			flips: flipsForEvent
+		};
 		//TODO: notable crashes
 	
 		return eventInfoObj;
 	}
 
 	//returns { date: string , classes: string , flips: [flip] , notableCrashes: ?? }
-	public async getEnrichedEventInfoForDate(trackName: string, date: string): Promise<any> //TODO
+	public async getEnrichedEventInfoForDate(trackName: string, date: string): Promise<EventInfo>
 	{
 		//TODO: deal with invalid dates that come from old events where I don't know the date
 		const dateObj = new Date(date);
