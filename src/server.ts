@@ -235,10 +235,8 @@ export class Server
 			const eventInfo = await this.getEnrichedEventInfoForDate(trackName, date as any); //TODO
 			return eventInfo;
 		});
-	
-		console.log("starting promises")
+		
 		const eventInfos = await Promise.all(promises);
-		console.log(eventInfos);
 		return eventInfos;
 	}
 
@@ -335,9 +333,9 @@ app.get('*', (req, res) => {
 });
 
 const port = process.env.PORT || 5000;
-app.listen(port);
-
-console.log(`Listening on ${port}`);
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(port, () => console.log(`Listening on port ${port}`));
+}
 
 
 //exports for testing

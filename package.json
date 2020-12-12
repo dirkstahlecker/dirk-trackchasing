@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "npm run dev",
-    "test": "jest",
+    "start": "npm run build && npm run dev",
+    "test": "npm run build && jest ./src",
     "build": "tsc",
     "lint": "eslint . & echo 'lint complete'",
     "dev": "ts-node ./src/server.ts",

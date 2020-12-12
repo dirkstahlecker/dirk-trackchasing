@@ -7,8 +7,8 @@ let parsedJson: any = null;
 let _flipsData: Flip[] | null = null; //now using a list of objects // {name : [ date, track, class, rotations, surface, open wheel, when, video, notes ] }
 
 const FLIPS_HEADER = "Flips";
-const DATA_PATH = "events_data.json";
-const TEST_DATA_PATH = "events_data_test.json";
+const DATA_PATH = "/../events_data.json";
+const TEST_DATA_PATH = "/../events_data_test.json";
 const STATS_HEADER = "Stats";
 
 export class Parser
@@ -18,7 +18,7 @@ export class Parser
 		return process.env.JEST_WORKER_ID !== undefined;
 	}
 
-	private dataPath()
+	private get dataPath(): string
 	{
 		return this.runningJestTest() ? TEST_DATA_PATH : DATA_PATH;
 	}
@@ -81,8 +81,9 @@ export class Parser
 		if (parsedJson == null)
 		{
 			//take the json downloaded from google sheets in json format and parse it
-			
-			var data=fs.readFileSync(path.resolve(__dirname, this.dataPath()), 'utf8');
+
+			console.log("==========================")
+			var data=fs.readFileSync(path.join(__dirname, this.dataPath), 'utf8');
 			var json=JSON.parse(data);
 
 			await this.makeFlipsData(json);
