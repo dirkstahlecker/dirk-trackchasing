@@ -10,6 +10,7 @@ import {Map, MapMachine} from "./Map";
 import {NavigationMachine, CurrentPlace} from "./NavigationMachine";
 import {TrackTile} from './tracks/TrackTile';
 import {AboutPlace} from "./AboutPlace";
+import { EventPlace } from './events/EventPlace';
 
 // class QuickStats
 // {
@@ -86,6 +87,79 @@ class App extends React.Component<AppProps>
     // this.machine.fetchQuickStats(); //no need to await
   }
 
+  private get navMachine(): NavigationMachine
+  {
+    return this.machine.navMachine;
+  }
+
+  private renderAbout(): JSX.Element
+  {
+    return <AboutPlace navMachine={this.machine.navMachine}/>;
+  }
+
+  private renderHome(): JSX.Element
+  {
+    return <>
+      <h1>Dirk Stahlecker - Trackchaser</h1>
+      <div>
+        <button onClick={() => this.machine.navMachine.goToAboutPage()}>About</button>
+      </div>
+      {
+        this.machine.trackInfoMachine.tracks != null && 
+        <div>
+          <Map
+            trackInfoMachine={this.machine.trackInfoMachine}
+            machine={this.machine.mapMachine}
+            navMachine={this.machine.navMachine}
+          />
+          <div className="quick-stats-area">
+            Quick Stats: 
+          </div>
+          {
+            this.machine.trackInfoMachine.tracks.map((track: Track) => {
+              return <TrackTile
+                key={track.print()}
+                track={track}
+                navMachine={this.machine.navMachine}
+              />;
+            })
+          }
+        </div>
+      }
+    </>
+  }
+
+  private renderTrack(): JSX.Element
+  {
+    return <TrackPlace
+      machine={new TrackPlaceMachine() /* TODO: look at this */}
+      trackInfo={this.machine.trackInfoMachine}
+      navMachine={this.machine.navMachine}
+    />;
+  }
+
+  private renderEvent(): JSX.Element
+  {
+    if (this.navMachine.currentEvent == null || this.navMachine.currentTrack == null)
+    {
+      throw new Error("To render event page, currentEvent and currentTrack must be defined");
+    }
+
+    return <EventPlace
+      event={this.machine.navMachine.currentEvent!}
+      track={this.machine.navMachine.currentTrack!}
+    />;
+  }
+
+  private renderFooter(): JSX.Element
+  {
+    return <>
+      Contact: <a href="mailto:TrackchaserDirk@gmail.com">TrackchaserDirk@gmail.com</a>
+      &nbsp;&nbsp;&nbsp;
+      Site copyright Dirk Stahlecker &#169; {new Date().getFullYear()}
+    </>;
+  }
+
   render()
   {
     return (
@@ -93,52 +167,23 @@ class App extends React.Component<AppProps>
         <div className="App-body">
           {
             this.machine.navMachine.currentPlace === CurrentPlace.ABOUT &&
-            <AboutPlace navMachine={this.machine.navMachine}/>
+            this.renderAbout()
           }
           {
             this.machine.navMachine.currentPlace === CurrentPlace.HOME &&
-            <>
-              <h1>Dirk Stahlecker - Trackchaser</h1>
-              <div>
-                <button onClick={() => this.machine.navMachine.goToAboutPage()}>About</button>
-              </div>
-              {
-                this.machine.trackInfoMachine.tracks != null && 
-                <div>
-                  <Map
-                    trackInfoMachine={this.machine.trackInfoMachine}
-                    machine={this.machine.mapMachine}
-                    navMachine={this.machine.navMachine}
-                  />
-                  <div className="quick-stats-area">
-                    Quick Stats: 
-                  </div>
-                  {
-                    this.machine.trackInfoMachine.tracks.map((track: Track) => {
-                      return <TrackTile
-                        key={track.print()}
-                        track={track}
-                        navMachine={this.machine.navMachine}
-                      />;
-                    })
-                  }
-                </div>
-              }
-            </>
+            this.renderHome()
           }
           {
             this.machine.navMachine.currentPlace === CurrentPlace.TRACK &&
-            <TrackPlace
-              machine={new TrackPlaceMachine() /* TODO: look at this */}
-              trackInfo={this.machine.trackInfoMachine}
-              navMachine={this.machine.navMachine}
-            />
+            this.renderTrack()
+          }
+          {
+            this.machine.navMachine.currentPlace === CurrentPlace.EVENT &&
+            this.renderEvent()
           }
         </div>
         <div className="footer">
-          Contact: <a href="mailto:TrackchaserDirk@gmail.com">TrackchaserDirk@gmail.com</a>
-          &nbsp;&nbsp;&nbsp;
-          Site copyright Dirk Stahlecker &#169; {new Date().getFullYear()}
+          {this.renderFooter()}
         </div>
       </div>
     );

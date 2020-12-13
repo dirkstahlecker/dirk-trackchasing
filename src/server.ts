@@ -22,14 +22,14 @@ export class Server
 		return trackList;
 	}
 
-	public async getTrackListNoConfigurations()
+	public async getTrackListNoConfigurations(): Promise<string[]>
 	{
-		const list = await this.getTrackList();
+		const list: string[] = await this.getTrackList();
 		
 		const filteredList = [];
 		for (let i = 0; i < list.length; i++)
 		{
-			const track = list[i];
+			const track: string= list[i];
 			if (track.match(/\(.*\)/) == null)
 			{
 				filteredList.push(track);
