@@ -484,7 +484,7 @@ app.use(express_1.default.static(path_1.default.join(__dirname, 'client/build'))
 // 	//path.join(__dirname+'/../../client/build/index.html')
 //   res.sendFile(index);
 // });
-var root = path_1.default.join(__dirname, 'client', 'build');
+var root = path_1.default.join(__dirname, '..', 'client', 'build');
 app.use(express_1.default.static(root));
 app.get("*", function (req, res) {
     res.sendFile('index.html', { root: root });
