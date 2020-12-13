@@ -341,21 +341,5 @@ app.listen(port, () => {
 });
 
 
-
-
-//exports for testing
-// exports.getCountForTrack = getCountForTrack;
-// exports.getTrackNameAndConfiguration = getTrackNameAndConfiguration;
-// exports.getTrackFullInfo = getTrackFullInfo;
-// exports.getFlipsForTrack = getFlipsForTrack;
-// exports.getTrackList = getTrackList;
-// exports.getTrackListNoConfigurations = getTrackListNoConfigurations;
-// exports.getEventStringsForTrack = getEventStringsForTrack;
-// exports.getEnrichedEventInfoForDate = getEnrichedEventInfoForDate;
-// exports.getAllEnrichedEventInfosForTrack = getAllEnrichedEventInfosForTrack;
-// exports.getDateFromEventString = getDateFromEventString;
-
-
 //TODO: do we even need stats to be sent from the server? There's no unique info on that page
-
 //TODO: flips need to include their configuration
