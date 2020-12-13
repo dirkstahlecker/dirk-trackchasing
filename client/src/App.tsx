@@ -1,7 +1,7 @@
 import React from 'react';
 // import ReactDOM from "react-dom";
 import {observer} from "mobx-react";
-import {observable, action, makeObservable} from "mobx";
+// import {observable, action, makeObservable} from "mobx";
 import './App.css';
 import {TrackPlace, TrackPlaceMachine} from "./tracks/TrackPlace";
 import {TrackInfoMachine, Track} from "./tracks/TrackInfoMachine";
@@ -9,27 +9,27 @@ import {Map, MapMachine} from "./Map";
 import {NavigationMachine, CurrentPlace} from "./NavigationMachine";
 import {TrackTile} from './components/TrackTile';
 
-class QuickStats
-{
-  public totalRaces: number;
-  public totalFacilities: number;
-  public totalCountableTracks: number;
-  public totalStates: number;
+// class QuickStats
+// {
+//   public totalRaces: number;
+//   public totalFacilities: number;
+//   public totalCountableTracks: number;
+//   public totalStates: number;
 
-  constructor(totalRaces: number, totalFacilities: number, totalCountableTracks: number, totalStates: number)
-  {
-    this.totalRaces = totalRaces;
-    this.totalFacilities = totalFacilities;
-    this.totalCountableTracks = totalCountableTracks;
-    this.totalStates = totalStates;
-  }
+//   constructor(totalRaces: number, totalFacilities: number, totalCountableTracks: number, totalStates: number)
+//   {
+//     this.totalRaces = totalRaces;
+//     this.totalFacilities = totalFacilities;
+//     this.totalCountableTracks = totalCountableTracks;
+//     this.totalStates = totalStates;
+//   }
 
-  static fromJson(json: any): QuickStats
-  {
-    return new QuickStats(json["totalRaces"], json["totalFacilities"], json["totalCountableTracks"], 
-      json["totalStates"]);
-  }
-}
+//   static fromJson(json: any): QuickStats
+//   {
+//     return new QuickStats(json["totalRaces"], json["totalFacilities"], json["totalCountableTracks"], 
+//       json["totalStates"]);
+//   }
+// }
 
 class AppMachine
 {
@@ -37,21 +37,21 @@ class AppMachine
   public navMachine: NavigationMachine = new NavigationMachine();
   public mapMachine: MapMachine = new MapMachine();
   
-  @observable public quickStats: QuickStats | null = null;
+  // @observable public quickStats: QuickStats | null = null;
 
   constructor() 
   {
-    makeObservable(this);
+    // makeObservable(this);
     this.trackInfoMachine = new TrackInfoMachine();
     this.trackInfoMachine.fetchInfo();
   }
 
-  public async fetchQuickStats(): Promise<void>
-  {
-    const statsRaw = await fetch('/quickStats');
-    const stats = await statsRaw.json();
-    this.quickStats = QuickStats.fromJson(stats);
-  }
+  // public async fetchQuickStats(): Promise<void>
+  // {
+  //   const statsRaw = await fetch('/quickStats');
+  //   const stats = await statsRaw.json();
+  //   // this.quickStats = QuickStats.fromJson(stats);
+  // }
 }
 
 // { process.env.NODE_ENV === 'production' ?
@@ -81,7 +81,7 @@ class App extends React.Component<AppProps>
 
   componentDidMount()
   {
-    this.machine.fetchQuickStats(); //no need to await
+    // this.machine.fetchQuickStats(); //no need to await
   }
 
   render()

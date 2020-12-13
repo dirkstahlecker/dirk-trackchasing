@@ -47,8 +47,6 @@ var parser_1 = require("./parser");
 var Types_1 = require("./Types");
 var app = express_1.default();
 var parser = new parser_1.Parser();
-// Serve static files from the React app
-app.use(express_1.default.static(path_1.default.join(__dirname, 'client/build')));
 var TRACK_ORDER_HEADER = "Track Order"; //track order sheet, the main reference for each track
 var RACES_HEADER = "Races";
 var Server = /** @class */ (function () {
@@ -350,8 +348,10 @@ var server = new Server();
 //=========================================================================================
 //                                     Endpoints
 //=========================================================================================
+// Serve static files from the React app
+app.use(express_1.default.static(path_1.default.join(__dirname, 'client/build')));
 // Priority serve any static files.
-app.use(express_1.default.static(path_1.default.resolve(__dirname, '../react-ui/public')));
+// app.use(express.static(path.resolve(__dirname, '../react-ui/public'))); //I don't know what this is
 //get a list of all the tracks, name only
 app.get('/tracks', function (req, res) {
     return __awaiter(this, void 0, void 0, function () {
@@ -478,27 +478,16 @@ app.get('/stats', function (req, res) {
 });
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
-app.get('*', function (req, res) {
-    var index = path_1.default.join(__dirname, '../client/build', 'index.html');
-    console.log(index);
-    //path.join(__dirname+'/../../client/build/index.html')
-    res.sendFile(index);
-});
+// app.get('*', (req, res) => {
+// 	const index = path.join(__dirname, '../client/build', 'index.html');
+// 	console.log(index)
+// 	//path.join(__dirname+'/../../client/build/index.html')
+//   res.sendFile(index);
+// });
 var port = process.env.PORT || 5000;
 app.listen(port, function () {
     console.log("server started on port " + port);
 });
-//exports for testing
-// exports.getCountForTrack = getCountForTrack;
-// exports.getTrackNameAndConfiguration = getTrackNameAndConfiguration;
-// exports.getTrackFullInfo = getTrackFullInfo;
-// exports.getFlipsForTrack = getFlipsForTrack;
-// exports.getTrackList = getTrackList;
-// exports.getTrackListNoConfigurations = getTrackListNoConfigurations;
-// exports.getEventStringsForTrack = getEventStringsForTrack;
-// exports.getEnrichedEventInfoForDate = getEnrichedEventInfoForDate;
-// exports.getAllEnrichedEventInfosForTrack = getAllEnrichedEventInfosForTrack;
-// exports.getDateFromEventString = getDateFromEventString;
 //TODO: do we even need stats to be sent from the server? There's no unique info on that page
 //TODO: flips need to include their configuration
 //# sourceMappingURL=server.js.map
