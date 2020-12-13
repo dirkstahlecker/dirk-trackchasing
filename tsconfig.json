@@ -8,16 +8,20 @@
     "lib": ["es2018"],
     // "lib": "ESNext",
     "module": "commonjs",
-    "target": "es2018",
-    // "target": "ESNext",
+    "target": "es5",
     "baseUrl": ".",
     "paths": {
-      "*": ["node_modules/*", "src/types/*"]
+      "*": [
+        "node_modules/",
+      ],
+      "typings/*": [
+        "src/typings/*"
+      ]
     },
     "typeRoots": ["node_modules/@types", "src/types"],
-    "outDir": "./built",
+    "outDir": "dist",
     "rootDir": "./src"
   },
-  "include": ["./src/**/*", "jest.config.js"],
-  "exclude": ["node_modules"]
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules", "src/test/**/*.spec.ts"]
 }

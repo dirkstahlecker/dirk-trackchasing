@@ -333,9 +333,11 @@ app.get('*', (req, res) => {
 });
 
 const port = process.env.PORT || 5000;
-if (process.env.NODE_ENV !== 'test') {
-  app.listen(port, () => console.log(`Listening on port ${port}`));
-}
+app.listen(port, () => {
+	console.log(`server started on port ${port}`)
+});
+
+
 
 
 //exports for testing
