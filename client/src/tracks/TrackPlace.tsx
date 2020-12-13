@@ -6,7 +6,7 @@ import {NavigationMachine} from "../NavigationMachine";
 import {TrackInfoMachine} from "./TrackInfoMachine";
 import { trackDerivedFunction } from 'mobx/dist/internal';
 import { AssertionError } from 'assert';
-import { EventPlace, EventPlaceMachine } from '../events/EventPlace';
+import { EventTile, EventTileMachine } from '../events/EventTile';
 import { Flip, EventObj, Track, TrackName } from '../Types';
 
 export class TrackPlaceMachine
@@ -61,10 +61,11 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 	{
 		return <>
 			{this.props.machine.events.map((event: EventObj) => (
-				<EventPlace
+				<EventTile
 					key={event.date}
+					track={this.currentTrack}
 					event={event}
-					machine={new EventPlaceMachine()}
+					machine={new EventTileMachine()}
 				/>
 			))}
 		</>;

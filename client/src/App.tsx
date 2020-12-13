@@ -9,6 +9,7 @@ import { Track } from './Types';
 import {Map, MapMachine} from "./Map";
 import {NavigationMachine, CurrentPlace} from "./NavigationMachine";
 import {TrackTile} from './tracks/TrackTile';
+import {AboutPlace} from "./AboutPlace";
 
 // class QuickStats
 // {
@@ -91,8 +92,16 @@ class App extends React.Component<AppProps>
       <div className="App">
         <div className="App-body">
           {
+            this.machine.navMachine.currentPlace === CurrentPlace.ABOUT &&
+            <AboutPlace navMachine={this.machine.navMachine}/>
+          }
+          {
             this.machine.navMachine.currentPlace === CurrentPlace.HOME &&
             <>
+              <h1>Dirk Stahlecker - Trackchaser</h1>
+              <div>
+                <button onClick={() => this.machine.navMachine.goToAboutPage()}>About</button>
+              </div>
               {
                 this.machine.trackInfoMachine.tracks != null && 
                 <div>
@@ -139,3 +148,4 @@ class App extends React.Component<AppProps>
 export default App;
 
 //TODO: trackchaserDirk email doesn't forward to me properly
+//TODO: events don't work when there's no date (like with Pocatello)

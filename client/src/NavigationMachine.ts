@@ -4,7 +4,7 @@ import {observer} from "mobx-react";
 import {observable, action, makeObservable} from "mobx";
 import { Track } from './Types';
 
-export enum CurrentPlace {HOME, TRACK}
+export enum CurrentPlace {HOME, TRACK, ABOUT}
 
 export class NavigationMachine
 {
@@ -28,5 +28,12 @@ export class NavigationMachine
   {
   	this.currentPlace = CurrentPlace.HOME;
   	this.currentTrack = null;
+  }
+
+  @action
+  public goToAboutPage(): void
+  {
+    this.currentPlace = CurrentPlace.ABOUT;
+    this.currentTrack = null;
   }
 }

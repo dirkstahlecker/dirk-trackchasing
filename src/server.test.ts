@@ -236,19 +236,17 @@ it('returns enriched event info', async() => {
 	expect(eventInfo.flips.length).toEqual(3);
 	expect(eventInfo.flips[0].carClass).toEqual("USAC SpeedSTR");
 
-	//TODO: test flips on configuration once I actually have one
-
 	eventInfo = await server.getEnrichedEventInfoForDate(TrackName.parse("Kokomo Speedway"), "8-27-20");
 	expect(eventInfo.classes).toEqual("Smackdown IX: USAC National Sprint Cars");
 	expect(eventInfo.date).toEqual(new Date("8-27-20"));
 	expect(eventInfo.flips.length).toEqual(2);
 	expect(eventInfo.flips[0].carClass).toEqual("Wingless 410 Sprint Car");
 
-	// eventInfo = await server.getEnrichedEventInfoForDate("Texas Motor Speedway", "8-27-20");
-	// expect(eventInfo.classes).toEqual("Smackdown IX: USAC National Sprint Cars");
-	// expect(eventInfo.date).toEqual(new Date("8-27-20"));
-	// expect(eventInfo.flips.length).toEqual(2);
-	// expect(eventInfo.flips[0].class).toEqual("Wingless 410 Sprint Car");
+	eventInfo = await server.getEnrichedEventInfoForDate(TrackName.parse("Texas Motor Speedway (Asphalt Road Course"), "6-9-18");
+	expect(eventInfo.classes).toEqual("Verizon IndyCar Series, Stadium Super Trucks [Asphalt Road Course]");
+	expect(eventInfo.date).toEqual(new Date("6-9-18"));
+	expect(eventInfo.flips.length).toEqual(1);
+	expect(eventInfo.flips[0].carClass).toEqual("Stadium Super Truck");
 });
 
 it('returns all enriched event infos for a track', async() => {
