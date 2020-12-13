@@ -118,6 +118,7 @@ export class EventObj
 
 export class Flip
 {
+	public trackNameObj: TrackName;
 	public flipId: string;
 	public date: Date;
 	public carClass: string;
@@ -128,8 +129,10 @@ export class Flip
 	public video: boolean;
 	public notes: string;
 
-	constructor(flipId: string, date: Date, carClass: string, rotations: string, surface: string, openWheel: boolean, when: string, video: boolean, notes: string)
+	constructor(trackNameObj: TrackName, flipId: string, date: Date, carClass: string, rotations: string, 
+		surface: string, openWheel: boolean, when: string, video: boolean, notes: string)
 	{
+		this.trackNameObj = trackNameObj;
 		this.flipId = flipId;
 		this.date = date;
 		this.carClass = carClass;

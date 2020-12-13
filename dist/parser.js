@@ -84,7 +84,7 @@ var Parser = /** @class */ (function () {
             var flipsJson, flips;
             return __generator(this, function (_a) {
                 if (_flipsData != null) {
-                    return [2 /*return*/, _flipsData];
+                    return [2 /*return*/]; //nothing to do, already built
                 }
                 flipsJson = json[FLIPS_HEADER];
                 flips = [];
@@ -100,11 +100,12 @@ var Parser = /** @class */ (function () {
                     if (flipInfo["Open Wheel"]) {
                         openWheel = true;
                     }
+                    console.log(flipInfo);
                     var newObjToAdd = {
                         flipId: flipId,
                         trackNameObj: trackNameObj,
                         date: new Date(flipInfo["Date"]),
-                        class: flipInfo["Class"],
+                        carClass: flipInfo["Class"],
                         rotations: flipInfo["Rotations"],
                         surface: flipInfo["Surface"],
                         openWheel: openWheel,

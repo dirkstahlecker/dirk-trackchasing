@@ -91,7 +91,7 @@ var Server = /** @class */ (function () {
     };
     Server.prototype.getTrackFullInfo = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var json, tracksList, tracksAndCoords, i, track, trackInfo, count, flips;
+            var json, tracksList, tracksAndCoords, i, trackRaw, trackNameObj, trackInfo, count, flips, newTrackInfo;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, parser.parse()];
@@ -100,27 +100,22 @@ var Server = /** @class */ (function () {
                         return [4 /*yield*/, this.getTrackList()];
                     case 2:
                         tracksList = _a.sent();
-                        tracksAndCoords = {};
+                        tracksAndCoords = [];
                         i = 0;
                         _a.label = 3;
                     case 3:
                         if (!(i < tracksList.length)) return [3 /*break*/, 7];
-                        track = tracksList[i];
-                        trackInfo = json[TRACK_ORDER_HEADER][track];
-                        return [4 /*yield*/, this.getCountForTrack(track)];
+                        trackRaw = tracksList[i];
+                        trackNameObj = Types_1.TrackName.parse(trackRaw);
+                        trackInfo = json[TRACK_ORDER_HEADER][trackRaw];
+                        return [4 /*yield*/, this.getCountForTrack(trackNameObj)];
                     case 4:
                         count = _a.sent();
-                        return [4 /*yield*/, this.getFlipsForTrack(track)];
+                        return [4 /*yield*/, this.getFlipsForTrack(trackNameObj)];
                     case 5:
                         flips = _a.sent();
-                        tracksAndCoords[track] = {
-                            "state": trackInfo["State"],
-                            "latitude": trackInfo["Latitude"],
-                            "longitude": trackInfo["Longitude"],
-                            "count": count,
-                            "flips": flips,
-                            "trackType": trackInfo["Type"]
-                        };
+                        newTrackInfo = new Types_1.Track(trackNameObj, trackInfo["State"], trackInfo["Type"], trackInfo["Latitude"], trackInfo["longitude"], count, flips);
+                        tracksAndCoords.push(newTrackInfo);
                         _a.label = 6;
                     case 6:
                         i++;
@@ -130,16 +125,15 @@ var Server = /** @class */ (function () {
             });
         });
     };
-    Server.prototype.getCountForTrack = function (rawName) {
+    Server.prototype.getCountForTrack = function (trackNameObj) {
         return __awaiter(this, void 0, void 0, function () {
-            var json, trackNameObj, count, i, jsonRowHeader, raceRow;
+            var json, count, i, jsonRowHeader, raceRow;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, parser.parse()];
                     case 1:
                         json = _a.sent();
                         json = json[RACES_HEADER];
-                        trackNameObj = Types_1.TrackName.parse(rawName);
                         count = 0;
                         i = 0;
                         while (true) {
@@ -148,9 +142,6 @@ var Server = /** @class */ (function () {
                             if (raceRow === undefined) {
                                 break;
                             }
-                            // {
-                            // 'Seekonk Speedway': '11-02-19: Thrill Show [Asphalt Figure 8, Asphalt Road Course]'
-                            // }
                             //TODO: consolidate with getEventsForTrack, some property bag thing
                             if (raceRow[trackNameObj.baseName] != null) {
                                 if (trackNameObj.isConfiguration) {
@@ -171,16 +162,15 @@ var Server = /** @class */ (function () {
         });
     };
     //returns only the event string as stored in the json
-    Server.prototype.getEventStringsForTrack = function (rawName) {
+    Server.prototype.getEventStringsForTrack = function (trackNameObj) {
         return __awaiter(this, void 0, void 0, function () {
-            var json, trackNameObj, events, i, jsonRowHeader, raceRow, event;
+            var json, events, i, jsonRowHeader, raceRow, event;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, parser.parse()];
                     case 1:
                         json = _a.sent();
                         json = json[RACES_HEADER];
-                        trackNameObj = Types_1.TrackName.parse(rawName);
                         events = [];
                         i = 0;
                         while (true) {
@@ -208,16 +198,16 @@ var Server = /** @class */ (function () {
             });
         });
     };
-    Server.prototype.getFlipsForTrack = function (rawName) {
+    Server.prototype.getFlipsForTrack = function (trackNameObj) {
         return __awaiter(this, void 0, void 0, function () {
-            var trackNameObj, flipDataAllTracks, foundFlips;
+            var flipDataAllTracks, foundFlips;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        trackNameObj = Types_1.TrackName.parse(rawName);
-                        return [4 /*yield*/, parser.flipsData()];
+                    case 0: return [4 /*yield*/, parser.flipsData()];
                     case 1:
                         flipDataAllTracks = _a.sent();
+                        console.log(trackNameObj.baseName);
+                        console.log(trackNameObj.configuration);
                         foundFlips = flipDataAllTracks.filter(function (flip) {
                             return Types_1.TrackName.equals(flip.trackNameObj, trackNameObj);
                         });
@@ -229,7 +219,7 @@ var Server = /** @class */ (function () {
     Server.prototype.getDateFromFlip = function (flip) {
         return new Date(flip.date);
     };
-    Server.prototype.getFlipsForEvent = function (trackName, date) {
+    Server.prototype.getFlipsForEvent = function (trackNameObj, date) {
         return __awaiter(this, void 0, void 0, function () {
             var dateObj, flipsForTrack, flipsForEvent;
             var _this = this;
@@ -237,7 +227,7 @@ var Server = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         dateObj = new Date(date);
-                        return [4 /*yield*/, this.getFlipsForTrack(trackName)];
+                        return [4 /*yield*/, this.getFlipsForTrack(trackNameObj)];
                     case 1:
                         flipsForTrack = _a.sent();
                         flipsForEvent = flipsForTrack.filter(function (flip) {
@@ -253,16 +243,16 @@ var Server = /** @class */ (function () {
         // return utilities.cleanDate(dateRaw);
         return new Date(dateRaw);
     };
-    Server.prototype.makeEnrichedEventInfoHelper = function (eventString, trackName, dateObj) {
+    Server.prototype.makeEnrichedEventInfoHelper = function (eventString, trackNameObj, dateObj) {
         return __awaiter(this, void 0, void 0, function () {
             var flipsForEvent, classes, eventInfoObj;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (eventString === undefined) {
-                            throw Error("Event for track " + trackName + " on date " + dateObj + " cannot be found");
+                            throw Error("Event for track " + trackNameObj.baseName + " on date " + dateObj + " cannot be found");
                         }
-                        return [4 /*yield*/, this.getFlipsForEvent(trackName, dateObj)];
+                        return [4 /*yield*/, this.getFlipsForEvent(trackNameObj, dateObj)];
                     case 1:
                         flipsForEvent = _a.sent();
                         classes = eventString.substring(eventString.indexOf(":") + 2);
@@ -277,8 +267,8 @@ var Server = /** @class */ (function () {
             });
         });
     };
-    //returns { date: string , classes: string , flips: [flip] , notableCrashes: ?? }
-    Server.prototype.getEnrichedEventInfoForDate = function (trackName, date) {
+    //events are based on base name, and may or may not have a configuration
+    Server.prototype.getEnrichedEventInfoForDate = function (trackNameObj, date) {
         return __awaiter(this, void 0, void 0, function () {
             var dateObj, eventStrings, eventString;
             var _this = this;
@@ -286,25 +276,25 @@ var Server = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         dateObj = new Date(date);
-                        return [4 /*yield*/, this.getEventStringsForTrack(trackName)];
+                        return [4 /*yield*/, this.getEventStringsForTrack(trackNameObj)];
                     case 1:
                         eventStrings = _a.sent();
                         eventString = eventStrings.find(function (event) {
                             var eventDate = _this.getDateFromEventString(event);
                             return eventDate.getTime() === dateObj.getTime();
                         });
-                        return [2 /*return*/, this.makeEnrichedEventInfoHelper(eventString, trackName, dateObj)];
+                        return [2 /*return*/, this.makeEnrichedEventInfoHelper(eventString, trackNameObj, dateObj)];
                 }
             });
         });
     };
-    Server.prototype.getAllEnrichedEventInfosForTrack = function (trackName) {
+    Server.prototype.getAllEnrichedEventInfosForTrack = function (trackNameObj) {
         return __awaiter(this, void 0, void 0, function () {
             var eventStrings, promises, eventInfos;
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.getEventStringsForTrack(trackName)];
+                    case 0: return [4 /*yield*/, this.getEventStringsForTrack(trackNameObj)];
                     case 1:
                         eventStrings = _a.sent();
                         promises = eventStrings.map(function (eventStr) { return __awaiter(_this, void 0, void 0, function () {
@@ -313,7 +303,7 @@ var Server = /** @class */ (function () {
                                 switch (_a.label) {
                                     case 0:
                                         date = this.getDateFromEventString(eventStr);
-                                        return [4 /*yield*/, this.getEnrichedEventInfoForDate(trackName, date)];
+                                        return [4 /*yield*/, this.getEnrichedEventInfoForDate(trackNameObj, date)];
                                     case 1:
                                         eventInfo = _a.sent();
                                         return [2 /*return*/, eventInfo];
@@ -389,13 +379,14 @@ app.get('/tracks/info', function (req, res) {
 //returns a list of all event strings for a particular track
 app.get('/tracks/:trackName/events', function (req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var events;
+        var trackNameObj, events;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     console.log("/tracks/" + req.params.trackName + "/events");
                     res.set('Content-Type', 'application/json');
-                    return [4 /*yield*/, server.getEventStringsForTrack(req.params.trackName)];
+                    trackNameObj = Types_1.TrackName.parse(req.params.trackName);
+                    return [4 /*yield*/, server.getEventStringsForTrack(trackNameObj)];
                 case 1:
                     events = _a.sent();
                     res.json(events);
@@ -407,13 +398,14 @@ app.get('/tracks/:trackName/events', function (req, res) {
 //get enriched event details for a track and a date
 app.get('/eventDetails/:trackName/:date', function (req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var eventInfo;
+        var trackNameObj, eventInfo;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     console.log('/events/' + req.params.trackName + '/' + req.params.date);
                     res.set('Content-Type', 'application/json');
-                    return [4 /*yield*/, server.getEnrichedEventInfoForDate(req.params.track, req.params.date)];
+                    trackNameObj = Types_1.TrackName.parse(req.params.trackName);
+                    return [4 /*yield*/, server.getEnrichedEventInfoForDate(trackNameObj, req.params.date)];
                 case 1:
                     eventInfo = _a.sent();
                     res.json(eventInfo);
@@ -425,13 +417,14 @@ app.get('/eventDetails/:trackName/:date', function (req, res) {
 //get enriched event details for all events for a track
 app.get('/eventDetails/:trackName', function (req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var eventInfos;
+        var trackNameObj, eventInfos;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     console.log('/eventsDetails/' + req.params.trackName);
                     res.set('Content-Type', 'application/json');
-                    return [4 /*yield*/, server.getAllEnrichedEventInfosForTrack(req.params.trackName)];
+                    trackNameObj = Types_1.TrackName.parse(req.params.trackName);
+                    return [4 /*yield*/, server.getAllEnrichedEventInfosForTrack(trackNameObj)];
                 case 1:
                     eventInfos = _a.sent();
                     res.json(eventInfos);
@@ -442,12 +435,13 @@ app.get('/eventDetails/:trackName', function (req, res) {
 });
 app.get('/numRaces/:trackName/raceCount', function (req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var count;
+        var trackNameObj, count;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     console.log("/numRaces/" + req.params.trackName + "/raceCount");
-                    return [4 /*yield*/, server.getCountForTrack(req.params.trackName)];
+                    trackNameObj = Types_1.TrackName.parse(req.params.trackName);
+                    return [4 /*yield*/, server.getCountForTrack(trackNameObj)];
                 case 1:
                     count = _a.sent();
                     res.set('Content-Type', 'application/json');
@@ -474,16 +468,9 @@ app.get('/stats', function (req, res) {
         });
     });
 });
+//Don't touch the following - Heroku gets very finnicky about it
 // Serve static files from the React app
 app.use(express_1.default.static(path_1.default.join(__dirname, 'client/build')));
-// The "catchall" handler: for any request that doesn't
-// match one above, send back React's index.html file.
-// app.get('*', (req, res) => {
-// 	const index = path.join(__dirname, '../client/build', 'index.html');
-// 	console.log(index)
-// 	//path.join(__dirname+'/../../client/build/index.html')
-//   res.sendFile(index);
-// });
 var root = path_1.default.join(__dirname, '..', 'client', 'build');
 app.use(express_1.default.static(root));
 app.get("*", function (req, res) {
@@ -494,5 +481,4 @@ app.listen(port, function () {
     console.log("server started on port " + port);
 });
 //TODO: do we even need stats to be sent from the server? There's no unique info on that page
-//TODO: flips need to include their configuration
 //# sourceMappingURL=server.js.map

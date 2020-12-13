@@ -34,11 +34,11 @@ export class Parser
 
 	//Flips are keyed by date as they come from json, so we need to rearrange to key by track
 	//Should only be called from parse()
-	public async makeFlipsData(json: any)
+	public async makeFlipsData(json: any): Promise<void>
 	{
 		if (_flipsData != null)
 		{
-			return _flipsData;
+			return; //nothing to do, already built
 		}
 		
 		const flipsJson = json[FLIPS_HEADER];
@@ -61,7 +61,7 @@ export class Parser
 				flipId: flipId,
 				trackNameObj: trackNameObj,
 				date: new Date(flipInfo["Date"]), 
-				class: flipInfo["Class"], 
+				carClass: flipInfo["Class"], 
 				rotations: flipInfo["Rotations"], 
 				surface: flipInfo["Surface"],
 				openWheel: openWheel,
@@ -81,8 +81,6 @@ export class Parser
 		if (parsedJson == null)
 		{
 			//take the json downloaded from google sheets in json format and parse it
-
-			console.log("==========================")
 			var data=fs.readFileSync(path.join(__dirname, this.dataPath), 'utf8');
 			var json=JSON.parse(data);
 

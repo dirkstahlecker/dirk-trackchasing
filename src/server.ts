@@ -14,12 +14,12 @@ const RACES_HEADER = "Races";
 export class Server
 {
 	//gets list of all the tracks (configurations are sent as separate tracks)
-	public async getTrackList(): Promise<any>
+	public async getTrackList(): Promise<string[]>
 	{
 		const json = await parser.parse()
-		let trackList = Object.keys(json[TRACK_ORDER_HEADER]) //tested and appears to work
+		let trackList: string[] = Object.keys(json[TRACK_ORDER_HEADER]) //tested and appears to work
 
-		return trackList
+		return trackList;
 	}
 
 	public async getTrackListNoConfigurations()
@@ -41,26 +41,28 @@ export class Server
 	public async getTrackFullInfo(): Promise<Track[]>
 	{
 		const json = await parser.parse();
-		const tracksList = await this.getTrackList();
+		const tracksList: string[] = await this.getTrackList();
 
 		let tracksAndCoords: Track[] = [];
 		for (let i = 0; i < tracksList.length; i++)
 		{
-			const track = tracksList[i];
-			const trackInfo = json[TRACK_ORDER_HEADER][track];
-			const count: number = await this.getCountForTrack(track);
-			const flips: Flip[] = await this.getFlipsForTrack(track);
+			const trackRaw: string = tracksList[i];
+			const trackNameObj: TrackName = TrackName.parse(trackRaw);
+			const trackInfo = json[TRACK_ORDER_HEADER][trackRaw]; //TODO: improve this
+			const count: number = await this.getCountForTrack(trackNameObj);
+			const flips: Flip[] = await this.getFlipsForTrack(trackNameObj);
 
-			const newTrackInfo: Track = new Track()
+			const newTrackInfo: Track = new Track(
+				trackNameObj, 
+				trackInfo["State"],
+				trackInfo["Type"],
+				trackInfo["Latitude"],
+				trackInfo["longitude"],
+				count,
+				flips
+			);
 
-			tracksAndCoords[track] = {
-				"state": trackInfo["State"], 
-				"latitude": trackInfo["Latitude"], 
-				"longitude": trackInfo["Longitude"],
-				"count": count,
-				"flips": flips,
-				"trackType": trackInfo["Type"]
-			};
+			tracksAndCoords.push(newTrackInfo);
 		}
 		return tracksAndCoords
 	}
@@ -144,9 +146,7 @@ export class Server
 	public async getFlipsForTrack(trackNameObj: TrackName): Promise<Flip[]>
 	{
 		const flipDataAllTracks: Flip[] = await parser.flipsData();
-	
-		console.log(trackNameObj.baseName)
-		console.log(trackNameObj.configuration)
+
 		const foundFlips: Flip[] = flipDataAllTracks.filter((flip: Flip) => {
 			return TrackName.equals(flip.trackNameObj, trackNameObj);
 		})
@@ -308,7 +308,8 @@ app.get('/eventDetails/:trackName', async function (req, res) {
 app.get('/numRaces/:trackName/raceCount', async function (req, res) { //TODO: does this still work?
 	console.log("/numRaces/" + req.params.trackName + "/raceCount")
 
-	const count = await server.getCountForTrack(req.params.trackName);
+	const trackNameObj: TrackName = TrackName.parse(req.params.trackName);
+	const count = await server.getCountForTrack(trackNameObj);
 
 	res.set('Content-Type', 'application/json');
 	res.json({"message": count});

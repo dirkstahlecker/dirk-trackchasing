@@ -1,5 +1,5 @@
 function cleanDate(dateRaw) {
-    return "";
+    throw new Error("Not implemented");
     // if (dateRaw === undefined)
     // {
     // 	return "";

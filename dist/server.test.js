@@ -96,53 +96,23 @@ it('returns proper track list without configurations', function () { return __aw
 // // });
 it('proper counts for track', function () { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
-        server.getCountForTrack("Seekonk Speedway").then(function (data) { return expect(data).toEqual(46); });
-        server.getCountForTrack("Thompson Speedway").then(function (data) { return expect(data).toEqual(28); });
-        server.getCountForTrack("Rocky Mountain Raceways").then(function (data) { return expect(data).toEqual(8); });
+        server.getCountForTrack(Types_1.TrackName.parse("Seekonk Speedway")).then(function (data) { return expect(data).toEqual(46); });
+        server.getCountForTrack(Types_1.TrackName.parse("Thompson Speedway")).then(function (data) { return expect(data).toEqual(28); });
+        server.getCountForTrack(Types_1.TrackName.parse("Rocky Mountain Raceways")).then(function (data) { return expect(data).toEqual(8); });
         //configurations
-        server.getCountForTrack("Rocky Mountain Raceways (Asphalt Figure 8)").then(function (data) { return expect(data).toEqual(7); });
-        server.getCountForTrack("Seekonk Speedway (Asphalt Road Course)").then(function (data) { return expect(data).toEqual(1); });
-        server.getCountForTrack("Stafford Motor Speedway (Inner Asphalt Oval)").then(function (data) { return expect(data).toEqual(1); });
+        server.getCountForTrack(Types_1.TrackName.parse("Rocky Mountain Raceways (Asphalt Figure 8)")).then(function (data) { return expect(data).toEqual(7); });
+        server.getCountForTrack(Types_1.TrackName.parse("Seekonk Speedway (Asphalt Road Course)")).then(function (data) { return expect(data).toEqual(1); });
+        server.getCountForTrack(Types_1.TrackName.parse("Stafford Motor Speedway (Inner Asphalt Oval)")).then(function (data) { return expect(data).toEqual(1); });
         return [2 /*return*/];
     });
 }); });
-it('getTrackFullInfo', function () { return __awaiter(void 0, void 0, void 0, function () {
-    var info, pocatello, rmr, rmr8, stafford, la, texas, texasRC;
+fit('getTrackFullInfo', function () { return __awaiter(void 0, void 0, void 0, function () {
+    var info;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, server.getTrackFullInfo()];
             case 1:
                 info = _a.sent();
-                pocatello = info["Pocatello Speedway"];
-                expect(pocatello.state).toBe("ID");
-                expect(pocatello.latitude).toBe(42.912684);
-                expect(pocatello.longitude).toBe(-112.577022);
-                expect(pocatello.count).toBe(6);
-                expect(pocatello.flips.length).toEqual(1);
-                rmr = info["Rocky Mountain Raceways"];
-                expect(rmr.state).toBe("UT");
-                expect(rmr.count).toBe(8);
-                expect(rmr.flips.length).toEqual(2);
-                rmr8 = info["Rocky Mountain Raceways (Asphalt Figure 8)"];
-                expect(rmr8.state).toBe("UT");
-                expect(rmr8.count).toBe(7);
-                expect(rmr8.flips.length).toEqual(0);
-                stafford = info["Stafford Motor Speedway (Inner Asphalt Oval)"];
-                expect(stafford.state).toBe("CT");
-                expect(stafford.count).toBe(1);
-                expect(stafford.flips.length).toEqual(0);
-                la = info["Port of LA"];
-                expect(la.state).toBe("CA");
-                expect(la.count).toEqual(1);
-                expect(la.flips.length).toEqual(0);
-                texas = info["Texas Motor Speedway"];
-                expect(texas.state).toEqual("TX");
-                expect(texas.count).toEqual(2);
-                expect(texas.flips.length).toEqual(0);
-                texasRC = info["Texas Motor Speedway (Asphalt Road Course)"];
-                expect(texasRC.state).toEqual("TX");
-                expect(texasRC.count).toEqual(1);
-                expect(texasRC.flips.length).toEqual(1);
                 return [2 /*return*/];
         }
     });
@@ -152,27 +122,27 @@ it('getEventStringsForTrack', function () { return __awaiter(void 0, void 0, voi
     var info;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, server.getEventStringsForTrack("Seekonk Speedway")];
+            case 0: return [4 /*yield*/, server.getEventStringsForTrack(Types_1.TrackName.parse("Seekonk Speedway"))];
             case 1:
                 info = _a.sent();
                 expect(info.length).toEqual(46);
                 expect(info[0]).toEqual("7-13-16: US Pro stock nationals, INEX legends, pro 4 modifieds");
-                return [4 /*yield*/, server.getEventStringsForTrack("Pocatello Speedway")];
+                return [4 /*yield*/, server.getEventStringsForTrack(Types_1.TrackName.parse("Pocatello Speedway"))];
             case 2:
                 info = _a.sent();
                 expect(info.length).toEqual(6);
-                return [4 /*yield*/, server.getEventStringsForTrack("Pocatello Speedway (Inner Dirt Oval)")];
+                return [4 /*yield*/, server.getEventStringsForTrack(Types_1.TrackName.parse("Pocatello Speedway (Inner Dirt Oval)"))];
             case 3:
                 info = _a.sent();
                 expect(info.length).toEqual(1);
                 expect(info[0]).toEqual("7-23-16: ASA Pro Trucks, Street Stocks, Modifieds, Hornets, Junkyard Dogs, Karts [Inner Dirt Oval]");
-                return [4 /*yield*/, server.getEventStringsForTrack("Thompson Speedway - Rallycross")];
+                return [4 /*yield*/, server.getEventStringsForTrack(Types_1.TrackName.parse("Thompson Speedway - Rallycross"))];
             case 4:
                 info = _a.sent();
                 expect(info.length).toEqual(2);
                 expect(info[0]).toEqual("6-03-17: Global Rallycross Championship: GRC Supercars, GRC Lites");
                 expect(info[1]).toEqual("6-04-17: Global Rallycross Championship: GRC Supercars, GRC Lites");
-                return [4 /*yield*/, server.getEventStringsForTrack("New Hampshire Motor Speedway (Asphalt Legends Oval)")];
+                return [4 /*yield*/, server.getEventStringsForTrack(Types_1.TrackName.parse("New Hampshire Motor Speedway (Asphalt Legends Oval)"))];
             case 5:
                 info = _a.sent();
                 expect(info.length).toEqual(1);
@@ -185,35 +155,35 @@ it('number of flips per track', function () { return __awaiter(void 0, void 0, v
     var flips;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, server.getFlipsForTrack("Eldora Speedway")];
+            case 0: return [4 /*yield*/, server.getFlipsForTrack(Types_1.TrackName.parse("Eldora Speedway"))];
             case 1:
                 flips = _a.sent();
                 expect(flips.length).toBe(3);
-                return [4 /*yield*/, server.getFlipsForTrack("Bridgeport Motorsports Park")];
+                return [4 /*yield*/, server.getFlipsForTrack(Types_1.TrackName.parse("Bridgeport Motorsports Park"))];
             case 2:
                 flips = _a.sent();
                 expect(flips.length).toBe(7);
-                return [4 /*yield*/, server.getFlipsForTrack("Gateway Dirt Nationals")];
+                return [4 /*yield*/, server.getFlipsForTrack(Types_1.TrackName.parse("Gateway Dirt Nationals"))];
             case 3:
                 flips = _a.sent();
                 expect(flips.length).toBe(17);
-                return [4 /*yield*/, server.getFlipsForTrack("Pocatello Speedway")];
+                return [4 /*yield*/, server.getFlipsForTrack(Types_1.TrackName.parse("Pocatello Speedway"))];
             case 4:
                 flips = _a.sent();
                 expect(flips.length).toBe(1);
-                return [4 /*yield*/, server.getFlipsForTrack("Atomic Motor Raceway")];
+                return [4 /*yield*/, server.getFlipsForTrack(Types_1.TrackName.parse("Atomic Motor Raceway"))];
             case 5:
                 flips = _a.sent();
                 expect(flips.length).toBe(1);
-                return [4 /*yield*/, server.getFlipsForTrack("Lucas Oil Speedway Off Road Course")];
+                return [4 /*yield*/, server.getFlipsForTrack(Types_1.TrackName.parse("Lucas Oil Speedway Off Road Course"))];
             case 6:
                 flips = _a.sent();
                 expect(flips.length).toBe(4);
-                return [4 /*yield*/, server.getFlipsForTrack("Texas Motor Speedway")];
+                return [4 /*yield*/, server.getFlipsForTrack(Types_1.TrackName.parse("Texas Motor Speedway"))];
             case 7:
                 flips = _a.sent(); //only a flip at the configuration
                 expect(flips.length).toEqual(0);
-                return [4 /*yield*/, server.getFlipsForTrack("Texas Motor Speedway (Asphalt Road Course)")];
+                return [4 /*yield*/, server.getFlipsForTrack(Types_1.TrackName.parse("Texas Motor Speedway (Asphalt Road Course)"))];
             case 8:
                 flips = _a.sent();
                 expect(flips.length).toEqual(1);
@@ -225,34 +195,34 @@ it('flip objects', function () { return __awaiter(void 0, void 0, void 0, functi
     var flips, flip;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, server.getFlipsForTrack("Pocatello Speedway")];
+            case 0: return [4 /*yield*/, server.getFlipsForTrack(Types_1.TrackName.parse("Pocatello Speedway (Inner Dirt Oval"))];
             case 1:
                 flips = _a.sent();
                 expect(flips.length).toBe(1);
                 flip = flips[0];
                 expect(flip.flipId).toEqual("20");
-                expect(flip.class).toEqual("Champ Kart");
+                expect(flip.carClass).toEqual("Champ Kart");
                 expect(flip.openWheel).toBeTruthy();
                 expect(flip.rotations).toEqual("1/4");
                 expect(flip.video).toBeFalsy();
-                return [4 /*yield*/, server.getFlipsForTrack("Knoxville Raceway")];
+                return [4 /*yield*/, server.getFlipsForTrack(Types_1.TrackName.parse("Knoxville Raceway"))];
             case 2:
                 flips = _a.sent();
                 flip = flips.find(function (f) {
                     return f.when === "A Main"; //Knoxville only has one flip in a A main
                 });
                 expect(flip.flipId).toEqual("81");
-                expect(flip.class).toEqual("410 Sprint Car");
+                expect(flip.carClass).toEqual("410 Sprint Car");
                 expect(flip.openWheel).toBeTruthy();
                 expect(flip.rotations).toEqual("1");
                 expect(flip.video).toBeTruthy();
                 expect(flip.surface).toEqual("Dirt");
                 expect(flip.date).toEqual(new Date("8-09-19"));
-                return [4 /*yield*/, server.getFlipsForTrack("Lincoln Speedway")];
+                return [4 /*yield*/, server.getFlipsForTrack(Types_1.TrackName.parse("Lincoln Speedway"))];
             case 3:
                 flips = _a.sent();
                 flip = flips.find(function (f) {
-                    return f.class === "Super Late Model";
+                    return f.carClass === "Super Late Model";
                 });
                 expect(flip.flipId).toEqual("158");
                 expect(flip.openWheel).toBeFalsy();
@@ -278,21 +248,21 @@ it('returns enriched event info', function () { return __awaiter(void 0, void 0,
     var eventInfo;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, server.getEnrichedEventInfoForDate("Bridgeport Motorsports Park", "11-08-20")];
+            case 0: return [4 /*yield*/, server.getEnrichedEventInfoForDate(Types_1.TrackName.parse("Bridgeport Motorsports Park"), "11-08-20")];
             case 1:
                 eventInfo = _a.sent();
                 expect(eventInfo.classes).toEqual("Big Block Modifieds, 602 Sportsman Modifieds, USAC SpeedSTRs, Street Stocks");
                 expect(eventInfo.date).toEqual(new Date("11-08-20"));
                 expect(eventInfo.flips.length).toEqual(3);
-                expect(eventInfo.flips[0].class).toEqual("USAC SpeedSTR");
-                return [4 /*yield*/, server.getEnrichedEventInfoForDate("Kokomo Speedway", "8-27-20")];
+                expect(eventInfo.flips[0].carClass).toEqual("USAC SpeedSTR");
+                return [4 /*yield*/, server.getEnrichedEventInfoForDate(Types_1.TrackName.parse("Kokomo Speedway"), "8-27-20")];
             case 2:
                 //TODO: test flips on configuration once I actually have one
                 eventInfo = _a.sent();
                 expect(eventInfo.classes).toEqual("Smackdown IX: USAC National Sprint Cars");
                 expect(eventInfo.date).toEqual(new Date("8-27-20"));
                 expect(eventInfo.flips.length).toEqual(2);
-                expect(eventInfo.flips[0].class).toEqual("Wingless 410 Sprint Car");
+                expect(eventInfo.flips[0].carClass).toEqual("Wingless 410 Sprint Car");
                 return [2 /*return*/];
         }
     });
@@ -301,7 +271,7 @@ it('returns all enriched event infos for a track', function () { return __awaite
     var eventInfos;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, server.getAllEnrichedEventInfosForTrack("Bridgeport Motorsports Park")];
+            case 0: return [4 /*yield*/, server.getAllEnrichedEventInfosForTrack(Types_1.TrackName.parse("Bridgeport Motorsports Park"))];
             case 1:
                 eventInfos = _a.sent();
                 expect(eventInfos.length).toBe(3);
