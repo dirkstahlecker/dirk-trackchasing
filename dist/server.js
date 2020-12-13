@@ -479,7 +479,7 @@ app.get('/stats', function (req, res) {
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
 app.get('*', function (req, res) {
-    res.sendFile(path_1.default.join(__dirname + '/client/build/index.html'));
+    res.sendFile(path_1.default.join(__dirname + '/../../client/build/index.html'));
 });
 var port = process.env.PORT || 5000;
 app.listen(port, function () {
