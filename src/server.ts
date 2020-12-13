@@ -252,9 +252,6 @@ const server: Server = new Server();
 //                                     Endpoints
 //=========================================================================================
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
-
 // Priority serve any static files.
 // app.use(express.static(path.resolve(__dirname, '../react-ui/public'))); //I don't know what this is
 
@@ -326,14 +323,28 @@ app.get('/stats', async function (req, res) {
 	res.json(stats);
 });
 
+
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')));
+
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
-app.get('*', (req, res) => {
-	const index = path.join(__dirname, '../client/build', 'index.html');
-	console.log(index)
-	//path.join(__dirname+'/../../client/build/index.html')
-  res.sendFile(index);
-});
+// app.get('*', (req, res) => {
+// 	const index = path.join(__dirname, '../client/build', 'index.html');
+// 	console.log(index)
+// 	//path.join(__dirname+'/../../client/build/index.html')
+//   res.sendFile(index);
+// });
+
+const root = path.join(__dirname, 'client', 'build')
+app.use(express.static(root));
+app.get("*", (req, res) => {
+    res.sendFile('index.html', { root });
+})
+
+
+
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

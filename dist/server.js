@@ -348,8 +348,6 @@ var server = new Server();
 //=========================================================================================
 //                                     Endpoints
 //=========================================================================================
-// Serve static files from the React app
-app.use(express_1.default.static(path_1.default.join(__dirname, 'client/build')));
 // Priority serve any static files.
 // app.use(express.static(path.resolve(__dirname, '../react-ui/public'))); //I don't know what this is
 //get a list of all the tracks, name only
@@ -476,6 +474,8 @@ app.get('/stats', function (req, res) {
         });
     });
 });
+// Serve static files from the React app
+app.use(express_1.default.static(path_1.default.join(__dirname, 'client/build')));
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
 // app.get('*', (req, res) => {
@@ -484,6 +484,11 @@ app.get('/stats', function (req, res) {
 // 	//path.join(__dirname+'/../../client/build/index.html')
 //   res.sendFile(index);
 // });
+var root = path_1.default.join(__dirname, 'client', 'build');
+app.use(express_1.default.static(root));
+app.get("*", function (req, res) {
+    res.sendFile('index.html', { root: root });
+});
 var port = process.env.PORT || 5000;
 app.listen(port, function () {
     console.log("server started on port " + port);
