@@ -1,10 +1,7 @@
 import express from "express";
 import path from 'path';
 import {Parser} from './parser';
-// import utilities from './utilities';
 import {EventInfo, Flip, TrackName, Track, TrackTypeEnum} from "./Types";
-
-const app = express();
 
 const parser: Parser = new Parser();
 
@@ -168,7 +165,6 @@ export class Server
 		})
 	
 		return foundFlips;
-		// return flipDataAllTracks[rawName];
 	}
 
 	private getDateFromFlip(flip: any): Date
@@ -260,6 +256,7 @@ export class Server
 }
 
 const server: Server = new Server();
+const app = express();
 
 //=========================================================================================
 //                                     Endpoints

@@ -4,7 +4,7 @@ import {Flip, TrackName} from "./Types";
 var fs = require('fs');
 
 let parsedJson: any = null;
-let _flipsData: Flip[] | null = null; //now using a list of objects // {name : [ date, track, class, rotations, surface, open wheel, when, video, notes ] }
+let _flipsData: Flip[] | null = null;
 
 const FLIPS_HEADER = "Flips";
 const DATA_PATH = "/../events_data.json";
@@ -98,10 +98,3 @@ export class Parser
 		console.log(statsJson);
 	}
 }
-
-
-
-// exports.parse = parse;
-// exports.flipsData = flipsData;
-// exports.TESTPIN_parse = parse; //for testing only
-// exports.getQuickStats = getQuickStats;
