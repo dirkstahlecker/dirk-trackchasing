@@ -1,7 +1,7 @@
 import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, runInAction} from "mobx";
-import { EventObj } from './EventObj';
+import { EventObj } from '../Types';
 
 export class EventPlaceMachine
 {

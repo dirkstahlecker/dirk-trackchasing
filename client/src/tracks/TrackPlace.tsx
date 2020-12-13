@@ -3,12 +3,11 @@ import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, computed} from "mobx";
 import {NavigationMachine} from "../NavigationMachine";
-import {TrackInfoMachine, Track} from "./TrackInfoMachine";
+import {TrackInfoMachine} from "./TrackInfoMachine";
 import { trackDerivedFunction } from 'mobx/dist/internal';
 import { AssertionError } from 'assert';
 import { EventPlace, EventPlaceMachine } from '../events/EventPlace';
-import { Flip } from '../events/Flip';
-import { EventObj } from '../events/EventObj';
+import { Flip, EventObj, Track, TrackName } from '../Types';
 
 export class TrackPlaceMachine
 {
@@ -21,9 +20,9 @@ export class TrackPlaceMachine
 	}
 
 	@action
-	public async fetchEvents(trackName: string): Promise<void>
+	public async fetchEvents(trackName: TrackName): Promise<void>
 	{
-		const eventsRaw = await fetch('/eventDetails/' + trackName);
+		const eventsRaw = await fetch('/eventDetails/' + trackName.toString());
 		const eventInfos = await eventsRaw.json();
 		eventInfos.forEach((eventInfo: any) => {
 			this.events.push(EventObj.parseJson(eventInfo));
@@ -55,7 +54,7 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 
 	componentDidMount()
 	{
-		this.props.machine.fetchEvents(this.currentTrack.name);
+		this.props.machine.fetchEvents(this.currentTrack.trackNameObj);
 	}
 
 	private renderEvents(): JSX.Element
@@ -82,7 +81,7 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 			<div id="track-place">
 				<button onClick={() => this.props.navMachine.goHome()}>Go Home</button>
 				<br/>
-				{this.currentTrack.name}
+				{this.currentTrack.trackNameObj.toString()}
 				<br/>
 				Number of Races I've Attended: {this.currentTrack.count}
 				<br/>
@@ -91,8 +90,8 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 				<br/>
 				{
 					this.currentTrack.flips.map((flip: Flip) => {
-						return <img
-							src={TrackInfoMachine.flipGifPath(this.currentTrack!!.name, flip.flipId)}
+						return <img //TODO: this needs work
+							src={TrackInfoMachine.flipGifPath(this.currentTrack!!.trackNameObj.toString(), flip.flipId)}
 							key={flip.flipId}
 						/>
 					})

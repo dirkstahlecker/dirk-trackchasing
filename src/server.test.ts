@@ -61,7 +61,7 @@ it('proper counts for track', async() => {
   server.getCountForTrack("Stafford Motor Speedway (Inner Asphalt Oval)").then(data => expect(data).toEqual(1));
 });
 
-it('getTrackFullInfo', async() => {
+fit('getTrackFullInfo', async() => {
 	const info = await server.getTrackFullInfo();
 
 	// const seekonk = info["Seekonk Speedway"]; //failing due to flips not having dates
@@ -74,7 +74,13 @@ it('getTrackFullInfo', async() => {
 	expect(pocatello.latitude).toBe(42.912684);
 	expect(pocatello.longitude).toBe(-112.577022);
 	expect(pocatello.count).toBe(6);
-	expect(pocatello.flips.length).toEqual(1);
+	expect(pocatello.flips.length).toEqual(0);
+
+	const pocatelloInner = info["Pocatello Speedway (Inner Dirt Oval)"];
+	expect(pocatelloInner.state).toBe("ID");
+	expect(pocatelloInner.latitude).toBeUndefined();
+	expect(pocatelloInner.longitude).toBeUndefined();
+	expect(pocatelloInner.flips.length).toEqual(1);
 
 	const rmr = info["Rocky Mountain Raceways"];
 	expect(rmr.state).toBe("UT");
@@ -109,55 +115,55 @@ it('getTrackFullInfo', async() => {
 
 // //just the basic strings from the json
 it('getEventStringsForTrack', async() => {
-	let info = await server.getEventStringsForTrack("Seekonk Speedway");
+	let info = await server.getEventStringsForTrack(TrackName.parse("Seekonk Speedway"));
 	expect(info.length).toEqual(46);
 	expect(info[0]).toEqual("7-13-16: US Pro stock nationals, INEX legends, pro 4 modifieds");
 
-	info = await server.getEventStringsForTrack("Pocatello Speedway");
+	info = await server.getEventStringsForTrack(TrackName.parse("Pocatello Speedway"));
 	expect(info.length).toEqual(6);
 
-	info = await server.getEventStringsForTrack("Pocatello Speedway (Inner Dirt Oval)");
+	info = await server.getEventStringsForTrack(TrackName.parse("Pocatello Speedway (Inner Dirt Oval)"));
 	expect(info.length).toEqual(1);
 	expect(info[0]).toEqual("7-23-16: ASA Pro Trucks, Street Stocks, Modifieds, Hornets, Junkyard Dogs, Karts [Inner Dirt Oval]")
 
-	info = await server.getEventStringsForTrack("Thompson Speedway - Rallycross");
+	info = await server.getEventStringsForTrack(TrackName.parse("Thompson Speedway - Rallycross"));
 	expect(info.length).toEqual(2);
 	expect(info[0]).toEqual("6-03-17: Global Rallycross Championship: GRC Supercars, GRC Lites");
 	expect(info[1]).toEqual("6-04-17: Global Rallycross Championship: GRC Supercars, GRC Lites");
 
-	info = await server.getEventStringsForTrack("New Hampshire Motor Speedway (Asphalt Legends Oval)");
+	info = await server.getEventStringsForTrack(TrackName.parse("New Hampshire Motor Speedway (Asphalt Legends Oval)"));
 	expect(info.length).toEqual(1);
 	expect(info[0]).toEqual("9-12-20: Whelen Modifieds Musket 200, ACT Late Models, Legends [Asphalt Legends Oval]");
 })
 
 it('number of flips per track', async() => {
-	let flips = await server.getFlipsForTrack("Eldora Speedway");
+	let flips = await server.getFlipsForTrack(TrackName.parse("Eldora Speedway"));
 	expect(flips.length).toBe(3);
 
-	flips = await server.getFlipsForTrack("Bridgeport Motorsports Park");
+	flips = await server.getFlipsForTrack(TrackName.parse("Bridgeport Motorsports Park"));
 	expect(flips.length).toBe(7);
 
-	flips = await server.getFlipsForTrack("Gateway Dirt Nationals");
+	flips = await server.getFlipsForTrack(TrackName.parse("Gateway Dirt Nationals"));
 	expect(flips.length).toBe(17);
 
-	flips = await server.getFlipsForTrack("Pocatello Speedway");
+	flips = await server.getFlipsForTrack(TrackName.parse("Pocatello Speedway"));
 	expect(flips.length).toBe(1);
 
-	flips = await server.getFlipsForTrack("Atomic Motor Raceway");
+	flips = await server.getFlipsForTrack(TrackName.parse("Atomic Motor Raceway"));
 	expect(flips.length).toBe(1);
 
-	flips = await server.getFlipsForTrack("Lucas Oil Speedway Off Road Course");
+	flips = await server.getFlipsForTrack(TrackName.parse("Lucas Oil Speedway Off Road Course"));
 	expect(flips.length).toBe(4);
 
-	flips = await server.getFlipsForTrack("Texas Motor Speedway"); //only a flip at the configuration
+	flips = await server.getFlipsForTrack(TrackName.parse("Texas Motor Speedway")); //only a flip at the configuration
 	expect(flips.length).toEqual(0);
 
-	flips = await server.getFlipsForTrack("Texas Motor Speedway (Asphalt Road Course)");
+	flips = await server.getFlipsForTrack(TrackName.parse("Texas Motor Speedway (Asphalt Road Course)"));
 	expect(flips.length).toEqual(1);
 });
 
 it('flip objects', async() => {
-	let flips = await server.getFlipsForTrack("Pocatello Speedway");
+	let flips = await server.getFlipsForTrack(TrackName.parse("Pocatello Speedway (Inner Dirt Oval"));
 	expect(flips.length).toBe(1);
 
 	let flip = flips[0];
@@ -167,7 +173,7 @@ it('flip objects', async() => {
 	expect(flip.rotations).toEqual("1/4");
 	expect(flip.video).toBeFalsy();
 
-	flips = await server.getFlipsForTrack("Knoxville Raceway");
+	flips = await server.getFlipsForTrack(TrackName.parse("Knoxville Raceway"));
 	flip = flips.find((f) => {
 		return f.when === "A Main"; //Knoxville only has one flip in a A main
 	});
@@ -179,7 +185,7 @@ it('flip objects', async() => {
 	expect(flip.surface).toEqual("Dirt");
 	expect(flip.date).toEqual(new Date("8-09-19"));
 
-	flips = await server.getFlipsForTrack("Lincoln Speedway");
+	flips = await server.getFlipsForTrack(TrackName.parse("Lincoln Speedway"));
 	flip = flips.find((f) => {
 		return f.class === "Super Late Model";
 	});
@@ -204,7 +210,7 @@ it('gets date from event string', () => {
 
 //more detailed, enriched with other information
 it('returns enriched event info', async() => {
-	let eventInfo = await server.getEnrichedEventInfoForDate("Bridgeport Motorsports Park", "11-08-20");
+	let eventInfo = await server.getEnrichedEventInfoForDate(TrackName.parse("Bridgeport Motorsports Park"), "11-08-20");
 	expect(eventInfo.classes).toEqual("Big Block Modifieds, 602 Sportsman Modifieds, USAC SpeedSTRs, Street Stocks");
 	expect(eventInfo.date).toEqual(new Date("11-08-20"));
 	expect(eventInfo.flips.length).toEqual(3);
@@ -212,15 +218,21 @@ it('returns enriched event info', async() => {
 
 	//TODO: test flips on configuration once I actually have one
 
-	eventInfo = await server.getEnrichedEventInfoForDate("Kokomo Speedway", "8-27-20");
+	eventInfo = await server.getEnrichedEventInfoForDate(TrackName.parse("Kokomo Speedway"), "8-27-20");
 	expect(eventInfo.classes).toEqual("Smackdown IX: USAC National Sprint Cars");
 	expect(eventInfo.date).toEqual(new Date("8-27-20"));
 	expect(eventInfo.flips.length).toEqual(2);
 	expect(eventInfo.flips[0].class).toEqual("Wingless 410 Sprint Car");
+
+	// eventInfo = await server.getEnrichedEventInfoForDate("Texas Motor Speedway", "8-27-20");
+	// expect(eventInfo.classes).toEqual("Smackdown IX: USAC National Sprint Cars");
+	// expect(eventInfo.date).toEqual(new Date("8-27-20"));
+	// expect(eventInfo.flips.length).toEqual(2);
+	// expect(eventInfo.flips[0].class).toEqual("Wingless 410 Sprint Car");
 });
 
 it('returns all enriched event infos for a track', async() => {
-	let eventInfos = await server.getAllEnrichedEventInfosForTrack("Bridgeport Motorsports Park");
+	let eventInfos = await server.getAllEnrichedEventInfosForTrack(TrackName.parse("Bridgeport Motorsports Park"));
 	expect(eventInfos.length).toBe(3);
 	expect(eventInfos[0].date).toEqual(new Date("11-06-20"));
 	expect(eventInfos[0].flips.length).toEqual(2);

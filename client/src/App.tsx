@@ -4,10 +4,11 @@ import {observer} from "mobx-react";
 // import {observable, action, makeObservable} from "mobx";
 import './App.css';
 import {TrackPlace, TrackPlaceMachine} from "./tracks/TrackPlace";
-import {TrackInfoMachine, Track} from "./tracks/TrackInfoMachine";
+import {TrackInfoMachine} from "./tracks/TrackInfoMachine";
+import { Track } from './Types';
 import {Map, MapMachine} from "./Map";
 import {NavigationMachine, CurrentPlace} from "./NavigationMachine";
-import {TrackTile} from './components/TrackTile';
+import {TrackTile} from './tracks/TrackTile';
 
 // class QuickStats
 // {
@@ -106,7 +107,7 @@ class App extends React.Component<AppProps>
                   {
                     this.machine.trackInfoMachine.tracks.map((track: Track) => {
                       return <TrackTile
-                        key={track.name}
+                        key={track.toString()}
                         track={track}
                         navMachine={this.machine.navMachine}
                       />;

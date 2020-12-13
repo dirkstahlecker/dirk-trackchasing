@@ -2,7 +2,7 @@ import express from "express";
 import path from 'path';
 import {Parser} from './parser';
 // import utilities from './utilities';
-import {EventInfo, Flip, TrackName} from "./Types";
+import {EventInfo, Flip, TrackName, Track} from "./Types";
 
 const app = express();
 
@@ -38,18 +38,21 @@ export class Server
 		return filteredList;
 	}
 
-	public async getTrackFullInfo(): Promise<any>
+	public async getTrackFullInfo(): Promise<Track[]>
 	{
 		const json = await parser.parse();
 		const tracksList = await this.getTrackList();
 
-		let tracksAndCoords: any = {};
+		let tracksAndCoords: Track[] = [];
 		for (let i = 0; i < tracksList.length; i++)
 		{
 			const track = tracksList[i];
 			const trackInfo = json[TRACK_ORDER_HEADER][track];
-			const count = await this.getCountForTrack(track);
-			const flips = await this.getFlipsForTrack(track);
+			const count: number = await this.getCountForTrack(track);
+			const flips: Flip[] = await this.getFlipsForTrack(track);
+
+			const newTrackInfo: Track = new Track()
+
 			tracksAndCoords[track] = {
 				"state": trackInfo["State"], 
 				"latitude": trackInfo["Latitude"], 
@@ -62,12 +65,10 @@ export class Server
 		return tracksAndCoords
 	}
 
-	public async getCountForTrack(rawName: string)
+	public async getCountForTrack(trackNameObj: TrackName): Promise<number>
 	{
 		let json = await parser.parse();
 		json = json[RACES_HEADER];
-	
-		const trackNameObj: TrackName = TrackName.parse(rawName);
 	
 		let count = 0;
 		let i = 0;
@@ -79,10 +80,6 @@ export class Server
 			{
 				break;
 			}
-			// {
-				// 'Seekonk Speedway': '11-02-19: Thrill Show [Asphalt Figure 8, Asphalt Road Course]'
-			// }
-	
 	
 			//TODO: consolidate with getEventsForTrack, some property bag thing
 			if (raceRow[trackNameObj.baseName] != null)
@@ -107,11 +104,10 @@ export class Server
 	}
 
 	//returns only the event string as stored in the json
-	public async getEventStringsForTrack(rawName: string): Promise<string[]>
+	public async getEventStringsForTrack(trackNameObj: TrackName): Promise<string[]>
 	{
 		let json = await parser.parse();
 		json = json[RACES_HEADER];
-		const trackNameObj: TrackName = TrackName.parse(rawName);
 		const events = [];
 
 		let i = 0;
@@ -145,11 +141,12 @@ export class Server
 		return events;
 	}
 
-	public async getFlipsForTrack(rawName: string): Promise<Flip[]>
+	public async getFlipsForTrack(trackNameObj: TrackName): Promise<Flip[]>
 	{
-		const trackNameObj: TrackName = TrackName.parse(rawName);
 		const flipDataAllTracks: Flip[] = await parser.flipsData();
 	
+		console.log(trackNameObj.baseName)
+		console.log(trackNameObj.configuration)
 		const foundFlips: Flip[] = flipDataAllTracks.filter((flip: Flip) => {
 			return TrackName.equals(flip.trackNameObj, trackNameObj);
 		})
@@ -158,15 +155,15 @@ export class Server
 		// return flipDataAllTracks[rawName];
 	}
 
-	private getDateFromFlip(flip: any): Date //TODO
+	private getDateFromFlip(flip: any): Date
 	{
 		return new Date(flip.date);
 	}
 
-	public async getFlipsForEvent(trackName: string, date: Date): Promise<Flip[]>
+	public async getFlipsForEvent(trackNameObj: TrackName, date: Date): Promise<Flip[]>
 	{
 		const dateObj = new Date(date);
-		const flipsForTrack: Flip[] = await this.getFlipsForTrack(trackName); //TODO: inefficient
+		const flipsForTrack: Flip[] = await this.getFlipsForTrack(trackNameObj); //TODO: inefficient
 
 		const flipsForEvent: Flip[] = flipsForTrack.filter((flip: Flip) => {
 			return this.getDateFromFlip(flip).getTime() === dateObj.getTime();
@@ -182,14 +179,14 @@ export class Server
 		return new Date(dateRaw);
 	}
 
-	public async makeEnrichedEventInfoHelper(eventString: string, trackName: string, dateObj: Date): Promise<EventInfo>
+	public async makeEnrichedEventInfoHelper(eventString: string, trackNameObj: TrackName, dateObj: Date): Promise<EventInfo>
 	{
 		if (eventString === undefined)
 		{
-			throw Error("Event for track " + trackName + " on date " + dateObj + " cannot be found");
+			throw Error("Event for track " + trackNameObj.baseName + " on date " + dateObj + " cannot be found");
 		}
 	
-		const flipsForEvent = await this.getFlipsForEvent(trackName, dateObj)
+		const flipsForEvent = await this.getFlipsForEvent(trackNameObj, dateObj)
 	
 		const classes = eventString.substring(eventString.indexOf(":") + 2);
 	
@@ -203,23 +200,23 @@ export class Server
 		return eventInfoObj;
 	}
 
-	//returns { date: string , classes: string , flips: [flip] , notableCrashes: ?? }
-	public async getEnrichedEventInfoForDate(trackName: string, date: string): Promise<EventInfo>
+	//events are based on base name, and may or may not have a configuration
+	public async getEnrichedEventInfoForDate(trackNameObj: TrackName, date: Date | string): Promise<EventInfo>
 	{
+		const dateObj: Date = new Date(date);
 		//TODO: deal with invalid dates that come from old events where I don't know the date
-		const dateObj = new Date(date);
-		const eventStrings = await this.getEventStringsForTrack(trackName); //TODO: inefficient - stop when we find it
+		const eventStrings = await this.getEventStringsForTrack(trackNameObj); //TODO: inefficient - stop when we find it
 		const eventString = eventStrings.find((event) => {
 			const eventDate = this.getDateFromEventString(event);
 			return eventDate.getTime() === dateObj.getTime();
 		});
 
-		return this.makeEnrichedEventInfoHelper(eventString, trackName, dateObj);
+		return this.makeEnrichedEventInfoHelper(eventString, trackNameObj, dateObj);
 	}
 
-	public async getAllEnrichedEventInfosForTrack(trackName: string): Promise<any> //TODO
+	public async getAllEnrichedEventInfosForTrack(trackNameObj: TrackName): Promise<EventInfo[]>
 	{
-		const eventStrings = await this.getEventStringsForTrack(trackName); //TODO: inefficient - stop when we find it
+		const eventStrings = await this.getEventStringsForTrack(trackNameObj); //TODO: inefficient - stop when we find it
 	
 		const promises = eventStrings.map(async(eventStr) => {
 			const date = this.getDateFromEventString(eventStr);
@@ -229,7 +226,7 @@ export class Server
 			// 	return null;
 			// }
 			//TODO: error handling for invalid date
-			const eventInfo = await this.getEnrichedEventInfoForDate(trackName, date as any); //TODO
+			const eventInfo = await this.getEnrichedEventInfoForDate(trackNameObj, date);
 			return eventInfo;
 		});
 		
@@ -280,7 +277,8 @@ app.get('/tracks/:trackName/events', async function (req, res) {
 	console.log("/tracks/" + req.params.trackName + "/events");
 	res.set('Content-Type', 'application/json');
 
-	const events = await server.getEventStringsForTrack(req.params.trackName);
+	const trackNameObj: TrackName = TrackName.parse(req.params.trackName);
+	const events = await server.getEventStringsForTrack(trackNameObj);
 
 	res.json(events);
 });
@@ -290,7 +288,8 @@ app.get('/eventDetails/:trackName/:date', async function (req, res) {
 	console.log('/events/' + req.params.trackName + '/' + req.params.date);
 	res.set('Content-Type', 'application/json');
 
-	const eventInfo = await server.getEnrichedEventInfoForDate(req.params.track, req.params.date);
+	const trackNameObj: TrackName = TrackName.parse(req.params.trackName);
+	const eventInfo = await server.getEnrichedEventInfoForDate(trackNameObj, req.params.date);
 	
 	res.json(eventInfo);
 });
@@ -300,7 +299,8 @@ app.get('/eventDetails/:trackName', async function (req, res) {
 	console.log('/eventsDetails/' + req.params.trackName);
 	res.set('Content-Type', 'application/json');
 
-	const eventInfos = await server.getAllEnrichedEventInfosForTrack(req.params.trackName);
+	const trackNameObj: TrackName = TrackName.parse(req.params.trackName);
+	const eventInfos = await server.getAllEnrichedEventInfosForTrack(trackNameObj);
 	
 	res.json(eventInfos);
 });
@@ -342,4 +342,3 @@ app.listen(port, () => {
 
 
 //TODO: do we even need stats to be sent from the server? There's no unique info on that page
-//TODO: flips need to include their configuration

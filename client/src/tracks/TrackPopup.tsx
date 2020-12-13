@@ -2,7 +2,8 @@ import React from 'react';
 // import ReactDOM from "react-dom";
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, runInAction} from "mobx";
-import {TrackInfoMachine, Track, TrackTypeEnum} from "./TrackInfoMachine";
+import {TrackInfoMachine} from "./TrackInfoMachine";
+import { Track, TrackTypeEnum } from '../Types';
 import {NavigationMachine} from "../NavigationMachine";
 import mapboxgl from 'mapbox-gl';
 import ReactMapboxGl, {Layer, Feature, Marker, Popup} from 'react-mapbox-gl';
@@ -52,11 +53,11 @@ export class TrackPopup extends React.Component<TrackPopupProps>
 
 		return (
 			<Popup
-				key={track.name}
+				key={track.toString()}
 				coordinates={track.coordinates}	
 			>
 				<div className="track-popup-info">
-					{track.name}
+					{track.trackNameObj.toString()}
 					<br/>
 					<button onClick={() => this.props.navMachine.goToTrackPage(track)}>Go to track page</button>
 				</div>

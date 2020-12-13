@@ -2,7 +2,8 @@ import React from 'react';
 // import ReactDOM from "react-dom";
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, runInAction} from "mobx";
-import {TrackInfoMachine, Track, TrackTypeEnum} from "./tracks/TrackInfoMachine";
+import {TrackInfoMachine} from "./tracks/TrackInfoMachine";
+import { Track } from './Types';
 import {TrackPopup, TrackPopupMachine} from "./tracks/TrackPopup";
 import {NavigationMachine} from "./NavigationMachine";
 import mapboxgl from 'mapbox-gl';
@@ -95,7 +96,7 @@ export class Map extends React.Component<MapProps>
 				return <></>;
 			}
 
-			return <div key={track.name}>
+			return <div key={track.trackNameObj.toString()}>
 				<TrackPopup
 					track={track}
 					navMachine={this.props.navMachine}
@@ -108,7 +109,7 @@ export class Map extends React.Component<MapProps>
 	private renderFeature(track: Track): JSX.Element
 	{
 		return <Feature
-			key={track.name}
+			key={track.trackNameObj.toString()}
 			// onMouseEnter={this.onToggleHover.bind(this, 'pointer')}
 			// onMouseLeave={this.onToggleHover.bind(this, '')}
 			onClick={() => this.props.machine.setTrackForPopup(track)}
