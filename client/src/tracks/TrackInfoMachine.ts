@@ -72,25 +72,22 @@ export class TrackInfoMachine
 	public async fetchInfo(): Promise<void>
 	{
 		const infosRaw = await fetch("/tracks/info");
-		const infos = await infosRaw.json();
+		const infos: any[] = await infosRaw.json(); //TODO: it's an array, need to get type
 
-		const tracksRaw = await fetch("/tracks");
-    const trackNames: Array<any> = await tracksRaw.json();
-
-    for (let i: number = 0; i < trackNames.length; i++)
+    for (let i: number = 0; i < infos.length; i++)
     {
-    	const trackName = trackNames[i];
-    	const trackInfo = infos[trackName];
+    	const trackInfo: Track = infos[i];
 
     	const flips: Flip[] | null = this.makeFlipObject(trackInfo["flips"]);
-    	const trackType: TrackTypeEnum = TrackInfoMachine.getTrackTypeEnumFromString(trackInfo["trackType"]);
+    	// const trackType: TrackTypeEnum = TrackInfoMachine.getTrackTypeEnumFromString(trackInfo.trackType);
 
     	const trackObj: Track = new Track(
-    		trackName, trackInfo["state"], 
-    		trackType,
-    		trackInfo["latitude"], 
-    		trackInfo["longitude"], 
-    		trackInfo["count"],
+				TrackName.parse(trackInfo.trackNameObj), 
+				trackInfo.state, 
+    		trackInfo.trackType,
+    		trackInfo.latitude, 
+    		trackInfo.longitude, 
+    		trackInfo.count,
     		flips
     	); 
 

@@ -20,8 +20,8 @@ var Track = /** @class */ (function () {
         configurable: true
     });
     //unique key
-    Track.prototype.toString = function () {
-        return this.trackType.toString() + this.state + this.trackType;
+    Track.prototype.print = function () {
+        return this.trackNameObj.print() + this.state + this.trackType;
     };
     return Track;
 }());
@@ -41,21 +41,30 @@ var TrackName = /** @class */ (function () {
             && t1.isConfiguration === t2.isConfiguration;
     };
     TrackName.parse = function (rawNameString) {
-        var trackName = rawNameString.trim();
-        var isConfiguration = false; //an alternative configuration of a base track, named with parentheses
-        var parts = trackName.split(/\(/); //split on left paren
-        var configuration = null;
-        if (parts.length == 2) //if two parts, we have a configuration
-         {
-            isConfiguration = true;
-            //remove the other paren
-            configuration = parts[1].trim();
-            configuration = configuration.replace(/\)/, "").trim();
-            trackName = parts[0].trim();
+        if (rawNameString.hasOwnProperty("baseName")
+            && rawNameString.hasOwnProperty("isConfiguration")
+            && rawNameString.hasOwnProperty("configuration")) {
+            //it's an object coming in from the server
+            var nameObj = rawNameString;
+            return new TrackName(nameObj["baseName"], nameObj["configuration"], nameObj["isConfiguration"]);
         }
-        return new TrackName(trackName, configuration, isConfiguration);
+        else {
+            var trackName = rawNameString.trim();
+            var isConfiguration = false; //an alternative configuration of a base track, named with parentheses
+            var parts = trackName.split(/\(/); //split on left paren
+            var configuration = null;
+            if (parts.length == 2) //if two parts, we have a configuration
+             {
+                isConfiguration = true;
+                //remove the other paren
+                configuration = parts[1].trim();
+                configuration = configuration.replace(/\)/, "").trim();
+                trackName = parts[0].trim();
+            }
+            return new TrackName(trackName, configuration, isConfiguration);
+        }
     };
-    TrackName.prototype.toString = function () {
+    TrackName.prototype.print = function () {
         var ret = this.baseName;
         if (this.isConfiguration) {
             ret += " (" + this.configuration + ")";

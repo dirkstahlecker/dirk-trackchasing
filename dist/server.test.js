@@ -107,12 +107,64 @@ it('proper counts for track', function () { return __awaiter(void 0, void 0, voi
     });
 }); });
 it('getTrackFullInfo', function () { return __awaiter(void 0, void 0, void 0, function () {
-    var info;
+    var trackInfos, pocatello, pocatelloInner, rmr, rmr8, stafford, la, texas, texasRC;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, server.getTrackFullInfo()];
             case 1:
-                info = _a.sent();
+                trackInfos = _a.sent();
+                pocatello = trackInfos.find(function (track) {
+                    return Types_1.TrackName.equals(track.trackNameObj, Types_1.TrackName.parse("Pocatello Speedway"));
+                });
+                expect(pocatello.state).toBe("ID");
+                expect(pocatello.latitude).toBe(42.912684);
+                expect(pocatello.longitude).toBe(-112.577022);
+                expect(pocatello.count).toBe(6);
+                expect(pocatello.trackType).toEqual(Types_1.TrackTypeEnum.OVAL);
+                expect(pocatello.flips.length).toEqual(0);
+                pocatelloInner = trackInfos.find(function (track) {
+                    return Types_1.TrackName.equals(track.trackNameObj, Types_1.TrackName.parse("Pocatello Speedway (Inner Dirt Oval)"));
+                });
+                expect(pocatelloInner.state).toBe("ID");
+                expect(pocatelloInner.latitude).toBeUndefined();
+                expect(pocatelloInner.longitude).toBeUndefined();
+                expect(pocatelloInner.flips.length).toEqual(1);
+                rmr = trackInfos.find(function (track) {
+                    return Types_1.TrackName.equals(track.trackNameObj, Types_1.TrackName.parse("Rocky Mountain Raceways"));
+                });
+                expect(rmr.state).toBe("UT");
+                expect(rmr.count).toBe(8);
+                expect(rmr.flips.length).toEqual(2);
+                rmr8 = trackInfos.find(function (track) {
+                    return Types_1.TrackName.equals(track.trackNameObj, Types_1.TrackName.parse("Rocky Mountain Raceways (Asphalt Figure 8)"));
+                });
+                expect(rmr8.state).toBe("UT");
+                expect(rmr8.count).toBe(7);
+                expect(rmr8.flips.length).toEqual(0);
+                stafford = trackInfos.find(function (track) {
+                    return Types_1.TrackName.equals(track.trackNameObj, Types_1.TrackName.parse("Stafford Motor Speedway"));
+                });
+                expect(stafford.state).toBe("CT");
+                expect(stafford.count).toBe(18);
+                expect(stafford.flips.length).toEqual(0);
+                la = trackInfos.find(function (track) {
+                    return Types_1.TrackName.equals(track.trackNameObj, Types_1.TrackName.parse("Port of LA"));
+                });
+                expect(la.state).toBe("CA");
+                expect(la.count).toEqual(1);
+                expect(la.flips.length).toEqual(0);
+                texas = trackInfos.find(function (track) {
+                    return Types_1.TrackName.equals(track.trackNameObj, Types_1.TrackName.parse("Texas Motor Speedway"));
+                });
+                expect(texas.state).toEqual("TX");
+                expect(texas.count).toEqual(2);
+                expect(texas.flips.length).toEqual(0);
+                texasRC = trackInfos.find(function (track) {
+                    return Types_1.TrackName.equals(track.trackNameObj, Types_1.TrackName.parse("Texas Motor Speedway (Asphalt Road Course)"));
+                });
+                expect(texasRC.state).toEqual("TX");
+                expect(texasRC.count).toEqual(1);
+                expect(texasRC.flips.length).toEqual(1);
                 return [2 /*return*/];
         }
     });

@@ -89,9 +89,21 @@ var Server = /** @class */ (function () {
             });
         });
     };
+    Server.getTrackTypeEnumForString = function (typeStr) {
+        switch (typeStr) {
+            case "Oval":
+                return Types_1.TrackTypeEnum.OVAL;
+            case "Figure 8":
+                return Types_1.TrackTypeEnum.FIGURE_8;
+            case "Road Course":
+                return Types_1.TrackTypeEnum.ROAD_COURSE;
+            default:
+                throw new Error("Invalid type string " + typeStr + "; cannot convert to TrackTypeEnum");
+        }
+    };
     Server.prototype.getTrackFullInfo = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var json, tracksList, tracksAndCoords, i, trackRaw, trackNameObj, trackInfo, count, flips, newTrackInfo;
+            var json, tracksList, tracksAndCoords, i, trackRaw, trackNameObj, trackInfo, count, flips, trackType, newTrackInfo;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, parser.parse()];
@@ -114,7 +126,8 @@ var Server = /** @class */ (function () {
                         return [4 /*yield*/, this.getFlipsForTrack(trackNameObj)];
                     case 5:
                         flips = _a.sent();
-                        newTrackInfo = new Types_1.Track(trackNameObj, trackInfo["State"], trackInfo["Type"], trackInfo["Latitude"], trackInfo["longitude"], count, flips);
+                        trackType = Server.getTrackTypeEnumForString(trackInfo["Type"]);
+                        newTrackInfo = new Types_1.Track(trackNameObj, trackInfo["State"], trackType, trackInfo["Latitude"], trackInfo["Longitude"], count, flips);
                         tracksAndCoords.push(newTrackInfo);
                         _a.label = 6;
                     case 6:

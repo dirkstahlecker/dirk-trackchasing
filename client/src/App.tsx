@@ -107,7 +107,7 @@ class App extends React.Component<AppProps>
                   {
                     this.machine.trackInfoMachine.tracks.map((track: Track) => {
                       return <TrackTile
-                        key={track.toString()}
+                        key={track.print()}
                         track={track}
                         navMachine={this.machine.navMachine}
                       />;

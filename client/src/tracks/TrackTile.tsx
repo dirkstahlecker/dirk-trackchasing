@@ -26,7 +26,7 @@ export class TrackTile extends React.Component<TrackTileProps>
     return (
       <div className={"track-tile"}>
         <button onClick={() => this.props.navMachine.goToTrackPage(track)}>
-          {track.trackNameObj.toString()}
+          {track.trackNameObj.print()}
         </button>
       </div>
     );

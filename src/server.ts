@@ -2,7 +2,7 @@ import express from "express";
 import path from 'path';
 import {Parser} from './parser';
 // import utilities from './utilities';
-import {EventInfo, Flip, TrackName, Track} from "./Types";
+import {EventInfo, Flip, TrackName, Track, TrackTypeEnum} from "./Types";
 
 const app = express();
 
@@ -38,6 +38,21 @@ export class Server
 		return filteredList;
 	}
 
+	public static getTrackTypeEnumForString(typeStr: string): TrackTypeEnum
+	{
+		switch (typeStr)
+		{
+			case "Oval":
+				return TrackTypeEnum.OVAL;
+			case "Figure 8":
+				return TrackTypeEnum.FIGURE_8;
+			case "Road Course":
+				return TrackTypeEnum.ROAD_COURSE;
+			default:
+				throw new Error("Invalid type string " + typeStr + "; cannot convert to TrackTypeEnum")
+		}
+	}
+
 	public async getTrackFullInfo(): Promise<Track[]>
 	{
 		const json = await parser.parse();
@@ -51,13 +66,14 @@ export class Server
 			const trackInfo = json[TRACK_ORDER_HEADER][trackRaw]; //TODO: improve this
 			const count: number = await this.getCountForTrack(trackNameObj);
 			const flips: Flip[] = await this.getFlipsForTrack(trackNameObj);
+			const trackType: TrackTypeEnum = Server.getTrackTypeEnumForString(trackInfo["Type"]);
 
 			const newTrackInfo: Track = new Track(
 				trackNameObj, 
 				trackInfo["State"],
-				trackInfo["Type"],
+				trackType,
 				trackInfo["Latitude"],
-				trackInfo["longitude"],
+				trackInfo["Longitude"],
 				count,
 				flips
 			);

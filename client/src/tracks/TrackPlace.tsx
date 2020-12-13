@@ -22,7 +22,7 @@ export class TrackPlaceMachine
 	@action
 	public async fetchEvents(trackName: TrackName): Promise<void>
 	{
-		const eventsRaw = await fetch('/eventDetails/' + trackName.toString());
+		const eventsRaw = await fetch('/eventDetails/' + trackName.print());
 		const eventInfos = await eventsRaw.json();
 		eventInfos.forEach((eventInfo: any) => {
 			this.events.push(EventObj.parseJson(eventInfo));
@@ -81,7 +81,7 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 			<div id="track-place">
 				<button onClick={() => this.props.navMachine.goHome()}>Go Home</button>
 				<br/>
-				{this.currentTrack.trackNameObj.toString()}
+				{this.currentTrack.trackNameObj.print()}
 				<br/>
 				Number of Races I've Attended: {this.currentTrack.count}
 				<br/>
@@ -91,7 +91,7 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 				{
 					this.currentTrack.flips.map((flip: Flip) => {
 						return <img //TODO: this needs work
-							src={TrackInfoMachine.flipGifPath(this.currentTrack!!.trackNameObj.toString(), flip.flipId)}
+							src={TrackInfoMachine.flipGifPath(this.currentTrack!!.trackNameObj.print(), flip.flipId)}
 							key={flip.flipId}
 						/>
 					})

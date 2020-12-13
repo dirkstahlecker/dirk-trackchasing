@@ -57,7 +57,7 @@ export class TrackPopup extends React.Component<TrackPopupProps>
 				coordinates={track.coordinates}	
 			>
 				<div className="track-popup-info">
-					{track.trackNameObj.toString()}
+					{track.trackNameObj.print()}
 					<br/>
 					<button onClick={() => this.props.navMachine.goToTrackPage(track)}>Go to track page</button>
 				</div>

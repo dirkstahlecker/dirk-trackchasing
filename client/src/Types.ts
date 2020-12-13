@@ -30,9 +30,9 @@ export class Track
 	}
 
 	//unique key
-	public toString(): string
+	public print(): string
 	{
-		return this.trackType.toString() + this.state + this.trackType;
+		return this.trackNameObj.print() + this.state + this.trackType;
 	}
 
 	//more to come...
@@ -63,26 +63,37 @@ export class TrackName
       && t1.isConfiguration === t2.isConfiguration;
   }
 
-  public static parse(rawNameString: string)
+  public static parse(rawNameString: string | Object)
   {
-    let trackName = rawNameString.trim();
+		if (rawNameString.hasOwnProperty("baseName") 
+			&& rawNameString.hasOwnProperty("isConfiguration") 
+			&& rawNameString.hasOwnProperty("configuration"))
+		{
+			//it's an object coming in from the server
+			const nameObj = rawNameString as any;
+			return new TrackName(nameObj["baseName"], nameObj["configuration"], nameObj["isConfiguration"]);
+		}
+		else
+		{
+			let trackName = (rawNameString as string).trim();
 
-    let isConfiguration = false; //an alternative configuration of a base track, named with parentheses
-    const parts = trackName.split(/\(/); //split on left paren
-    let configuration = null;
-    if (parts.length == 2) //if two parts, we have a configuration
-    {
-      isConfiguration = true;
-      //remove the other paren
-      configuration = parts[1].trim();
-      configuration = configuration.replace(/\)/, "").trim();
-      trackName = parts[0].trim();
-    }
-  
-    return new TrackName(trackName, configuration, isConfiguration);
+			let isConfiguration = false; //an alternative configuration of a base track, named with parentheses
+			const parts = trackName.split(/\(/); //split on left paren
+			let configuration = null;
+			if (parts.length == 2) //if two parts, we have a configuration
+			{
+				isConfiguration = true;
+				//remove the other paren
+				configuration = parts[1].trim();
+				configuration = configuration.replace(/\)/, "").trim();
+				trackName = parts[0].trim();
+			}
+		
+			return new TrackName(trackName, configuration, isConfiguration);
+		}
 	}
 	
-	public toString(): string
+	public print(): string
 	{
 		let ret = this.baseName;
 		if (this.isConfiguration)

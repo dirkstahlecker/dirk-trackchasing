@@ -87,24 +87,24 @@ export class Map extends React.Component<MapProps>
 		this.props.machine.setTrackForPopup(null);
 	};
 
+	//old, non-performance implementation
+	// private renderMarkers(): JSX.Element[]
+	// {
+	// 	return this.props.trackInfoMachine.tracks.map((track: Track) => {
+	// 		if (track.latitude === undefined || track.longitude === undefined)
+	// 		{
+	// 			return <></>;
+	// 		}
 
-	private renderMarkers(): JSX.Element[]
-	{
-		return this.props.trackInfoMachine.tracks.map((track: Track) => {
-			if (track.latitude === undefined || track.longitude === undefined)
-			{
-				return <></>;
-			}
-
-			return <div key={track.trackNameObj.toString()}>
-				<TrackPopup
-					track={track}
-					navMachine={this.props.navMachine}
-					machine={new TrackPopupMachine()}
-				/>
-			</div>
-		});
-	}
+	// 		return <div key={track.trackNameObj.toString()}>
+	// 			<TrackPopup
+	// 				track={track}
+	// 				navMachine={this.props.navMachine}
+	// 				machine={new TrackPopupMachine()}
+	// 			/>
+	// 		</div>
+	// 	});
+	// }
 
 	private renderFeature(track: Track): JSX.Element
 	{

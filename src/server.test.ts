@@ -1,6 +1,6 @@
 import {Server} from "./server";
 // const parser = require('./parser')
-import {Track, TrackName} from "./Types";
+import {Track, TrackName, TrackTypeEnum} from "./Types";
 
 //npm run test
 
@@ -62,55 +62,72 @@ it('proper counts for track', async() => {
 });
 
 it('getTrackFullInfo', async() => {
-	const info: Track[] = await server.getTrackFullInfo();
+	const trackInfos: Track[] = await server.getTrackFullInfo();
 
 	// const seekonk = info["Seekonk Speedway"]; //failing due to flips not having dates
 	// expect(seekonk.state).toBe("MA");
 	// expect(seekonk.count).toBe(46);
 	// expect(seekonk.flips.length).toEqual(12);
 
-	// const pocatello = info["Pocatello Speedway"];
-	// expect(pocatello.state).toBe("ID");
-	// expect(pocatello.latitude).toBe(42.912684);
-	// expect(pocatello.longitude).toBe(-112.577022);
-	// expect(pocatello.count).toBe(6);
-	// expect(pocatello.flips.length).toEqual(0);
+	const pocatello: Track = trackInfos.find((track: Track) => {
+		return TrackName.equals(track.trackNameObj, TrackName.parse("Pocatello Speedway"));
+	});
+	expect(pocatello.state).toBe("ID");
+	expect(pocatello.latitude).toBe(42.912684);
+	expect(pocatello.longitude).toBe(-112.577022);
+	expect(pocatello.count).toBe(6);
+	expect(pocatello.trackType).toEqual(TrackTypeEnum.OVAL);
+	expect(pocatello.flips.length).toEqual(0);
 
-	// const pocatelloInner = info["Pocatello Speedway (Inner Dirt Oval)"];
-	// expect(pocatelloInner.state).toBe("ID");
-	// expect(pocatelloInner.latitude).toBeUndefined();
-	// expect(pocatelloInner.longitude).toBeUndefined();
-	// expect(pocatelloInner.flips.length).toEqual(1);
+	const pocatelloInner: Track = trackInfos.find((track: Track) => {
+		return TrackName.equals(track.trackNameObj, TrackName.parse("Pocatello Speedway (Inner Dirt Oval)"));
+	});
+	expect(pocatelloInner.state).toBe("ID");
+	expect(pocatelloInner.latitude).toBeUndefined();
+	expect(pocatelloInner.longitude).toBeUndefined();
+	expect(pocatelloInner.flips.length).toEqual(1);
 
-	// const rmr = info["Rocky Mountain Raceways"];
-	// expect(rmr.state).toBe("UT");
-	// expect(rmr.count).toBe(8);
-	// expect(rmr.flips.length).toEqual(2);
+	const rmr: Track = trackInfos.find((track: Track) => {
+		return TrackName.equals(track.trackNameObj, TrackName.parse("Rocky Mountain Raceways"));
+	});
+	expect(rmr.state).toBe("UT");
+	expect(rmr.count).toBe(8);
+	expect(rmr.flips.length).toEqual(2);
 
-	// const rmr8 = info["Rocky Mountain Raceways (Asphalt Figure 8)"];
-	// expect(rmr8.state).toBe("UT");
-	// expect(rmr8.count).toBe(7);
-	// expect(rmr8.flips.length).toEqual(0);
+	const rmr8: Track = trackInfos.find((track: Track) => {
+		return TrackName.equals(track.trackNameObj, TrackName.parse("Rocky Mountain Raceways (Asphalt Figure 8)"));
+	});
+	expect(rmr8.state).toBe("UT");
+	expect(rmr8.count).toBe(7);
+	expect(rmr8.flips.length).toEqual(0);
 
-	// const stafford = info["Stafford Motor Speedway (Inner Asphalt Oval)"];
-	// expect(stafford.state).toBe("CT");
-	// expect(stafford.count).toBe(1);
-	// expect(stafford.flips.length).toEqual(0);
+	const stafford: Track = trackInfos.find((track: Track) => {
+		return TrackName.equals(track.trackNameObj, TrackName.parse("Stafford Motor Speedway"));
+	});
+	expect(stafford.state).toBe("CT");
+	expect(stafford.count).toBe(18);
+	expect(stafford.flips.length).toEqual(0);
 
-	// const la = info["Port of LA"];
-	// expect(la.state).toBe("CA");
-	// expect(la.count).toEqual(1);
-	// expect(la.flips.length).toEqual(0);
+	const la: Track = trackInfos.find((track: Track) => {
+		return TrackName.equals(track.trackNameObj, TrackName.parse("Port of LA"));
+	});
+	expect(la.state).toBe("CA");
+	expect(la.count).toEqual(1);
+	expect(la.flips.length).toEqual(0);
 
-	// const texas = info["Texas Motor Speedway"]
-	// expect(texas.state).toEqual("TX");
-	// expect(texas.count).toEqual(2);
-	// expect(texas.flips.length).toEqual(0);
+	const texas: Track = trackInfos.find((track: Track) => {
+		return TrackName.equals(track.trackNameObj, TrackName.parse("Texas Motor Speedway"));
+	});
+	expect(texas.state).toEqual("TX");
+	expect(texas.count).toEqual(2);
+	expect(texas.flips.length).toEqual(0);
 
-	// const texasRC = info["Texas Motor Speedway (Asphalt Road Course)"]
-	// expect(texasRC.state).toEqual("TX");
-	// expect(texasRC.count).toEqual(1);
-	// expect(texasRC.flips.length).toEqual(1);
+	const texasRC: Track = trackInfos.find((track: Track) => {
+		return TrackName.equals(track.trackNameObj, TrackName.parse("Texas Motor Speedway (Asphalt Road Course)"));
+	});
+	expect(texasRC.state).toEqual("TX");
+	expect(texasRC.count).toEqual(1);
+	expect(texasRC.flips.length).toEqual(1);
 });
 
 // //just the basic strings from the json
