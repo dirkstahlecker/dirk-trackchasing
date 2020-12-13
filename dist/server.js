@@ -206,8 +206,6 @@ var Server = /** @class */ (function () {
                     case 0: return [4 /*yield*/, parser.flipsData()];
                     case 1:
                         flipDataAllTracks = _a.sent();
-                        console.log(trackNameObj.baseName);
-                        console.log(trackNameObj.configuration);
                         foundFlips = flipDataAllTracks.filter(function (flip) {
                             return Types_1.TrackName.equals(flip.trackNameObj, trackNameObj);
                         });

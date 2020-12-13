@@ -100,7 +100,6 @@ var Parser = /** @class */ (function () {
                     if (flipInfo["Open Wheel"]) {
                         openWheel = true;
                     }
-                    console.log(flipInfo);
                     var newObjToAdd = {
                         flipId: flipId,
                         trackNameObj: trackNameObj,
@@ -127,8 +126,6 @@ var Parser = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         if (!(parsedJson == null)) return [3 /*break*/, 2];
-                        //take the json downloaded from google sheets in json format and parse it
-                        console.log("==========================");
                         data = fs.readFileSync(path_1.default.join(__dirname, this.dataPath), 'utf8');
                         json = JSON.parse(data);
                         return [4 /*yield*/, this.makeFlipsData(json)];

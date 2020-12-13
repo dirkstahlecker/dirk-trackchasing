@@ -106,7 +106,7 @@ it('proper counts for track', function () { return __awaiter(void 0, void 0, voi
         return [2 /*return*/];
     });
 }); });
-fit('getTrackFullInfo', function () { return __awaiter(void 0, void 0, void 0, function () {
+it('getTrackFullInfo', function () { return __awaiter(void 0, void 0, void 0, function () {
     var info;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -170,21 +170,25 @@ it('number of flips per track', function () { return __awaiter(void 0, void 0, v
                 return [4 /*yield*/, server.getFlipsForTrack(Types_1.TrackName.parse("Pocatello Speedway"))];
             case 4:
                 flips = _a.sent();
-                expect(flips.length).toBe(1);
-                return [4 /*yield*/, server.getFlipsForTrack(Types_1.TrackName.parse("Atomic Motor Raceway"))];
+                expect(flips.length).toBe(0);
+                return [4 /*yield*/, server.getFlipsForTrack(Types_1.TrackName.parse("Pocatello Speedway (Inner Dirt Oval)"))];
             case 5:
                 flips = _a.sent();
                 expect(flips.length).toBe(1);
-                return [4 /*yield*/, server.getFlipsForTrack(Types_1.TrackName.parse("Lucas Oil Speedway Off Road Course"))];
+                return [4 /*yield*/, server.getFlipsForTrack(Types_1.TrackName.parse("Atomic Motor Raceway"))];
             case 6:
+                flips = _a.sent();
+                expect(flips.length).toBe(1);
+                return [4 /*yield*/, server.getFlipsForTrack(Types_1.TrackName.parse("Lucas Oil Speedway Off Road Course"))];
+            case 7:
                 flips = _a.sent();
                 expect(flips.length).toBe(4);
                 return [4 /*yield*/, server.getFlipsForTrack(Types_1.TrackName.parse("Texas Motor Speedway"))];
-            case 7:
+            case 8:
                 flips = _a.sent(); //only a flip at the configuration
                 expect(flips.length).toEqual(0);
                 return [4 /*yield*/, server.getFlipsForTrack(Types_1.TrackName.parse("Texas Motor Speedway (Asphalt Road Course)"))];
-            case 8:
+            case 9:
                 flips = _a.sent();
                 expect(flips.length).toEqual(1);
                 return [2 /*return*/];

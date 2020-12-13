@@ -52,6 +52,7 @@ export class TrackInfoMachine
 		const flips: Flip[] = [];
 		flipJson.forEach((flipObj: any) => {
 			flips.push(new Flip(
+				flipObj["track"], //TODO: what's the right thing here?
 				flipObj["flipId"],
 				flipObj["date"], 
 				flipObj["class"], 
