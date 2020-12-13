@@ -8,9 +8,6 @@ const app = express();
 
 const parser: Parser = new Parser();
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
-
 const TRACK_ORDER_HEADER = "Track Order"; //track order sheet, the main reference for each track
 const RACES_HEADER = "Races";
 
@@ -255,8 +252,11 @@ const server: Server = new Server();
 //                                     Endpoints
 //=========================================================================================
 
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')));
+
 // Priority serve any static files.
-app.use(express.static(path.resolve(__dirname, '../react-ui/public')));
+// app.use(express.static(path.resolve(__dirname, '../react-ui/public'))); //I don't know what this is
 
 //get a list of all the tracks, name only
 app.get('/tracks', async function (req, res) {
