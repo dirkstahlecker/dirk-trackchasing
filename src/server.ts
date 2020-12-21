@@ -3,8 +3,6 @@ import path from 'path';
 import {Parser} from './parser';
 import {EventInfo, Flip, TrackName, Track, TrackTypeEnum} from "./Types";
 
-const parser: Parser = new Parser();
-
 const TRACK_ORDER_HEADER = "Track Order"; //track order sheet, the main reference for each track
 const RACES_HEADER = "Races";
 
@@ -25,7 +23,7 @@ export class Server
 	//gets list of all the tracks (configurations are sent as separate tracks)
 	public async getTrackList(): Promise<string[]>
 	{
-		const json = await parser.parse()
+		const json = await Parser.parse()
 		let trackList: string[] = Object.keys(json[TRACK_ORDER_HEADER]) //tested and appears to work
 
 		return trackList;
@@ -64,7 +62,7 @@ export class Server
 
 	public async getTrackFullInfo(): Promise<Track[]>
 	{
-		const json = await parser.parse();
+		const json = await Parser.parse();
 		const tracksList: string[] = await this.getTrackList();
 
 		let tracksAndCoords: Track[] = [];
@@ -94,7 +92,7 @@ export class Server
 
 	public async getCountForTrack(trackNameObj: TrackName): Promise<number>
 	{
-		let json = await parser.parse();
+		let json = await Parser.parse();
 		json = json[RACES_HEADER];
 	
 		let count = 0;
@@ -133,7 +131,7 @@ export class Server
 	//returns only the event string as stored in the json
 	public async getEventStringsForTrack(trackNameObj: TrackName): Promise<string[]>
 	{
-		let json = await parser.parse();
+		let json = await Parser.parse();
 		json = json[RACES_HEADER];
 		const events = [];
 
@@ -170,7 +168,7 @@ export class Server
 
 	public async getFlipsForTrack(trackNameObj: TrackName): Promise<Flip[]>
 	{
-		const flipDataAllTracks: Flip[] = await parser.flipsData();
+		const flipDataAllTracks: Flip[] = await Parser.flipsData();
 
 		const foundFlips: Flip[] = flipDataAllTracks.filter((flip: Flip) => {
 			return TrackName.equals(flip.trackNameObj, trackNameObj);
@@ -270,7 +268,7 @@ export class Server
 
 	public async getBasicStats(): Promise<any> //TODO
 	{
-		let json = await parser.parse();
+		let json = await Parser.parse();
 		// json = json[RACES_HEADER];
 	
 	

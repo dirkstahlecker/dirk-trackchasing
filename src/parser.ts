@@ -12,30 +12,30 @@ const DATA_PATH = "/../events_data.json";
 const TEST_DATA_PATH = "/../events_data_test.json";
 const STATS_HEADER = "Stats";
 
-export class Parser
+export abstract class Parser
 {
-	private runningJestTest() 
+	private static runningJestTest() 
 	{
 		return process.env.JEST_WORKER_ID !== undefined;
 	}
 
-	private get dataPath(): string
+	private static get dataPath(): string
 	{
 		return this.runningJestTest() ? TEST_DATA_PATH : DATA_PATH;
 	}
 
-	public async flipsData(): Promise<Flip[]>
+	public static async flipsData(): Promise<Flip[]>
 	{
 		if (_flipsData == null)
 		{
-			await this.parse();
+			await Parser.parse();
 		}
 		return _flipsData;
 	}
 
 	//Flips are keyed by date as they come from json, so we need to rearrange to key by track
 	//Should only be called from parse()
-	public async makeFlipsData(json: any): Promise<void>
+	public static async makeFlipsData(json: any): Promise<void>
 	{
 		if (_flipsData != null)
 		{
@@ -81,7 +81,7 @@ export class Parser
 		_flipsData = flips;
 	}
 
-	public async parse()
+	public static async parse()
 	{
 		if (parsedJson == null)
 		{
@@ -95,9 +95,9 @@ export class Parser
 		return parsedJson;
 	}
 
-	public async getQuickStats()
+	public static async getQuickStats()
 	{
-		const json = await this.parse();
+		const json = await Parser.parse();
 		const statsJson = json[STATS_HEADER];
 
 		console.log(statsJson);

@@ -44,7 +44,6 @@ var express_1 = __importDefault(require("express"));
 var path_1 = __importDefault(require("path"));
 var parser_1 = require("./parser");
 var Types_1 = require("./Types");
-var parser = new parser_1.Parser();
 var TRACK_ORDER_HEADER = "Track Order"; //track order sheet, the main reference for each track
 var RACES_HEADER = "Races";
 function makeDate(input) {
@@ -66,7 +65,7 @@ var Server = /** @class */ (function () {
             var json, trackList;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, parser.parse()];
+                    case 0: return [4 /*yield*/, parser_1.Parser.parse()];
                     case 1:
                         json = _a.sent();
                         trackList = Object.keys(json[TRACK_ORDER_HEADER]) //tested and appears to work
@@ -114,7 +113,7 @@ var Server = /** @class */ (function () {
             var json, tracksList, tracksAndCoords, i, trackRaw, trackNameObj, trackInfo, count, flips, trackType, newTrackInfo;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, parser.parse()];
+                    case 0: return [4 /*yield*/, parser_1.Parser.parse()];
                     case 1:
                         json = _a.sent();
                         return [4 /*yield*/, this.getTrackList()];
@@ -151,7 +150,7 @@ var Server = /** @class */ (function () {
             var json, count, i, jsonRowHeader, raceRow;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, parser.parse()];
+                    case 0: return [4 /*yield*/, parser_1.Parser.parse()];
                     case 1:
                         json = _a.sent();
                         json = json[RACES_HEADER];
@@ -188,7 +187,7 @@ var Server = /** @class */ (function () {
             var json, events, i, jsonRowHeader, raceRow, event;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, parser.parse()];
+                    case 0: return [4 /*yield*/, parser_1.Parser.parse()];
                     case 1:
                         json = _a.sent();
                         json = json[RACES_HEADER];
@@ -224,7 +223,7 @@ var Server = /** @class */ (function () {
             var flipDataAllTracks, foundFlips;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, parser.flipsData()];
+                    case 0: return [4 /*yield*/, parser_1.Parser.flipsData()];
                     case 1:
                         flipDataAllTracks = _a.sent();
                         foundFlips = flipDataAllTracks.filter(function (flip) {
@@ -348,7 +347,7 @@ var Server = /** @class */ (function () {
             var json;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, parser.parse()];
+                    case 0: return [4 /*yield*/, parser_1.Parser.parse()];
                     case 1:
                         json = _a.sent();
                         return [2 /*return*/];

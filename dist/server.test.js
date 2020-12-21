@@ -37,7 +37,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var server_1 = require("./server");
-// const parser = require('./parser')
 var Types_1 = require("./Types");
 //npm run test
 var server = new server_1.Server();

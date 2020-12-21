@@ -53,23 +53,23 @@ var STATS_HEADER = "Stats";
 var Parser = /** @class */ (function () {
     function Parser() {
     }
-    Parser.prototype.runningJestTest = function () {
+    Parser.runningJestTest = function () {
         return process.env.JEST_WORKER_ID !== undefined;
     };
-    Object.defineProperty(Parser.prototype, "dataPath", {
+    Object.defineProperty(Parser, "dataPath", {
         get: function () {
             return this.runningJestTest() ? TEST_DATA_PATH : DATA_PATH;
         },
         enumerable: false,
         configurable: true
     });
-    Parser.prototype.flipsData = function () {
+    Parser.flipsData = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (!(_flipsData == null)) return [3 /*break*/, 2];
-                        return [4 /*yield*/, this.parse()];
+                        return [4 /*yield*/, Parser.parse()];
                     case 1:
                         _a.sent();
                         _a.label = 2;
@@ -80,7 +80,7 @@ var Parser = /** @class */ (function () {
     };
     //Flips are keyed by date as they come from json, so we need to rearrange to key by track
     //Should only be called from parse()
-    Parser.prototype.makeFlipsData = function (json) {
+    Parser.makeFlipsData = function (json) {
         return __awaiter(this, void 0, void 0, function () {
             var flipsJson, flips;
             return __generator(this, function (_a) {
@@ -122,7 +122,7 @@ var Parser = /** @class */ (function () {
             });
         });
     };
-    Parser.prototype.parse = function () {
+    Parser.parse = function () {
         return __awaiter(this, void 0, void 0, function () {
             var data, json;
             return __generator(this, function (_a) {
@@ -141,12 +141,12 @@ var Parser = /** @class */ (function () {
             });
         });
     };
-    Parser.prototype.getQuickStats = function () {
+    Parser.getQuickStats = function () {
         return __awaiter(this, void 0, void 0, function () {
             var json, statsJson;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.parse()];
+                    case 0: return [4 /*yield*/, Parser.parse()];
                     case 1:
                         json = _a.sent();
                         statsJson = json[STATS_HEADER];
