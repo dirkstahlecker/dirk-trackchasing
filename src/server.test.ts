@@ -1,10 +1,16 @@
-import {Server} from "./server";
+import {makeDate, Server} from "./server";
 // const parser = require('./parser')
 import {Track, TrackName, TrackTypeEnum} from "./Types";
 
 //npm run test
 
 const server: Server = new Server();
+
+//just comparing a date to a new Date() doesn't work because it embeds timezome information
+function compareDates(date1: Date, date2: Date): boolean
+{
+	return makeDate(date1).getTime() === makeDate(date2).getTime();
+}
 
 it('track name and configuration', () => {
 	let info: TrackName = TrackName.parse("Seekonk Speedway");
@@ -288,7 +294,7 @@ it('flip objects', async() => {
 	expect(flip.rotations).toEqual("1");
 	expect(flip.video).toBeTruthy();
 	expect(flip.surface).toEqual("Dirt");
-	expect(flip.date).toEqual(new Date("8-09-19"));
+	expect(compareDates(flip.date, new Date('8-09-19'))).toBeTruthy();
 
 	flips = await server.getFlipsForTrack(TrackName.parse("Lincoln Speedway"));
 	flip = flips.find((f) => {
@@ -302,34 +308,49 @@ it('flip objects', async() => {
 	expect(flip.when).toEqual("Main")
 	expect(flip.notes).toBeTruthy();
 	expect(flip.notes.includes("Turn 3")).toBeTruthy();
-	expect(flip.date).toEqual(new Date("8-20-20"));
+	expect(compareDates(flip.date, new Date("8-20-20"))).toBeTruthy();
 });
 
 it('gets date from event string', () => {
 	let date = server.getDateFromEventString('11-06-20: URC 360 Sprint Cars');
-	expect(date).toEqual(new Date('11-06-20'));
+	expect(compareDates(date, new Date('11-06-20'))).toBeTruthy();
 
 	date = server.getDateFromEventString("2-5-19: Doesn't matter what we put here");
-	expect(date).toEqual(new Date('02-05-19'));
+	expect(compareDates(date, new Date('02-05-19'))).toBeTruthy();
+	expect(compareDates(date, new Date('2-05-19'))).toBeTruthy();
+});
+
+it('makes dates correctly with different timezones', () => {
+	//try to make dates in all different manners.
+	//should try this in different computer timezones and make sure it passes
+	const date1 = makeDate("11-08-20");
+	const date2 = makeDate(new Date("11-08-20"));
+	const date3 = makeDate(new Date(Date.parse("11-08-20")));
+
+	expect(date1.getTime()).toEqual(date2.getTime());
+	expect(date1.getTime()).toEqual(date3.getTime());
+
+	expect(compareDates(date1, date2)).toBeTruthy();
+	expect(compareDates(date1, date3)).toBeTruthy();
 });
 
 //more detailed, enriched with other information
 it('returns enriched event info', async() => {
 	let eventInfo = await server.getEnrichedEventInfoForDate(TrackName.parse("Bridgeport Motorsports Park"), "11-08-20");
 	expect(eventInfo.classes).toEqual("Big Block Modifieds, 602 Sportsman Modifieds, USAC SpeedSTRs, Street Stocks");
-	expect(eventInfo.date).toEqual(new Date("11-08-20"));
+	expect(compareDates(eventInfo.date, new Date('11-08-20'))).toBeTruthy();
 	expect(eventInfo.flips.length).toEqual(3);
 	expect(eventInfo.flips[0].carClass).toEqual("USAC SpeedSTR");
 
 	eventInfo = await server.getEnrichedEventInfoForDate(TrackName.parse("Kokomo Speedway"), "8-27-20");
 	expect(eventInfo.classes).toEqual("Smackdown IX: USAC National Sprint Cars");
-	expect(eventInfo.date).toEqual(new Date("8-27-20"));
+	expect(compareDates(eventInfo.date, new Date('8-27-20'))).toBeTruthy();
 	expect(eventInfo.flips.length).toEqual(2);
 	expect(eventInfo.flips[0].carClass).toEqual("Wingless 410 Sprint Car");
 
 	eventInfo = await server.getEnrichedEventInfoForDate(TrackName.parse("Texas Motor Speedway (Asphalt Road Course"), "6-9-18");
 	expect(eventInfo.classes).toEqual("Verizon IndyCar Series, Stadium Super Trucks [Asphalt Road Course]");
-	expect(eventInfo.date).toEqual(new Date("6-9-18"));
+	expect(compareDates(eventInfo.date, new Date('6-9-18'))).toBeTruthy();
 	expect(eventInfo.flips.length).toEqual(1);
 	expect(eventInfo.flips[0].carClass).toEqual("Stadium Super Truck");
 });
@@ -337,9 +358,9 @@ it('returns enriched event info', async() => {
 it('returns all enriched event infos for a track', async() => {
 	let eventInfos = await server.getAllEnrichedEventInfosForTrack(TrackName.parse("Bridgeport Motorsports Park"));
 	expect(eventInfos.length).toBe(3);
-	expect(eventInfos[0].date).toEqual(new Date("11-06-20"));
+	expect(compareDates(eventInfos[0].date, new Date('11-06-20'))).toBeTruthy();
 	expect(eventInfos[0].flips.length).toEqual(2);
-	expect(eventInfos[2].date).toEqual(new Date("11-08-20"));
+	expect(compareDates(eventInfos[2].date, new Date('11-08-20'))).toBeTruthy();
 	expect(eventInfos[2].classes).toContain("Big Block Modifieds, 602 Sportsman Modifieds");
 });
 

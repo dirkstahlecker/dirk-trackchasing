@@ -1,6 +1,7 @@
 import { raw } from 'express';
 import path from 'path';
 import {Flip, TrackName} from "./Types";
+import {makeDate} from "./server";
 var fs = require('fs');
 
 let parsedJson: any = null;
@@ -57,10 +58,14 @@ export class Parser
 			{
 				openWheel = true;
 			}
+
+			// console.log(flipInfo["Date"]);
+			const dateToAdd: Date = makeDate(flipInfo["Date"]);
+
 			const newObjToAdd: Flip = {
 				flipId: flipId,
 				trackNameObj: trackNameObj,
-				date: new Date(flipInfo["Date"]), 
+				date: dateToAdd, 
 				carClass: flipInfo["Class"], 
 				rotations: flipInfo["Rotations"], 
 				surface: flipInfo["Surface"],
@@ -73,7 +78,7 @@ export class Parser
 			flips.push(newObjToAdd);
 		});
 
-		_flipsData = flips
+		_flipsData = flips;
 	}
 
 	public async parse()

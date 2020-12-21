@@ -8,6 +8,18 @@ const parser: Parser = new Parser();
 const TRACK_ORDER_HEADER = "Track Order"; //track order sheet, the main reference for each track
 const RACES_HEADER = "Races";
 
+export function makeDate(input: string | Date): Date
+{
+	if (input instanceof Date)
+	{
+		const d = new Date(Date.UTC(input.getFullYear(), input.getMonth(), input.getUTCDate()));
+		return d;
+	}
+	const d = new Date(Date.parse(input));
+	const fixedDate = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getUTCDate()));
+	return fixedDate;
+}
+
 export class Server
 {
 	//gets list of all the tracks (configurations are sent as separate tracks)
@@ -169,12 +181,12 @@ export class Server
 
 	private getDateFromFlip(flip: any): Date
 	{
-		return new Date(flip.date);
+		return makeDate(flip.date);
 	}
 
 	public async getFlipsForEvent(trackNameObj: TrackName, date: Date): Promise<Flip[]>
 	{
-		const dateObj = new Date(date);
+		const dateObj = makeDate(date);
 		const flipsForTrack: Flip[] = await this.getFlipsForTrack(trackNameObj); //TODO: inefficient
 
 		const flipsForEvent: Flip[] = flipsForTrack.filter((flip: Flip) => {
@@ -188,7 +200,8 @@ export class Server
 	{
 		let dateRaw = eventString.split(":")[0];
 		// return utilities.cleanDate(dateRaw);
-		return new Date(dateRaw);
+		// return new Date(new Date(dateRaw).getTime());
+		return makeDate(dateRaw);
 	}
 
 	public async makeEnrichedEventInfoHelper(eventString: string, trackNameObj: TrackName, dateObj: Date): Promise<EventInfo>
@@ -199,7 +212,7 @@ export class Server
 		}
 	
 		const flipsForEvent = await this.getFlipsForEvent(trackNameObj, dateObj)
-	
+			
 		const classes = eventString.substring(eventString.indexOf(":") + 2);
 	
 		const eventInfoObj: EventInfo = {
@@ -215,7 +228,16 @@ export class Server
 	//events are based on base name, and may or may not have a configuration
 	public async getEnrichedEventInfoForDate(trackNameObj: TrackName, date: Date | string): Promise<EventInfo>
 	{
-		const dateObj: Date = new Date(date);
+		let dateObj: Date;
+		if (date instanceof Date)
+		{
+			dateObj = date;
+		}
+		else
+		{
+			dateObj = makeDate(date);
+		}
+		
 		//TODO: deal with invalid dates that come from old events where I don't know the date
 		const eventStrings = await this.getEventStringsForTrack(trackNameObj); //TODO: inefficient - stop when we find it
 		const eventString = eventStrings.find((event) => {
@@ -350,9 +372,11 @@ app.get("*", (req, res) => {
 })
 
 const port = process.env.PORT || 5000;
-app.listen(port, () => {
-	console.log(`server started on port ${port}`)
-});
+// app.listen(port, () => {
+// 	console.log(`server started on port ${port}`)
+// });
+app.listen(port);
+console.log(`server started on port ${port}`);
 
 
 //TODO: do we even need stats to be sent from the server? There's no unique info on that page
