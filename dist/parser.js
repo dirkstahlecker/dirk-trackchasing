@@ -42,9 +42,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Parser = void 0;
 var path_1 = __importDefault(require("path"));
 var Types_1 = require("./Types");
+var server_1 = require("./server");
 var fs = require('fs');
 var parsedJson = null;
-var _flipsData = null; //now using a list of objects // {name : [ date, track, class, rotations, surface, open wheel, when, video, notes ] }
+var _flipsData = null;
 var FLIPS_HEADER = "Flips";
 var DATA_PATH = "/../events_data.json";
 var TEST_DATA_PATH = "/../events_data_test.json";
@@ -100,10 +101,12 @@ var Parser = /** @class */ (function () {
                     if (flipInfo["Open Wheel"]) {
                         openWheel = true;
                     }
+                    // console.log(flipInfo["Date"]);
+                    var dateToAdd = server_1.makeDate(flipInfo["Date"]);
                     var newObjToAdd = {
                         flipId: flipId,
                         trackNameObj: trackNameObj,
-                        date: new Date(flipInfo["Date"]),
+                        date: dateToAdd,
                         carClass: flipInfo["Class"],
                         rotations: flipInfo["Rotations"],
                         surface: flipInfo["Surface"],
@@ -156,8 +159,4 @@ var Parser = /** @class */ (function () {
     return Parser;
 }());
 exports.Parser = Parser;
-// exports.parse = parse;
-// exports.flipsData = flipsData;
-// exports.TESTPIN_parse = parse; //for testing only
-// exports.getQuickStats = getQuickStats;
 //# sourceMappingURL=parser.js.map

@@ -41,6 +41,10 @@ var server_1 = require("./server");
 var Types_1 = require("./Types");
 //npm run test
 var server = new server_1.Server();
+//just comparing a date to a new Date() doesn't work because it embeds timezome information
+function compareDates(date1, date2) {
+    return server_1.makeDate(date1).getTime() === server_1.makeDate(date2).getTime();
+}
 it('track name and configuration', function () {
     var info = Types_1.TrackName.parse("Seekonk Speedway");
     expect(info.baseName).toBe("Seekonk Speedway");
@@ -55,6 +59,97 @@ it('track name and configuration', function () {
     expect(info.configuration).toBe("Asphalt Road Course");
     expect(info.isConfiguration).toBe(true);
 });
+it('returns track list without configurations', function () { return __awaiter(void 0, void 0, void 0, function () {
+    var trackList;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, server.getTrackListNoConfigurations()];
+            case 1:
+                trackList = _a.sent();
+                expect(trackList.length).toEqual(77);
+                expect(trackList).toEqual([
+                    'Pocatello Speedway',
+                    'Las Vegas Motor Speedway',
+                    'The Dirt Track at Las Vegas Motor Speedway',
+                    'Magic Valley Speedway',
+                    'Miller Motorsports Park',
+                    'Phoenix International Raceway',
+                    'Rocky Mountain Raceways',
+                    'Atomic Motor Raceway',
+                    'Stuart Speedway',
+                    'Wakeeney Speedway',
+                    'Miller Motorsports Park Off Road Course',
+                    'New Hampshire Motor Speedway',
+                    'Nassau Coliseum Parking Lot',
+                    'Seekonk Speedway',
+                    'Thompson Speedway',
+                    'Port of LA',
+                    'Star Speedway',
+                    'Stafford Motor Speedway',
+                    'Thompson Speedway - Rallycross',
+                    'Lee USA Speedway',
+                    'Albany-Saratoga Speedway',
+                    'New London Waterford Speedbowl',
+                    'Oxford Plains Speedway',
+                    'Lebanon Valley Speedway',
+                    'Beech Ridge Speedway',
+                    'Wall Stadium Speedway',
+                    'Hudson Speedway',
+                    'Texas Motor Speedway',
+                    "Lil' Texas Motor Speedway",
+                    'Monadnock Speedway',
+                    'Bear Ridge Speedway',
+                    "Devil's Bowl Speedway",
+                    'Lancaster Speedway',
+                    'Charlotte Motor Speedway Roval',
+                    'Gateway Dirt Nationals',
+                    'Cure Insurance Arena',
+                    'Exposition Center',
+                    'Lincoln Speedway',
+                    'Port Royal Speedway',
+                    'Orange County Fair Speedway',
+                    'New Egypt Speedway',
+                    'Glen Ridge Motorsports Park',
+                    'Utica-Rome Speedway',
+                    'Thunder Road International Speedbowl',
+                    'NHMS Flat Track',
+                    'Meridian Speedway',
+                    'Slinger Speedway',
+                    'Southern Iowa Speedway',
+                    'Knoxville Raceway',
+                    'Proctor Speedway',
+                    "William's Grove Speedway",
+                    'BAPS Motor Speedway',
+                    'Eldora Speedway',
+                    'PPL Center',
+                    'Riverside Speedway',
+                    'Boardwalk Hall',
+                    'Paragon Speedway',
+                    'Gas City Speedway',
+                    'Lincoln Park Speedway',
+                    'Tri-State Speedway',
+                    'Lawrenceburg Speedway',
+                    'Kokomo Speedway',
+                    'Claremont Motorsports Park',
+                    'Selinsgrove Speedway',
+                    'Grandview Speedway',
+                    'Hagerstown Speedway',
+                    'Big Diamond Speedway',
+                    'White Mountain Motorsports Park',
+                    'Londonderry Speedway',
+                    'Rumtown Speedway',
+                    'Lucas Oil Raceway',
+                    'Lucas Oil Speedway Off Road Course',
+                    'Lucas Oil Speedway',
+                    'Indiana State Fairgrounds',
+                    'Gateway Motorsports Park',
+                    'Macon Speedway',
+                    'Bridgeport Motorsports Park'
+                ]);
+                return [2 /*return*/];
+        }
+    });
+}); });
 it('returns proper track list', function () { return __awaiter(void 0, void 0, void 0, function () {
     var list;
     return __generator(this, function (_a) {
@@ -273,7 +368,7 @@ it('flip objects', function () { return __awaiter(void 0, void 0, void 0, functi
                 expect(flip.rotations).toEqual("1");
                 expect(flip.video).toBeTruthy();
                 expect(flip.surface).toEqual("Dirt");
-                expect(flip.date).toEqual(new Date("8-09-19"));
+                expect(compareDates(flip.date, new Date('8-09-19'))).toBeTruthy();
                 return [4 /*yield*/, server.getFlipsForTrack(Types_1.TrackName.parse("Lincoln Speedway"))];
             case 3:
                 flips = _a.sent();
@@ -288,16 +383,28 @@ it('flip objects', function () { return __awaiter(void 0, void 0, void 0, functi
                 expect(flip.when).toEqual("Main");
                 expect(flip.notes).toBeTruthy();
                 expect(flip.notes.includes("Turn 3")).toBeTruthy();
-                expect(flip.date).toEqual(new Date("8-20-20"));
+                expect(compareDates(flip.date, new Date("8-20-20"))).toBeTruthy();
                 return [2 /*return*/];
         }
     });
 }); });
 it('gets date from event string', function () {
     var date = server.getDateFromEventString('11-06-20: URC 360 Sprint Cars');
-    expect(date).toEqual(new Date('11-06-20'));
+    expect(compareDates(date, new Date('11-06-20'))).toBeTruthy();
     date = server.getDateFromEventString("2-5-19: Doesn't matter what we put here");
-    expect(date).toEqual(new Date('02-05-19'));
+    expect(compareDates(date, new Date('02-05-19'))).toBeTruthy();
+    expect(compareDates(date, new Date('2-05-19'))).toBeTruthy();
+});
+it('makes dates correctly with different timezones', function () {
+    //try to make dates in all different manners.
+    //should try this in different computer timezones and make sure it passes
+    var date1 = server_1.makeDate("11-08-20");
+    var date2 = server_1.makeDate(new Date("11-08-20"));
+    var date3 = server_1.makeDate(new Date(Date.parse("11-08-20")));
+    expect(date1.getTime()).toEqual(date2.getTime());
+    expect(date1.getTime()).toEqual(date3.getTime());
+    expect(compareDates(date1, date2)).toBeTruthy();
+    expect(compareDates(date1, date3)).toBeTruthy();
 });
 //more detailed, enriched with other information
 it('returns enriched event info', function () { return __awaiter(void 0, void 0, void 0, function () {
@@ -308,17 +415,23 @@ it('returns enriched event info', function () { return __awaiter(void 0, void 0,
             case 1:
                 eventInfo = _a.sent();
                 expect(eventInfo.classes).toEqual("Big Block Modifieds, 602 Sportsman Modifieds, USAC SpeedSTRs, Street Stocks");
-                expect(eventInfo.date).toEqual(new Date("11-08-20"));
+                expect(compareDates(eventInfo.date, new Date('11-08-20'))).toBeTruthy();
                 expect(eventInfo.flips.length).toEqual(3);
                 expect(eventInfo.flips[0].carClass).toEqual("USAC SpeedSTR");
                 return [4 /*yield*/, server.getEnrichedEventInfoForDate(Types_1.TrackName.parse("Kokomo Speedway"), "8-27-20")];
             case 2:
-                //TODO: test flips on configuration once I actually have one
                 eventInfo = _a.sent();
                 expect(eventInfo.classes).toEqual("Smackdown IX: USAC National Sprint Cars");
-                expect(eventInfo.date).toEqual(new Date("8-27-20"));
+                expect(compareDates(eventInfo.date, new Date('8-27-20'))).toBeTruthy();
                 expect(eventInfo.flips.length).toEqual(2);
                 expect(eventInfo.flips[0].carClass).toEqual("Wingless 410 Sprint Car");
+                return [4 /*yield*/, server.getEnrichedEventInfoForDate(Types_1.TrackName.parse("Texas Motor Speedway (Asphalt Road Course"), "6-9-18")];
+            case 3:
+                eventInfo = _a.sent();
+                expect(eventInfo.classes).toEqual("Verizon IndyCar Series, Stadium Super Trucks [Asphalt Road Course]");
+                expect(compareDates(eventInfo.date, new Date('6-9-18'))).toBeTruthy();
+                expect(eventInfo.flips.length).toEqual(1);
+                expect(eventInfo.flips[0].carClass).toEqual("Stadium Super Truck");
                 return [2 /*return*/];
         }
     });
@@ -331,9 +444,9 @@ it('returns all enriched event infos for a track', function () { return __awaite
             case 1:
                 eventInfos = _a.sent();
                 expect(eventInfos.length).toBe(3);
-                expect(eventInfos[0].date).toEqual(new Date("11-06-20"));
+                expect(compareDates(eventInfos[0].date, new Date('11-06-20'))).toBeTruthy();
                 expect(eventInfos[0].flips.length).toEqual(2);
-                expect(eventInfos[2].date).toEqual(new Date("11-08-20"));
+                expect(compareDates(eventInfos[2].date, new Date('11-08-20'))).toBeTruthy();
                 expect(eventInfos[2].classes).toContain("Big Block Modifieds, 602 Sportsman Modifieds");
                 return [2 /*return*/];
         }

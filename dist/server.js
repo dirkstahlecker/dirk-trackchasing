@@ -39,16 +39,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Server = void 0;
+exports.Server = exports.makeDate = void 0;
 var express_1 = __importDefault(require("express"));
 var path_1 = __importDefault(require("path"));
 var parser_1 = require("./parser");
-// import utilities from './utilities';
 var Types_1 = require("./Types");
-var app = express_1.default();
 var parser = new parser_1.Parser();
 var TRACK_ORDER_HEADER = "Track Order"; //track order sheet, the main reference for each track
 var RACES_HEADER = "Races";
+function makeDate(input) {
+    if (input instanceof Date) {
+        var d_1 = new Date(Date.UTC(input.getFullYear(), input.getMonth(), input.getUTCDate()));
+        return d_1;
+    }
+    var d = new Date(Date.parse(input));
+    var fixedDate = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getUTCDate()));
+    return fixedDate;
+}
+exports.makeDate = makeDate;
 var Server = /** @class */ (function () {
     function Server() {
     }
@@ -228,7 +236,7 @@ var Server = /** @class */ (function () {
         });
     };
     Server.prototype.getDateFromFlip = function (flip) {
-        return new Date(flip.date);
+        return makeDate(flip.date);
     };
     Server.prototype.getFlipsForEvent = function (trackNameObj, date) {
         return __awaiter(this, void 0, void 0, function () {
@@ -237,7 +245,7 @@ var Server = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        dateObj = new Date(date);
+                        dateObj = makeDate(date);
                         return [4 /*yield*/, this.getFlipsForTrack(trackNameObj)];
                     case 1:
                         flipsForTrack = _a.sent();
@@ -252,7 +260,8 @@ var Server = /** @class */ (function () {
     Server.prototype.getDateFromEventString = function (eventString) {
         var dateRaw = eventString.split(":")[0];
         // return utilities.cleanDate(dateRaw);
-        return new Date(dateRaw);
+        // return new Date(new Date(dateRaw).getTime());
+        return makeDate(dateRaw);
     };
     Server.prototype.makeEnrichedEventInfoHelper = function (eventString, trackNameObj, dateObj) {
         return __awaiter(this, void 0, void 0, function () {
@@ -286,7 +295,12 @@ var Server = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        dateObj = new Date(date);
+                        if (date instanceof Date) {
+                            dateObj = date;
+                        }
+                        else {
+                            dateObj = makeDate(date);
+                        }
                         return [4 /*yield*/, this.getEventStringsForTrack(trackNameObj)];
                     case 1:
                         eventStrings = _a.sent();
@@ -346,6 +360,7 @@ var Server = /** @class */ (function () {
 }());
 exports.Server = Server;
 var server = new Server();
+var app = express_1.default();
 //=========================================================================================
 //                                     Endpoints
 //=========================================================================================
@@ -488,8 +503,10 @@ app.get("*", function (req, res) {
     res.sendFile('index.html', { root: root });
 });
 var port = process.env.PORT || 5000;
-app.listen(port, function () {
-    console.log("server started on port " + port);
-});
+// app.listen(port, () => {
+// 	console.log(`server started on port ${port}`)
+// });
+app.listen(port);
+console.log("server started on port " + port);
 //TODO: do we even need stats to be sent from the server? There's no unique info on that page
 //# sourceMappingURL=server.js.map
