@@ -65,9 +65,10 @@ app.get('/stats', async function (req, res) {
     res.set('Content-Type', 'application/json');
     res.json(stats);
 });
-app.get('/recaps', async function (req, res) {
+app.get('/recap/:date/:trackName', async function (req, res) {
     console.log("/recaps");
-    const recaps = await server.getEventRecaps();
+    const trackNameObj = Types_1.TrackName.parse(req.params.trackName);
+    const recaps = await server.getSpecificEventRecap(req.params.date, trackNameObj);
     res.set('Content-Type', 'application/json');
     res.json({ "recaps": recaps });
 });

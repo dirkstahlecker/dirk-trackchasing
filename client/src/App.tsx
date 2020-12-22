@@ -10,7 +10,7 @@ import {Map, MapMachine} from "./Map";
 import {NavigationMachine, CurrentPlace} from "./NavigationMachine";
 import {TrackTile} from './tracks/TrackTile';
 import {AboutPlace} from "./AboutPlace";
-import { EventPlace } from './events/EventPlace';
+import { EventPlace, EventPlaceMachine } from './events/EventPlace';
 
 // class QuickStats
 // {
@@ -156,6 +156,8 @@ class App extends React.Component<AppProps>
     }
 
     return <EventPlace
+      machine={new EventPlaceMachine()}
+      navMachine={this.navMachine}
       event={this.machine.navMachine.currentEvent!}
       track={this.machine.navMachine.currentTrack!}
     />;

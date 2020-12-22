@@ -14,6 +14,6 @@ it('parses the event recap text file properly', async() => {
 
 it('gets event text from date', async() => {
   await EventRecaps.parse();
-  expect(EventRecaps.getEventText(makeDate("7-3-20"), TrackName.parse("Big Diamond Speedway")))
+  expect(EventRecaps.getRecapForEvent(makeDate("7-3-20"), TrackName.parse("Big Diamond Speedway")))
     .toEqual('Testing big diamond. Another sentence.');
 });

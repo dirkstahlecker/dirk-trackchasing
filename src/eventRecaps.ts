@@ -65,8 +65,9 @@ export abstract class EventRecaps
     }
   }
 
-  public static getEventText(date: Date, track: TrackName): string | null
+  public static getRecapForEvent(dateRaw: Date | string, track: TrackName): string | null
   {
+    const date: Date = makeDate(dateRaw);
     const key = makeKeyStr(date, track);
     return EventRecaps.fullEventsObj[key];
   }

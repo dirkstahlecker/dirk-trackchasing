@@ -85,13 +85,16 @@ app.get('/stats', async function (req, res) {
 	res.json(stats);
 });
 
-app.get('/recaps', async function (req, res) {
-	console.log("/recaps");
+app.get('/recap/:date/:trackName', async function (req, res) {
+	console.log(`/recap/${req.params.date}/${req.params.trackName}`);
 
-	const recaps: string | null = await server.getEventRecaps();
+	const trackNameObj: TrackName = TrackName.parse(req.params.trackName);
+	const recaps: string | null = await server.getSpecificEventRecap(req.params.date, trackNameObj);
+	console.log("Returning: ");
+	console.log(recaps)
 
 	res.set('Content-Type', 'application/json');
-	res.json({"recaps": recaps});
+	res.json({"recap": recaps});
 });
 
 
