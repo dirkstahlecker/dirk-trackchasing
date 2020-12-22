@@ -12,6 +12,7 @@ import {TrackTile} from './tracks/TrackTile';
 import {AboutPlace} from "./AboutPlace";
 import { EventPlace, EventPlaceMachine } from './events/EventPlace';
 import { ContactPlace } from './ContactPlace';
+import { AllTracksPlace } from './tracks/AllTracks';
 
 // class QuickStats
 // {
@@ -117,15 +118,6 @@ class App extends React.Component<AppProps>
           <div className="quick-stats-area">
             Quick Stats: 
           </div>
-          {
-            this.machine.trackInfoMachine.tracks.map((track: Track) => {
-              return <TrackTile
-                key={track.print()}
-                track={track}
-                navMachine={this.machine.navMachine}
-              />;
-            })
-          }
         </div>
       }
     </>
@@ -134,6 +126,14 @@ class App extends React.Component<AppProps>
   private renderContact(): JSX.Element
   {
     return <ContactPlace navMachine={this.navMachine}/>;
+  }
+
+  private renderAllTracks(): JSX.Element
+  {
+    return <AllTracksPlace 
+      navMachine={this.navMachine}
+      trackInfoMachine={this.machine.trackInfoMachine}
+    />
   }
 
   private renderTrack(): JSX.Element
@@ -173,6 +173,7 @@ class App extends React.Component<AppProps>
   {
     return <div id="navbar">
       <a onClick={this.navMachine.goHome}>Home</a>
+      <a onClick={this.navMachine.goToAllTracksPage}>Tracks</a>
       <a onClick={this.navMachine.goToAboutPage}>About</a>
       <a onClick={this.navMachine.goToContactPage}>Contact</a>
     </div>
@@ -207,6 +208,10 @@ class App extends React.Component<AppProps>
           {
             this.machine.navMachine.currentPlace === CurrentPlace.HOME &&
             this.renderHome()
+          }
+          {
+            this.machine.navMachine.currentPlace === CurrentPlace.ALL_TRACKS &&
+            this.renderAllTracks()
           }
           {
             this.machine.navMachine.currentPlace === CurrentPlace.TRACK &&
