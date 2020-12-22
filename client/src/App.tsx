@@ -90,11 +90,6 @@ class App extends React.Component<AppProps>
     this.machine = new AppMachine();
   }
 
-  componentDidMount()
-  {
-    // this.machine.fetchQuickStats(); //no need to await
-  }
-
   private get navMachine(): NavigationMachine
   {
     return this.machine.navMachine;
@@ -172,10 +167,41 @@ class App extends React.Component<AppProps>
     </>;
   }
 
+  private renderToolbar(): JSX.Element
+  {
+    return <div id="navbar">
+      <a href="#home">Home</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+    </div>
+  }
+
+  componentDidMount()
+  {
+    // When the user scrolls the page, execute myFunction
+    window.onscroll = function() {myFunction()};
+
+    // Get the navbar
+    let navbar = document.getElementById("navbar");
+
+    // Get the offset position of the navbar
+    let sticky = navbar!!.offsetTop;
+
+    // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar!!.classList.add("sticky")
+      } else {
+        navbar!!.classList.remove("sticky");
+      }
+    }
+  }
+
   render()
   {
     return (
       <div className="App">
+        {this.renderToolbar()}
         <div className="App-body">
           {
             this.machine.navMachine.currentPlace === CurrentPlace.ABOUT &&

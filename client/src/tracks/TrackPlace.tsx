@@ -1,11 +1,8 @@
 import React from 'react';
-// import ReactDOM from "react-dom";
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, computed} from "mobx";
 import {NavigationMachine} from "../NavigationMachine";
 import {TrackInfoMachine} from "./TrackInfoMachine";
-import { trackDerivedFunction } from 'mobx/dist/internal';
-import { AssertionError } from 'assert';
 import { EventTile } from '../events/EventTile';
 import { Flip, EventObj, Track, TrackName } from '../Types';
 
@@ -27,8 +24,6 @@ export class TrackPlaceMachine
 		eventInfos.forEach((eventInfo: any) => {
 			this.events.push(EventObj.parseJson(eventInfo));
 		})
-		// this.events = eventInfos;
-		console.log(this.events)
 	}
 }
 
