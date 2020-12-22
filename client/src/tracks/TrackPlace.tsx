@@ -75,7 +75,7 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 
 		return (
 			<div id="track-place">
-				<button onClick={() => this.props.navMachine.goHome()}>Go Home</button>
+				<button onClick={this.props.navMachine.goHome}>Go Home</button>
 				<br/>
 				{this.currentTrack.trackNameObj.print()}
 				<br/>

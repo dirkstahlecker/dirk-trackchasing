@@ -11,6 +11,7 @@ import {NavigationMachine, CurrentPlace} from "./NavigationMachine";
 import {TrackTile} from './tracks/TrackTile';
 import {AboutPlace} from "./AboutPlace";
 import { EventPlace, EventPlaceMachine } from './events/EventPlace';
+import { ContactPlace } from './ContactPlace';
 
 // class QuickStats
 // {
@@ -104,10 +105,6 @@ class App extends React.Component<AppProps>
   {
     return <>
       <h1>Dirk Stahlecker - Trackchaser</h1>
-      <div>
-        <button onClick={() => this.machine.navMachine.goToAboutPage()}>About</button>
-      </div>
-      <br/>
       <button onClick={() => this.machine.test()}>TEST</button>
       {
         this.machine.trackInfoMachine.tracks != null && 
@@ -132,6 +129,11 @@ class App extends React.Component<AppProps>
         </div>
       }
     </>
+  }
+
+  private renderContact(): JSX.Element
+  {
+    return <ContactPlace navMachine={this.navMachine}/>;
   }
 
   private renderTrack(): JSX.Element
@@ -170,24 +172,19 @@ class App extends React.Component<AppProps>
   private renderToolbar(): JSX.Element
   {
     return <div id="navbar">
-      <a href="#home">Home</a>
-      <a href="#news">News</a>
-      <a href="#contact">Contact</a>
+      <a onClick={this.navMachine.goHome}>Home</a>
+      <a onClick={this.navMachine.goToAboutPage}>About</a>
+      <a onClick={this.navMachine.goToContactPage}>Contact</a>
     </div>
   }
 
   componentDidMount()
   {
-    // When the user scrolls the page, execute myFunction
-    window.onscroll = function() {myFunction()};
-
-    // Get the navbar
+    //Necessary for the toolbar, copied from https://www.w3schools.com/howto/howto_js_navbar_sticky.asp
+    window.onscroll = () => myFunction();
     let navbar = document.getElementById("navbar");
-
-    // Get the offset position of the navbar
     let sticky = navbar!!.offsetTop;
 
-    // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
     function myFunction() {
       if (window.pageYOffset >= sticky) {
         navbar!!.classList.add("sticky")
@@ -218,6 +215,10 @@ class App extends React.Component<AppProps>
           {
             this.machine.navMachine.currentPlace === CurrentPlace.EVENT &&
             this.renderEvent()
+          }
+          {
+            this.machine.navMachine.currentPlace === CurrentPlace.CONTACT &&
+            this.renderContact()
           }
         </div>
         <div className="footer">
