@@ -1,5 +1,6 @@
 import express from "express";
 import path from 'path';
+import { EventRecaps } from "./eventRecaps";
 import {Parser} from './parser';
 import {EventInfo, Flip, TrackName, Track, TrackTypeEnum} from "./Types";
 
@@ -271,7 +272,16 @@ export class Server
 		let json = await Parser.parse();
 		// json = json[RACES_HEADER];
 	
-	
+
+		return "Stats not implemented"
+	}
+
+	public async getEventRecaps(): Promise<string>
+	{
+		await EventRecaps.parse();
+		// return EventRecaps.
+
+		return "Not Implemented";
 	}
 }
 
@@ -355,6 +365,15 @@ app.get('/stats', async function (req, res) {
 
 	res.set('Content-Type', 'application/json');
 	res.json(stats);
+});
+
+app.get('/recaps', async function (req, res) {
+	console.log("/recaps");
+
+	const recaps: string | null = await server.getEventRecaps();
+
+	res.set('Content-Type', 'application/json');
+	res.json({"recaps": recaps});
 });
 
 

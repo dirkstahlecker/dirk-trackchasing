@@ -55,6 +55,14 @@ class AppMachine
   //   const stats = await statsRaw.json();
   //   // this.quickStats = QuickStats.fromJson(stats);
   // }
+
+  public async test(): Promise<void>
+  {
+    const testInfo = await fetch("/recaps");
+    const infos = await testInfo.json();
+    
+    console.log(infos);
+  }
 }
 
 // { process.env.NODE_ENV === 'production' ?
@@ -104,6 +112,8 @@ class App extends React.Component<AppProps>
       <div>
         <button onClick={() => this.machine.navMachine.goToAboutPage()}>About</button>
       </div>
+      <br/>
+      <button onClick={() => this.machine.test()}>TEST</button>
       {
         this.machine.trackInfoMachine.tracks != null && 
         <div>

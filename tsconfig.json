@@ -5,10 +5,10 @@
     "allowJs": false,
     "noImplicitAny": true,
     "moduleResolution": "node",
-    "lib": ["es2018"],
+    "lib": ["es2020"],
     // "lib": "ESNext",
     "module": "commonjs",
-    "target": "es5",
+    "target": "esnext",
     "baseUrl": ".",
     "paths": {
       "*": [
