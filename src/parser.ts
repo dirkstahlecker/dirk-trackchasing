@@ -1,7 +1,7 @@
 
 import path from 'path';
 import {Flip, TrackName} from "./Types";
-import {makeDate} from "./server";
+import {makeDate} from "./app";
 var fs = require('fs');
 
 let parsedJson: any = null;

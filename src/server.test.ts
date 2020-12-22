@@ -1,9 +1,9 @@
-import {makeDate, Server} from "./server";
-import {Track, TrackName, TrackTypeEnum} from "./Types";
+import {makeDate, ServerApp} from "./app";
+import {Flip, Track, TrackName, TrackTypeEnum} from "./Types";
 
 //npm run test
 
-const server: Server = new Server();
+const server: ServerApp = new ServerApp();
 
 //just comparing a date to a new Date() doesn't work because it embeds timezome information
 function compareDates(date1: Date, date2: Date): boolean
@@ -141,14 +141,20 @@ it('returns proper track list without configurations', async() => {
 // // });
 
 it('proper counts for track', async() => {
-	server.getCountForTrack(TrackName.parse("Seekonk Speedway")).then(data => expect(data).toEqual(46));
-  server.getCountForTrack(TrackName.parse("Thompson Speedway")).then(data => expect(data).toEqual(28));
-  server.getCountForTrack(TrackName.parse("Rocky Mountain Raceways")).then(data => expect(data).toEqual(8));
+	server.getCountForTrack(TrackName.parse("Seekonk Speedway"))
+		.then((data: number) => expect(data).toEqual(46));
+	server.getCountForTrack(TrackName.parse("Thompson Speedway"))
+		.then((data: number) => expect(data).toEqual(28));
+	server.getCountForTrack(TrackName.parse("Rocky Mountain Raceways"))
+		.then((data: number) => expect(data).toEqual(8));
 
   //configurations
-  server.getCountForTrack(TrackName.parse("Rocky Mountain Raceways (Asphalt Figure 8)")).then(data => expect(data).toEqual(7));
-  server.getCountForTrack(TrackName.parse("Seekonk Speedway (Asphalt Road Course)")).then(data => expect(data).toEqual(1));
-  server.getCountForTrack(TrackName.parse("Stafford Motor Speedway (Inner Asphalt Oval)")).then(data => expect(data).toEqual(1));
+	server.getCountForTrack(TrackName.parse("Rocky Mountain Raceways (Asphalt Figure 8)"))
+		.then((data: number) => expect(data).toEqual(7));
+	server.getCountForTrack(TrackName.parse("Seekonk Speedway (Asphalt Road Course)"))
+		.then((data: number) => expect(data).toEqual(1));
+	server.getCountForTrack(TrackName.parse("Stafford Motor Speedway (Inner Asphalt Oval)"))
+		.then((data: number) => expect(data).toEqual(1));
 });
 
 it('getTrackFullInfo', async() => {
@@ -284,7 +290,7 @@ it('flip objects', async() => {
 	expect(flip.video).toBeFalsy();
 
 	flips = await server.getFlipsForTrack(TrackName.parse("Knoxville Raceway"));
-	flip = flips.find((f) => {
+	flip = flips.find((f: Flip) => {
 		return f.when === "A Main"; //Knoxville only has one flip in a A main
 	});
 	expect(flip.flipId).toEqual("81");
@@ -296,7 +302,7 @@ it('flip objects', async() => {
 	expect(compareDates(flip.date, new Date('8-09-19'))).toBeTruthy();
 
 	flips = await server.getFlipsForTrack(TrackName.parse("Lincoln Speedway"));
-	flip = flips.find((f) => {
+	flip = flips.find((f: Flip) => {
 		return f.carClass === "Super Late Model";
 	});
 	expect(flip.flipId).toEqual("158");

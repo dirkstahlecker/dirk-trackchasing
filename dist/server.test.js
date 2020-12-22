@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const server_1 = require("./server");
+const app_1 = require("./app");
 const Types_1 = require("./Types");
 //npm run test
-const server = new server_1.Server();
+const server = new app_1.ServerApp();
 //just comparing a date to a new Date() doesn't work because it embeds timezome information
 function compareDates(date1, date2) {
-    return server_1.makeDate(date1).getTime() === server_1.makeDate(date2).getTime();
+    return app_1.makeDate(date1).getTime() === app_1.makeDate(date2).getTime();
 }
 it('track name and configuration', () => {
     let info = Types_1.TrackName.parse("Seekonk Speedway");
@@ -130,13 +130,19 @@ it('returns proper track list without configurations', async () => {
 // // 	expect(info.isConfiguration).toBe(false);
 // // });
 it('proper counts for track', async () => {
-    server.getCountForTrack(Types_1.TrackName.parse("Seekonk Speedway")).then(data => expect(data).toEqual(46));
-    server.getCountForTrack(Types_1.TrackName.parse("Thompson Speedway")).then(data => expect(data).toEqual(28));
-    server.getCountForTrack(Types_1.TrackName.parse("Rocky Mountain Raceways")).then(data => expect(data).toEqual(8));
+    server.getCountForTrack(Types_1.TrackName.parse("Seekonk Speedway"))
+        .then((data) => expect(data).toEqual(46));
+    server.getCountForTrack(Types_1.TrackName.parse("Thompson Speedway"))
+        .then((data) => expect(data).toEqual(28));
+    server.getCountForTrack(Types_1.TrackName.parse("Rocky Mountain Raceways"))
+        .then((data) => expect(data).toEqual(8));
     //configurations
-    server.getCountForTrack(Types_1.TrackName.parse("Rocky Mountain Raceways (Asphalt Figure 8)")).then(data => expect(data).toEqual(7));
-    server.getCountForTrack(Types_1.TrackName.parse("Seekonk Speedway (Asphalt Road Course)")).then(data => expect(data).toEqual(1));
-    server.getCountForTrack(Types_1.TrackName.parse("Stafford Motor Speedway (Inner Asphalt Oval)")).then(data => expect(data).toEqual(1));
+    server.getCountForTrack(Types_1.TrackName.parse("Rocky Mountain Raceways (Asphalt Figure 8)"))
+        .then((data) => expect(data).toEqual(7));
+    server.getCountForTrack(Types_1.TrackName.parse("Seekonk Speedway (Asphalt Road Course)"))
+        .then((data) => expect(data).toEqual(1));
+    server.getCountForTrack(Types_1.TrackName.parse("Stafford Motor Speedway (Inner Asphalt Oval)"))
+        .then((data) => expect(data).toEqual(1));
 });
 it('getTrackFullInfo', async () => {
     const trackInfos = await server.getTrackFullInfo();
@@ -279,9 +285,9 @@ it('gets date from event string', () => {
 it('makes dates correctly with different timezones', () => {
     //try to make dates in all different manners.
     //should try this in different computer timezones and make sure it passes
-    const date1 = server_1.makeDate("11-08-20");
-    const date2 = server_1.makeDate(new Date("11-08-20"));
-    const date3 = server_1.makeDate(new Date(Date.parse("11-08-20")));
+    const date1 = app_1.makeDate("11-08-20");
+    const date2 = app_1.makeDate(new Date("11-08-20"));
+    const date3 = app_1.makeDate(new Date(Date.parse("11-08-20")));
     expect(date1.getTime()).toEqual(date2.getTime());
     expect(date1.getTime()).toEqual(date3.getTime());
     expect(compareDates(date1, date2)).toBeTruthy();

@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Parser = void 0;
 const path_1 = __importDefault(require("path"));
 const Types_1 = require("./Types");
-const server_1 = require("./server");
+const app_1 = require("./app");
 var fs = require('fs');
 let parsedJson = null;
 let _flipsData = null;
@@ -48,7 +48,7 @@ class Parser {
                 openWheel = true;
             }
             // console.log(flipInfo["Date"]);
-            const dateToAdd = server_1.makeDate(flipInfo["Date"]);
+            const dateToAdd = app_1.makeDate(flipInfo["Date"]);
             const newObjToAdd = {
                 flipId: flipId,
                 trackNameObj: trackNameObj,

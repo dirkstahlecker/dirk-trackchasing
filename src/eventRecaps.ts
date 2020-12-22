@@ -1,12 +1,16 @@
 import path from 'path';
+import { makeDate } from './app';
 import { TrackName } from './Types';
 var fs = require('fs');
 
 
 //used as a key for the EventsRecapObj
-function makeKeyStr(dateStr: string, trackName: TrackName): string
+function makeKeyStr(date: Date, trackName: TrackName): string
 {
-  return dateStr + ":" + trackName.print();
+  const month: number = date.getMonth() + 1;
+  const day: number = date.getDate() + 1;
+  const year: number = date.getFullYear();
+  return month + '-' + day + '-' + year + ':' + trackName.print();
 }
 
 type EventRecapsObj =
@@ -56,13 +60,14 @@ export abstract class EventRecaps
         let recapStr: string = match[3];
         recapStr = recapStr.trim();
 
-        const key: string = makeKeyStr(dateStr, trackName);
+        const key: string = makeKeyStr(makeDate(dateStr), trackName);
         EventRecaps.fullEventsObj[key] = recapStr;
     }
   }
 
   public static getEventText(date: Date, track: TrackName): string | null
   {
-    return "NOT YET IMPLEMENTED";
+    const key = makeKeyStr(date, track);
+    return EventRecaps.fullEventsObj[key];
   }
 }
