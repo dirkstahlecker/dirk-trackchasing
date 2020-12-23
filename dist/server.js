@@ -66,11 +66,13 @@ app.get('/stats', async function (req, res) {
     res.json(stats);
 });
 app.get('/recap/:date/:trackName', async function (req, res) {
-    console.log("/recaps");
+    console.log(`/recap/${req.params.date}/${req.params.trackName}`);
     const trackNameObj = Types_1.TrackName.parse(req.params.trackName);
     const recaps = await server.getSpecificEventRecap(req.params.date, trackNameObj);
+    console.log("Returning: ");
+    console.log(recaps);
     res.set('Content-Type', 'application/json');
-    res.json({ "recaps": recaps });
+    res.json({ "recap": recaps });
 });
 //Don't touch the following - Heroku gets very finnicky about it
 // Serve static files from the React app

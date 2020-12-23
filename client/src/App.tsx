@@ -13,6 +13,7 @@ import {AboutPlace} from "./AboutPlace";
 import { EventPlace, EventPlaceMachine } from './events/EventPlace';
 import { ContactPlace } from './ContactPlace';
 import { AllTracksPlace } from './tracks/AllTracks';
+import { CalendarPlace } from './CalendarPlace';
 
 // class QuickStats
 // {
@@ -133,7 +134,14 @@ class App extends React.Component<AppProps>
     return <AllTracksPlace 
       navMachine={this.navMachine}
       trackInfoMachine={this.machine.trackInfoMachine}
-    />
+    />;
+  }
+
+  private renderCalendar(): JSX.Element
+  {
+    return <CalendarPlace
+      navMachine={this.navMachine}
+    />;
   }
 
   private renderTrack(): JSX.Element
@@ -174,6 +182,7 @@ class App extends React.Component<AppProps>
     return <div id="navbar">
       <a onClick={this.navMachine.goHome}>Home</a>
       <a onClick={this.navMachine.goToAllTracksPage}>Tracks</a>
+      <a onClick={this.navMachine.goToCalendar}>Calendar</a>
       <a onClick={this.navMachine.goToAboutPage}>About</a>
       <a onClick={this.navMachine.goToContactPage}>Contact</a>
     </div>
@@ -212,6 +221,10 @@ class App extends React.Component<AppProps>
           {
             this.machine.navMachine.currentPlace === CurrentPlace.ALL_TRACKS &&
             this.renderAllTracks()
+          }
+          {
+            this.machine.navMachine.currentPlace === CurrentPlace.CALENDAR &&
+            this.renderCalendar()
           }
           {
             this.machine.navMachine.currentPlace === CurrentPlace.TRACK &&
