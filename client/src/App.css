@@ -1,16 +1,16 @@
+/* Define variables */
+:root {
+  --navbar-height: 50px;
+}
+
 .App {
   text-align: center;
+  margin-top: var(--navbar-height);
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-body {
@@ -38,7 +38,9 @@
 /* Style the navbar */
 #navbar {
   overflow: hidden;
-  background-color: #333;
+  background-color: #000;
+
+  height: var(--toolbar-height);
 }
 
 /* Navbar links */
@@ -63,7 +65,9 @@
   width: 100%;
 }
 
-/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
-  padding-top: 60px;
-}
+/* Add some top padding to the page content to prevent sudden quick movement 
+(as the navigation bar gets a new position at the top of the page (position:fixed and top:0) 
+*/
+/* .sticky + .content {
+  padding-top: 100px;
+} */

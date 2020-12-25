@@ -179,7 +179,7 @@ class App extends React.Component<AppProps>
 
   private renderToolbar(): JSX.Element
   {
-    return <div id="navbar">
+    return <div id="navbar" className="sticky">
       <a onClick={this.navMachine.goHome}>Home</a>
       <a onClick={this.navMachine.goToAllTracksPage}>Tracks</a>
       <a onClick={this.navMachine.goToCalendar}>Calendar</a>
@@ -196,11 +196,11 @@ class App extends React.Component<AppProps>
     let sticky = navbar!!.offsetTop;
 
     function myFunction() {
-      if (window.pageYOffset >= sticky) {
-        navbar!!.classList.add("sticky")
-      } else {
-        navbar!!.classList.remove("sticky");
-      }
+      // if (window.pageYOffset >= sticky) {
+      //   navbar!!.classList.add("sticky")
+      // } else {
+      //   navbar!!.classList.remove("sticky");
+      // }
     }
   }
 
