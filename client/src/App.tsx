@@ -14,6 +14,8 @@ import { EventPlace, EventPlaceMachine } from './events/EventPlace';
 import { ContactPlace } from './ContactPlace';
 import { AllTracksPlace } from './tracks/AllTracks';
 import { CalendarPlace } from './CalendarPlace';
+import { JsxEmit } from 'typescript';
+import { RecapsPlace, RecapsPlaceMachine } from './RecapsPlace';
 
 // class QuickStats
 // {
@@ -136,6 +138,14 @@ class App extends React.Component<AppProps>
       trackInfoMachine={this.machine.trackInfoMachine}
     />;
   }
+  
+  private renderRecaps(): JSX.Element
+  {
+    return <RecapsPlace
+      machine={new RecapsPlaceMachine()}
+      navMachine={this.navMachine}
+    />;
+  }
 
   private renderCalendar(): JSX.Element
   {
@@ -183,6 +193,7 @@ class App extends React.Component<AppProps>
       <a onClick={this.navMachine.goHome}>Home</a>
       <a onClick={this.navMachine.goToAllTracksPage}>Tracks</a>
       <a onClick={this.navMachine.goToCalendar}>Calendar</a>
+      <a onClick={this.navMachine.goToRecapsPage}>Recaps</a>
       <a onClick={this.navMachine.goToAboutPage}>About</a>
       <a onClick={this.navMachine.goToContactPage}>Contact</a>
     </div>
@@ -225,6 +236,10 @@ class App extends React.Component<AppProps>
           {
             this.machine.navMachine.currentPlace === CurrentPlace.CALENDAR &&
             this.renderCalendar()
+          }
+          {
+            this.machine.navMachine.currentPlace === CurrentPlace.RECAPS &&
+            this.renderRecaps()
           }
           {
             this.machine.navMachine.currentPlace === CurrentPlace.TRACK &&

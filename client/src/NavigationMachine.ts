@@ -4,7 +4,7 @@ import {observer} from "mobx-react";
 import {observable, action, makeObservable} from "mobx";
 import { EventObj, Track } from './Types';
 
-export enum CurrentPlace {HOME, TRACK, ABOUT, EVENT, CONTACT, ALL_TRACKS, CALENDAR}
+export enum CurrentPlace {HOME, TRACK, ABOUT, EVENT, CONTACT, ALL_TRACKS, CALENDAR, RECAPS}
 
 export class NavigationMachine
 {
@@ -44,7 +44,14 @@ export class NavigationMachine
     this.currentPlace = CurrentPlace.CALENDAR;
     this.currentTrack = null;
     this.currentEvent = null
-  }
+  };
+
+  @action
+  public goToRecapsPage = (e: React.MouseEvent): void => {
+    this.currentPlace = CurrentPlace.RECAPS;
+    this.currentTrack = null;
+    this.currentEvent = null;
+  };
 
   @action
   public goToAboutPage = (e: React.MouseEvent): void => {

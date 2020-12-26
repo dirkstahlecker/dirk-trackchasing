@@ -80,7 +80,7 @@ export class TrackName
 			let isConfiguration = false; //an alternative configuration of a base track, named with parentheses
 			const parts = trackName.split(/\(/); //split on left paren
 			let configuration = null;
-			if (parts.length == 2) //if two parts, we have a configuration
+			if (parts.length === 2) //if two parts, we have a configuration
 			{
 				isConfiguration = true;
 				//remove the other paren

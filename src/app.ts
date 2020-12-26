@@ -274,6 +274,12 @@ export class ServerApp
 		return "Stats not implemented"
 	}
 
+	public async getEventsWithRecaps(): Promise<string[]>
+	{
+		await EventRecaps.parse();
+		return EventRecaps.getListOfEventsWithRecap();
+	}
+
 	public async getSpecificEventRecap(date: Date | string, trackName: TrackName): Promise<string | null>
 	{
 		await EventRecaps.parse();

@@ -16,6 +16,8 @@ function makeKeyStr(date: Date, trackName: TrackName): string
 type EventRecapsObj =
 {
   //key is made by DateAndTrackName.makeKeyStr()
+  //key is a unique date and track
+  //string is the recap text
   [key: string] : string;
 }
 
@@ -63,6 +65,17 @@ export abstract class EventRecaps
         const key: string = makeKeyStr(makeDate(dateStr), trackName);
         EventRecaps.fullEventsObj[key] = recapStr;
     }
+  }
+
+  public static getListOfEventsWithRecap(): string[]
+  {
+    const ret: string[] = [];
+    //return a list of strings, where the string is the date and track made by the makeKey function
+    for (let obj in EventRecaps.fullEventsObj)
+    {
+      ret.push(obj);
+    }
+    return ret;
   }
 
   public static getRecapForEvent(dateRaw: Date | string, track: TrackName): string | null
