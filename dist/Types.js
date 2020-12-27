@@ -2,6 +2,7 @@
 //this is copied between client and server - make sure they stay in sync
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Flip = exports.EventObj = exports.TrackTypeEnum = exports.TrackName = exports.Track = void 0;
+const utilities_1 = require("./utilities");
 class Track {
     constructor(trackNameObj, state, trackType, latitude, longitude, count, flips) {
         this.trackNameObj = trackNameObj;
@@ -77,7 +78,7 @@ var TrackTypeEnum;
 class EventObj {
     // public notableCrashes: ; //TODO
     constructor(date, classes, flips) {
-        this.date = date;
+        this.date = utilities_1.makeDate(date);
         this.classes = classes;
         this.flips = flips;
     }
@@ -101,4 +102,5 @@ class Flip {
     }
 }
 exports.Flip = Flip;
+// export type EventInfo = {date: Date; classes: string; flips: Flip[]}
 //# sourceMappingURL=Types.js.map

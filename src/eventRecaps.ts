@@ -1,7 +1,7 @@
 import path from 'path';
 import { ServerApp } from './app';
 import { runningJestTest } from './parser';
-import { EventInfo, Track, TrackName } from './Types';
+import { EventObj, TrackName } from './Types';
 import { makeDate } from './utilities';
 var fs = require('fs');
 
@@ -89,14 +89,14 @@ export abstract class EventRecaps
     }
   }
 
-  public static async getListOfEventsWithRecap(): Promise<EventInfo[]>
+  public static async getListOfEventsWithRecap(): Promise<EventObj[]>
   {
-    const ret: EventInfo[] = [];
+    const ret: EventObj[] = [];
     //return a list of strings, where the string is the date and track made by the makeKey function
     for (let objKey in EventRecaps.fullEventsObj)
     {
       const {date, track} = unpackFromKey(objKey);
-      const eventInfo: EventInfo = await ServerApp.getEnrichedEventInfoForDate(track, date);
+      const eventInfo: EventObj = await ServerApp.getEnrichedEventInfoForDate(track, date);
       ret.push(eventInfo);
     }
 

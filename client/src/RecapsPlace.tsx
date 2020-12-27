@@ -4,11 +4,11 @@ import {observable, action, makeObservable, runInAction} from "mobx";
 import { NavigationMachine } from './NavigationMachine';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './CalendarPlace.css';
-import { TrackName } from './Types';
+import { EventInfo, TrackName } from './Types';
 
 export class RecapsPlaceMachine
 {
-  @observable public eventsWithRecap: string[] | null = null;
+  @observable public eventsWithRecap: EventInfo[] | null = null;
 
   constructor()
   {
@@ -24,22 +24,22 @@ export class RecapsPlaceMachine
   }
 
   //copied in server in eventRecaps.ts
-  public decodeEventFromString(inputStr: string): {date: Date, track: TrackName}
-  {
-    // const {date: Date, track: TrackName} = 
-    const pieces: string[] = inputStr.split(":");
-    if (pieces.length != 2)
-    {
-      throw new Error("input string isn't decodable to date and trackName");
-    }
-    const date: Date = new Date(pieces[0]);
-    const track: TrackName = TrackName.parse(pieces[1]);
+//   public decodeEventFromString(inputStr: string): {date: Date, track: TrackName}
+//   {
+//     // const {date: Date, track: TrackName} = 
+//     const pieces: string[] = inputStr.split(":");
+//     if (pieces.length != 2)
+//     {
+//       throw new Error("input string isn't decodable to date and trackName");
+//     }
+//     const date: Date = new Date(pieces[0]);
+//     const track: TrackName = TrackName.parse(pieces[1]);
 
-    console.log(date);
-    console.log(track.print());
-    return {date, track};
-  }
-}
+//     console.log(date);
+//     console.log(track.print());
+//     return {date, track};
+//   }
+// }
 
 export interface RecapsPlaceProps
 {

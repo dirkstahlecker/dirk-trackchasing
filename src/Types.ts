@@ -1,5 +1,7 @@
 //this is copied between client and server - make sure they stay in sync
 
+import { makeDate } from "./utilities";
+
 export class Track
 {
 	//data is static, so don't need to be observable (nothing changes without a page reload)
@@ -109,14 +111,14 @@ export enum TrackTypeEnum {OVAL, FIGURE_8, ROAD_COURSE}
 
 export class EventObj
 {
-  public date: string;
+  public date: Date;
   public classes: string;
   public flips: Flip[];
   // public notableCrashes: ; //TODO
 
-  constructor(date: string, classes: string, flips: Flip[])
+  constructor(date: Date | string, classes: string, flips: Flip[])
   {
-    this.date = date;
+    this.date = makeDate(date);
     this.classes = classes;
     this.flips = flips;
   }
@@ -156,4 +158,4 @@ export class Flip
 	}
 }
 
-export type EventInfo = {date: Date; classes: string; flips: Flip[]}
+// export type EventInfo = {date: Date; classes: string; flips: Flip[]}

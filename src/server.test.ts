@@ -1,5 +1,5 @@
 import {ServerApp} from "./app";
-import {EventInfo, Flip, Track, TrackName, TrackTypeEnum} from "./Types";
+import {EventObj, Flip, Track, TrackName, TrackTypeEnum} from "./Types";
 import { compareDates, makeDate } from "./utilities";
 
 //npm run test
@@ -370,8 +370,8 @@ it('returns recap string for a specific event', async() => {
 	expect(recap).toEqual("Bridgeport first day. First time entering facility at night.\nAnother paragraph.");
 });
 
-fit('returns list of EventInfos with recap', async() => {
-	let recaps: EventInfo[] = await ServerApp.getEventsWithRecaps();
+it('returns list of EventInfos with recap', async() => {
+	let recaps: EventObj[] = await ServerApp.getEventsWithRecaps();
 	expect(recaps.length).toEqual(3);
 	expect(compareDates(recaps[0].date, new Date("7-3-20"))).toBeTruthy();
 	expect(compareDates(recaps[1].date, new Date("8-23-20"))).toBeTruthy();

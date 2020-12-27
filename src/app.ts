@@ -1,6 +1,6 @@
 import { EventRecaps } from "./eventRecaps";
 import {Parser} from './parser';
-import {EventInfo, Flip, TrackName, Track, TrackTypeEnum} from "./Types";
+import {EventObj, Flip, TrackName, Track, TrackTypeEnum} from "./Types";
 import { compareDates, makeDate } from "./utilities";
 
 const TRACK_ORDER_HEADER = "Track Order"; //track order sheet, the main reference for each track
@@ -190,7 +190,7 @@ export abstract class ServerApp
 		return makeDate(dateRaw);
 	}
 
-	public static async makeEnrichedEventInfoHelper(eventString: string, trackNameObj: TrackName, dateObj: Date): Promise<EventInfo>
+	public static async makeEnrichedEventInfoHelper(eventString: string, trackNameObj: TrackName, dateObj: Date): Promise<EventObj>
 	{
 		if (eventString === undefined)
 		{
@@ -201,18 +201,19 @@ export abstract class ServerApp
 			
 		const classes = eventString.substring(eventString.indexOf(":") + 2);
 	
-		const eventInfoObj: EventInfo = {
-			date: dateObj, 
-			classes: classes, 
-			flips: flipsForEvent
-		};
+		// const eventInfoObj: EventObj = {
+		// 	date: dateObj, 
+		// 	classes: classes, 
+		// 	flips: flipsForEvent
+		// };
 		//TODO: notable crashes
-	
-		return eventInfoObj;
+
+		const eventObj: EventObj = new EventObj(dateObj, classes, flipsForEvent);
+		return eventObj;
 	}
 
 	//events are based on base name, and may or may not have a configuration
-	public static async getEnrichedEventInfoForDate(trackNameObj: TrackName, date: Date | string): Promise<EventInfo>
+	public static async getEnrichedEventInfoForDate(trackNameObj: TrackName, date: Date | string): Promise<EventObj>
 	{
 		let dateObj: Date;
 		if (date instanceof Date)
@@ -234,7 +235,7 @@ export abstract class ServerApp
 		return this.makeEnrichedEventInfoHelper(eventString, trackNameObj, dateObj);
 	}
 
-	public static async getAllEnrichedEventInfosForTrack(trackNameObj: TrackName): Promise<EventInfo[]>
+	public static async getAllEnrichedEventInfosForTrack(trackNameObj: TrackName): Promise<EventObj[]>
 	{
 		const eventStrings = await this.getEventStringsForTrack(trackNameObj); //TODO: inefficient - stop when we find it
 	
@@ -246,8 +247,8 @@ export abstract class ServerApp
 			// 	return null;
 			// }
 			//TODO: error handling for invalid date
-			const eventInfo = await this.getEnrichedEventInfoForDate(trackNameObj, date);
-			return eventInfo;
+			const eventobj: EventObj = await this.getEnrichedEventInfoForDate(trackNameObj, date);
+			return eventobj;
 		});
 		
 		const eventInfos = await Promise.all(promises);
@@ -264,7 +265,7 @@ export abstract class ServerApp
 	}
 
 	//returns a list of EventInfos, all the event infos that have recaps
-	public static async getEventsWithRecaps(): Promise<EventInfo[]>
+	public static async getEventsWithRecaps(): Promise<EventObj[]>
 	{
 		await EventRecaps.parse();
 		return EventRecaps.getListOfEventsWithRecap();
