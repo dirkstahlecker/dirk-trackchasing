@@ -17,10 +17,10 @@ export function makeDate(input: string | Date): Date
 	return fixedDate;
 }
 
-export class ServerApp
+export abstract class ServerApp
 {
 	//gets list of all the tracks (configurations are sent as separate tracks)
-	public async getTrackList(): Promise<string[]>
+	public static async getTrackList(): Promise<string[]>
 	{
 		const json = await Parser.parse()
 		let trackList: string[] = Object.keys(json[TRACK_ORDER_HEADER]) //tested and appears to work
@@ -28,7 +28,7 @@ export class ServerApp
 		return trackList;
 	}
 
-	public async getTrackListNoConfigurations(): Promise<string[]>
+	public static async getTrackListNoConfigurations(): Promise<string[]>
 	{
 		const list: string[] = await this.getTrackList();
 		
@@ -59,7 +59,7 @@ export class ServerApp
 		}
 	}
 
-	public async getTrackFullInfo(): Promise<Track[]>
+	public static async getTrackFullInfo(): Promise<Track[]>
 	{
 		const json = await Parser.parse();
 		const tracksList: string[] = await this.getTrackList();
@@ -89,7 +89,7 @@ export class ServerApp
 		return tracksAndCoords
 	}
 
-	public async getCountForTrack(trackNameObj: TrackName): Promise<number>
+	public static async getCountForTrack(trackNameObj: TrackName): Promise<number>
 	{
 		let json = await Parser.parse();
 		json = json[RACES_HEADER];
@@ -128,7 +128,7 @@ export class ServerApp
 	}
 
 	//returns only the event string as stored in the json
-	public async getEventStringsForTrack(trackNameObj: TrackName): Promise<string[]>
+	public static async getEventStringsForTrack(trackNameObj: TrackName): Promise<string[]>
 	{
 		let json = await Parser.parse();
 		json = json[RACES_HEADER];
@@ -165,7 +165,7 @@ export class ServerApp
 		return events;
 	}
 
-	public async getFlipsForTrack(trackNameObj: TrackName): Promise<Flip[]>
+	public static async getFlipsForTrack(trackNameObj: TrackName): Promise<Flip[]>
 	{
 		const flipDataAllTracks: Flip[] = await Parser.flipsData();
 
@@ -176,12 +176,12 @@ export class ServerApp
 		return foundFlips;
 	}
 
-	private getDateFromFlip(flip: any): Date
+	private static getDateFromFlip(flip: any): Date
 	{
 		return makeDate(flip.date);
 	}
 
-	public async getFlipsForEvent(trackNameObj: TrackName, date: Date): Promise<Flip[]>
+	public static async getFlipsForEvent(trackNameObj: TrackName, date: Date): Promise<Flip[]>
 	{
 		const dateObj = makeDate(date);
 		const flipsForTrack: Flip[] = await this.getFlipsForTrack(trackNameObj); //TODO: inefficient
@@ -193,7 +193,7 @@ export class ServerApp
 		return flipsForEvent;
 	}
 
-	public getDateFromEventString(eventString: string): Date
+	public static getDateFromEventString(eventString: string): Date
 	{
 		let dateRaw = eventString.split(":")[0];
 		// return utilities.cleanDate(dateRaw);
@@ -201,7 +201,7 @@ export class ServerApp
 		return makeDate(dateRaw);
 	}
 
-	public async makeEnrichedEventInfoHelper(eventString: string, trackNameObj: TrackName, dateObj: Date): Promise<EventInfo>
+	public static async makeEnrichedEventInfoHelper(eventString: string, trackNameObj: TrackName, dateObj: Date): Promise<EventInfo>
 	{
 		if (eventString === undefined)
 		{
@@ -223,7 +223,7 @@ export class ServerApp
 	}
 
 	//events are based on base name, and may or may not have a configuration
-	public async getEnrichedEventInfoForDate(trackNameObj: TrackName, date: Date | string): Promise<EventInfo>
+	public static async getEnrichedEventInfoForDate(trackNameObj: TrackName, date: Date | string): Promise<EventInfo>
 	{
 		let dateObj: Date;
 		if (date instanceof Date)
@@ -245,7 +245,7 @@ export class ServerApp
 		return this.makeEnrichedEventInfoHelper(eventString, trackNameObj, dateObj);
 	}
 
-	public async getAllEnrichedEventInfosForTrack(trackNameObj: TrackName): Promise<EventInfo[]>
+	public static async getAllEnrichedEventInfosForTrack(trackNameObj: TrackName): Promise<EventInfo[]>
 	{
 		const eventStrings = await this.getEventStringsForTrack(trackNameObj); //TODO: inefficient - stop when we find it
 	
@@ -265,7 +265,7 @@ export class ServerApp
 		return eventInfos;
 	}
 
-	public async getBasicStats(): Promise<any> //TODO
+	public static async getBasicStats(): Promise<any> //TODO
 	{
 		let json = await Parser.parse();
 		// json = json[RACES_HEADER];
@@ -274,13 +274,14 @@ export class ServerApp
 		return "Stats not implemented"
 	}
 
-	public async getEventsWithRecaps(): Promise<string[]>
+	//returns a list of EventInfos, all the event infos that have recaps
+	public static async getEventsWithRecaps(): Promise<EventInfo[]>
 	{
 		await EventRecaps.parse();
 		return EventRecaps.getListOfEventsWithRecap();
 	}
 
-	public async getSpecificEventRecap(date: Date | string, trackName: TrackName): Promise<string | null>
+	public static async getSpecificEventRecap(date: Date | string, trackName: TrackName): Promise<string | null>
 	{
 		await EventRecaps.parse();
 		return EventRecaps.getRecapForEvent(date, trackName);

@@ -3,7 +3,7 @@ import path from 'path';
 import { ServerApp } from "./app";
 import { TrackName } from "./Types";
 
-const server: ServerApp = new ServerApp();
+// const server: ServerApp = new ServerApp();
 const app = express();
 
 //=========================================================================================
@@ -18,7 +18,7 @@ app.get('/tracks', async function (req, res) {
 	console.log("/tracks")
 	res.set('Content-Type', 'application/json');
 
-	const tracks = await server.getTrackList();
+	const tracks = await ServerApp.getTrackList();
 
 	res.json(tracks);
 });
@@ -28,7 +28,7 @@ app.get('/tracks/info', async function (req, res) {
 	console.log("/tracks/info")
 	res.set('Content-Type', 'application/json');
 
-	const trackInfos = await server.getTrackFullInfo();
+	const trackInfos = await ServerApp.getTrackFullInfo();
 
 	res.json(trackInfos);
 });
@@ -39,7 +39,7 @@ app.get('/tracks/:trackName/events', async function (req, res) {
 	res.set('Content-Type', 'application/json');
 
 	const trackNameObj: TrackName = TrackName.parse(req.params.trackName);
-	const events = await server.getEventStringsForTrack(trackNameObj);
+	const events = await ServerApp.getEventStringsForTrack(trackNameObj);
 
 	res.json(events);
 });
@@ -50,7 +50,7 @@ app.get('/eventDetails/:trackName/:date', async function (req, res) {
 	res.set('Content-Type', 'application/json');
 
 	const trackNameObj: TrackName = TrackName.parse(req.params.trackName);
-	const eventInfo = await server.getEnrichedEventInfoForDate(trackNameObj, req.params.date);
+	const eventInfo = await ServerApp.getEnrichedEventInfoForDate(trackNameObj, req.params.date);
 	
 	res.json(eventInfo);
 });
@@ -61,7 +61,7 @@ app.get('/eventDetails/:trackName', async function (req, res) {
 	res.set('Content-Type', 'application/json');
 
 	const trackNameObj: TrackName = TrackName.parse(req.params.trackName);
-	const eventInfos = await server.getAllEnrichedEventInfosForTrack(trackNameObj);
+	const eventInfos = await ServerApp.getAllEnrichedEventInfosForTrack(trackNameObj);
 	
 	res.json(eventInfos);
 });
@@ -70,7 +70,7 @@ app.get('/numRaces/:trackName/raceCount', async function (req, res) { //TODO: do
 	console.log("/numRaces/" + req.params.trackName + "/raceCount")
 
 	const trackNameObj: TrackName = TrackName.parse(req.params.trackName);
-	const count = await server.getCountForTrack(trackNameObj);
+	const count = await ServerApp.getCountForTrack(trackNameObj);
 
 	res.set('Content-Type', 'application/json');
 	res.json({"message": count});
@@ -79,7 +79,7 @@ app.get('/numRaces/:trackName/raceCount', async function (req, res) { //TODO: do
 app.get('/stats', async function (req, res) {
 	console.log("/stats");
 
-	const stats = await server.getBasicStats();
+	const stats = await ServerApp.getBasicStats();
 
 	res.set('Content-Type', 'application/json');
 	res.json(stats);
@@ -89,7 +89,7 @@ app.get('/stats', async function (req, res) {
 app.get('/recaps', async function (req, res) {
 	console.log("/recaps");
 
-	const recaps = await server.getEventsWithRecaps();
+	const recaps = await ServerApp.getEventsWithRecaps();
 
 	res.set('Content-Type', 'application/json');
 	res.json(recaps);
@@ -99,9 +99,7 @@ app.get('/recap/:date/:trackName', async function (req, res) {
 	console.log(`/recap/${req.params.date}/${req.params.trackName}`);
 
 	const trackNameObj: TrackName = TrackName.parse(req.params.trackName);
-	const recaps: string | null = await server.getSpecificEventRecap(req.params.date, trackNameObj);
-	console.log("Returning: ");
-	console.log(recaps)
+	const recaps: string | null = await ServerApp.getSpecificEventRecap(req.params.date, trackNameObj);
 
 	res.set('Content-Type', 'application/json');
 	res.json({"recap": recaps});

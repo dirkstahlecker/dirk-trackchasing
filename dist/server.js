@@ -7,7 +7,7 @@ const express_1 = __importDefault(require("express"));
 const path_1 = __importDefault(require("path"));
 const app_1 = require("./app");
 const Types_1 = require("./Types");
-const server = new app_1.ServerApp();
+// const server: ServerApp = new ServerApp();
 const app = express_1.default();
 //=========================================================================================
 //                                     Endpoints
@@ -18,14 +18,14 @@ const app = express_1.default();
 app.get('/tracks', async function (req, res) {
     console.log("/tracks");
     res.set('Content-Type', 'application/json');
-    const tracks = await server.getTrackList();
+    const tracks = await app_1.ServerApp.getTrackList();
     res.json(tracks);
 });
 //returns a list of all the tracks along with their specific info
 app.get('/tracks/info', async function (req, res) {
     console.log("/tracks/info");
     res.set('Content-Type', 'application/json');
-    const trackInfos = await server.getTrackFullInfo();
+    const trackInfos = await app_1.ServerApp.getTrackFullInfo();
     res.json(trackInfos);
 });
 //returns a list of all event strings for a particular track
@@ -33,7 +33,7 @@ app.get('/tracks/:trackName/events', async function (req, res) {
     console.log("/tracks/" + req.params.trackName + "/events");
     res.set('Content-Type', 'application/json');
     const trackNameObj = Types_1.TrackName.parse(req.params.trackName);
-    const events = await server.getEventStringsForTrack(trackNameObj);
+    const events = await app_1.ServerApp.getEventStringsForTrack(trackNameObj);
     res.json(events);
 });
 //get enriched event details for a track and a date
@@ -41,7 +41,7 @@ app.get('/eventDetails/:trackName/:date', async function (req, res) {
     console.log('/events/' + req.params.trackName + '/' + req.params.date);
     res.set('Content-Type', 'application/json');
     const trackNameObj = Types_1.TrackName.parse(req.params.trackName);
-    const eventInfo = await server.getEnrichedEventInfoForDate(trackNameObj, req.params.date);
+    const eventInfo = await app_1.ServerApp.getEnrichedEventInfoForDate(trackNameObj, req.params.date);
     res.json(eventInfo);
 });
 //get enriched event details for all events for a track
@@ -49,28 +49,33 @@ app.get('/eventDetails/:trackName', async function (req, res) {
     console.log('/eventsDetails/' + req.params.trackName);
     res.set('Content-Type', 'application/json');
     const trackNameObj = Types_1.TrackName.parse(req.params.trackName);
-    const eventInfos = await server.getAllEnrichedEventInfosForTrack(trackNameObj);
+    const eventInfos = await app_1.ServerApp.getAllEnrichedEventInfosForTrack(trackNameObj);
     res.json(eventInfos);
 });
 app.get('/numRaces/:trackName/raceCount', async function (req, res) {
     console.log("/numRaces/" + req.params.trackName + "/raceCount");
     const trackNameObj = Types_1.TrackName.parse(req.params.trackName);
-    const count = await server.getCountForTrack(trackNameObj);
+    const count = await app_1.ServerApp.getCountForTrack(trackNameObj);
     res.set('Content-Type', 'application/json');
     res.json({ "message": count });
 });
 app.get('/stats', async function (req, res) {
     console.log("/stats");
-    const stats = await server.getBasicStats();
+    const stats = await app_1.ServerApp.getBasicStats();
     res.set('Content-Type', 'application/json');
     res.json(stats);
+});
+//returns the events with recaps
+app.get('/recaps', async function (req, res) {
+    console.log("/recaps");
+    const recaps = await app_1.ServerApp.getEventsWithRecaps();
+    res.set('Content-Type', 'application/json');
+    res.json(recaps);
 });
 app.get('/recap/:date/:trackName', async function (req, res) {
     console.log(`/recap/${req.params.date}/${req.params.trackName}`);
     const trackNameObj = Types_1.TrackName.parse(req.params.trackName);
-    const recaps = await server.getSpecificEventRecap(req.params.date, trackNameObj);
-    console.log("Returning: ");
-    console.log(recaps);
+    const recaps = await app_1.ServerApp.getSpecificEventRecap(req.params.date, trackNameObj);
     res.set('Content-Type', 'application/json');
     res.json({ "recap": recaps });
 });

@@ -12,16 +12,16 @@ const DATA_PATH = "/../events_data.json";
 const TEST_DATA_PATH = "/../events_data_test.json";
 const STATS_HEADER = "Stats";
 
+export function runningJestTest() 
+{
+	return process.env.JEST_WORKER_ID !== undefined;
+}
+
 export abstract class Parser
 {
-	private static runningJestTest() 
-	{
-		return process.env.JEST_WORKER_ID !== undefined;
-	}
-
 	private static get dataPath(): string
 	{
-		return this.runningJestTest() ? TEST_DATA_PATH : DATA_PATH;
+		return runningJestTest() ? TEST_DATA_PATH : DATA_PATH;
 	}
 
 	public static async flipsData(): Promise<Flip[]>

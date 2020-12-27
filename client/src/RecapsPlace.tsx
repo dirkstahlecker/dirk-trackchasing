@@ -57,11 +57,12 @@ export class RecapsPlace extends React.Component<RecapsPlaceProps>
   render()
   {
     return <div className="recaps-place" style={{height: "100%"}}>
+      <button onClick={this.props.navMachine.goHome}>Go Home</button>
       {
         this.props.machine.eventsWithRecap?.map((eventStr: string) => {
           const {date, track} = this.props.machine.decodeEventFromString(eventStr);
           return <div key={eventStr}>
-            {date.toString()}: {track.print()}
+            <button onClick={() => this.props.navMachine.goToEventPage(track,)}>{date.toString()}: {track.print()}</button>
           </div>;
         })
       }

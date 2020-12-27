@@ -1,6 +1,7 @@
 import path from 'path';
 import { makeDate } from './app';
-import { TrackName } from './Types';
+import { runningJestTest } from './parser';
+import { EventInfo, TrackName } from './Types';
 var fs = require('fs');
 
 
@@ -23,7 +24,14 @@ type EventRecapsObj =
 
 export abstract class EventRecaps
 {
-  private static dataPath: string = "../event_recaps.txt";
+  private static readonly DATA_PATH: string = "../event_recaps.txt";
+  private static readonly TEST_DATA_PATH: string = "../event_recaps_test.txt";
+
+  private static get dataPath(): string
+	{
+		return runningJestTest() ? this.TEST_DATA_PATH : this.DATA_PATH;
+	}
+  // private static dataPath: string = "../event_recaps.txt";
 
   private static fullEventsObj: EventRecapsObj = {};
 
@@ -67,7 +75,7 @@ export abstract class EventRecaps
     }
   }
 
-  public static getListOfEventsWithRecap(): string[]
+  public static getListOfEventsWithRecap(): EventInfo[]
   {
     const ret: string[] = [];
     //return a list of strings, where the string is the date and track made by the makeKey function
@@ -75,7 +83,10 @@ export abstract class EventRecaps
     {
       ret.push(obj);
     }
-    return ret;
+
+    // getEnrichedEventInfoForDate
+
+    return [];
   }
 
   public static getRecapForEvent(dateRaw: Date | string, track: TrackName): string | null
