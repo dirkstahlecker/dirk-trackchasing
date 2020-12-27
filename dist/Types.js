@@ -77,13 +77,15 @@ var TrackTypeEnum;
 })(TrackTypeEnum = exports.TrackTypeEnum || (exports.TrackTypeEnum = {}));
 class EventObj {
     // public notableCrashes: ; //TODO
-    constructor(date, classes, flips) {
+    constructor(track, date, classes, flips) {
+        this.track = track;
         this.date = utilities_1.makeDate(date);
         this.classes = classes;
         this.flips = flips;
     }
+    //TODO: this probably doesn't work
     static parseJson(json) {
-        return new EventObj(json["date"], json["classes"], json["flips"]); //TODO: flips probably won't work
+        return new EventObj(json["trackName"], json["date"], json["classes"], json["flips"]); //TODO: flips probably won't work
     }
 }
 exports.EventObj = EventObj;

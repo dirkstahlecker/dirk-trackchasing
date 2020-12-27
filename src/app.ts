@@ -78,6 +78,21 @@ export abstract class ServerApp
 		return tracksAndCoords
 	}
 
+	public static async getTrackObjForName(trackName: TrackName): Promise<Track>
+	{
+		await Parser.parse();
+		const tracksFullInfo: Track[] = await this.getTrackFullInfo();
+		const theTrack: Track | undefined = tracksFullInfo.find((value: Track) => {
+			return TrackName.equals(value.trackNameObj, trackName);
+		});
+
+		if (theTrack === undefined)
+		{
+			throw new Error("Could not locate track object for trackName: " + trackName.print());
+		}
+		return theTrack;
+	}
+
 	public static async getCountForTrack(trackNameObj: TrackName): Promise<number>
 	{
 		let json = await Parser.parse();
@@ -208,7 +223,7 @@ export abstract class ServerApp
 		// };
 		//TODO: notable crashes
 
-		const eventObj: EventObj = new EventObj(dateObj, classes, flipsForEvent);
+		const eventObj: EventObj = new EventObj(trackNameObj, dateObj, classes, flipsForEvent);
 		return eventObj;
 	}
 

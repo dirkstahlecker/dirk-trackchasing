@@ -1,5 +1,7 @@
 //this is copied between client and server - make sure they stay in sync
 
+import { makeDate } from "./utilities";
+
 export class Track
 {
 	//data is static, so don't need to be observable (nothing changes without a page reload)
@@ -109,21 +111,24 @@ export enum TrackTypeEnum {OVAL, FIGURE_8, ROAD_COURSE}
 
 export class EventObj
 {
-  public date: string;
+	public track: TrackName;
+  public date: Date;
   public classes: string;
   public flips: Flip[];
   // public notableCrashes: ; //TODO
 
-  constructor(date: string, classes: string, flips: Flip[])
+  constructor(track: TrackName, date: Date | string, classes: string, flips: Flip[])
   {
-    this.date = date;
+		this.track = track;
+    this.date = makeDate(date);
     this.classes = classes;
     this.flips = flips;
   }
 
+	//TODO: this probably doesn't work
   static parseJson(json: any): EventObj
   {
-    return new EventObj(json["date"], json["classes"], json["flips"]); //TODO: flips probably won't work
+    return new EventObj(json["trackName"], json["date"], json["classes"], json["flips"]); //TODO: flips probably won't work
   }
 }
 

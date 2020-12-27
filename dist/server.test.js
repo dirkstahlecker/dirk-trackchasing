@@ -321,7 +321,7 @@ it('returns recap string for a specific event', async () => {
     recap = await app_1.ServerApp.getSpecificEventRecap(new Date("11-06-20"), Types_1.TrackName.parse("Bridgeport Motorsports Park"));
     expect(recap).toEqual("Bridgeport first day. First time entering facility at night.\nAnother paragraph.");
 });
-fit('returns list of EventInfos with recap', async () => {
+it('returns list of EventInfos with recap', async () => {
     let recaps = await app_1.ServerApp.getEventsWithRecaps();
     expect(recaps.length).toEqual(3);
     expect(utilities_1.compareDates(recaps[0].date, new Date("7-3-20"))).toBeTruthy();

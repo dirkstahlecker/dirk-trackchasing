@@ -1,7 +1,7 @@
 import express from "express";
 import path from 'path';
 import { ServerApp } from "./app";
-import { TrackName } from "./Types";
+import { EventObj, TrackName } from "./Types";
 
 // const server: ServerApp = new ServerApp();
 const app = express();
@@ -89,7 +89,7 @@ app.get('/stats', async function (req, res) {
 app.get('/recaps', async function (req, res) {
 	console.log("/recaps");
 
-	const recaps = await ServerApp.getEventsWithRecaps();
+	const recaps: EventObj[] = await ServerApp.getEventsWithRecaps();
 
 	res.set('Content-Type', 'application/json');
 	res.json(recaps);

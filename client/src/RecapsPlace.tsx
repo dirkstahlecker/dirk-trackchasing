@@ -4,11 +4,11 @@ import {observable, action, makeObservable, runInAction} from "mobx";
 import { NavigationMachine } from './NavigationMachine';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './CalendarPlace.css';
-import { EventInfo, TrackName } from './Types';
+import { EventObj, TrackName } from './Types';
 
 export class RecapsPlaceMachine
 {
-  @observable public eventsWithRecap: EventInfo[] | null = null;
+  @observable public eventsWithRecap: EventObj[] | null = null;
 
   constructor()
   {
@@ -39,7 +39,7 @@ export class RecapsPlaceMachine
 //     console.log(track.print());
 //     return {date, track};
 //   }
-// }
+}
 
 export interface RecapsPlaceProps
 {
@@ -60,10 +60,11 @@ export class RecapsPlace extends React.Component<RecapsPlaceProps>
     return <div className="recaps-place" style={{height: "100%"}}>
       <button onClick={this.props.navMachine.goHome}>Go Home</button>
       {
-        this.props.machine.eventsWithRecap?.map((eventStr: string) => {
-          const {date, track} = this.props.machine.decodeEventFromString(eventStr);
-          return <div key={eventStr}>
-            {/* <button onClick={() => this.props.navMachine.goToEventPage(track,)}>{date.toString()}: {track.print()}</button> */}
+        this.props.machine.eventsWithRecap?.map((event: EventObj) => {
+          return <div key={event.date.toString() + event.classes}>
+            <button onClick={() => this.props.navMachine.goToEventPage(event.track, event)}>
+              {event.date.toString()}: {event.track.print()}
+            </button>
           </div>;
         })
       }

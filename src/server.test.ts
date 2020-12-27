@@ -378,7 +378,13 @@ it('returns list of EventInfos with recap', async() => {
 	expect(compareDates(recaps[2].date, new Date("11-6-20"))).toBeTruthy();
 });
 
+fit('returns the track object for a track name', async() => {
+	let track: Track = await ServerApp.getTrackObjForName(TrackName.parse("Big Diamond Speedway"));
+	expect(track.print()).toEqual("Big Diamond SpeedwayPA0");
 
+	track = await ServerApp.getTrackObjForName(TrackName.parse("Seekonk Speedway (Asphalt Figure 8)"));
+	expect(track.print()).toEqual("Seekonk Speedway (Asphalt Figure 8)MA1");
+});
 
 //does a recap for a configuration even make sense? It's always going to be with a full track right?
 // it('returns event recap for configuration')

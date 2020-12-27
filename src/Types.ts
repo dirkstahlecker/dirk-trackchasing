@@ -111,21 +111,24 @@ export enum TrackTypeEnum {OVAL, FIGURE_8, ROAD_COURSE}
 
 export class EventObj
 {
+	public track: TrackName;
   public date: Date;
   public classes: string;
   public flips: Flip[];
   // public notableCrashes: ; //TODO
 
-  constructor(date: Date | string, classes: string, flips: Flip[])
+  constructor(track: TrackName, date: Date | string, classes: string, flips: Flip[])
   {
+		this.track = track;
     this.date = makeDate(date);
     this.classes = classes;
     this.flips = flips;
   }
 
+	//TODO: this probably doesn't work
   static parseJson(json: any): EventObj
   {
-    return new EventObj(json["date"], json["classes"], json["flips"]); //TODO: flips probably won't work
+    return new EventObj(json["trackName"], json["date"], json["classes"], json["flips"]); //TODO: flips probably won't work
   }
 }
 
