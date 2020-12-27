@@ -1,6 +1,6 @@
 import {ServerApp} from "./app";
-import {EventObj, Flip, Track, TrackName, TrackTypeEnum} from "./Types";
-import { compareDates, makeDate } from "./utilities";
+import {EventObj, Flip, makeDate, Track, TrackName, TrackTypeEnum} from "./Types";
+import { compareDates } from "./utilities";
 
 //npm run test
 
@@ -378,7 +378,7 @@ it('returns list of EventInfos with recap', async() => {
 	expect(compareDates(recaps[2].date, new Date("11-6-20"))).toBeTruthy();
 });
 
-fit('returns the track object for a track name', async() => {
+it('returns the track object for a track name', async() => {
 	let track: Track = await ServerApp.getTrackObjForName(TrackName.parse("Big Diamond Speedway"));
 	expect(track.print()).toEqual("Big Diamond SpeedwayPA0");
 

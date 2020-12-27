@@ -79,6 +79,13 @@ app.get('/recap/:date/:trackName', async function (req, res) {
     res.set('Content-Type', 'application/json');
     res.json({ "recap": recaps });
 });
+app.get('/tracks/trackObjForName/:trackNameStr', async function (req, res) {
+    console.log(`/tracks/trackObjForName/${req.params.trackNameStr}`);
+    const trackName = Types_1.TrackName.parse(req.params.trackNameStr);
+    const trackObj = await app_1.ServerApp.getTrackObjForName(trackName);
+    res.set('Content-Type', 'application/json');
+    res.json(trackObj);
+});
 //Don't touch the following - Heroku gets very finnicky about it
 // Serve static files from the React app
 app.use(express_1.default.static(path_1.default.join(__dirname, 'client/build')));

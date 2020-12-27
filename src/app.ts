@@ -1,7 +1,7 @@
 import { EventRecaps } from "./eventRecaps";
 import {Parser} from './parser';
-import {EventObj, Flip, TrackName, Track, TrackTypeEnum} from "./Types";
-import { compareDates, makeDate } from "./utilities";
+import {EventObj, Flip, TrackName, Track, TrackTypeEnum, makeDate} from "./Types";
+import { compareDates } from "./utilities";
 
 const TRACK_ORDER_HEADER = "Track Order"; //track order sheet, the main reference for each track
 const RACES_HEADER = "Races";

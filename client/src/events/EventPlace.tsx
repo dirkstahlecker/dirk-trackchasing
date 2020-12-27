@@ -14,9 +14,10 @@ export class EventPlaceMachine
 
   @observable public recapString: string | null = null;
 
-  public async fetchEventRecap(dateStr: string, trackNameStr: string): Promise<void>
+  public async fetchEventRecap(date: Date, trackNameStr: string): Promise<void>
   {
-    const recapRaw = await fetch(`/recap/${dateStr}/${trackNameStr}`);
+    //TODO: date??
+    const recapRaw = await fetch(`/recap/${date}/${trackNameStr}`);
     const recapJson = await recapRaw.json();
     const recapStr = recapJson["recap"];
 

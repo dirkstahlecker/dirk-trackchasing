@@ -1,7 +1,7 @@
 import express from "express";
 import path from 'path';
 import { ServerApp } from "./app";
-import { EventObj, TrackName } from "./Types";
+import { EventObj, Track, TrackName } from "./Types";
 
 // const server: ServerApp = new ServerApp();
 const app = express();
@@ -103,6 +103,16 @@ app.get('/recap/:date/:trackName', async function (req, res) {
 
 	res.set('Content-Type', 'application/json');
 	res.json({"recap": recaps});
+});
+
+app.get('/tracks/trackObjForName/:trackNameStr', async function (req, res) {
+	console.log(`/tracks/trackObjForName/${req.params.trackNameStr}`);
+
+	const trackName: TrackName = TrackName.parse(req.params.trackNameStr);
+	const trackObj: Track = await ServerApp.getTrackObjForName(trackName);
+
+	res.set('Content-Type', 'application/json');
+	res.json(trackObj);
 });
 
 

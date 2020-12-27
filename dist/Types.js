@@ -1,8 +1,17 @@
 "use strict";
 //this is copied between client and server - make sure they stay in sync
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Flip = exports.EventObj = exports.TrackTypeEnum = exports.TrackName = exports.Track = void 0;
-const utilities_1 = require("./utilities");
+exports.Flip = exports.EventObj = exports.TrackTypeEnum = exports.TrackName = exports.Track = exports.makeDate = void 0;
+function makeDate(input) {
+    if (input instanceof Date) {
+        const d = new Date(Date.UTC(input.getFullYear(), input.getMonth(), input.getUTCDate()));
+        return d;
+    }
+    const d = new Date(Date.parse(input));
+    const fixedDate = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getUTCDate()));
+    return fixedDate;
+}
+exports.makeDate = makeDate;
 class Track {
     constructor(trackNameObj, state, trackType, latitude, longitude, count, flips) {
         this.trackNameObj = trackNameObj;
@@ -77,9 +86,9 @@ var TrackTypeEnum;
 })(TrackTypeEnum = exports.TrackTypeEnum || (exports.TrackTypeEnum = {}));
 class EventObj {
     // public notableCrashes: ; //TODO
-    constructor(track, date, classes, flips) {
-        this.track = track;
-        this.date = utilities_1.makeDate(date);
+    constructor(trackName, date, classes, flips) {
+        this.trackName = trackName;
+        this.date = makeDate(date);
         this.classes = classes;
         this.flips = flips;
     }

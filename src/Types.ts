@@ -1,6 +1,16 @@
 //this is copied between client and server - make sure they stay in sync
 
-import { makeDate } from "./utilities";
+export function makeDate(input: string | Date): Date
+{
+	if (input instanceof Date)
+	{
+		const d = new Date(Date.UTC(input.getFullYear(), input.getMonth(), input.getUTCDate()));
+		return d;
+	}
+	const d = new Date(Date.parse(input));
+	const fixedDate = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getUTCDate()));
+	return fixedDate;
+}
 
 export class Track
 {
@@ -111,25 +121,25 @@ export enum TrackTypeEnum {OVAL, FIGURE_8, ROAD_COURSE}
 
 export class EventObj
 {
-	public track: TrackName;
+	public trackName: TrackName;
   public date: Date;
   public classes: string;
   public flips: Flip[];
   // public notableCrashes: ; //TODO
 
-  constructor(track: TrackName, date: Date | string, classes: string, flips: Flip[])
+  constructor(trackName: TrackName, date: Date | string, classes: string, flips: Flip[])
   {
-		this.track = track;
+		this.trackName = trackName;
     this.date = makeDate(date);
     this.classes = classes;
     this.flips = flips;
   }
 
 	//TODO: this probably doesn't work
-  static parseJson(json: any): EventObj
-  {
-    return new EventObj(json["trackName"], json["date"], json["classes"], json["flips"]); //TODO: flips probably won't work
-  }
+  // static parseJson(json: any): EventObj
+  // {
+  //   return new EventObj(json["trackName"], json["date"], json["classes"], json["flips"]); //TODO: flips probably won't work
+  // }
 }
 
 export class Flip

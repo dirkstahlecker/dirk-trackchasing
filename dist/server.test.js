@@ -281,9 +281,9 @@ it('gets date from event string', () => {
 it('makes dates correctly with different timezones', () => {
     //try to make dates in all different manners.
     //should try this in different computer timezones and make sure it passes
-    const date1 = utilities_1.makeDate("11-08-20");
-    const date2 = utilities_1.makeDate(new Date("11-08-20"));
-    const date3 = utilities_1.makeDate(new Date(Date.parse("11-08-20")));
+    const date1 = Types_1.makeDate("11-08-20");
+    const date2 = Types_1.makeDate(new Date("11-08-20"));
+    const date3 = Types_1.makeDate(new Date(Date.parse("11-08-20")));
     expect(date1.getTime()).toEqual(date2.getTime());
     expect(date1.getTime()).toEqual(date3.getTime());
     expect(utilities_1.compareDates(date1, date2)).toBeTruthy();
@@ -327,6 +327,12 @@ it('returns list of EventInfos with recap', async () => {
     expect(utilities_1.compareDates(recaps[0].date, new Date("7-3-20"))).toBeTruthy();
     expect(utilities_1.compareDates(recaps[1].date, new Date("8-23-20"))).toBeTruthy();
     expect(utilities_1.compareDates(recaps[2].date, new Date("11-6-20"))).toBeTruthy();
+});
+it('returns the track object for a track name', async () => {
+    let track = await app_1.ServerApp.getTrackObjForName(Types_1.TrackName.parse("Big Diamond Speedway"));
+    expect(track.print()).toEqual("Big Diamond SpeedwayPA0");
+    track = await app_1.ServerApp.getTrackObjForName(Types_1.TrackName.parse("Seekonk Speedway (Asphalt Figure 8)"));
+    expect(track.print()).toEqual("Seekonk Speedway (Asphalt Figure 8)MA1");
 });
 //does a recap for a configuration even make sense? It's always going to be with a full track right?
 // it('returns event recap for configuration')

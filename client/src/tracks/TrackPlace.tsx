@@ -58,7 +58,7 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 			{this.props.machine.events.map((event: EventObj) => (
 				<button onClick={() => this.props.navMachine.goToEventPage(this.currentTrack, event)}>
 					<EventTile
-						key={event.date}
+						// key={event.date}
 						event={event}
 					/>
 				</button>
