@@ -3,10 +3,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Parser = void 0;
+exports.Parser = exports.runningJestTest = void 0;
 const path_1 = __importDefault(require("path"));
 const Types_1 = require("./Types");
-const app_1 = require("./app");
+const utilities_1 = require("./utilities");
 var fs = require('fs');
 let parsedJson = null;
 let _flipsData = null;
@@ -14,12 +14,14 @@ const FLIPS_HEADER = "Flips";
 const DATA_PATH = "/../events_data.json";
 const TEST_DATA_PATH = "/../events_data_test.json";
 const STATS_HEADER = "Stats";
+//utility function used to change the data path when running as a test
+function runningJestTest() {
+    return process.env.JEST_WORKER_ID !== undefined;
+}
+exports.runningJestTest = runningJestTest;
 class Parser {
-    static runningJestTest() {
-        return process.env.JEST_WORKER_ID !== undefined;
-    }
     static get dataPath() {
-        return this.runningJestTest() ? TEST_DATA_PATH : DATA_PATH;
+        return runningJestTest() ? TEST_DATA_PATH : DATA_PATH;
     }
     static async flipsData() {
         if (_flipsData == null) {
@@ -48,7 +50,7 @@ class Parser {
                 openWheel = true;
             }
             // console.log(flipInfo["Date"]);
-            const dateToAdd = app_1.makeDate(flipInfo["Date"]);
+            const dateToAdd = utilities_1.makeDate(flipInfo["Date"]);
             const newObjToAdd = {
                 flipId: flipId,
                 trackNameObj: trackNameObj,

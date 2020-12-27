@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.makeDate = exports.compareDates = void 0;
 function cleanDate(dateRaw) {
     throw new Error("Not implemented");
     // if (dateRaw === undefined)
@@ -45,4 +48,18 @@ function cleanDate(dateRaw) {
     // return date;
 }
 exports.cleanDate = cleanDate;
+function compareDates(date1, date2) {
+    return makeDate(date1).getTime() === makeDate(date2).getTime();
+}
+exports.compareDates = compareDates;
+function makeDate(input) {
+    if (input instanceof Date) {
+        const d = new Date(Date.UTC(input.getFullYear(), input.getMonth(), input.getUTCDate()));
+        return d;
+    }
+    const d = new Date(Date.parse(input));
+    const fixedDate = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getUTCDate()));
+    return fixedDate;
+}
+exports.makeDate = makeDate;
 //# sourceMappingURL=utilities.js.map

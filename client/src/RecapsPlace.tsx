@@ -63,7 +63,7 @@ export class RecapsPlace extends React.Component<RecapsPlaceProps>
         this.props.machine.eventsWithRecap?.map((eventStr: string) => {
           const {date, track} = this.props.machine.decodeEventFromString(eventStr);
           return <div key={eventStr}>
-            <button onClick={() => this.props.navMachine.goToEventPage(track,)}>{date.toString()}: {track.print()}</button>
+            {/* <button onClick={() => this.props.navMachine.goToEventPage(track,)}>{date.toString()}: {track.print()}</button> */}
           </div>;
         })
       }

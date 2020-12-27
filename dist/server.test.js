@@ -2,11 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const app_1 = require("./app");
 const Types_1 = require("./Types");
+const utilities_1 = require("./utilities");
 //npm run test
-//just comparing a date to a new Date() doesn't work because it embeds timezome information
-function compareDates(date1, date2) {
-    return app_1.makeDate(date1).getTime() === app_1.makeDate(date2).getTime();
-}
 it('track name and configuration', () => {
     let info = Types_1.TrackName.parse("Seekonk Speedway");
     expect(info.baseName).toBe("Seekonk Speedway");
@@ -259,7 +256,7 @@ it('flip objects', async () => {
     expect(flip.rotations).toEqual("1");
     expect(flip.video).toBeTruthy();
     expect(flip.surface).toEqual("Dirt");
-    expect(compareDates(flip.date, new Date('8-09-19'))).toBeTruthy();
+    expect(utilities_1.compareDates(flip.date, new Date('8-09-19'))).toBeTruthy();
     flips = await app_1.ServerApp.getFlipsForTrack(Types_1.TrackName.parse("Lincoln Speedway"));
     flip = flips.find((f) => {
         return f.carClass === "Super Late Model";
@@ -272,52 +269,67 @@ it('flip objects', async () => {
     expect(flip.when).toEqual("Main");
     expect(flip.notes).toBeTruthy();
     expect(flip.notes.includes("Turn 3")).toBeTruthy();
-    expect(compareDates(flip.date, new Date("8-20-20"))).toBeTruthy();
+    expect(utilities_1.compareDates(flip.date, new Date("8-20-20"))).toBeTruthy();
 });
 it('gets date from event string', () => {
     let date = app_1.ServerApp.getDateFromEventString('11-06-20: URC 360 Sprint Cars');
-    expect(compareDates(date, new Date('11-06-20'))).toBeTruthy();
+    expect(utilities_1.compareDates(date, new Date('11-06-20'))).toBeTruthy();
     date = app_1.ServerApp.getDateFromEventString("2-5-19: Doesn't matter what we put here");
-    expect(compareDates(date, new Date('02-05-19'))).toBeTruthy();
-    expect(compareDates(date, new Date('2-05-19'))).toBeTruthy();
+    expect(utilities_1.compareDates(date, new Date('02-05-19'))).toBeTruthy();
+    expect(utilities_1.compareDates(date, new Date('2-05-19'))).toBeTruthy();
 });
 it('makes dates correctly with different timezones', () => {
     //try to make dates in all different manners.
     //should try this in different computer timezones and make sure it passes
-    const date1 = app_1.makeDate("11-08-20");
-    const date2 = app_1.makeDate(new Date("11-08-20"));
-    const date3 = app_1.makeDate(new Date(Date.parse("11-08-20")));
+    const date1 = utilities_1.makeDate("11-08-20");
+    const date2 = utilities_1.makeDate(new Date("11-08-20"));
+    const date3 = utilities_1.makeDate(new Date(Date.parse("11-08-20")));
     expect(date1.getTime()).toEqual(date2.getTime());
     expect(date1.getTime()).toEqual(date3.getTime());
-    expect(compareDates(date1, date2)).toBeTruthy();
-    expect(compareDates(date1, date3)).toBeTruthy();
+    expect(utilities_1.compareDates(date1, date2)).toBeTruthy();
+    expect(utilities_1.compareDates(date1, date3)).toBeTruthy();
 });
 //more detailed, enriched with other information
 it('returns enriched event info', async () => {
     let eventInfo = await app_1.ServerApp.getEnrichedEventInfoForDate(Types_1.TrackName.parse("Bridgeport Motorsports Park"), "11-08-20");
     expect(eventInfo.classes).toEqual("Big Block Modifieds, 602 Sportsman Modifieds, USAC SpeedSTRs, Street Stocks");
-    expect(compareDates(eventInfo.date, new Date('11-08-20'))).toBeTruthy();
+    expect(utilities_1.compareDates(eventInfo.date, new Date('11-08-20'))).toBeTruthy();
     expect(eventInfo.flips.length).toEqual(3);
     expect(eventInfo.flips[0].carClass).toEqual("USAC SpeedSTR");
     eventInfo = await app_1.ServerApp.getEnrichedEventInfoForDate(Types_1.TrackName.parse("Kokomo Speedway"), "8-27-20");
     expect(eventInfo.classes).toEqual("Smackdown IX: USAC National Sprint Cars");
-    expect(compareDates(eventInfo.date, new Date('8-27-20'))).toBeTruthy();
+    expect(utilities_1.compareDates(eventInfo.date, new Date('8-27-20'))).toBeTruthy();
     expect(eventInfo.flips.length).toEqual(2);
     expect(eventInfo.flips[0].carClass).toEqual("Wingless 410 Sprint Car");
     eventInfo = await app_1.ServerApp.getEnrichedEventInfoForDate(Types_1.TrackName.parse("Texas Motor Speedway (Asphalt Road Course"), "6-9-18");
     expect(eventInfo.classes).toEqual("Verizon IndyCar Series, Stadium Super Trucks [Asphalt Road Course]");
-    expect(compareDates(eventInfo.date, new Date('6-9-18'))).toBeTruthy();
+    expect(utilities_1.compareDates(eventInfo.date, new Date('6-9-18'))).toBeTruthy();
     expect(eventInfo.flips.length).toEqual(1);
     expect(eventInfo.flips[0].carClass).toEqual("Stadium Super Truck");
 });
 it('returns all enriched event infos for a track', async () => {
     let eventInfos = await app_1.ServerApp.getAllEnrichedEventInfosForTrack(Types_1.TrackName.parse("Bridgeport Motorsports Park"));
     expect(eventInfos.length).toBe(3);
-    expect(compareDates(eventInfos[0].date, new Date('11-06-20'))).toBeTruthy();
+    expect(utilities_1.compareDates(eventInfos[0].date, new Date('11-06-20'))).toBeTruthy();
     expect(eventInfos[0].flips.length).toEqual(2);
-    expect(compareDates(eventInfos[2].date, new Date('11-08-20'))).toBeTruthy();
+    expect(utilities_1.compareDates(eventInfos[2].date, new Date('11-08-20'))).toBeTruthy();
     expect(eventInfos[2].classes).toContain("Big Block Modifieds, 602 Sportsman Modifieds");
 });
+it('returns recap string for a specific event', async () => {
+    let recap = await app_1.ServerApp.getSpecificEventRecap(new Date("7-3-20"), Types_1.TrackName.parse("Big Diamond Speedway"));
+    expect(recap).toEqual("Testing big diamond. Another sentence.");
+    recap = await app_1.ServerApp.getSpecificEventRecap(new Date("11-06-20"), Types_1.TrackName.parse("Bridgeport Motorsports Park"));
+    expect(recap).toEqual("Bridgeport first day. First time entering facility at night.\nAnother paragraph.");
+});
+fit('returns list of EventInfos with recap', async () => {
+    let recaps = await app_1.ServerApp.getEventsWithRecaps();
+    expect(recaps.length).toEqual(3);
+    expect(utilities_1.compareDates(recaps[0].date, new Date("7-3-20"))).toBeTruthy();
+    expect(utilities_1.compareDates(recaps[1].date, new Date("8-23-20"))).toBeTruthy();
+    expect(utilities_1.compareDates(recaps[2].date, new Date("11-6-20"))).toBeTruthy();
+});
+//does a recap for a configuration even make sense? It's always going to be with a full track right?
+// it('returns event recap for configuration')
 //TODO: currently breaks
 // test('capitalization', () => {
 // 	expect(server.getCountForTrack("seeKoNK speedWAY")).toBe(46);
