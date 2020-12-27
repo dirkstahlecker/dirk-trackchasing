@@ -12,6 +12,7 @@ const DATA_PATH = "/../events_data.json";
 const TEST_DATA_PATH = "/../events_data_test.json";
 const STATS_HEADER = "Stats";
 
+//utility function used to change the data path when running as a test
 export function runningJestTest() 
 {
 	return process.env.JEST_WORKER_ID !== undefined;

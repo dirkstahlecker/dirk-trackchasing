@@ -367,6 +367,22 @@ it('returns all enriched event infos for a track', async() => {
 	expect(eventInfos[2].classes).toContain("Big Block Modifieds, 602 Sportsman Modifieds");
 });
 
+it('returns list of EventInfos with recap', async() => {
+	let recaps = await ServerApp.getSpecificEventRecap(new Date("7-3-20"), TrackName.parse("Big Diamond Speedway"));
+	console.log(recaps);
+});
+
+it('returns recap string for a specific event', async() => {
+	let recap = await ServerApp.getSpecificEventRecap(new Date("7-3-20"), TrackName.parse("Big Diamond Speedway"));
+	expect(recap).toEqual("Testing big diamond. Another sentence.");
+
+	recap = await ServerApp.getSpecificEventRecap(new Date("11-06-20"), TrackName.parse("Bridgeport Motorsports Park"));
+	expect(recap).toEqual("Bridgeport first day. First time entering facility at night.\nAnother paragraph.");
+});
+
+//does a recap for a configuration even make sense? It's always going to be with a full track right?
+// it('returns event recap for configuration')
+
 
 //TODO: currently breaks
 // test('capitalization', () => {

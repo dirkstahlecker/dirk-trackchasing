@@ -23,6 +23,7 @@ export class RecapsPlaceMachine
     runInAction(() => this.eventsWithRecap = recapJson);
   }
 
+  //copied in server in eventRecaps.ts
   public decodeEventFromString(inputStr: string): {date: Date, track: TrackName}
   {
     // const {date: Date, track: TrackName} = 

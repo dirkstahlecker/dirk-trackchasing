@@ -1,7 +1,7 @@
 import path from 'path';
-import { makeDate } from './app';
+import { makeDate, ServerApp } from './app';
 import { runningJestTest } from './parser';
-import { EventInfo, TrackName } from './Types';
+import { EventInfo, Track, TrackName } from './Types';
 var fs = require('fs');
 
 
@@ -12,6 +12,20 @@ function makeKeyStr(date: Date, trackName: TrackName): string
   const day: number = date.getDate() + 1;
   const year: number = date.getFullYear();
   return month + '-' + day + '-' + year + ':' + trackName.print();
+}
+
+function unpackFromKey(keyStr: string): {date: Date, track: TrackName}
+{
+  // const {date: Date, track: TrackName} = 
+  const pieces: string[] = keyStr.split(":");
+  if (pieces.length != 2)
+  {
+    throw new Error("input string isn't decodable to date and trackName");
+  }
+  const date: Date = new Date(pieces[0]);
+  const track: TrackName = TrackName.parse(pieces[1]);
+
+  return {date, track};
 }
 
 type EventRecapsObj =
@@ -31,7 +45,6 @@ export abstract class EventRecaps
 	{
 		return runningJestTest() ? this.TEST_DATA_PATH : this.DATA_PATH;
 	}
-  // private static dataPath: string = "../event_recaps.txt";
 
   private static fullEventsObj: EventRecapsObj = {};
 
@@ -75,18 +88,18 @@ export abstract class EventRecaps
     }
   }
 
-  public static getListOfEventsWithRecap(): EventInfo[]
+  public static async getListOfEventsWithRecap(): Promise<EventInfo[]>
   {
-    const ret: string[] = [];
+    const ret: EventInfo[] = [];
     //return a list of strings, where the string is the date and track made by the makeKey function
-    for (let obj in EventRecaps.fullEventsObj)
+    for (let objKey in EventRecaps.fullEventsObj)
     {
-      ret.push(obj);
+      const {date, track} = unpackFromKey(objKey);
+      const eventInfo: EventInfo = await ServerApp.getEnrichedEventInfoForDate(track, date);
+      ret.push(eventInfo);
     }
 
-    // getEnrichedEventInfoForDate
-
-    return [];
+    return ret;
   }
 
   public static getRecapForEvent(dateRaw: Date | string, track: TrackName): string | null
