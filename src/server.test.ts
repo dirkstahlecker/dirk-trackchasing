@@ -1,13 +1,8 @@
-import {makeDate, ServerApp} from "./app";
-import {Flip, Track, TrackName, TrackTypeEnum} from "./Types";
+import {ServerApp} from "./app";
+import {EventInfo, Flip, Track, TrackName, TrackTypeEnum} from "./Types";
+import { compareDates, makeDate } from "./utilities";
 
 //npm run test
-
-//just comparing a date to a new Date() doesn't work because it embeds timezome information
-function compareDates(date1: Date, date2: Date): boolean
-{
-	return makeDate(date1).getTime() === makeDate(date2).getTime();
-}
 
 it('track name and configuration', () => {
 	let info: TrackName = TrackName.parse("Seekonk Speedway");
@@ -367,11 +362,6 @@ it('returns all enriched event infos for a track', async() => {
 	expect(eventInfos[2].classes).toContain("Big Block Modifieds, 602 Sportsman Modifieds");
 });
 
-it('returns list of EventInfos with recap', async() => {
-	let recaps = await ServerApp.getSpecificEventRecap(new Date("7-3-20"), TrackName.parse("Big Diamond Speedway"));
-	console.log(recaps);
-});
-
 it('returns recap string for a specific event', async() => {
 	let recap = await ServerApp.getSpecificEventRecap(new Date("7-3-20"), TrackName.parse("Big Diamond Speedway"));
 	expect(recap).toEqual("Testing big diamond. Another sentence.");
@@ -379,6 +369,16 @@ it('returns recap string for a specific event', async() => {
 	recap = await ServerApp.getSpecificEventRecap(new Date("11-06-20"), TrackName.parse("Bridgeport Motorsports Park"));
 	expect(recap).toEqual("Bridgeport first day. First time entering facility at night.\nAnother paragraph.");
 });
+
+fit('returns list of EventInfos with recap', async() => {
+	let recaps: EventInfo[] = await ServerApp.getEventsWithRecaps();
+	expect(recaps.length).toEqual(3);
+	expect(compareDates(recaps[0].date, new Date("7-3-20"))).toBeTruthy();
+	expect(compareDates(recaps[1].date, new Date("8-23-20"))).toBeTruthy();
+	expect(compareDates(recaps[2].date, new Date("11-6-20"))).toBeTruthy();
+});
+
+
 
 //does a recap for a configuration even make sense? It's always going to be with a full track right?
 // it('returns event recap for configuration')

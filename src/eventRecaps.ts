@@ -1,7 +1,8 @@
 import path from 'path';
-import { makeDate, ServerApp } from './app';
+import { ServerApp } from './app';
 import { runningJestTest } from './parser';
 import { EventInfo, Track, TrackName } from './Types';
+import { makeDate } from './utilities';
 var fs = require('fs');
 
 

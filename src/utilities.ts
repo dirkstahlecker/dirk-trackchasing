@@ -53,3 +53,20 @@ function cleanDate(dateRaw: string)
 }
 
 exports.cleanDate = cleanDate;
+
+export function compareDates(date1: Date, date2: Date): boolean
+{
+	return makeDate(date1).getTime() === makeDate(date2).getTime();
+}
+
+export function makeDate(input: string | Date): Date
+{
+	if (input instanceof Date)
+	{
+		const d = new Date(Date.UTC(input.getFullYear(), input.getMonth(), input.getUTCDate()));
+		return d;
+	}
+	const d = new Date(Date.parse(input));
+	const fixedDate = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getUTCDate()));
+	return fixedDate;
+}

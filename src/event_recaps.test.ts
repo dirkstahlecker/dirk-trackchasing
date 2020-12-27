@@ -1,6 +1,6 @@
-import { makeDate } from "./app";
 import { EventRecaps } from "./eventRecaps";
 import { TrackName } from "./Types";
+import { makeDate } from "./utilities";
 
 it('parses the event recap text file properly', async() => {
   await EventRecaps.parse();

@@ -1,21 +1,10 @@
 import { EventRecaps } from "./eventRecaps";
 import {Parser} from './parser';
 import {EventInfo, Flip, TrackName, Track, TrackTypeEnum} from "./Types";
+import { compareDates, makeDate } from "./utilities";
 
 const TRACK_ORDER_HEADER = "Track Order"; //track order sheet, the main reference for each track
 const RACES_HEADER = "Races";
-
-export function makeDate(input: string | Date): Date
-{
-	if (input instanceof Date)
-	{
-		const d = new Date(Date.UTC(input.getFullYear(), input.getMonth(), input.getUTCDate()));
-		return d;
-	}
-	const d = new Date(Date.parse(input));
-	const fixedDate = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getUTCDate()));
-	return fixedDate;
-}
 
 export abstract class ServerApp
 {
@@ -239,7 +228,7 @@ export abstract class ServerApp
 		const eventStrings = await this.getEventStringsForTrack(trackNameObj); //TODO: inefficient - stop when we find it
 		const eventString = eventStrings.find((event) => {
 			const eventDate = this.getDateFromEventString(event);
-			return eventDate.getTime() === dateObj.getTime();
+			return compareDates(eventDate, dateObj);
 		});
 
 		return this.makeEnrichedEventInfoHelper(eventString, trackNameObj, dateObj);
