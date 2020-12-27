@@ -58,7 +58,7 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 			{this.props.machine.events.map((event: EventObj) => (
 				<button onClick={() => this.props.navMachine.goToEventPage(this.currentTrack, event)}>
 					<EventTile
-						// key={event.date}
+						key={event.date.getTime()}
 						event={event}
 					/>
 				</button>
@@ -84,14 +84,14 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 				Flips: Total Number: {this.currentTrack.flips.length}
 				<br/>
 				<br/>
-				{
+				{/* {
 					this.currentTrack.flips.map((flip: Flip) => {
 						return <img //TODO: this needs work
 							src={TrackInfoMachine.flipGifPath(this.currentTrack!!.trackNameObj.print(), flip.flipId)}
 							key={flip.flipId}
 						/>
 					})
-				}
+				} */}
 				<br/>
 				Events: {this.renderEvents()}
 				

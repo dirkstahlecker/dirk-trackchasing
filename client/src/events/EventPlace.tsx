@@ -46,7 +46,7 @@ export class EventPlace extends React.Component<EventPlaceProps>
     const event: EventObj = this.props.event;
     return <div className="event-place">
       <button onClick={() => this.props.navMachine.goToTrackPage(this.props.track)}>Back</button>
-      <div>Event at {this.props.track.trackNameObj.print()} on {this.props.event.date}</div>
+      <div>Event at {this.props.track.trackNameObj.print()} on {this.props.event.date.toString()}</div>
       <br/>
       <div>Classes: {event.classes}</div>
       <div>
