@@ -92,10 +92,6 @@ class EventObj {
         this.classes = classes;
         this.flips = flips;
     }
-    //TODO: this probably doesn't work
-    static parseJson(json) {
-        return new EventObj(json["trackName"], json["date"], json["classes"], json["flips"]); //TODO: flips probably won't work
-    }
 }
 exports.EventObj = EventObj;
 class Flip {

@@ -1,3 +1,4 @@
+import { transform } from "typescript";
 import {ServerApp} from "./app";
 import {EventObj, Flip, makeDate, Track, TrackName, TrackTypeEnum} from "./Types";
 import { compareDates } from "./utilities";
@@ -272,7 +273,8 @@ it('number of flips per track', async() => {
 });
 
 it('flip objects', async() => {
-	let flips = await ServerApp.getFlipsForTrack(TrackName.parse("Pocatello Speedway (Inner Dirt Oval"));
+	let trackNameObj: TrackName = TrackName.parse("Pocatello Speedway (Inner Dirt Oval");
+	let flips = await ServerApp.getFlipsForTrack(trackNameObj);
 	expect(flips.length).toBe(1);
 
 	let flip = flips[0];
@@ -281,8 +283,10 @@ it('flip objects', async() => {
 	expect(flip.openWheel).toBeTruthy();
 	expect(flip.rotations).toEqual("1/4");
 	expect(flip.video).toBeFalsy();
+	expect(TrackName.equals(trackNameObj, flip.trackNameObj)).toBeTruthy();
 
-	flips = await ServerApp.getFlipsForTrack(TrackName.parse("Knoxville Raceway"));
+	trackNameObj = TrackName.parse("Knoxville Raceway");
+	flips = await ServerApp.getFlipsForTrack(trackNameObj);
 	flip = flips.find((f: Flip) => {
 		return f.when === "A Main"; //Knoxville only has one flip in a A main
 	});
@@ -293,8 +297,10 @@ it('flip objects', async() => {
 	expect(flip.video).toBeTruthy();
 	expect(flip.surface).toEqual("Dirt");
 	expect(compareDates(flip.date, new Date('8-09-19'))).toBeTruthy();
+	expect(TrackName.equals(trackNameObj, flip.trackNameObj)).toBeTruthy();
 
-	flips = await ServerApp.getFlipsForTrack(TrackName.parse("Lincoln Speedway"));
+	trackNameObj = TrackName.parse("Lincoln Speedway");
+	flips = await ServerApp.getFlipsForTrack(trackNameObj);
 	flip = flips.find((f: Flip) => {
 		return f.carClass === "Super Late Model";
 	});
@@ -307,6 +313,7 @@ it('flip objects', async() => {
 	expect(flip.notes).toBeTruthy();
 	expect(flip.notes.includes("Turn 3")).toBeTruthy();
 	expect(compareDates(flip.date, new Date("8-20-20"))).toBeTruthy();
+	expect(TrackName.equals(trackNameObj, flip.trackNameObj)).toBeTruthy();
 });
 
 it('gets date from event string', () => {
