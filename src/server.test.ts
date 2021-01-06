@@ -340,12 +340,14 @@ it('makes dates correctly with different timezones', () => {
 });
 
 //more detailed, enriched with other information
-it('returns enriched event info', async() => {
-	let eventInfo = await ServerApp.getEnrichedEventInfoForDate(TrackName.parse("Bridgeport Motorsports Park"), "11-08-20");
+fit('returns enriched event info', async() => {
+	let trackNameObj: TrackName = TrackName.parse("Bridgeport Motorsports Park");
+	let eventInfo = await ServerApp.getEnrichedEventInfoForDate(trackNameObj, "11-08-20");
 	expect(eventInfo.classes).toEqual("Big Block Modifieds, 602 Sportsman Modifieds, USAC SpeedSTRs, Street Stocks");
 	expect(compareDates(eventInfo.date, new Date('11-08-20'))).toBeTruthy();
 	expect(eventInfo.flips.length).toEqual(3);
 	expect(eventInfo.flips[0].carClass).toEqual("USAC SpeedSTR");
+	expect(TrackName.equals(trackNameObj, eventInfo.flips[0].trackNameObj)).toBeTruthy();
 
 	eventInfo = await ServerApp.getEnrichedEventInfoForDate(TrackName.parse("Kokomo Speedway"), "8-27-20");
 	expect(eventInfo.classes).toEqual("Smackdown IX: USAC National Sprint Cars");

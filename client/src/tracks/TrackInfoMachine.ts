@@ -42,32 +42,6 @@ export class TrackInfoMachine
 		return this.tracks.find((track) => {TrackName.equals(track.trackNameObj, trackNameObj)});
 	}
 
-	private makeFlipObject(flipJson: Array<Object> | undefined): Flip[]
-	{
-		if (flipJson === undefined)
-		{
-			return [];
-		}
-
-		const flips: Flip[] = [];
-		flipJson.forEach((flipObj: any) => {
-			flips.push(new Flip(
-				flipObj["track"], //TODO: what's the right thing here?
-				flipObj["flipId"],
-				flipObj["date"], 
-				flipObj["class"], 
-				flipObj["rotations"], 
-				flipObj["surface"], 
-				flipObj["openWheel"], 
-				flipObj["when"], 
-				flipObj["video"], 
-				flipObj["notes"]
-			));
-		});
-
-		return flips;
-	}
-
 	//Update with new information from the server
 	public async fetchInfo(): Promise<void>
 	{
@@ -78,7 +52,7 @@ export class TrackInfoMachine
     {
     	const trackInfo: Track = infos[i];
 
-    	const flips: Flip[] | null = this.makeFlipObject(trackInfo["flips"]);
+    	const flips: Flip[] | null = Flip.makeFlipObjectsFromJson(trackInfo["flips"]);
     	// const trackType: TrackTypeEnum = TrackInfoMachine.getTrackTypeEnumFromString(trackInfo.trackType);
 
     	const trackObj: Track = new Track(

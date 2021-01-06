@@ -136,10 +136,30 @@ export class EventObj
   }
 
 	//TODO: this probably doesn't work
-  // static parseJson(json: any): EventObj
-  // {
-  //   return new EventObj(json["trackName"], json["date"], json["classes"], json["flips"]); //TODO: flips probably won't work
-  // }
+  static parseJson(json: any): EventObj
+  {
+		const flips: Flip[] = [];
+		const jsonFlipsRaw = json["flips"];
+
+		for (let i: number = 0; i < jsonFlipsRaw.length; i++)
+		{
+			const flipRaw = jsonFlipsRaw[i];
+			const newTrackName: TrackName = new TrackName(
+				flipRaw["baseName"], 
+				flipRaw["configuration"], 
+				flipRaw["isConfiguration"]
+			);
+			const newFlip: Flip = new Flip(newTrackName, flipRaw["flipId"], flipRaw["date"], flipRaw["carClass"],
+				flipRaw["rotations"], flipRaw["surface"], flipRaw["openWheel"], flipRaw["when"], flipRaw["video"], 
+				flipRaw["notes"]
+			);
+			
+			flips.push(newFlip);
+		}
+		
+
+    return new EventObj(json["trackName"], json["date"], json["classes"], json["flips"]); //TODO: flips probably won't work
+  }
 }
 
 export class Flip
