@@ -105,7 +105,7 @@ export class TrackInfoMachine
   public static flipGifPath(trackName: string, flipId: string): string
   {
   	return "assets/flips/gifs/" + flipId + "_" + trackName.replaceAll(" ", "_") + ".gif";
-  }
+	}
 
   public static getTrackTypeEnumFromString(typeStr: string): TrackTypeEnum
   {

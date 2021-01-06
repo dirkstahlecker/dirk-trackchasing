@@ -76,3 +76,4 @@ export class RecapsPlace extends React.Component<RecapsPlaceProps>
     </div>;
   }
 }
+ 

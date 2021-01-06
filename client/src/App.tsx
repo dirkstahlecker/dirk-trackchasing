@@ -266,3 +266,7 @@ export default App;
 
 //TODO: trackchaserDirk email doesn't forward to me properly
 //TODO: events don't work when there's no date (like with Pocatello)
+//TODO: I think heroku think's it's running as a test so it shows the wrong recap
+
+//I think event recaps shouldn't be on the server - I'll want to embed pictures with them, so they
+//can just be pulled from the client somehow

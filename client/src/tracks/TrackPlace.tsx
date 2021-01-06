@@ -84,15 +84,6 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 				Flips: Total Number: {this.currentTrack.flips.length}
 				<br/>
 				<br/>
-				{/* {
-					this.currentTrack.flips.map((flip: Flip) => {
-						return <img //TODO: this needs work
-							src={TrackInfoMachine.flipGifPath(this.currentTrack!!.trackNameObj.print(), flip.flipId)}
-							key={flip.flipId}
-						/>
-					})
-				} */}
-				<br/>
 				Events: {this.renderEvents()}
 				
 			</div>
