@@ -5,6 +5,7 @@ import { EventObj, Track, Flip, TrackName } from '../Types';
 import {FlipTile} from "./FlipTile";
 import { NavigationMachine } from '../NavigationMachine';
 import { TrackInfoMachine } from '../tracks/TrackInfoMachine';
+import { compareDates } from '../utilities';
 
 export class EventPlaceMachine
 {
@@ -42,16 +43,6 @@ export class EventPlace extends React.Component<EventPlaceProps>
     this.props.machine.fetchEventRecap(this.props.event.date, this.props.track.trackNameObj.print());
   }
 
-  private renderFlipVideo(flip: Flip): JSX.Element
-  {
-    return <video width="320" height="240" controls>
-      <source src={`assets/flips/mp4/${flip.flipId}.mp4`} type="video/mp4"/>
-      Your browser does not support the video tag.
-    </video>;
-
-    //TODO: multiple videos, like texas (onboard and outside)
-  }
-
   render()
   {
     const event: EventObj = this.props.event;
@@ -70,9 +61,9 @@ export class EventPlace extends React.Component<EventPlaceProps>
         })}
       </div>
 
-      {
+      {/* {
         this.props.track.flips.map((flip: Flip) => {
-          if (TrackName.equals(flip.trackNameObj, this.props.track.trackNameObj))
+          if (compareDates(flip.date, this.props.event.date) && flip.video === true)
           {
             return <div key={flip.flipId}>
               {this.renderFlipVideo(flip)}
@@ -80,7 +71,7 @@ export class EventPlace extends React.Component<EventPlaceProps>
           }
           return undefined;
         })
-      }
+      } */}
 
       {/* {
         this.props.track.flips.map((flip: Flip) => {
@@ -94,8 +85,9 @@ export class EventPlace extends React.Component<EventPlaceProps>
       {
         this.props.machine.recapString != null &&
         <div>
-          Event Recap:
-          {this.props.machine.recapString}
+          <a href={`${process.env.PUBLIC_URL}/recaps/${this.props.machine.recapString}.html`}>
+            Event Recap
+          </a>
         </div>
       }
     </div>;

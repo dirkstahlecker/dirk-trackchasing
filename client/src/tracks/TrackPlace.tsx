@@ -1,6 +1,6 @@
 import React from 'react';
 import {observer} from "mobx-react";
-import {observable, action, makeObservable, computed} from "mobx";
+import {observable, action, makeObservable, computed, runInAction} from "mobx";
 import {NavigationMachine} from "../NavigationMachine";
 import {TrackInfoMachine} from "./TrackInfoMachine";
 import { EventTile } from '../events/EventTile';
@@ -22,7 +22,7 @@ export class TrackPlaceMachine
 		const eventsRaw = await fetch('/eventDetails/' + trackName.print());
 		const eventInfos = await eventsRaw.json();
 		eventInfos.forEach((eventInfo: any) => {
-			this.events.push(EventObj.parseJson(eventInfo));
+			runInAction(() => this.events.push(EventObj.parseJson(eventInfo)));
 		})
 	}
 }

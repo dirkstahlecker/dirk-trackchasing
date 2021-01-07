@@ -1,4 +1,5 @@
 import { EventRecaps } from "./eventRecaps";
+import { getRecapStringForTrackAndDate } from "./EventsWithRecap";
 import {Parser} from './parser';
 import {EventObj, Flip, TrackName, Track, TrackTypeEnum, makeDate} from "./Types";
 import { compareDates } from "./utilities";
@@ -286,9 +287,13 @@ export abstract class ServerApp
 		return EventRecaps.getListOfEventsWithRecap();
 	}
 
+	//this was originally written to return the full text of the recap.
+	//I've since changed it to instead send the URL of the HTML recap page
 	public static async getSpecificEventRecap(date: Date | string, trackName: TrackName): Promise<string | null>
 	{
-		await EventRecaps.parse();
-		return EventRecaps.getRecapForEvent(date, trackName);
+		// await EventRecaps.parse();
+		// return EventRecaps.getRecapForEvent(date, trackName);
+
+		return getRecapStringForTrackAndDate(makeDate(date), trackName);
   }
 }
