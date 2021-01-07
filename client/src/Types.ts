@@ -14,6 +14,11 @@ export function makeDate(input: string | Date): Date
 	return fixedDate;
 }
 
+export function printDate(date: Date): string
+{
+	return `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`;
+}
+
 export class Track
 {
 	//data is static, so don't need to be observable (nothing changes without a page reload)
@@ -161,8 +166,12 @@ export class EventObj
 		// 	// flips.push(newFlip);
 		// }
 		
-
-    return new EventObj(json["trackName"], json["date"], json["classes"], flips); //TODO: flips probably won't work
+    return new EventObj(
+			json["trackName"],
+			makeDate(json["date"]),
+			json["classes"],
+			flips
+		);
   }
 }
 

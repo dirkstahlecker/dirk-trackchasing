@@ -203,6 +203,7 @@ export abstract class ServerApp
 		let dateRaw = eventString.split(":")[0];
 		// return utilities.cleanDate(dateRaw);
 		// return new Date(new Date(dateRaw).getTime());
+		console.log(dateRaw);
 		return makeDate(dateRaw);
 	}
 
@@ -231,15 +232,7 @@ export abstract class ServerApp
 	//events are based on base name, and may or may not have a configuration
 	public static async getEnrichedEventInfoForDate(trackNameObj: TrackName, date: Date | string): Promise<EventObj>
 	{
-		let dateObj: Date;
-		if (date instanceof Date)
-		{
-			dateObj = date;
-		}
-		else
-		{
-			dateObj = makeDate(date);
-		}
+		let dateObj: Date = makeDate(date);
 		
 		//TODO: deal with invalid dates that come from old events where I don't know the date
 		const eventStrings = await this.getEventStringsForTrack(trackNameObj); //TODO: inefficient - stop when we find it

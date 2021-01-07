@@ -1,5 +1,7 @@
 //this is copied between client and server - make sure they stay in sync
 
+import { TrackInfoMachine } from "./tracks/TrackInfoMachine";
+
 export function makeDate(input: string | Date): Date
 {
 	if (input instanceof Date)
@@ -10,6 +12,11 @@ export function makeDate(input: string | Date): Date
 	const d = new Date(Date.parse(input));
 	const fixedDate = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getUTCDate()));
 	return fixedDate;
+}
+
+export function printDate(date: Date): string
+{
+	return `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`;
 }
 
 export class Track
@@ -138,27 +145,33 @@ export class EventObj
 	//TODO: this probably doesn't work
   static parseJson(json: any): EventObj
   {
-		const flips: Flip[] = [];
 		const jsonFlipsRaw = json["flips"];
 
-		for (let i: number = 0; i < jsonFlipsRaw.length; i++)
-		{
-			const flipRaw = jsonFlipsRaw[i];
-			const newTrackName: TrackName = new TrackName(
-				flipRaw["baseName"], 
-				flipRaw["configuration"], 
-				flipRaw["isConfiguration"]
-			);
-			const newFlip: Flip = new Flip(newTrackName, flipRaw["flipId"], flipRaw["date"], flipRaw["carClass"],
-				flipRaw["rotations"], flipRaw["surface"], flipRaw["openWheel"], flipRaw["when"], flipRaw["video"], 
-				flipRaw["notes"]
-			);
-			
-			flips.push(newFlip);
-		}
-		
+		const flips: Flip[] = Flip.makeFlipObjectsFromJson(jsonFlipsRaw);
 
-    return new EventObj(json["trackName"], json["date"], json["classes"], json["flips"]); //TODO: flips probably won't work
+		// for (let i: number = 0; i < jsonFlipsRaw.length; i++)
+		// {
+		// 	const flipRaw = jsonFlipsRaw[i];
+		// 	// const nameRaw = flipRaw["trackNameObj"];
+		// 	// const newTrackName: TrackName = new TrackName(
+		// 	// 	nameRaw["baseName"], 
+		// 	// 	nameRaw["configuration"], 
+		// 	// 	nameRaw["isConfiguration"]
+		// 	// );
+		// 	// const newFlip: Flip = new Flip(newTrackName, flipRaw["flipId"], flipRaw["date"], flipRaw["carClass"],
+		// 	// 	flipRaw["rotations"], flipRaw["surface"], flipRaw["openWheel"], flipRaw["when"], flipRaw["video"], 
+		// 	// 	flipRaw["notes"]
+		// 	// );
+			
+		// 	// flips.push(newFlip);
+		// }
+		
+    return new EventObj(
+			json["trackName"],
+			makeDate(json["date"]),
+			json["classes"],
+			flips
+		);
   }
 }
 
@@ -188,6 +201,40 @@ export class Flip
 		this.when = when;
 		this.video = video;
 		this.notes = notes;
+	}
+
+	public static makeFlipObjectsFromJson(flipJson: any): Flip[]
+	{
+		if (flipJson === undefined)
+		{
+			return [];
+		}
+
+		const flips: Flip[] = [];
+		flipJson.forEach((flipObj: any) => {
+
+			const nameRaw = flipObj["trackNameObj"];
+			const newTrackName: TrackName = new TrackName(
+				nameRaw["baseName"], 
+				nameRaw["configuration"], 
+				nameRaw["isConfiguration"]
+			);
+
+			flips.push(new Flip(
+				newTrackName,
+				flipObj["flipId"],
+				flipObj["date"], 
+				flipObj["class"], 
+				flipObj["rotations"], 
+				flipObj["surface"], 
+				flipObj["openWheel"], 
+				flipObj["when"], 
+				flipObj["video"], 
+				flipObj["notes"]
+			));
+		});
+
+		return flips;
 	}
 }
 
