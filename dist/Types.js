@@ -1,7 +1,7 @@
 "use strict";
 //this is copied between client and server - make sure they stay in sync
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Flip = exports.EventObj = exports.TrackTypeEnum = exports.TrackName = exports.Track = exports.makeDate = void 0;
+exports.Flip = exports.EventObj = exports.TrackTypeEnum = exports.TrackName = exports.Track = exports.printDate = exports.makeDate = void 0;
 function makeDate(input) {
     if (input instanceof Date) {
         const d = new Date(Date.UTC(input.getFullYear(), input.getMonth(), input.getUTCDate()));
@@ -12,6 +12,10 @@ function makeDate(input) {
     return fixedDate;
 }
 exports.makeDate = makeDate;
+function printDate(date) {
+    return `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`;
+}
+exports.printDate = printDate;
 class Track {
     constructor(trackNameObj, state, trackType, latitude, longitude, count, flips) {
         this.trackNameObj = trackNameObj;
@@ -92,6 +96,27 @@ class EventObj {
         this.classes = classes;
         this.flips = flips;
     }
+    //TODO: this probably doesn't work
+    static parseJson(json) {
+        const jsonFlipsRaw = json["flips"];
+        const flips = Flip.makeFlipObjectsFromJson(jsonFlipsRaw);
+        // for (let i: number = 0; i < jsonFlipsRaw.length; i++)
+        // {
+        // 	const flipRaw = jsonFlipsRaw[i];
+        // 	// const nameRaw = flipRaw["trackNameObj"];
+        // 	// const newTrackName: TrackName = new TrackName(
+        // 	// 	nameRaw["baseName"], 
+        // 	// 	nameRaw["configuration"], 
+        // 	// 	nameRaw["isConfiguration"]
+        // 	// );
+        // 	// const newFlip: Flip = new Flip(newTrackName, flipRaw["flipId"], flipRaw["date"], flipRaw["carClass"],
+        // 	// 	flipRaw["rotations"], flipRaw["surface"], flipRaw["openWheel"], flipRaw["when"], flipRaw["video"], 
+        // 	// 	flipRaw["notes"]
+        // 	// );
+        // 	// flips.push(newFlip);
+        // }
+        return new EventObj(json["trackName"], makeDate(json["date"]), json["classes"], flips);
+    }
 }
 exports.EventObj = EventObj;
 class Flip {
@@ -106,6 +131,18 @@ class Flip {
         this.when = when;
         this.video = video;
         this.notes = notes;
+    }
+    static makeFlipObjectsFromJson(flipJson) {
+        if (flipJson === undefined) {
+            return [];
+        }
+        const flips = [];
+        flipJson.forEach((flipObj) => {
+            const nameRaw = flipObj["trackNameObj"];
+            const newTrackName = new TrackName(nameRaw["baseName"], nameRaw["configuration"], nameRaw["isConfiguration"]);
+            flips.push(new Flip(newTrackName, flipObj["flipId"], flipObj["date"], flipObj["class"], flipObj["rotations"], flipObj["surface"], flipObj["openWheel"], flipObj["when"], flipObj["video"], flipObj["notes"]));
+        });
+        return flips;
     }
 }
 exports.Flip = Flip;

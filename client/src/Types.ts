@@ -1,16 +1,14 @@
 //this is copied between client and server - make sure they stay in sync
 
-import { TrackInfoMachine } from "./tracks/TrackInfoMachine";
-
 export function makeDate(input: string | Date): Date
 {
 	if (input instanceof Date)
 	{
-		const d = new Date(Date.UTC(input.getFullYear(), input.getMonth(), input.getUTCDate()));
+		const d = new Date(Date.UTC(input.getFullYear(), input.getMonth(), input.getUTCDate(), 12));
 		return d;
 	}
 	const d = new Date(Date.parse(input));
-	const fixedDate = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getUTCDate()));
+	const fixedDate = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getUTCDate(), 12));
 	return fixedDate;
 }
 
