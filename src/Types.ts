@@ -1,7 +1,5 @@
 //this is copied between client and server - make sure they stay in sync
 
-import { TrackInfoMachine } from "./tracks/TrackInfoMachine";
-
 export function makeDate(input: string | Date): Date
 {
 	if (input instanceof Date)
