@@ -76,15 +76,17 @@ export class RecapsPlace extends React.Component<RecapsPlaceProps>
 
 
       <h2>Event Recaps</h2>
-      <a href="/recaps/7-03-20_Big_Diamond.pdf" target="_blank">7-03-21: Big Diamond Speedway</a>
-      <br/>
-      <a href="/recaps/8-23-20_Indiana_State_Fairgrounds.pdf" target="_blank">8-23-21: Indiana State Fairgrounds</a>
-      <br/>
       <a href="/recaps/6-19-20_Tri-State_Speedway.pdf" target="_blank">6-19-20: Tri-State Speedway</a>
+      <br/>
+      <a href="/recaps/7-03-20_Big_Diamond.pdf" target="_blank">7-03-20: Big Diamond Speedway</a>
+      <br/>
+      <a href="/recaps/8-23-20_Indiana_State_Fairgrounds.pdf" target="_blank">8-23-20: Indiana State Fairgrounds</a>
       <br/>
       <a href="/recaps/3-26-21_Boyds_Speedway.pdf" target="_blank">3-26-21: Boyd's Speedway</a>
       <br/>
       <a href="/recaps/5-23-21.pdf" target="_blank">5-23-21: Central Cycle Club and Pomfret Speedway</a>
+      <br/>
+      <a href="/recaps/5-29-21_Fulton_Speedway.pdf" target="_blank">5-29-21: Fulton Speedway</a>
 
     </div>;
   }
