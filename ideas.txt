@@ -1,1 +1,6 @@
 When listing flips, have video clips embedded when possible
+
+
+
+The json thing is too finnicky and hard to diagnose errors, and when things change in the excel sheet
+it's hard to keep in sync. Need to actually do a database.

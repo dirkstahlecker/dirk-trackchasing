@@ -45,6 +45,7 @@ export abstract class ServerApp
 			case "Road Course":
 				return TrackTypeEnum.ROAD_COURSE;
 			default:
+				console.log("###############")
 				throw new Error("Invalid type string " + typeStr + "; cannot convert to TrackTypeEnum")
 		}
 	}
@@ -60,6 +61,7 @@ export abstract class ServerApp
 			const trackRaw: string = tracksList[i];
 			const trackNameObj: TrackName = TrackName.parse(trackRaw);
 			const trackInfo = json[TRACK_ORDER_HEADER][trackRaw]; //TODO: improve this
+
 			const count: number = await this.getCountForTrack(trackNameObj);
 			const flips: Flip[] = await this.getFlipsForTrack(trackNameObj);
 			const trackType: TrackTypeEnum = ServerApp.getTrackTypeEnumForString(trackInfo["Type"]);

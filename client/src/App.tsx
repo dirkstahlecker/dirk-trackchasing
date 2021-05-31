@@ -109,7 +109,7 @@ class App extends React.Component<AppProps>
   {
     return <>
       <h1>Dirk Stahlecker - Trackchaser</h1>
-      <button onClick={() => this.machine.test()}>TEST</button>
+      {/* <button onClick={() => this.machine.test()}>TEST</button> */}
       {
         this.machine.trackInfoMachine.tracks != null && 
         <div>
@@ -118,9 +118,9 @@ class App extends React.Component<AppProps>
             machine={this.machine.mapMachine}
             navMachine={this.machine.navMachine}
           />
-          <div className="quick-stats-area">
+          {/* <div className="quick-stats-area">
             Quick Stats: 
-          </div>
+          </div> */}
         </div>
       }
     </>
@@ -191,11 +191,11 @@ class App extends React.Component<AppProps>
   {
     return <div id="navbar" className="sticky">
       <a onClick={this.navMachine.goHome}>Home</a>
-      <a onClick={this.navMachine.goToAllTracksPage}>Tracks</a>
-      <a onClick={this.navMachine.goToCalendar}>Calendar</a>
+      {/* <a onClick={this.navMachine.goToAllTracksPage}>Tracks</a> */}
+      {/* <a onClick={this.navMachine.goToCalendar}>Calendar</a> */}
       <a onClick={this.navMachine.goToRecapsPage}>Recaps</a>
-      <a onClick={this.navMachine.goToAboutPage}>About</a>
-      <a onClick={this.navMachine.goToContactPage}>Contact</a>
+      {/* <a onClick={this.navMachine.goToAboutPage}>About</a> */}
+      {/* <a onClick={this.navMachine.goToContactPage}>Contact</a> */}
     </div>
   }
 
@@ -264,11 +264,12 @@ class App extends React.Component<AppProps>
 
 export default App;
 
-//TODO: trackchaserDirk email doesn't forward to me properly
 //TODO: events don't work when there's no date (like with Pocatello)
 //TODO: I think heroku think's it's running as a test so it shows the wrong recap
 //TODO: event dates still are time zone dependent (see on events page)
 //TODO: URLs in navigation machine
+//put configurations in popup with base track
+
 
 //I think event recaps shouldn't be on the server - I'll want to embed pictures with them, so they
 //can just be pulled from the client somehow

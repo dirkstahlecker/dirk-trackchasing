@@ -33,6 +33,15 @@
 }
 
 
+a {
+  color: rgb(142, 187, 255);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 
 
 /* Style the navbar */

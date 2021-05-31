@@ -1,1 +1,5 @@
 https://daveceddia.com/deploy-react-express-app-heroku/
+
+npm run debug needed to get console logs
+
+the number column in track order broke everything

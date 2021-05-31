@@ -4,11 +4,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Flip = exports.EventObj = exports.TrackTypeEnum = exports.TrackName = exports.Track = exports.printDate = exports.makeDate = void 0;
 function makeDate(input) {
     if (input instanceof Date) {
-        const d = new Date(Date.UTC(input.getFullYear(), input.getMonth(), input.getUTCDate()));
+        const d = new Date(Date.UTC(input.getFullYear(), input.getMonth(), input.getUTCDate(), 12));
         return d;
     }
     const d = new Date(Date.parse(input));
-    const fixedDate = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getUTCDate()));
+    const fixedDate = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getUTCDate(), 12));
     return fixedDate;
 }
 exports.makeDate = makeDate;

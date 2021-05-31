@@ -51,6 +51,8 @@ export class TrackPopup extends React.Component<TrackPopupProps>
 	{
 		const track: Track = this.props.track;
 
+		console.log(track.trackNameObj)
+
 		return (
 			<Popup
 				key={track.toString()}
