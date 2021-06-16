@@ -193,9 +193,9 @@ class App extends React.Component<AppProps>
       <a onClick={this.navMachine.goHome}>Home</a>
       {/* <a onClick={this.navMachine.goToAllTracksPage}>Tracks</a> */}
       {/* <a onClick={this.navMachine.goToCalendar}>Calendar</a> */}
-      <a onClick={this.navMachine.goToRecapsPage}>Recaps</a>
-      {/* <a onClick={this.navMachine.goToAboutPage}>About</a> */}
-      {/* <a onClick={this.navMachine.goToContactPage}>Contact</a> */}
+      <a onClick={this.navMachine.goToRecapsPage}>Race Recaps</a>
+      <a onClick={this.navMachine.goToAboutPage}>About</a>
+      <a onClick={this.navMachine.goToContactPage}>Contact</a>
     </div>
   }
 

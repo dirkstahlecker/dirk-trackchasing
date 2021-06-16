@@ -60,6 +60,18 @@ export class RecapsPlace extends React.Component<RecapsPlaceProps>
     this.props.machine.fetchEventsWithRecap();
   }
 
+  private recapObjects: {href: string; title: string}[] = [
+    {href: "/recaps/2-01-20_Boardwalk_Hall.pdf", title: "2-01-20: Boardwalk Hall"},
+    {href: "/recaps/6-19-20_Tri-State_Speedway.pdf", title: "6-19-20: Tri-State Speedway"},
+    {href: "/recaps/7-03-20_Big_Diamond.pdf", title: "7-03-20: Big Diamond Speedway"},
+    {href: "/recaps/8-21-20_Lucas_Oil_Raceway.pdf", title: "8-21-20: Lucas Oil Raceway"},
+    {href: "/recaps/8-23-20_Indiana_State_Fairgrounds.pdf", title: "8-23-20: Indiana State Fairgrounds"},
+    {href: "/recaps/3-26-21_Boyds_Speedway.pdf", title: "3-26-21: Boyd's Speedway"},
+    {href: "/recaps/5-23-21.pdf", title: "5-23-21: Central Cycle Club and Pomfret Speedway"},
+    {href: "/recaps/5-29-21_Fulton_Speedway.pdf", title: "5-29-21: Fulton Speedway"},
+    {href: "/recaps/6-13-21_ActionTrackUSA.pdf", title: "6-13-21: ActionTrack USA"},
+  ]
+
   render()
   {
     return <div className="recaps-place" style={{height: "100%"}}>
@@ -74,21 +86,33 @@ export class RecapsPlace extends React.Component<RecapsPlaceProps>
         })
       } */}
 
-
       <h2>Event Recaps</h2>
-      <a href="/recaps/6-19-20_Tri-State_Speedway.pdf" target="_blank">6-19-20: Tri-State Speedway</a>
-      <br/>
-      <a href="/recaps/7-03-20_Big_Diamond.pdf" target="_blank">7-03-20: Big Diamond Speedway</a>
-      <br/>
-      <a href="/recaps/8-23-20_Indiana_State_Fairgrounds.pdf" target="_blank">8-23-20: Indiana State Fairgrounds</a>
-      <br/>
-      <a href="/recaps/3-26-21_Boyds_Speedway.pdf" target="_blank">3-26-21: Boyd's Speedway</a>
-      <br/>
-      <a href="/recaps/5-23-21.pdf" target="_blank">5-23-21: Central Cycle Club and Pomfret Speedway</a>
-      <br/>
-      <a href="/recaps/5-29-21_Fulton_Speedway.pdf" target="_blank">5-29-21: Fulton Speedway</a>
+      {/* <a href="/recaps/2-01-20_Boardwalk_Hall.pdf" target="_blank">2-01-20: Boardwalk Hall</a>
+      <br/> */}
+      {/* <a href="/recaps/6-19-20_Tri-State_Speedway.pdf" target="_blank">6-19-20: Tri-State Speedway</a>
+      <br/> */}
+      {/* <a href="/recaps/7-03-20_Big_Diamond.pdf" target="_blank">7-03-20: Big Diamond Speedway</a>
+      <br/> */}
+      {/* <a href="/recaps/8-21-20_Lucas_Oil_Raceway.pdf" target="_blank">8-21-20: Lucas Oil Raceway</a>
+      <br/> */}
+      {/* <a href="/recaps/8-23-20_Indiana_State_Fairgrounds.pdf" target="_blank">8-23-20: Indiana State Fairgrounds</a>
+      <br/> */}
+      {/* <a href="/recaps/3-26-21_Boyds_Speedway.pdf" target="_blank">3-26-21: Boyd's Speedway</a>
+      <br/> */}
+      {/* <a href="/recaps/5-23-21.pdf" target="_blank">5-23-21: Central Cycle Club and Pomfret Speedway</a>
+      <br/> */}
+      {/* <a href="/recaps/5-29-21_Fulton_Speedway.pdf" target="_blank">5-29-21: Fulton Speedway</a>
+      <br/> */}
+      
+      {
+        this.recapObjects.map((recapObj: {href: string, title: string}) => {
+          return <>
+            <a href={recapObj.href} target="_blank">{recapObj.title}</a>
+            <br/>
+          </>
+        })
+      }
 
     </div>;
   }
 }
- 

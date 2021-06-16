@@ -38,6 +38,10 @@ a {
   text-decoration: none;
 }
 
+.footer a {
+  color: #000;
+}
+
 a:hover {
   text-decoration: underline;
 }
