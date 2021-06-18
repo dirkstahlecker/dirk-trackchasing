@@ -69,7 +69,8 @@ export class RecapsPlace extends React.Component<RecapsPlaceProps>
     {href: "/recaps/3-26-21_Boyds_Speedway.pdf", title: "3-26-21: Boyd's Speedway"},
     {href: "/recaps/5-23-21.pdf", title: "5-23-21: Central Cycle Club and Pomfret Speedway"},
     {href: "/recaps/5-29-21_Fulton_Speedway.pdf", title: "5-29-21: Fulton Speedway"},
-    {href: "/recaps/6-13-21_ActionTrackUSA.pdf", title: "6-13-21: ActionTrack USA"},
+    {href: "/recaps/6-13-21_ActionTrackUSA.pdf", title: "6-13-21: Action Track USA"},
+    {href: "/recaps/6-14-21_Wayne_County_Speedway.pdf", title: "6-14-21: Wayne County Speedway"},
   ]
 
   render()
