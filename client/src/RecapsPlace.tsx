@@ -71,6 +71,7 @@ export class RecapsPlace extends React.Component<RecapsPlaceProps>
     {href: "/recaps/5-29-21_Fulton_Speedway.pdf", title: "5-29-21: Fulton Speedway"},
     {href: "/recaps/6-13-21_ActionTrackUSA.pdf", title: "6-13-21: Action Track USA"},
     {href: "/recaps/6-14-21_Wayne_County_Speedway.pdf", title: "6-14-21: Wayne County Speedway"},
+    {href: "/recaps/6-19-21_Path_Valley_Speedway_Park.pdf", title: "6-19-21: Path Valley Speedway Park"},
   ]
 
   render()
