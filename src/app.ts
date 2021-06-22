@@ -1,4 +1,4 @@
-import { makeQuery, TrackDbObj } from "./database/dbUtils";
+import { makeQuery, Race, TrackDbObj } from "./database/dbUtils";
 import { EventRecaps } from "./eventRecaps";
 import { getRecapStringForTrackAndDate } from "./EventsWithRecap";
 import {Parser} from './parser';
@@ -10,6 +10,36 @@ const RACES_HEADER = "Races";
 
 export abstract class ServerApp
 {
+
+
+	public static async getRacesForTrack(trackId: number): Promise<Race[]>
+	{
+		const query: string = `SELECT * FROM races WHERE track_id = ${trackId};`;
+    const result = await makeQuery(query);
+
+		return result.rows as Race[];
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	//gets list of all the tracks (configurations are sent as separate tracks)
 	public static async getTrackList(): Promise<string[]>
 	{

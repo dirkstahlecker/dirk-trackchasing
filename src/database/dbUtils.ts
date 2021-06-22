@@ -11,12 +11,20 @@ export type TrackDbObj = {
   surface: string,
   length: number | null,
   type: string,
-  isconfiguration: boolean | null,
-  ordernumber: number | null,
-  latitude: number | null,
+  parent_track_id: number | null,
+  ordernum: number | null,
+  latitude: number | null, //TODO: how does this deal with negative numbers?
   longitude: number | null,
   recap: string | null
 };
+
+export type Race = {
+  race_id: number,
+  track_id: number,
+  date: Date,
+  event_name: string | null,
+  classes: string
+}
 
 ///////////////////////////////////////////////////////////////
 //Don't touch below here

@@ -2,6 +2,7 @@ import express from "express";
 import path from 'path';
 import { isConstructorTypeNode } from "typescript";
 import { ServerApp } from "./app";
+import { Race } from "./database/dbUtils";
 import { EventObj, Track, TrackName } from "./Types";
 
 // const server: ServerApp = new ServerApp();
@@ -14,14 +15,15 @@ const app = express();
 // Priority serve any static files.
 // app.use(express.static(path.resolve(__dirname, '../react-ui/public'))); //I don't know what this is
 
-//get a list of all the tracks, name only
-app.get('/tracks', async function (req, res) {
-	console.log("/tracks")
+
+//returns a list of all races for a given track
+app.get('/tracks/:trackId/races', async function (req, res) {
+	console.log("/tracks/" + req.params.trackId + "/races");
 	res.set('Content-Type', 'application/json');
 
-	const tracks = await ServerApp.getTrackList();
+	const races: Race[] = await ServerApp.getRacesForTrack(Number.parseInt(req.params.trackId));
 
-	res.json(tracks);
+	res.json(races);
 });
 
 //returns a list of all the tracks along with their specific info
@@ -34,16 +36,33 @@ app.get('/tracks/info', async function (req, res) {
 	res.json(trackInfos);
 });
 
-//returns a list of all event strings for a particular track
-app.get('/tracks/:trackName/events', async function (req, res) {
-	console.log("/tracks/" + req.params.trackName + "/events");
+
+
+
+
+//////////////////////////////////////////////////////
+//Below are old
+
+//get a list of all the tracks, name only
+app.get('/tracks', async function (req, res) {
+	console.log("/tracks")
 	res.set('Content-Type', 'application/json');
 
-	const trackNameObj: TrackName = TrackName.parse(req.params.trackName);
-	const events = await ServerApp.getEventStringsForTrack(trackNameObj);
+	const tracks = await ServerApp.getTrackList();
 
-	res.json(events);
+	res.json(tracks);
 });
+
+//returns a list of all event strings for a particular track
+// app.get('/tracks/:trackName/events', async function (req, res) {
+// 	console.log("/tracks/" + req.params.trackName + "/events");
+// 	res.set('Content-Type', 'application/json');
+
+// 	const trackNameObj: TrackName = TrackName.parse(req.params.trackName);
+// 	const events = await ServerApp.getEventStringsForTrack(trackNameObj);
+
+// 	res.json(events);
+// });
 
 //get enriched event details for a track and a date
 app.get('/eventDetails/:trackName/:date', async function (req, res) {

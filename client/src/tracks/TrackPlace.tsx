@@ -3,13 +3,14 @@ import {observer} from "mobx-react";
 import {observable, action, makeObservable, computed, runInAction} from "mobx";
 import {NavigationMachine} from "../NavigationMachine";
 import {TrackInfoMachine} from "./TrackInfoMachine";
-import { EventTile } from '../events/EventTile';
-import { Flip, EventObj, Track, TrackName, TrackDbObj } from '../Types';
+import { RaceTile } from '../events/RaceTile';
+import { Flip, EventObj, Track, TrackName, TrackDbObj, Race } from '../Types';
+import { API } from '../API';
 
 export class TrackPlaceMachine
 {
 	@observable
-	public events: EventObj[] = [];
+	public races: Race[] = [];
 
 	constructor()
 	{
@@ -17,13 +18,9 @@ export class TrackPlaceMachine
 	}
 
 	@action
-	public async fetchEvents(trackName: TrackName): Promise<void>
+	public async fetchAllRaces(trackId: number): Promise<void>
 	{
-		const eventsRaw = await fetch('/eventDetails/' + trackName.print());
-		const eventInfos = await eventsRaw.json();
-		eventInfos.forEach((eventInfo: any) => {
-			runInAction(() => this.events.push(EventObj.parseJson(eventInfo)));
-		})
+		this.races = await API.fetchAllRaces(trackId);
 	}
 }
 
@@ -49,22 +46,23 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 
 	componentDidMount()
 	{
-		// this.props.machine.fetchEvents(this.currentTrack.trackNameObj);
+		this.props.machine.fetchAllRaces(this.currentTrack.track_id);
 	}
 
-	private renderEvents(): JSX.Element
+	private renderRaceTiles(): JSX.Element
 	{
-		return <></>;
-		// return <>
-		// 	{this.props.machine.events.map((event: EventObj) => (
-		// 		<button onClick={() => this.props.navMachine.goToEventPage(this.currentTrack, event)}>
-		// 			<EventTile
-		// 				key={event.date.getTime()}
-		// 				event={event}
-		// 			/>
-		// 		</button>
-		// 	))}
-		// </>;
+		//TODO: combine events with multiple configurations
+
+		return <>
+			{this.props.machine.races.map((race: Race) => (
+				// <button onClick={() => this.props.navMachine.goToEventPage(this.currentTrack, event)}>
+					<RaceTile
+						key={race.race_id}
+						race={race}
+					/>
+				// </button>
+			))}
+		</>;
 	}
 
 	render()
@@ -85,7 +83,7 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 				{/* Flips: Total Number: {this.currentTrack.flips.length} */}
 				<br/>
 				<br/>
-				Events: {this.renderEvents()}
+				Events: {this.renderRaceTiles()}
 				
 			</div>
 		);
