@@ -4,9 +4,9 @@ import {observable, action, makeObservable, runInAction} from "mobx";
 import { NavigationMachine } from './NavigationMachine';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './CalendarPlace.css';
-import { EventObj, Track, TrackName } from './Types';
+import { EventObj, Track_old, TrackName } from './Types';
 
-type EventWithTrackObj = {eventObj: EventObj, trackObj: Track};
+type EventWithTrackObj = {eventObj: EventObj, trackObj: Track_old};
 
 export class RecapsPlaceMachine
 {
@@ -24,7 +24,7 @@ export class RecapsPlaceMachine
 
     recapJson.forEach(async(eventObj: EventObj) => {
       const trackObjRaw = await this.fetchTrackObj(eventObj.trackName);
-      const trackObj: Track = new Track(
+      const trackObj: Track_old = new Track_old(
         new TrackName(trackObjRaw.trackNameObj.baseName, trackObjRaw.trackNameObj.configuration, 
           trackObjRaw.trackNameObj.isConfiguration), 
         trackObjRaw.state, trackObjRaw.trackType, 
@@ -35,11 +35,11 @@ export class RecapsPlaceMachine
     console.log(this.eventsWithRecap);
   }
 
-  public async fetchTrackObj(trackName: TrackName): Promise<Track>
+  public async fetchTrackObj(trackName: TrackName): Promise<Track_old>
   {
     const trackNameObj: TrackName = new TrackName(trackName.baseName, trackName.configuration, trackName.isConfiguration);
     const trackObjRaw = await fetch(`/tracks/trackObjForName/${trackNameObj.print()}`)
-    const trackObjJson: Track  = await trackObjRaw.json();
+    const trackObjJson: Track_old  = await trackObjRaw.json();
 
     console.log(trackObjJson);
     return trackObjJson

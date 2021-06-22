@@ -2,7 +2,7 @@ import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable} from "mobx";
 import { NavigationMachine } from '../NavigationMachine';
-import { Track, TrackDbObj } from '../Types';
+import { Track_old, Track } from '../Types';
 import './TrackTile.css'; // Tell webpack that Button.js uses these styles
 
 export class TrackTileMachine
@@ -12,7 +12,7 @@ export class TrackTileMachine
 
 export interface TrackTileProps
 {
-  track: TrackDbObj;
+  track: Track;
   navMachine: NavigationMachine;
 }
 

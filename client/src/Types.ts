@@ -17,7 +17,7 @@ export function printDate(date: Date): string
 	return `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`;
 }
 
-export class Track
+export class Track_old
 {
 	//data is static, so don't need to be observable (nothing changes without a page reload)
 	public trackNameObj: TrackName;
@@ -240,25 +240,89 @@ export class Flip
 
 //TODO: figure out how to keep these in sync without copy/paste server to client
 
-export type TrackDbObj = { 
-  track_id: number,
-  name: string,
-  state: string,
-  city: string,
-  surface: string,
-  length: number | null,
-  type: string,
-  parent_track_id: number | null,
-  ordernum: number | null,
-  latitude: number | null, //TODO: how does this deal with negative numbers?
-  longitude: number | null,
-  recap: string | null
-};
+// export type TrackDbObj = { 
+//   track_id: number,
+//   name: string,
+//   state: string,
+//   city: string,
+//   surface: string,
+//   length: number | null,
+//   type: string,
+//   parent_track_id: number | null,
+//   ordernum: number | null,
+//   latitude: number | null, //TODO: how does this deal with negative numbers?
+//   longitude: number | null,
+//   recap: string | null
+// };
 
-export type Race = {
-  race_id: number,
-  track_id: number,
-  date: Date,
-  event_name: string | null,
-  classes: string
+export class Track
+{
+	public track_id: number;
+  public name: string;
+  public state: string;
+  public city: string;
+  public surface: string;
+  public length: number | null;
+  public type: string;
+  public parent_track_id: number | null;
+  public ordernum: number | null;
+  public latitude: number | null; //TODO: how does this deal with negative numbers?
+  public longitude: number | null;
+  public recap: string | null;
+
+	public constructor(track_id: number, name: string, state: string, city: string, surface: string,
+		length: number | null, type: string, parent_track_id: number | null, ordernum: number | null,
+		latitude: number | null, longitude: number | null, recap: string | null)
+	{
+		this.track_id = track_id;
+		this.name = name;
+		this.state = state;
+		this.city = city;
+		this.surface = surface;
+		this.length = length;
+		this.type = type;
+		this.parent_track_id = parent_track_id;
+		this.ordernum = ordernum;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.recap = recap;
+	}
+
+	public static fromJson(json: any): Track
+	{
+		return new Track(json['track_id'], json['name'], json['state'], json['city'], json['surface'], 
+			json['length'], json['type'], json['parent_track_id'], json['ordernum'], json['latitude'], 
+			json['longitude'], json['recap']);
+	}
+}
+
+// export type Race = {
+//   race_id: number,
+//   track_id: number,
+//   date: Date,
+//   event_name: string | null,
+//   classes: string
+// }
+
+export class Race
+{
+	public race_id: number;
+	public track_id: number;
+	public date: Date;
+	public event_name: string | null;
+	public classes: string;
+
+	public constructor(race_id: number, track_id: number, date: Date, event_name: string | null, classes: string)
+	{
+		this.race_id = race_id;
+		this.track_id = track_id;
+		this.date = date;
+		this.event_name = event_name;
+		this.classes = classes;
+	}
+
+	public static fromJson(json: any): Race
+	{
+		return new Race(json['race_id'], json['track_id'], json['date'], json['event_name'], json['classes']);
+	}
 }

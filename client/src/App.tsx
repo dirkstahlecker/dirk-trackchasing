@@ -5,7 +5,7 @@ import {observer} from "mobx-react";
 import './App.css';
 import {TrackPlace, TrackPlaceMachine} from "./tracks/TrackPlace";
 import {TrackInfoMachine} from "./tracks/TrackInfoMachine";
-import { Track } from './Types';
+import { Track_old } from './Types';
 import {Map, MapMachine} from "./Map";
 import {NavigationMachine, CurrentPlace} from "./NavigationMachine";
 import {TrackTile} from './tracks/TrackTile';
@@ -51,7 +51,7 @@ class AppMachine
   {
     // makeObservable(this);
     this.trackInfoMachine = new TrackInfoMachine();
-    this.trackInfoMachine.fetchInfo();
+    this.trackInfoMachine.fetchAllTracks();
   }
 
   // public async fetchQuickStats(): Promise<void>
@@ -191,7 +191,7 @@ class App extends React.Component<AppProps>
   {
     return <div id="navbar" className="sticky">
       <a onClick={this.navMachine.goHome}>Home</a>
-      {/* <a onClick={this.navMachine.goToAllTracksPage}>Tracks</a> */}
+      <a onClick={this.navMachine.goToAllTracksPage}>Tracks</a>
       {/* <a onClick={this.navMachine.goToCalendar}>Calendar</a> */}
       <a onClick={this.navMachine.goToRecapsPage}>Race Recaps</a>
       <a onClick={this.navMachine.goToAboutPage}>About</a>

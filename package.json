@@ -5,7 +5,7 @@
   "main": "server.js",
   "homepage": ".",
   "scripts": {
-    "start": "node dist/server.js",
+
     "test": "jest  ./src",
     "build": "rimraf dist && tsc",
     "lint": "eslint . & echo 'lint complete'",

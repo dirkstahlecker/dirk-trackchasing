@@ -2,14 +2,14 @@ import React from 'react';
 // import ReactDOM from "react-dom";
 import {observer} from "mobx-react";
 import {observable, action, makeObservable} from "mobx";
-import { EventObj, Track, TrackDbObj } from './Types';
+import { EventObj, Track_old, Track } from './Types';
 
 export enum CurrentPlace {HOME, TRACK, ABOUT, EVENT, CONTACT, ALL_TRACKS, CALENDAR, RECAPS}
 
 export class NavigationMachine
 {
   @observable public currentPlace: CurrentPlace = CurrentPlace.HOME;
-  @observable public currentTrack: TrackDbObj | null = null;
+  @observable public currentTrack: Track | null = null;
   @observable public currentEvent: EventObj | null = null;
 
   constructor() 
@@ -18,7 +18,7 @@ export class NavigationMachine
   }
 
   @action
-  public goToTrackPage(track: TrackDbObj): void
+  public goToTrackPage(track: Track): void
   {
     this.currentTrack = track;
     this.currentPlace = CurrentPlace.TRACK;
@@ -61,7 +61,7 @@ export class NavigationMachine
   }
 
   @action
-  public goToEventPage(track: TrackDbObj, event: EventObj): void
+  public goToEventPage(track: Track, event: EventObj): void
   {
     this.currentPlace = CurrentPlace.EVENT;
     this.currentEvent = event;

@@ -2,7 +2,7 @@ import { makeQuery, Race, TrackDbObj } from "./database/dbUtils";
 import { EventRecaps } from "./eventRecaps";
 import { getRecapStringForTrackAndDate } from "./EventsWithRecap";
 import {Parser} from './parser';
-import {EventObj, Flip, TrackName, Track, TrackTypeEnum, makeDate} from "./Types";
+import {EventObj, Flip, TrackName, Track_old, TrackTypeEnum, makeDate} from "./Types";
 import { compareDates } from "./utilities";
 
 const TRACK_ORDER_HEADER = "Track Order"; //track order sheet, the main reference for each track
@@ -20,50 +20,58 @@ export abstract class ServerApp
 		return result.rows as Race[];
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	//gets list of all the tracks (configurations are sent as separate tracks)
-	public static async getTrackList(): Promise<string[]>
-	{
-		const json = await Parser.parse()
-		let trackList: string[] = Object.keys(json[TRACK_ORDER_HEADER]) //tested and appears to work
-
-		return trackList;
-	}
-
-	public static async getTrackListNoConfigurations(): Promise<string[]>
-	{
-		const list: string[] = await this.getTrackList();
-		
-		const filteredList = [];
-		for (let i = 0; i < list.length; i++)
+		//gets list of all the tracks (configurations are sent as separate tracks)
+		public static async getAllTracks(): Promise<TrackDbObj[]>
 		{
-			const track: string= list[i];
-			if (track.match(/\(.*\)/) == null)
-			{
-				filteredList.push(track);
-			}
-		};
-		return filteredList;
-	}
+			const query: string = `SELECT * FROM tracks;`;
+			const result = await makeQuery(query);
+	
+			return result.rows as TrackDbObj[];
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// //gets list of all the tracks (configurations are sent as separate tracks)
+	// public static async getTrackList(): Promise<string[]>
+	// {
+	// 	const json = await Parser.parse()
+	// 	let trackList: string[] = Object.keys(json[TRACK_ORDER_HEADER]) //tested and appears to work
+
+	// 	return trackList;
+	// }
+
+	// public static async getTrackListNoConfigurations(): Promise<string[]>
+	// {
+	// 	const list: string[] = await this.getTrackList();
+		
+	// 	const filteredList = [];
+	// 	for (let i = 0; i < list.length; i++)
+	// 	{
+	// 		const track: string= list[i];
+	// 		if (track.match(/\(.*\)/) == null)
+	// 		{
+	// 			filteredList.push(track);
+	// 		}
+	// 	};
+	// 	return filteredList;
+	// }
 
 	public static getTrackTypeEnumForString(typeStr: string): TrackTypeEnum
 	{
@@ -119,7 +127,7 @@ export abstract class ServerApp
 		// return tracksAndCoords
 	}
 
-	public static async getTrackObjForName(trackName: TrackName): Promise<Track>
+	public static async getTrackObjForName(trackName: TrackName): Promise<Track_old>
 	{
 		// await Parser.parse();
 		// const tracksFullInfo: Track[] = await this.getTrackFullInfo();

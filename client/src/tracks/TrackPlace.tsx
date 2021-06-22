@@ -4,7 +4,7 @@ import {observable, action, makeObservable, computed, runInAction} from "mobx";
 import {NavigationMachine} from "../NavigationMachine";
 import {TrackInfoMachine} from "./TrackInfoMachine";
 import { RaceTile } from '../events/RaceTile';
-import { Flip, EventObj, Track, TrackName, TrackDbObj, Race } from '../Types';
+import { Flip, EventObj, Track_old, TrackName, Track, Race } from '../Types';
 import { API } from '../API';
 
 export class TrackPlaceMachine
@@ -34,9 +34,9 @@ export interface TrackPlaceProps
 @observer
 export class TrackPlace extends React.Component<TrackPlaceProps>
 {
-	private get currentTrack(): TrackDbObj
+	private get currentTrack(): Track
 	{
-		const currentTrack: TrackDbObj | null = this.props.navMachine.currentTrack;
+		const currentTrack: Track | null = this.props.navMachine.currentTrack;
 		if (currentTrack != null)
 		{
 			return currentTrack

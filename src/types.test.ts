@@ -1,7 +1,7 @@
-import {Track, TrackName, TrackTypeEnum} from "./Types";
+import {Track_old, TrackName, TrackTypeEnum} from "./Types";
 
 it('Track utility functions', () => {
-  const track = new Track(TrackName.parse("Seekonk Speedway"), "MA", TrackTypeEnum.OVAL, 100, -200, 46, []);
+  const track = new Track_old(TrackName.parse("Seekonk Speedway"), "MA", TrackTypeEnum.OVAL, 100, -200, 46, []);
   // expect(track.print()).toEqual("TODO"); //TODO: what is this supposed to be?
   expect(track.coordinates).toEqual([-200, 100]);
 });

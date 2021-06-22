@@ -1,7 +1,8 @@
 import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, runInAction, computed} from "mobx";
-import { Flip, Track, TrackTypeEnum, TrackName, TrackDbObj } from '../Types';
+import { Flip, Track_old, TrackTypeEnum, TrackName, Track } from '../Types';
+import { API } from '../API';
 
 export class TrackInfoMachine
 {
@@ -11,47 +12,42 @@ export class TrackInfoMachine
 	}
 
 	@observable
-	public tracks: TrackDbObj[] = [];
+	public tracks: Track[] = [];
 
 	@computed
-	public get ovalTracks(): TrackDbObj[]
+	public get ovalTracks(): Track[]
 	{
-		return this.tracks.filter((track: TrackDbObj) => {
+		return this.tracks.filter((track: Track) => {
 			return track.type === "Oval";
 		});
 	}
 
 	@computed
-	public get roadTracks(): TrackDbObj[]
+	public get roadTracks(): Track[]
 	{
-		return this.tracks.filter((track: TrackDbObj) => {
+		return this.tracks.filter((track: Track) => {
 			return track.type === "Road Course";
 		});
 	}
 
 	@computed
-	public get figure8Tracks(): TrackDbObj[]
+	public get figure8Tracks(): Track[]
 	{
-		return this.tracks.filter((track: TrackDbObj) => {
+		return this.tracks.filter((track: Track) => {
 			return track.type === "Figure 8";
 		});
 	}
 
-	public getTrackFromName(trackNameObj: TrackName)
-	{
-		return "TODO";
-		// return this.tracks.find((track) => {TrackName.equals(track.trackNameObj, trackNameObj)});
-	}
-
 	//Update with new information from the server
-	public async fetchInfo(): Promise<void>
+	public async fetchAllTracks(): Promise<void>
 	{
-		const infosRaw = await fetch("/tracks/info");
-		const infos: any[] = await infosRaw.json(); //TODO: it's an array, need to get type
+		const tracks: Track[] = await API.fetchAllTracks();
 
-    for (let i: number = 0; i < infos.length; i++)
-    {
-    	const trackInfo: TrackDbObj = infos[i];
+		this.tracks = tracks;
+
+    // for (let i: number = 0; i < infos.length; i++)
+    // {
+    // 	const trackInfo: TrackDbObj = infos[i];
 			// switch (trackInfo.type)
 			// {
 			// 	case "OVAL":
@@ -75,8 +71,8 @@ export class TrackInfoMachine
     	// 	flips
     	// ); 
 
-    	runInAction(() => this.tracks.push(trackInfo));
-    }
+    	// runInAction(() => this.tracks.push(trackInfo));
+    // }
 	}
 
 	public async getRaceNum(trackName: string): Promise<void>
