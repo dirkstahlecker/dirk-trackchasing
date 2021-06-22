@@ -4,7 +4,7 @@ import {observable, action, makeObservable, computed, runInAction} from "mobx";
 import {NavigationMachine} from "../NavigationMachine";
 import {TrackInfoMachine} from "./TrackInfoMachine";
 import { EventTile } from '../events/EventTile';
-import { Flip, EventObj, Track, TrackName } from '../Types';
+import { Flip, EventObj, Track, TrackName, TrackDbObj } from '../Types';
 
 export class TrackPlaceMachine
 {
@@ -37,9 +37,9 @@ export interface TrackPlaceProps
 @observer
 export class TrackPlace extends React.Component<TrackPlaceProps>
 {
-	private get currentTrack(): Track
+	private get currentTrack(): TrackDbObj
 	{
-		const currentTrack: Track | null = this.props.navMachine.currentTrack;
+		const currentTrack: TrackDbObj | null = this.props.navMachine.currentTrack;
 		if (currentTrack != null)
 		{
 			return currentTrack
@@ -49,21 +49,22 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 
 	componentDidMount()
 	{
-		this.props.machine.fetchEvents(this.currentTrack.trackNameObj);
+		// this.props.machine.fetchEvents(this.currentTrack.trackNameObj);
 	}
 
 	private renderEvents(): JSX.Element
 	{
-		return <>
-			{this.props.machine.events.map((event: EventObj) => (
-				<button onClick={() => this.props.navMachine.goToEventPage(this.currentTrack, event)}>
-					<EventTile
-						key={event.date.getTime()}
-						event={event}
-					/>
-				</button>
-			))}
-		</>;
+		return <></>;
+		// return <>
+		// 	{this.props.machine.events.map((event: EventObj) => (
+		// 		<button onClick={() => this.props.navMachine.goToEventPage(this.currentTrack, event)}>
+		// 			<EventTile
+		// 				key={event.date.getTime()}
+		// 				event={event}
+		// 			/>
+		// 		</button>
+		// 	))}
+		// </>;
 	}
 
 	render()
@@ -77,11 +78,11 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 			<div id="track-place">
 				<button onClick={this.props.navMachine.goHome}>Go Home</button>
 				<br/>
-				{this.currentTrack.trackNameObj.print()}
+				{this.currentTrack.name}
 				<br/>
-				Number of Races I've Attended: {this.currentTrack.count}
+				{/* Number of Races I've Attended: {this.currentTrack.count} */}
 				<br/>
-				Flips: Total Number: {this.currentTrack.flips.length}
+				{/* Flips: Total Number: {this.currentTrack.flips.length} */}
 				<br/>
 				<br/>
 				Events: {this.renderEvents()}

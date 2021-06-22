@@ -59,7 +59,7 @@ export class TrackPopup extends React.Component<TrackPopupProps>
 				<div className="track-popup-info">
 					{track.name}
 					<br/>
-					{/* <button onClick={() => this.props.navMachine.goToTrackPage(track)}>Go to track page</button> */}
+					<button onClick={() => this.props.navMachine.goToTrackPage(track)}>Go to track page</button>
 				</div>
 			</Popup>
 		)
