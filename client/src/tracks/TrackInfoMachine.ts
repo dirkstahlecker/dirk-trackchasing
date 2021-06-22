@@ -1,7 +1,7 @@
 import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, runInAction, computed} from "mobx";
-import { Flip, Track, TrackTypeEnum, TrackName } from '../Types';
+import { Flip, Track, TrackTypeEnum, TrackName, TrackDbObj } from '../Types';
 
 export class TrackInfoMachine
 {
@@ -11,35 +11,36 @@ export class TrackInfoMachine
 	}
 
 	@observable
-	public tracks: Track[] = [];
+	public tracks: TrackDbObj[] = [];
 
 	@computed
-	public get ovalTracks(): Track[]
+	public get ovalTracks(): TrackDbObj[]
 	{
-		return this.tracks.filter((track: Track) => {
-			return track.trackType === TrackTypeEnum.OVAL;
+		return this.tracks.filter((track: TrackDbObj) => {
+			return track.type === "Oval";
 		});
 	}
 
 	@computed
-	public get roadTracks(): Track[]
+	public get roadTracks(): TrackDbObj[]
 	{
-		return this.tracks.filter((track: Track) => {
-			return track.trackType === TrackTypeEnum.ROAD_COURSE;
+		return this.tracks.filter((track: TrackDbObj) => {
+			return track.type === "Road Course";
 		});
 	}
 
 	@computed
-	public get figure8Tracks(): Track[]
+	public get figure8Tracks(): TrackDbObj[]
 	{
-		return this.tracks.filter((track: Track) => {
-			return track.trackType === TrackTypeEnum.FIGURE_8;
+		return this.tracks.filter((track: TrackDbObj) => {
+			return track.type === "Figure 8";
 		});
 	}
 
 	public getTrackFromName(trackNameObj: TrackName)
 	{
-		return this.tracks.find((track) => {TrackName.equals(track.trackNameObj, trackNameObj)});
+		return "TODO";
+		// return this.tracks.find((track) => {TrackName.equals(track.trackNameObj, trackNameObj)});
 	}
 
 	//Update with new information from the server
@@ -50,22 +51,31 @@ export class TrackInfoMachine
 
     for (let i: number = 0; i < infos.length; i++)
     {
-    	const trackInfo: Track = infos[i];
+    	const trackInfo: TrackDbObj = infos[i];
+			// switch (trackInfo.type)
+			// {
+			// 	case "OVAL":
+			// 		trackInfo.type = TrackTypeEnum.OVAL;
+			// 		break;
+			// 	case "ROAD_COURSE":
+			// 		trackInfo.type = TrackTypeEnum.ROAD_COURSE
+			// }
 
-    	const flips: Flip[] | null = Flip.makeFlipObjectsFromJson(trackInfo["flips"]);
+
+    	// const flips: Flip[] | null = Flip.makeFlipObjectsFromJson(trackInfo["flips"]);
     	// const trackType: TrackTypeEnum = TrackInfoMachine.getTrackTypeEnumFromString(trackInfo.trackType);
 
-    	const trackObj: Track = new Track(
-				TrackName.parse(trackInfo.trackNameObj), 
-				trackInfo.state, 
-    		trackInfo.trackType,
-    		trackInfo.latitude, 
-    		trackInfo.longitude, 
-    		trackInfo.count,
-    		flips
-    	); 
+    	// const trackObj: Track = new Track(
+			// 	TrackName.parse(trackInfo.trackNameObj), 
+			// 	trackInfo.state, 
+    	// 	trackInfo.trackType,
+    	// 	trackInfo.latitude, 
+    	// 	trackInfo.longitude, 
+    	// 	trackInfo.count,
+    	// 	flips
+    	// ); 
 
-    	runInAction(() => this.tracks.push(trackObj));
+    	runInAction(() => this.tracks.push(trackInfo));
     }
 	}
 

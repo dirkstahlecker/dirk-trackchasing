@@ -1,3 +1,4 @@
+import { makeQuery, TrackDbObj } from "./database/dbUtils";
 import { EventRecaps } from "./eventRecaps";
 import { getRecapStringForTrackAndDate } from "./EventsWithRecap";
 import {Parser} from './parser';
@@ -50,44 +51,53 @@ export abstract class ServerApp
 		}
 	}
 
-	public static async getTrackFullInfo(): Promise<Track[]>
+	public static async getTrackFullInfo(): Promise<TrackDbObj[]>
 	{
-		const json = await Parser.parse();
-		const tracksList: string[] = await this.getTrackList();
+		const query: string = `SELECT * FROM tracks;`;
+    const result = await makeQuery(query);
 
-		let tracksAndCoords: Track[] = [];
-		for (let i = 0; i < tracksList.length; i++)
-		{
-			const trackRaw: string = tracksList[i];
-			const trackNameObj: TrackName = TrackName.parse(trackRaw);
-			const trackInfo = json[TRACK_ORDER_HEADER][trackRaw]; //TODO: improve this
+		console.log(result.rows as TrackDbObj[])
 
-			const count: number = await this.getCountForTrack(trackNameObj);
-			const flips: Flip[] = await this.getFlipsForTrack(trackNameObj);
-			const trackType: TrackTypeEnum = ServerApp.getTrackTypeEnumForString(trackInfo["Type"]);
+		return result.rows as TrackDbObj[];
 
-			const newTrackInfo: Track = new Track(
-				trackNameObj, 
-				trackInfo["State"],
-				trackType,
-				trackInfo["Latitude"],
-				trackInfo["Longitude"],
-				count,
-				flips
-			);
+		// const json = await Parser.parse();
+		// const tracksList: string[] = await this.getTrackList();
 
-			tracksAndCoords.push(newTrackInfo);
-		}
-		return tracksAndCoords
+		// let tracksAndCoords: Track[] = [];
+		// for (let i = 0; i < tracksList.length; i++)
+		// {
+		// 	const trackRaw: string = tracksList[i];
+		// 	const trackNameObj: TrackName = TrackName.parse(trackRaw);
+		// 	const trackInfo = json[TRACK_ORDER_HEADER][trackRaw]; //TODO: improve this
+
+		// 	const count: number = await this.getCountForTrack(trackNameObj);
+		// 	const flips: Flip[] = await this.getFlipsForTrack(trackNameObj);
+		// 	const trackType: TrackTypeEnum = ServerApp.getTrackTypeEnumForString(trackInfo["Type"]);
+
+		// 	const newTrackInfo: Track = new Track(
+		// 		trackNameObj, 
+		// 		trackInfo["State"],
+		// 		trackType,
+		// 		trackInfo["Latitude"],
+		// 		trackInfo["Longitude"],
+		// 		count,
+		// 		flips
+		// 	);
+
+		// 	tracksAndCoords.push(newTrackInfo);
+		// }
+		// return tracksAndCoords
 	}
 
 	public static async getTrackObjForName(trackName: TrackName): Promise<Track>
 	{
-		await Parser.parse();
-		const tracksFullInfo: Track[] = await this.getTrackFullInfo();
-		const theTrack: Track | undefined = tracksFullInfo.find((value: Track) => {
-			return TrackName.equals(value.trackNameObj, trackName);
-		});
+		// await Parser.parse();
+		// const tracksFullInfo: Track[] = await this.getTrackFullInfo();
+		// const theTrack: Track | undefined = tracksFullInfo.find((value: Track) => {
+		// 	return TrackName.equals(value.trackNameObj, trackName);
+		// });
+
+		const theTrack: any = undefined;
 
 		if (theTrack === undefined)
 		{

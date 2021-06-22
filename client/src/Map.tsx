@@ -3,7 +3,7 @@ import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, runInAction} from "mobx";
 import {TrackInfoMachine} from "./tracks/TrackInfoMachine";
-import { Track } from './Types';
+import { Track, TrackDbObj } from './Types';
 import {TrackPopup, TrackPopupMachine} from "./tracks/TrackPopup";
 import {NavigationMachine} from "./NavigationMachine";
 import mapboxgl from 'mapbox-gl';
@@ -15,7 +15,7 @@ import road from "./road.png";
 export class MapMachine
 {
 	@observable
-	public trackForPopup: Track | null = null;
+	public trackForPopup: TrackDbObj | null = null;
 
 	constructor()
 	{
@@ -23,7 +23,7 @@ export class MapMachine
 	}
 
 	@action
-	public setTrackForPopup(value: Track | null): void
+	public setTrackForPopup(value: TrackDbObj | null): void
 	{
 		this.trackForPopup = value;
 	}
@@ -106,14 +106,14 @@ export class Map extends React.Component<MapProps>
 	// 	});
 	// }
 
-	private renderFeature(track: Track): JSX.Element
+	private renderFeature(track: TrackDbObj): JSX.Element
 	{
 		return <Feature
-			key={track.trackNameObj.toString()}
+			key={track.track_id}
 			// onMouseEnter={this.onToggleHover.bind(this, 'pointer')}
 			// onMouseLeave={this.onToggleHover.bind(this, '')}
 			onClick={() => this.props.machine.setTrackForPopup(track)}
-			coordinates={track.coordinates}
+			coordinates={[track.longitude!!, track.latitude!!]}
 		/>;
 	}
 

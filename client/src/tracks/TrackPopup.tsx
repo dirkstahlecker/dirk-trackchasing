@@ -3,7 +3,7 @@ import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, runInAction} from "mobx";
 import {TrackInfoMachine} from "./TrackInfoMachine";
-import { Track, TrackTypeEnum } from '../Types';
+import { Track, TrackDbObj, TrackTypeEnum } from '../Types';
 import {NavigationMachine} from "../NavigationMachine";
 import mapboxgl from 'mapbox-gl';
 import ReactMapboxGl, {Layer, Feature, Marker, Popup} from 'react-mapbox-gl';
@@ -41,7 +41,7 @@ export interface TrackPopupProps
 {
 	machine: TrackPopupMachine;
 	navMachine: NavigationMachine;
-	track: Track;
+	track: TrackDbObj;
 }
 
 @observer
@@ -49,21 +49,24 @@ export class TrackPopup extends React.Component<TrackPopupProps>
 {
 	render()
 	{
-		const track: Track = this.props.track;
-
-		console.log(track.trackNameObj)
+		const track: TrackDbObj = this.props.track;
 
 		return (
 			<Popup
 				key={track.toString()}
-				coordinates={track.coordinates}	
+				coordinates={coordinatesTODO_Move(track)}	
 			>
 				<div className="track-popup-info">
-					{track.trackNameObj.print()}
+					{track.name}
 					<br/>
-					<button onClick={() => this.props.navMachine.goToTrackPage(track)}>Go to track page</button>
+					{/* <button onClick={() => this.props.navMachine.goToTrackPage(track)}>Go to track page</button> */}
 				</div>
 			</Popup>
 		)
 	}
+}
+
+export function coordinatesTODO_Move(track: TrackDbObj): number[]
+{
+	return [track.longitude!!, track.latitude!!]; //for some reason need to be reversed
 }

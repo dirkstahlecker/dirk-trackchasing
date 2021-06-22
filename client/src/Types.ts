@@ -237,3 +237,18 @@ export class Flip
 }
 
 // export type EventInfo = {date: Date; classes: string; flips: Flip[]}
+
+export type TrackDbObj = { 
+  track_id: number,
+  name: string,
+  state: string,
+  city: string,
+  surface: string,
+  length: number | null,
+  type: string,
+  isconfiguration: boolean | null,
+  ordernumber: number | null,
+  latitude: number | null,
+  longitude: number | null,
+  recap: string | null
+};

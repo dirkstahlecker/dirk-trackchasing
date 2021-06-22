@@ -15,27 +15,32 @@ export interface AllTracksPlaceProps
 @observer
 export class AllTracksPlace extends React.Component<AllTracksPlaceProps>
 {
-  private get tracks(): Track[]
-  {
-    return this.props.trackInfoMachine.tracks;
-  }
+  // private get tracks(): Track[]
+  // {
+  //   return this.props.trackInfoMachine.tracks;
+  // }
+
+  // render()
+  // {
+  //   return <div className="contact-place">
+  //     <button onClick={this.props.navMachine.goHome}>Go Home</button>
+  //     {
+  //       this.tracks.length > 0 &&
+  //       <>
+  //         {this.tracks.map((track: Track) => {
+  //           return <TrackTile
+  //             key={track.print()}
+  //             track={track}
+  //             navMachine={this.props.navMachine}
+  //           />;
+  //         })}
+  //       </>
+  //     }
+  //   </div>;
+  // }
 
   render()
   {
-    return <div className="contact-place">
-      <button onClick={this.props.navMachine.goHome}>Go Home</button>
-      {
-        this.tracks.length > 0 &&
-        <>
-          {this.tracks.map((track: Track) => {
-            return <TrackTile
-              key={track.print()}
-              track={track}
-              navMachine={this.props.navMachine}
-            />;
-          })}
-        </>
-      }
-    </div>;
+    return <div>TODO</div>
   }
 }
