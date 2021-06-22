@@ -1,3 +1,5 @@
+--a track is an individual line in Track Order. A base track and configuration are both separate tracks
+
 CREATE TABLE tracks
 (
   track_id        SERIAL PRIMARY KEY,
@@ -7,7 +9,7 @@ CREATE TABLE tracks
   surface         text NOT NULL,
   length          decimal,
   type            text NOT NULL,
-  isConfiguration boolean,
+  parentTrackId   integer NOT NULL references tracks(parentTrackId), --if configuration, point to the parent track
   orderNumber     integer, --visited order number
   latitude        decimal,
   longitude       decimal,
@@ -17,13 +19,15 @@ CREATE TABLE tracks
 INSERT INTO tracks (name, state, city, surface, length, type, isConfiguration, orderNumber, latitude, longitude) VALUES
 ('Seekonk Speedway', 'MA', 'Seekonk', 'Asphalt', '0.33', 'Oval', 'false', '18', '41.784545', '-71.302063');
 
+--TODO: configurations - should they reference their base track?
+
 CREATE TABLE races
 (
-  race_id SERIAL PRIMARY KEY,
-  track_id integer NOT NULL references tracks(track_id),
-  raceDate DATE NOT NULL,
-  raceName text, --ex. "Kokomo Smackdown" or "USAC Eastern Storm"; optional
-  raceClasses text NOT NULL
+  race_id         SERIAL PRIMARY KEY,
+  track_id        integer NOT NULL references tracks(track_id),
+  raceDate        DATE NOT NULL,
+  raceName        text, --ex. "Kokomo Smackdown" or "USAC Eastern Storm"; optional
+  raceClasses     text NOT NULL
 );
 
 INSERT INTO races (track_id, racedate, raceClasses) VALUES
