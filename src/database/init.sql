@@ -1,25 +1,31 @@
 --a track is an individual line in Track Order. A base track and configuration are both separate tracks
+--a flip has a race, and a race as a track, so a flip get things like surface from the track
 
 CREATE TABLE tracks
 (
-  track_id        SERIAL PRIMARY KEY,
+  track_id        INT GENERATED ALWAYS AS IDENTITY,
   name            text NOT NULL,
   state           varchar(2) NOT NULL,
   city            text NOT NULL,
   surface         text NOT NULL,
   length          decimal,
   type            text NOT NULL,
-  parentTrackId   integer NOT NULL references tracks(parentTrackId), --if configuration, point to the parent track
+  parentTrackId   INT, --if configuration, point to the parent track
   orderNumber     integer, --visited order number
   latitude        decimal,
   longitude       decimal,
-  recap           text
+  recap           text,
+
+  PRIMARY KEY(track_id),
+
+  FOREIGN KEY(parentTrackId) REFERENCES tracks(track_id)
 );
 
-INSERT INTO tracks (name, state, city, surface, length, type, isConfiguration, orderNumber, latitude, longitude) VALUES
-('Seekonk Speedway', 'MA', 'Seekonk', 'Asphalt', '0.33', 'Oval', 'false', '18', '41.784545', '-71.302063');
+INSERT INTO tracks (name, state, city, surface, length, type, orderNumber, latitude, longitude) VALUES
+('Seekonk Speedway', 'MA', 'Seekonk', 'Asphalt', '0.33', 'Oval', '18', '41.784545', '-71.302063');
 
---TODO: configurations - should they reference their base track?
+INSERT INTO tracks (name, state, city, surface, type, parentTrackId, orderNumber) VALUES
+('Seekonk Speedway (Asphalt Figure 8)', 'MA', 'Seekonk', 'Asphalt', 'Figure 8', '1', '20');
 
 CREATE TABLE races
 (
@@ -31,7 +37,13 @@ CREATE TABLE races
 );
 
 INSERT INTO races (track_id, racedate, raceClasses) VALUES
-('2', '9-02-17', 'Pro Stocks, Late Models, Street Stocks, Sport Trucks');
+('1', '9-02-17', 'Pro Stocks, Late Models, Street Stocks, Sport Trucks');
+
+INSERT INTO races (track_id, racedate, raceName, raceClasses) VALUES
+('1', '9-04-17', 'Thrill Show', 'Enduro Cars, Enduro Trucks');
+
+INSERT INTO races (track_id, racedate, raceName, raceClasses) VALUES
+('2', '9-04-17', 'Thrill Show', 'Enduro Cars, Enduro Trucks');
 
 CREATE TABLE flips
 (
@@ -47,7 +59,7 @@ CREATE TABLE flips
 );
 
 INSERT INTO flips (race_id, class, rotations, notes, fullFender, whenOccured, video) VALUES
-('2', 'Pro Stock', '1/2', 'Larry Gelinas got put into the wall exiting 2 in the heat, climbed the wall and slid on the roof into 3, where he hit the outside wall and rolled back on the wheels, ending up in the middle of 3', 'true', 'Heat', 'true')
+('4', 'Pro Stock', '1/2', 'Larry Gelinas got put into the wall exiting 2 in the heat, climbed the wall and slid on the roof into 3, where he hit the outside wall and rolled back on the wheels, ending up in the middle of 3', 'true', 'Heat', 'true');
 
 
 -- CREATE TABLE names
