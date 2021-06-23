@@ -52,20 +52,33 @@ export class AllTracksPlace extends React.Component<AllTracksPlaceProps>
       {/* <button onClick={this.props.navMachine.goHome}>Go Home</button> */}
       {
         this.sortedTracks.length > 0 &&
-        <>
-          {this.sortedTracks.map((track: Track) => {
-            // return <TrackTile
-            //   key={track.track_id}
-            //   track={track}
-            //   navMachine={this.props.navMachine}
-            // />;
-
-            return <div>
-              {track.ordernum}: {track.name}
-            </div>
-          })}
-        </>
+        <div>
+          <table>
+            <tr>
+              <td>#</td>
+              <td>Track</td>
+              <td>Date</td>
+              <td>State</td>
+              <td>City</td>
+              <td>Type</td>
+              <td>Surface</td>
+              <td>Recap</td>
+            </tr>
+          {this.sortedTracks.map((track: Track) => (
+            <tr>
+              <td>{track.ordernum}</td>
+              <td>{track.name}</td>
+              <td>TODO: first date</td>
+              <td>{track.state}</td>
+              <td>{track.city}</td>
+              <td>{track.type}</td>
+              <td>{track.surface}</td>
+              <td>{track.recap}</td>
+            </tr>
+          ))}
+          </table>
+        </div>
       }
-    </div>;
+    </div>
   }
 }
