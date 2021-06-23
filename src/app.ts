@@ -20,14 +20,22 @@ export abstract class ServerApp
 		return result.rows as Race[];
 	}
 
-		//gets list of all the tracks (configurations are sent as separate tracks)
-		public static async getAllTracks(): Promise<TrackDbObj[]>
-		{
-			const query: string = `SELECT * FROM tracks;`;
-			const result = await makeQuery(query);
-	
-			return result.rows as TrackDbObj[];
-		}
+	//gets list of all the tracks (configurations are sent as separate tracks)
+	public static async getAllTracks(): Promise<TrackDbObj[]>
+	{
+		const query: string = `SELECT * FROM tracks;`;
+		const result = await makeQuery(query);
+
+		return result.rows as TrackDbObj[];
+	}
+
+	public static async getConfigurationsForTrack(trackId: number): Promise<TrackDbObj[]>
+	{
+		const query: string = `SELECT * FROM tracks WHERE parent_track_id = ${trackId};`;
+		const result = await makeQuery(query);
+		
+		return result.rows as TrackDbObj[];
+	}
 
 
 

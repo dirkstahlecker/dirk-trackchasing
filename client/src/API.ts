@@ -5,10 +5,12 @@ import { Race, Track } from './Types';
  */
 export abstract class API
 {
-  public static async fetchAllTracks(): Promise<Track[]>
+  private static tracksJsonToTracks(tracksJson: any): Track[]
   {
-    const tracksRaw = await fetch(`/tracks`);
-    const tracksJson = await tracksRaw.json();
+    if (this.tracksJsonToTracks === null)
+    {
+      return [];
+    }
 
     const tracks: Track[] = [];
 		tracksJson.forEach((trackInfo: any) => {
@@ -16,6 +18,13 @@ export abstract class API
 		});
 
     return tracks;
+  }
+
+  public static async fetchAllTracks(): Promise<Track[]>
+  {
+    const tracksRaw = await fetch(`/tracks`);
+    const tracksJson = await tracksRaw.json();
+    return this.tracksJsonToTracks(tracksJson);
   }
 
 	public static async fetchAllRaces(trackId: number): Promise<Race[]>
@@ -30,4 +39,15 @@ export abstract class API
 
     return races;
 	}
+
+  /**
+   * null if no configurations
+   * @param trackId 
+   */
+  public static async fetchConfigsForTrack(trackId: number): Promise<Track[]>
+  {
+    const configsRaw = await fetch(`/tracks/${trackId}/configurations`);
+    const configsJson = await configsRaw.json();
+    return this.tracksJsonToTracks(configsJson);
+  }
 }

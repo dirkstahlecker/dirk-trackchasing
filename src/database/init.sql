@@ -28,6 +28,9 @@ INSERT INTO tracks (name, state, city, surface, length, type, ordernum, latitude
 INSERT INTO tracks (name, state, city, surface, type, parent_track_id, ordernum) VALUES
 ('Seekonk Speedway (Asphalt Figure 8)', 'MA', 'Seekonk', 'Asphalt', 'Figure 8', '1', '20');
 
+INSERT INTO tracks (name, state, city, surface, length, type, latitude, longitude) VALUES
+('Pocatello Speedway', 'ID', 'Pocatello', 'Asphalt', '0.25', 'Oval', '42.912684', '-112.577022');
+
 CREATE TABLE races
 (
   race_id         SERIAL PRIMARY KEY,

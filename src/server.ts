@@ -26,16 +26,6 @@ app.get('/tracks/:trackId/races', async function (req, res) {
 	res.json(races);
 });
 
-// //returns a list of all the tracks along with their specific info
-// app.get('/tracks/info', async function (req, res) {
-// 	console.log("/tracks/info")
-// 	res.set('Content-Type', 'application/json');
-
-// 	const trackInfos = await ServerApp.getTrackFullInfo();
-
-// 	res.json(trackInfos);
-// });
-
 app.get('/tracks', async function (req, res) {
 	console.log("/tracks")
 	res.set('Content-Type', 'application/json');
@@ -44,6 +34,21 @@ app.get('/tracks', async function (req, res) {
 
 	res.json(tracks);
 });
+
+app.get('/tracks/:trackId/configurations', async function (req, res) {
+	console.log(`/tracks/${req.params.trackId}/configurations`);
+	res.set('Content-Type', 'application/json');
+
+	const tracks: TrackDbObj[] = await ServerApp.getConfigurationsForTrack(Number.parseInt(req.params.trackId));
+
+	res.json(tracks);
+});
+
+
+
+
+
+
 
 
 
