@@ -1,7 +1,7 @@
 "use strict";
 //this is copied between client and server - make sure they stay in sync
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Flip = exports.EventObj = exports.TrackTypeEnum = exports.TrackName = exports.Track = exports.printDate = exports.makeDate = void 0;
+exports.Flip = exports.EventObj = exports.TrackTypeEnum = exports.TrackName = exports.Track_old = exports.printDate = exports.makeDate = void 0;
 function makeDate(input) {
     if (input instanceof Date) {
         const d = new Date(Date.UTC(input.getFullYear(), input.getMonth(), input.getUTCDate(), 12));
@@ -16,7 +16,7 @@ function printDate(date) {
     return `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`;
 }
 exports.printDate = printDate;
-class Track {
+class Track_old {
     constructor(trackNameObj, state, trackType, latitude, longitude, count, flips) {
         this.trackNameObj = trackNameObj;
         this.state = state;
@@ -34,7 +34,7 @@ class Track {
         return this.trackNameObj.print() + this.state + this.trackType;
     }
 }
-exports.Track = Track;
+exports.Track_old = Track_old;
 class TrackName {
     constructor(baseName, configuration, isConfiguration) {
         if (isConfiguration && configuration == null) {
