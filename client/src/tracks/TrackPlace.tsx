@@ -54,6 +54,7 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 		//TODO: combine events with multiple configurations
 
 		return <>
+			<table>
 			{this.props.machine.races.map((race: Race) => (
 				// <button onClick={() => this.props.navMachine.goToEventPage(this.currentTrack, event)}>
 					<RaceTile
@@ -62,6 +63,7 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 					/>
 				// </button>
 			))}
+			</table>
 		</>;
 	}
 
@@ -77,6 +79,13 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 				<button onClick={this.props.navMachine.goHome}>Go Home</button>
 				<br/>
 				{this.currentTrack.name}
+				{this.currentTrack.city}, {this.currentTrack.state}
+				{
+					this.currentTrack.length !== null && 
+					<>Length: {this.currentTrack.length}</>
+				}
+				Type: {this.currentTrack.type}
+				Total Races: {this.props.machine.races.length}
 				<br/>
 				{/* Number of Races I've Attended: {this.currentTrack.count} */}
 				<br/>

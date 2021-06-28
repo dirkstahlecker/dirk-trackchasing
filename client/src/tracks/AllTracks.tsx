@@ -55,14 +55,13 @@ export class AllTracksPlace extends React.Component<AllTracksPlaceProps>
         <div>
           <table>
             <tr>
-              <td>#</td>
+              <td></td>
               <td>Track</td>
               <td>Date</td>
               <td>State</td>
               <td>City</td>
               <td>Type</td>
               <td>Surface</td>
-              <td>Recap</td>
             </tr>
           {this.sortedTracks.map((track: Track) => (
             <tr>
@@ -73,7 +72,6 @@ export class AllTracksPlace extends React.Component<AllTracksPlaceProps>
               <td>{track.city}</td>
               <td>{track.type}</td>
               <td>{track.surface}</td>
-              <td>{track.recap}</td>
             </tr>
           ))}
           </table>
