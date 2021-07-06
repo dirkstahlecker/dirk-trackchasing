@@ -1,7 +1,7 @@
-import { Pool, QueryResult } from 'pg'
 //tslint:disable
 const pg = require('pg');
 // tslint:enable
+import { Pool, QueryResult } from 'pg'
 
 export type TrackDbObj = { 
   track_id: number,
