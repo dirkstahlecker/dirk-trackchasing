@@ -3,7 +3,7 @@
     "sourceMap": true,
     "esModuleInterop": true,
     "allowJs": false,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "moduleResolution": "node",
     "lib": ["es2020"],
     // "lib": "ESNext",
