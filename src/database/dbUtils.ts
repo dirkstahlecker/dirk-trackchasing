@@ -1,5 +1,5 @@
 //tslint:disable
-const pg = require('pg');
+// const pg = require('pg');
 // tslint:enable
 import { Pool, QueryResult } from 'pg'
 
