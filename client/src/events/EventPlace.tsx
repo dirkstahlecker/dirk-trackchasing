@@ -1,7 +1,7 @@
 import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, runInAction} from "mobx";
-import { EventObj, Track_old, Flip, TrackName, printDate, Track } from '../Types';
+import { EventObj, Track_old, Flip_old, TrackName, printDate, Track } from '../Types';
 import {FlipTile} from "./FlipTile";
 import { NavigationMachine } from '../NavigationMachine';
 import { TrackInfoMachine } from '../tracks/TrackInfoMachine';
@@ -53,7 +53,7 @@ export class EventPlace extends React.Component<EventPlaceProps>
       <div>Classes: {event.classes}</div>
       <div>
         {event.flips.length} Flips:
-        {event.flips.map((flip: Flip) => {
+        {event.flips.map((flip: Flip_old) => {
           return <FlipTile
             key={flip.flipId}
             flip={flip}

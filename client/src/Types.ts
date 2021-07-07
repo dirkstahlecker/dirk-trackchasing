@@ -25,12 +25,12 @@ export class Track_old
 	public trackType: TrackTypeEnum;
 	public latitude: number;
 	public longitude: number;
-	public flips: Flip[];
+	public flips: Flip_old[];
 
 	public count: number;
 
 	constructor(trackNameObj: TrackName, state: string, trackType: TrackTypeEnum, latitude: number, 
-		longitude: number, count: number, flips: Flip[])
+		longitude: number, count: number, flips: Flip_old[])
 	{
 		this.trackNameObj = trackNameObj;
 		this.state = state
@@ -129,10 +129,10 @@ export class EventObj
 	public trackName: TrackName;
   public date: Date;
   public classes: string;
-  public flips: Flip[];
+  public flips: Flip_old[];
   // public notableCrashes: ; //TODO
 
-  constructor(trackName: TrackName, date: Date | string, classes: string, flips: Flip[])
+  constructor(trackName: TrackName, date: Date | string, classes: string, flips: Flip_old[])
   {
 		this.trackName = trackName;
     this.date = makeDate(date);
@@ -145,7 +145,7 @@ export class EventObj
   {
 		const jsonFlipsRaw = json["flips"];
 
-		const flips: Flip[] = Flip.makeFlipObjectsFromJson(jsonFlipsRaw);
+		const flips: Flip_old[] = Flip_old.makeFlipObjectsFromJson(jsonFlipsRaw);
 
 		// for (let i: number = 0; i < jsonFlipsRaw.length; i++)
 		// {
@@ -173,7 +173,7 @@ export class EventObj
   }
 }
 
-export class Flip
+export class Flip_old
 {
 	public trackNameObj: TrackName;
 	public flipId: string;
@@ -201,14 +201,14 @@ export class Flip
 		this.notes = notes;
 	}
 
-	public static makeFlipObjectsFromJson(flipJson: any): Flip[]
+	public static makeFlipObjectsFromJson(flipJson: any): Flip_old[]
 	{
 		if (flipJson === undefined)
 		{
 			return [];
 		}
 
-		const flips: Flip[] = [];
+		const flips: Flip_old[] = [];
 		flipJson.forEach((flipObj: any) => {
 
 			const nameRaw = flipObj["trackNameObj"];
@@ -218,7 +218,7 @@ export class Flip
 				nameRaw["isConfiguration"]
 			);
 
-			flips.push(new Flip(
+			flips.push(new Flip_old(
 				newTrackName,
 				flipObj["flipId"],
 				flipObj["date"], 

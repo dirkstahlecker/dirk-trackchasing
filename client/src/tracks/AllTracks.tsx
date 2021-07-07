@@ -66,7 +66,11 @@ export class AllTracksPlace extends React.Component<AllTracksPlaceProps>
           {this.sortedTracks.map((track: Track) => (
             <tr>
               <td>{track.ordernum}</td>
-              <td>{track.name}</td>
+              <td>
+                <a onClick={() => this.props.navMachine.goToTrackPage(track)}>
+                  {track.name}
+                </a>
+              </td>
               <td>TODO: first date</td>
               <td>{track.state}</td>
               <td>{track.city}</td>

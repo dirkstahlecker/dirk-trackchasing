@@ -4,13 +4,16 @@ import {observable, action, makeObservable, computed, runInAction} from "mobx";
 import {NavigationMachine} from "../NavigationMachine";
 import {TrackInfoMachine} from "./TrackInfoMachine";
 import { RaceTile } from '../events/RaceTile';
-import { Flip, EventObj, Track_old, TrackName, Track, Race } from '../Types';
+import { Flip_old, EventObj, Track_old, TrackName, Track, Race } from '../Types';
 import { API } from '../API';
 
 export class TrackPlaceMachine
 {
 	@observable
 	public races: Race[] = [];
+
+	@observable
+	public flips: Flip_old[] = [];
 
 	constructor()
 	{
@@ -21,6 +24,12 @@ export class TrackPlaceMachine
 	public async fetchAllRaces(trackId: number): Promise<void>
 	{
 		this.races = await API.fetchAllRaces(trackId);
+	}
+
+	@action
+	public async fetchAllFlips(trackId: number): Promise<void>
+	{
+		this.flips = await API.fetchAllFlips(trackId;
 	}
 }
 
@@ -47,9 +56,10 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 	componentDidMount()
 	{
 		this.props.machine.fetchAllRaces(this.currentTrack.track_id);
+		this.props.machine.fetchAllFlips(this.currentTrack.track_id);
 	}
 
-	private renderRaceTiles(): JSX.Element
+	private renderEventTiles(): JSX.Element
 	{
 		//TODO: combine events with multiple configurations
 
@@ -76,23 +86,27 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 
 		return (
 			<div id="track-place">
-				<button onClick={this.props.navMachine.goHome}>Go Home</button>
+				{/* <button onClick={this.props.navMachine.goHome}>Go Home</button> */}
 				<br/>
-				{this.currentTrack.name}
+				<h2>
+					{this.currentTrack.name}
+				</h2>
 				{this.currentTrack.city}, {this.currentTrack.state}
+				<br/>
 				{
 					this.currentTrack.length !== null && 
-					<>Length: {this.currentTrack.length}</>
+					<>Length: {this.currentTrack.length}<br/></>
 				}
 				Type: {this.currentTrack.type}
+				<br/>
 				Total Races: {this.props.machine.races.length}
 				<br/>
-				{/* Number of Races I've Attended: {this.currentTrack.count} */}
+				Flips: {this.currentTrack.flips.length}
 				<br/>
-				{/* Flips: Total Number: {this.currentTrack.flips.length} */}
+				Flips per Event: 
+
 				<br/>
-				<br/>
-				Events: {this.renderRaceTiles()}
+				Events: {this.renderEventTiles()}
 				
 			</div>
 		);
