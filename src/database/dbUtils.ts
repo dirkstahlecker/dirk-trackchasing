@@ -1,5 +1,5 @@
 //tslint:disable
-// const pg = require('pg');
+const pg = require('pg');
 // tslint:enable
 import { Pool, QueryResult } from 'pg'
 
@@ -26,9 +26,9 @@ export type Race = {
   classes: string
 }
 
-///////////////////////////////////////////////////////////////
-//Don't touch below here
-///////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+// Don't touch the following - Heroku gets very finnicky about it
 
 const connString = process.env.DATABASE_URL
   || 'postgresql://dirkstahlecker@localhost:5432/trackchasing';
