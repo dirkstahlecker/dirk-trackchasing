@@ -1,4 +1,4 @@
-import { Flip_old, Race, Track } from './Types';
+import { Flip, Race, Track } from './Types';
 
 /**
  * Make all server calls through here so everything is easy to track down and all the types are correct
@@ -40,15 +40,17 @@ export abstract class API
     return races;
 	}
 
-  public static async fetchAllFlips(trackId: number): Promise<Flip_old[]>
+  public static async fetchAllFlips(trackId: number): Promise<Flip[]>
   {
     const flipsRaw = await fetch(`/tracks/${trackId}/flips`);
     const flipsJson = await flipsRaw.json();
 
-    const flips: Flip_old[] = [];
+    const flips: Flip[] = [];
     flipsJson.forEach((flipInfo: any) => {
-      flips.push(Flip_old.fromJson(flipInfo));
+      flips.push(Flip.fromJson(flipInfo));
     });
+
+    return flips;
   }
 
   /**

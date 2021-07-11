@@ -1,5 +1,8 @@
 //this is copied between client and server - make sure they stay in sync
 
+
+//DEPRECATED - types are in dbUtils now
+
 export function makeDate(input: string | Date): Date
 {
 	if (input instanceof Date)

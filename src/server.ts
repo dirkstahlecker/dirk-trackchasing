@@ -3,7 +3,7 @@ import path from 'path';
 import { isConstructorTypeNode } from "typescript";
 import { ServerApp } from "./app";
 import { Race, TrackDbObj } from "./database/dbUtils";
-import { EventObj, Track_old, TrackName } from "./Types";
+import { EventObj, Track_old, TrackName, Flip } from "./Types";
 
 // const server: ServerApp = new ServerApp();
 const app = express();
@@ -42,6 +42,15 @@ app.get('/tracks/:trackId/configurations', async function (req, res) {
 	const tracks: TrackDbObj[] = await ServerApp.getConfigurationsForTrack(Number.parseInt(req.params.trackId));
 
 	res.json(tracks);
+});
+
+app.get('/tracks/:trackId/flips', async function (req, res) {
+	console.log(`/tracks/${req.params.trackId}/flips`);
+	res.set('Content-Type', 'application/json');
+
+	const flips: Flip[] = await ServerApp.getFlipsForTrack(Number.parseInt(req.params.trackId));
+
+	res.json(flips);
 });
 
 

@@ -20,6 +20,19 @@ export abstract class ServerApp
 		return result.rows as Race[];
 	}
 
+	public static async getFlipsForTrack(trackId: number): Promise<Flip[]>
+	{
+		// const trackIdQuery = `SELECT race_id FROM races WHERE track_id = ${trackId};`;
+		// const trackId: string = await makeQuery(trackIdQuery);
+
+		//TODO: I think flips need a track_id for ease of querying
+
+		const query: string = `SELECT * FROM flips WHERE race_id = ${trackId};`; //TODO: wrong
+		const result = await makeQuery(query);
+
+		return result.rows as Flip[];
+	}
+
 	//gets list of all the tracks (configurations are sent as separate tracks)
 	public static async getAllTracks(): Promise<TrackDbObj[]>
 	{
@@ -228,16 +241,16 @@ export abstract class ServerApp
 		return events;
 	}
 
-	public static async getFlipsForTrack(trackNameObj: TrackName): Promise<Flip[]>
-	{
-		const flipDataAllTracks: Flip[] = await Parser.flipsData();
+	// public static async getFlipsForTrack(trackNameObj: TrackName): Promise<Flip[]>
+	// {
+	// 	const flipDataAllTracks: Flip[] = await Parser.flipsData();
 
-		const foundFlips: Flip[] = flipDataAllTracks.filter((flip: Flip) => {
-			return TrackName.equals(flip.trackNameObj, trackNameObj);
-		})
+	// 	const foundFlips: Flip[] = flipDataAllTracks.filter((flip: Flip) => {
+	// 		return TrackName.equals(flip.trackNameObj, trackNameObj);
+	// 	})
 	
-		return foundFlips;
-	}
+	// 	return foundFlips;
+	// }
 
 	private static getDateFromFlip(flip: any): Date
 	{
@@ -247,11 +260,11 @@ export abstract class ServerApp
 	public static async getFlipsForEvent(trackNameObj: TrackName, date: Date): Promise<Flip[]>
 	{
 		const dateObj = makeDate(date);
-		const flipsForTrack: Flip[] = await this.getFlipsForTrack(trackNameObj); //TODO: inefficient
+		// const flipsForTrack: Flip[] = await this.getFlipsForTrack(trackNameObj); //TODO: inefficient
 
-		const flipsForEvent: Flip[] = flipsForTrack.filter((flip: Flip) => {
-			return this.getDateFromFlip(flip).getTime() === dateObj.getTime();
-		});
+		const flipsForEvent: Flip[] = []; //flipsForTrack.filter((flip: Flip) => {
+		// 	return this.getDateFromFlip(flip).getTime() === dateObj.getTime();
+		// });
 
 		return flipsForEvent;
 	}

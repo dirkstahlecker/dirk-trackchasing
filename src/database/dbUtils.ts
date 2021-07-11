@@ -26,6 +26,18 @@ export type Race = {
   classes: string
 }
 
+export type Flip = {
+  flip_id: number,
+  race_id: number,
+  class: string,
+  rotations: string | null,
+  notes: string | null,
+  fullfender: boolean,
+  occurred: string,
+  video: boolean | null,
+  didnotsee: boolean | null
+}
+
 /////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////
 // Don't touch the following - Heroku gets very finnicky about it

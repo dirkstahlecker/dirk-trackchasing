@@ -4,7 +4,7 @@ import {observable, action, makeObservable, computed, runInAction} from "mobx";
 import {NavigationMachine} from "../NavigationMachine";
 import {TrackInfoMachine} from "./TrackInfoMachine";
 import { RaceTile } from '../events/RaceTile';
-import { Flip_old, EventObj, Track_old, TrackName, Track, Race } from '../Types';
+import { Flip, EventObj, Track_old, TrackName, Track, Race } from '../Types';
 import { API } from '../API';
 
 export class TrackPlaceMachine
@@ -13,7 +13,7 @@ export class TrackPlaceMachine
 	public races: Race[] = [];
 
 	@observable
-	public flips: Flip_old[] = [];
+	public flips: Flip[] = [];
 
 	constructor()
 	{
@@ -29,7 +29,7 @@ export class TrackPlaceMachine
 	@action
 	public async fetchAllFlips(trackId: number): Promise<void>
 	{
-		this.flips = await API.fetchAllFlips(trackId;
+		this.flips = await API.fetchAllFlips(trackId);
 	}
 }
 
@@ -101,7 +101,7 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 				<br/>
 				Total Races: {this.props.machine.races.length}
 				<br/>
-				Flips: {this.currentTrack.flips.length}
+				Flips: {this.props.machine.flips.length}
 				<br/>
 				Flips per Event: 
 

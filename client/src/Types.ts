@@ -326,3 +326,36 @@ export class Race
 		return new Race(json['race_id'], json['track_id'], json['date'], json['event_name'], json['classes']);
 	}
 }
+
+export class Flip
+{
+	public flip_id: number;
+	public race_id: number;
+	public classStr: string;
+	public rotations: string | null;
+	public notes: string | null;
+	public fullfender: boolean;
+	public occurred: string;
+	public video: boolean | null;
+	public didnotsee: boolean | null;
+
+	public constructor(flip_id: number, race_id: number, classStr: string, rotations: string | null,
+		notes: string | null, fullfender: boolean, occurred: string, video: boolean | null, 
+		didnotsee: boolean | null)
+	{
+		this.flip_id = flip_id;
+		this.race_id = race_id;
+		this.classStr = classStr;
+		this.rotations = rotations;
+		this.notes = notes;
+		this.fullfender = fullfender;
+		this.occurred = occurred;
+		this.video = video;
+		this.didnotsee = didnotsee;
+	}
+
+	public static fromJson(json: any): Flip
+	{
+		return new Flip(json['flip_id'], json['race_id'], json['class'], json['rotations'], json['notes'], json['fullfender'], json['occurred'], json['video'], json['didnotsee']);
+	}
+}
