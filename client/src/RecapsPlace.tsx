@@ -76,6 +76,7 @@ export class RecapsPlace extends React.Component<RecapsPlaceProps>
     {href: "/recaps/6-20-21_Bloomsburg_Fairgrounds_Speedway.pdf", title: "6-20-21: Bloomsburg Fairgrounds Speedway"},
     {href: "/recaps/6-26-21_Riverhead_Raceway.pdf", title: "6-26-21: Riverhead Raceway"},
     {href: "/recaps/7-08-21_KRA_Speedway.pdf", title: "7-08-21: KRA Speedway"},
+    {href: "/recaps/7-10-21_ERX_Motor_Park.pdf", title: "7-10-21: ERX Motor Park"},
   ]
 
   render()
