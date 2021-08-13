@@ -1,5 +1,5 @@
 --a track is an individual line in Track Order. A base track and configuration are both separate tracks
---a flip has a race, and a race as a track, so a flip get things like surface from the track
+--a flip has a race, and a race has a track, so a flip get things like surface from the track
 --database isn't case sensitive so all names needs to be lowercase to avoid confusion in typescript
 
 CREATE TABLE tracks

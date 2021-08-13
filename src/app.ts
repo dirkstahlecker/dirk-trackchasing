@@ -1,4 +1,5 @@
-import { makeQuery, Race, TrackDbObj } from "./database/dbUtils";
+import { textSpanContainsTextSpan } from "typescript";
+import { BasicStats, makeQuery, Race, TrackDbObj } from "./database/dbUtils";
 import { EventRecaps } from "./eventRecaps";
 import { getRecapStringForTrackAndDate } from "./EventsWithRecap";
 import {Parser} from './parser';
@@ -50,6 +51,38 @@ export abstract class ServerApp
 		return result.rows as TrackDbObj[];
 	}
 
+	public static async getBasicStats(): Promise<BasicStats>
+	{
+		const totalRacesQuery: string = `SELECT * FROM races;`;
+		const totalRacesResult = await makeQuery(totalRacesQuery);
+		const totalRaces = totalRacesResult.rows.length;
+
+		const statesQuery: string = `SELECT DISTINCT state FROM tracks;`;
+		const statesResult = await makeQuery(statesQuery);
+		const states = statesResult.rows;
+
+		const totalDaysQuery: string = `SELECT DISTINCT date FROM races;`;
+		const totalDaysResult = await makeQuery(totalDaysQuery);
+		const totalDays = totalDaysResult.rows;
+
+		const countableTracksQuery: string = `SELECT track_id FROM tracks;`;
+		const countableTracksResult = await makeQuery(countableTracksQuery);
+		const countableTracks = countableTracksResult.rows.length;
+
+		const totalFacilitiesQuery: string = `SELECT track_id FROM tracks WHERE parent_track_id IS NULL;`;
+		const totalFacilitiesResult = await makeQuery(totalFacilitiesQuery);
+		const totalFacilities = totalFacilitiesResult.rows.length;
+
+		const statsObj: BasicStats = {
+			total_days: totalDays,
+			total_races: totalRaces,
+			states: states,
+			countable_tracks: countableTracks,
+			total_facilities: totalFacilities
+		};
+
+		return statsObj;
+	}
 
 
 
@@ -333,15 +366,6 @@ export abstract class ServerApp
 		
 		const eventInfos = await Promise.all(promises);
 		return eventInfos;
-	}
-
-	public static async getBasicStats(): Promise<any> //TODO
-	{
-		let json = await Parser.parse();
-		// json = json[RACES_HEADER];
-	
-
-		return "Stats not implemented"
 	}
 
 	//returns a list of EventInfos, all the event infos that have recaps

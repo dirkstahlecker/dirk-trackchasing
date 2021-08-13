@@ -16,6 +16,7 @@ import { AllTracksPlace } from './tracks/AllTracks';
 import { CalendarPlace } from './CalendarPlace';
 import { JsxEmit } from 'typescript';
 import { RecapsPlace, RecapsPlaceMachine } from './RecapsPlace';
+import {Stats, StatsMachine} from "./Stats";
 
 // class QuickStats
 // {
@@ -44,6 +45,7 @@ class AppMachine
   public trackInfoMachine: TrackInfoMachine;
   public navMachine: NavigationMachine = new NavigationMachine();
   public mapMachine: MapMachine = new MapMachine();
+  public statsMachine: StatsMachine = new StatsMachine();
   
   // @observable public quickStats: QuickStats | null = null;
 
@@ -131,6 +133,11 @@ class App extends React.Component<AppProps>
     return <ContactPlace navMachine={this.navMachine}/>;
   }
 
+  private renderStats(): JSX.Element
+  {
+    return <Stats machine={this.machine.statsMachine}/>;
+  }
+
   private renderAllTracks(): JSX.Element
   {
     return <AllTracksPlace 
@@ -194,6 +201,7 @@ class App extends React.Component<AppProps>
       <a onClick={this.navMachine.goToAllTracksPage}>Tracks</a>
       {/* <a onClick={this.navMachine.goToCalendar}>Calendar</a> */}
       <a onClick={this.navMachine.goToRecapsPage}>Race Recaps</a>
+      <a onClick={this.navMachine.goToStatsPage}>Stats</a>
       <a onClick={this.navMachine.goToAboutPage}>About</a>
       <a onClick={this.navMachine.goToContactPage}>Contact</a>
     </div>
@@ -248,6 +256,10 @@ class App extends React.Component<AppProps>
           {
             this.machine.navMachine.currentPlace === CurrentPlace.EVENT &&
             this.renderEvent()
+          }
+                    {
+            this.machine.navMachine.currentPlace === CurrentPlace.STATS &&
+            this.renderStats()
           }
           {
             this.machine.navMachine.currentPlace === CurrentPlace.CONTACT &&

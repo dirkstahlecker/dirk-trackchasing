@@ -38,6 +38,14 @@ export type Flip = {
   didnotsee: boolean | null
 }
 
+export type BasicStats = {
+  total_races: number,
+  total_facilities: number,
+  countable_tracks: number,
+  total_days: number,
+  states: string[]
+}
+
 /////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////
 // Don't touch the following - Heroku gets very finnicky about it

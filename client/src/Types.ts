@@ -359,3 +359,12 @@ export class Flip
 		return new Flip(json['flip_id'], json['race_id'], json['class'], json['rotations'], json['notes'], json['fullfender'], json['occurred'], json['video'], json['didnotsee']);
 	}
 }
+
+
+export type BasicStats = {
+  total_races: number,
+  total_facilities: number,
+  countable_tracks: number,
+  total_days: number,
+  states: string[]
+}

@@ -2,7 +2,7 @@ import express from "express";
 import path from 'path';
 import { isConstructorTypeNode } from "typescript";
 import { ServerApp } from "./app";
-import { Race, TrackDbObj } from "./database/dbUtils";
+import { BasicStats, Race, TrackDbObj } from "./database/dbUtils";
 import { EventObj, Track_old, TrackName, Flip } from "./Types";
 
 // const server: ServerApp = new ServerApp();
@@ -51,6 +51,15 @@ app.get('/tracks/:trackId/flips', async function (req, res) {
 	const flips: Flip[] = await ServerApp.getFlipsForTrack(Number.parseInt(req.params.trackId));
 
 	res.json(flips);
+});
+
+app.get('/basicStats', async function (req, res) {
+	console.log(`/basicStats`);
+	res.set('Content-Type', 'application/json');
+
+	const basicStats: BasicStats = await ServerApp.getBasicStats();
+
+	res.json(basicStats);
 });
 
 
