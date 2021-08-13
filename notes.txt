@@ -7,6 +7,9 @@ the number column in track order broke everything
 if on different branch, need to append :master to git push for it to show up in heroku
   git push heroku subset-for-publish:master
 
+if not logged in to heroku:
+  heroku login
+
 ----------------------
 
 Database:
