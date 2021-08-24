@@ -61,12 +61,31 @@ export class Stats extends React.Component<StatsProps>
     this.props.machine.fetchStats();
   }
 
+  private get machine(): StatsMachine
+  {
+    return this.props.machine;
+  }
+
   render()
   {
     return <div className="recaps-place" style={{height: "100%"}}>
       <h2>Stats</h2>
-
-      Total Races: 
+      {
+        this.machine.basicStats != null &&
+        <>
+          Total Races: {this.machine.basicStats.total_races}
+          <br/>
+          Total Facilities: {this.machine.basicStats.total_facilities}
+          <br/>
+          Countable Tracks: {this.machine.basicStats.countable_tracks}
+          <br/>
+          Total Days: {this.machine.basicStats.total_days}
+          <br/>
+          States: {this.machine.basicStats.states.map((state: string) => {
+            return <>{state}, </>;
+          })}
+        </>
+      }
     </div>;
   }
 }

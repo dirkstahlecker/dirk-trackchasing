@@ -61,9 +61,14 @@ export abstract class ServerApp
 		const statesResult = await makeQuery(statesQuery);
 		const states = statesResult.rows;
 
+		const statesList: string[] = [];
+		states.forEach((s: {state: string}) => {
+			statesList.push(s.state);
+		});
+
 		const totalDaysQuery: string = `SELECT DISTINCT date FROM races;`;
 		const totalDaysResult = await makeQuery(totalDaysQuery);
-		const totalDays = totalDaysResult.rows;
+		const totalDays = totalDaysResult.rows.length;
 
 		const countableTracksQuery: string = `SELECT track_id FROM tracks;`;
 		const countableTracksResult = await makeQuery(countableTracksQuery);
@@ -76,7 +81,7 @@ export abstract class ServerApp
 		const statsObj: BasicStats = {
 			total_days: totalDays,
 			total_races: totalRaces,
-			states: states,
+			states: statesList,
 			countable_tracks: countableTracks,
 			total_facilities: totalFacilities
 		};
