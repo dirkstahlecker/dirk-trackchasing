@@ -82,6 +82,7 @@ export class RecapsPlace extends React.Component<RecapsPlaceProps>
     {href: "/recaps/8-21-21_Perris_Auto_Speedway.pdf", title: "8-21-21: Perris Auto Speedway"},
     {href: "/recaps/9-10-21_Husets_Speedway.pdf", title: "9-10-21: Huset's Speedway"},
     {href: "/recaps/10-02-21_Talladega.pdf", title: "10-02-21: Talladega Superspeedway"},
+    {href: "/recaps/10-02-21_Talladega_Short_Track.pdf", title: "10-02-21: Talladega Short Track"},
   ]
 
   render()
