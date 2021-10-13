@@ -63,4 +63,11 @@ export abstract class API
     const configsJson = await configsRaw.json();
     return this.tracksJsonToTracks(configsJson);
   }
+
+  public static async firstRacesAtEachTrack(): Promise<{track_id: number, date: Date}[]>
+  {
+    const firstRacesRaw = await fetch('/firstRaceEachTrack');
+    const firstRacesJson = await firstRacesRaw.json();
+    return firstRacesJson;
+  }
 }

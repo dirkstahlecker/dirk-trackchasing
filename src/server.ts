@@ -62,7 +62,13 @@ app.get('/basicStats', async function (req, res) {
 	res.json(basicStats);
 });
 
-
+app.get('/firstRaceEachTrack', async function (req, res) {
+	console.log('/firstRaceEachTrack');
+	res.set('Content-Type', 'application/json');
+	
+	const firstRaces = await ServerApp.getFirstRaceAtEachTrack();
+	res.json(firstRaces);
+});
 
 
 

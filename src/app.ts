@@ -89,6 +89,14 @@ export abstract class ServerApp
 		return statsObj;
 	}
 
+	public static async getFirstRaceAtEachTrack(): Promise<{trackId: string, date: Date}>
+	{
+		const query = `SELECT track_id, min(date) AS date FROM races GROUP BY track_id;`;
+		const result = await makeQuery(query);
+
+		return result.rows;
+	}
+
 
 
 

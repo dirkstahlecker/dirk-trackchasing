@@ -14,6 +14,9 @@ export class TrackInfoMachine
 	@observable
 	public tracks: Track[] = [];
 
+	@observable
+	public firstRaces: {track_id: number, date: Date}[] = [];
+
 	@computed
 	public get ovalTracks(): Track[]
 	{
@@ -41,9 +44,12 @@ export class TrackInfoMachine
 	//Update with new information from the server
 	public async fetchAllTracks(): Promise<void>
 	{
-		const tracks: Track[] = await API.fetchAllTracks();
+		const firstRaces: {track_id: number, date: Date}[] = await API.firstRacesAtEachTrack();
+		this.firstRaces = firstRaces;
 
+		const tracks: Track[] = await API.fetchAllTracks();
 		this.tracks = tracks;
+
 
     // for (let i: number = 0; i < infos.length; i++)
     // {
