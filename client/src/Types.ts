@@ -366,5 +366,11 @@ export type BasicStats = {
   total_facilities: number,
   countable_tracks: number,
   total_days: number,
-  states: string[]
+  states: StateStats[]
+}
+
+export type StateStats = {
+  state: string,
+  facilities: number,
+  configs: number
 }

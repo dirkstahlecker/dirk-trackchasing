@@ -41,6 +41,17 @@ export class TrackInfoMachine
 		});
 	}
 
+	//TODO: inefficient
+	public findFirstRaceForTrack(trackIdIn: number): Date | undefined
+	{
+		const firstRace: {track_id: number, date: Date} | undefined = this.firstRaces.find(
+			(value: {track_id: number, date: Date}) => {
+				return value.track_id === trackIdIn;
+			});
+	
+		return firstRace?.date;
+	}
+
 	//Update with new information from the server
 	public async fetchAllTracks(): Promise<void>
 	{

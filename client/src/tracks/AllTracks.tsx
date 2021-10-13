@@ -45,17 +45,6 @@ export class AllTracksPlace extends React.Component<AllTracksPlaceProps>
     return sortedTracks;
   }
 
-  //TODO: inefficient
-  private findFirstRaceForTrack(trackIdIn: number): Date | undefined
-  {
-    const firstRace: {track_id: number, date: Date} | undefined = this.props.trackInfoMachine.firstRaces.find(
-      (value: {track_id: number, date: Date}) => {
-        return value.track_id === trackIdIn;
-      });
-  
-    return firstRace?.date;
-  }
-
   render()
   {
     return <div className="contact-place">
@@ -82,7 +71,7 @@ export class AllTracksPlace extends React.Component<AllTracksPlaceProps>
                   {track.name}
                 </a>
               </td>
-              <td>{this.findFirstRaceForTrack(track.track_id)}</td>
+              <td>{this.props.trackInfoMachine.findFirstRaceForTrack(track.track_id)}</td>
               <td>{track.state}</td>
               <td>{track.city}</td>
               <td>{track.type}</td>

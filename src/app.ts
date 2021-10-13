@@ -1,5 +1,5 @@
 import { textSpanContainsTextSpan } from "typescript";
-import { BasicStats, makeQuery, Race, TrackDbObj } from "./database/dbUtils";
+import { BasicStats, makeQuery, Race, StateStats, TrackDbObj } from "./database/dbUtils";
 import { EventRecaps } from "./eventRecaps";
 import { getRecapStringForTrackAndDate } from "./EventsWithRecap";
 import {Parser} from './parser';
@@ -57,13 +57,14 @@ export abstract class ServerApp
 		const totalRacesResult = await makeQuery(totalRacesQuery);
 		const totalRaces = totalRacesResult.rows.length;
 
-		const statesQuery: string = `SELECT DISTINCT state FROM tracks;`;
+		const statesQuery: string = `SELECT state, COUNT(DISTINCT track_id) as configs, 
+		COUNT(DISTINCT track_id) - COUNT(DISTINCT parent_track_id) as facilities FROM tracks GROUP BY state; `;
 		const statesResult = await makeQuery(statesQuery);
 		const states = statesResult.rows;
 
-		const statesList: string[] = [];
-		states.forEach((s: {state: string}) => {
-			statesList.push(s.state);
+		const statesList: StateStats[] = [];
+		states.forEach((s: {state: string, configs: number, facilities: number}) => {
+			statesList.push({state: s.state, configs: s.configs, facilities: s.facilities});
 		});
 
 		const totalDaysQuery: string = `SELECT DISTINCT date FROM races;`;

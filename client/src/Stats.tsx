@@ -1,7 +1,7 @@
 import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable} from "mobx";
-import { BasicStats } from './Types';
+import { BasicStats, StateStats } from './Types';
 
 // class StatsObj
 // {
@@ -81,9 +81,20 @@ export class Stats extends React.Component<StatsProps>
           <br/>
           Total Days: {this.machine.basicStats.total_days}
           <br/>
-          States: {this.machine.basicStats.states.map((state: string) => {
-            return <>{state}, </>;
-          })}
+          States: <table>
+            <tr>
+              <td>State</td>
+              <td>Facilities</td>
+              <td>Configurations</td>
+            </tr>
+            {this.machine.basicStats.states.map((state: StateStats) => {
+              return <tr>
+                <td>{state.state}</td>
+                <td>{state.facilities}</td>
+                <td>{state.configs}</td>
+              </tr>
+            })}
+          </table>
         </>
       }
     </div>;

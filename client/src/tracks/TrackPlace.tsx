@@ -43,6 +43,11 @@ export interface TrackPlaceProps
 @observer
 export class TrackPlace extends React.Component<TrackPlaceProps>
 {
+	private get machine(): TrackPlaceMachine
+	{
+		return this.props.machine;
+	}
+
 	private get currentTrack(): Track
 	{
 		const currentTrack: Track | null = this.props.navMachine.currentTrack;
@@ -103,7 +108,10 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 				<br/>
 				Flips: {this.props.machine.flips.length}
 				<br/>
-				Flips per Event: 
+				Flips per Event: {this.machine.flips.length > 0 ? 
+					this.machine.flips.length / this.machine.races.length : 
+					"0"
+				}
 
 				<br/>
 				Events: {this.renderEventTiles()}
