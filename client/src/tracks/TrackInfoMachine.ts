@@ -52,6 +52,19 @@ export class TrackInfoMachine
 		return firstRace?.date;
 	}
 
+	public getNewTracksInYear(year: number): Track[]
+	{
+		return this.tracks.filter((track: Track) => { //TODO: very inefficient
+			const firstRace: Date | undefined = this.findFirstRaceForTrack(track.track_id);
+			if (firstRace === undefined)
+			{
+				return undefined;
+			}
+			const actualDate = new Date(firstRace.toString());
+			return actualDate.getFullYear() === year;
+		})
+	}
+
 	//Update with new information from the server
 	public async fetchAllTracks(): Promise<void>
 	{

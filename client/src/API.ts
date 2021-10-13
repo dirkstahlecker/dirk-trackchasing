@@ -67,7 +67,14 @@ export abstract class API
   public static async firstRacesAtEachTrack(): Promise<{track_id: number, date: Date}[]>
   {
     const firstRacesRaw = await fetch('/firstRaceEachTrack');
-    const firstRacesJson = await firstRacesRaw.json();
-    return firstRacesJson;
+    const firstRacesJson: {track_id: number, date: Date}[] = await firstRacesRaw.json();
+
+    const firstRaces: {track_id: number, date: Date}[] = [];
+    for (let i in firstRacesJson)
+    {
+      const obj = firstRacesJson[i];
+      firstRaces.push({track_id: obj.track_id, date: new Date(obj.date)})
+    }
+    return firstRaces;
   }
 }

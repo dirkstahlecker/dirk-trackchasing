@@ -1,7 +1,8 @@
 import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable} from "mobx";
-import { BasicStats, StateStats } from './Types';
+import { BasicStats, StateStats, Track } from './Types';
+import { TrackInfoMachine } from './tracks/TrackInfoMachine';
 
 // class StatsObj
 // {
@@ -51,6 +52,7 @@ export class StatsMachine
 export interface StatsProps
 {
   machine: StatsMachine;
+  trackInfoMachine: TrackInfoMachine;
 }
 
 @observer
@@ -80,6 +82,11 @@ export class Stats extends React.Component<StatsProps>
           Countable Tracks: {this.machine.basicStats.countable_tracks}
           <br/>
           Total Days: {this.machine.basicStats.total_days}
+          <br/>
+          New Tracks in 2021: {this.props.trackInfoMachine.getNewTracksInYear(2017).map((t: Track) => {
+            return <>{t.name}, </>;
+          })}
+          <br/>
           <br/>
           States: <table>
             <tr>

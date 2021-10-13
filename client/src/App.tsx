@@ -135,7 +135,7 @@ class App extends React.Component<AppProps>
 
   private renderStats(): JSX.Element
   {
-    return <Stats machine={this.machine.statsMachine}/>;
+    return <Stats machine={this.machine.statsMachine} trackInfoMachine={this.machine.trackInfoMachine}/>;
   }
 
   private renderAllTracks(): JSX.Element
