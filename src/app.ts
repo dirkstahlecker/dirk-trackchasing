@@ -98,6 +98,14 @@ export abstract class ServerApp
 		return result.rows;
 	}
 
+	public static async getRacesPerYear(year: string): Promise<number>
+	{
+		const query = `SELECT race_id from races WHERE EXTRACT(YEAR FROM date) = ${year};`;
+		const result = await makeQuery(query);
+
+		return result.rows.length;
+	}
+	
 
 
 

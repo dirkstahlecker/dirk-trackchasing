@@ -77,4 +77,11 @@ export abstract class API
     }
     return firstRaces;
   }
+
+  public static async racesPerYear(year: number): Promise<number>
+  {
+    const racesPerYearRaw = await fetch(`/races/perYear/${year}`);
+    const racesPerYearJson = await racesPerYearRaw.json();
+    return racesPerYearJson;
+  }
 }

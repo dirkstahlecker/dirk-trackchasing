@@ -45,7 +45,10 @@ export class StatsMachine
   {
     const statsRaw = await fetch('/basicStats');
     this.basicStats = await statsRaw.json();
-    console.log(this.basicStats)
+
+    const racesPerYear2021Raw = await fetch(`/races/perYear/2021`);
+    const racesPerYear2021 = await racesPerYear2021Raw.json();
+    console.log(racesPerYear2021);
   }
 }
 
@@ -83,12 +86,14 @@ export class Stats extends React.Component<StatsProps>
           <br/>
           Total Days: {this.machine.basicStats.total_days}
           <br/>
-          New Tracks in 2021: {this.props.trackInfoMachine.getNewTracksInYear(2017).map((t: Track) => {
+          New Tracks in 2021: {this.props.trackInfoMachine.getNewTracksInYear(2021).map((t: Track) => {
             return <>{t.name}, </>;
           })}
           <br/>
+          Races in 2021: 
           <br/>
-          States: <table>
+          <br/>
+          States: <table><tbody>
             <tr>
               <td>State</td>
               <td>Facilities</td>
@@ -101,7 +106,7 @@ export class Stats extends React.Component<StatsProps>
                 <td>{state.configs}</td>
               </tr>
             })}
-          </table>
+          </tbody></table>
         </>
       }
     </div>;

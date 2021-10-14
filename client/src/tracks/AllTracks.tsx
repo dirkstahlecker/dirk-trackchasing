@@ -5,6 +5,7 @@ import { NavigationMachine } from '../NavigationMachine';
 import { TrackInfoMachine } from './TrackInfoMachine';
 import { TrackTile } from './TrackTile';
 import { Track } from '../Types';
+import { printDate } from '../utilities';
 
 export interface AllTracksPlaceProps
 {
@@ -53,7 +54,7 @@ export class AllTracksPlace extends React.Component<AllTracksPlaceProps>
       {
         this.sortedTracks.length > 0 &&
         <div>
-          <table>
+          <table><tbody>
             <tr>
               <td></td>
               <td>Track</td>
@@ -64,21 +65,21 @@ export class AllTracksPlace extends React.Component<AllTracksPlaceProps>
               <td>Surface</td>
             </tr>
           {this.sortedTracks.map((track: Track) => (
-            <tr>
+            <tr key={track.track_id}>
               <td>{track.ordernum}</td>
               <td>
                 <a onClick={() => this.props.navMachine.goToTrackPage(track)}>
                   {track.name}
                 </a>
               </td>
-              <td>{this.props.trackInfoMachine.findFirstRaceForTrack(track.track_id)}</td>
+              <td>{printDate(this.props.trackInfoMachine.findFirstRaceForTrack(track.track_id))}</td>
               <td>{track.state}</td>
               <td>{track.city}</td>
               <td>{track.type}</td>
               <td>{track.surface}</td>
             </tr>
           ))}
-          </table>
+          </tbody></table>
         </div>
       }
     </div>

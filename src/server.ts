@@ -70,6 +70,14 @@ app.get('/firstRaceEachTrack', async function (req, res) {
 	res.json(firstRaces);
 });
 
+app.get('/races/perYear/:year', async function (req, res) {
+	console.log(`/races/perYear/${req.params.year}`);
+	res.set('Content-Type', 'application/json');
+	
+	const racesPerYear = await ServerApp.getRacesPerYear(req.params.year);
+	res.json(racesPerYear);
+});
+
 
 
 
