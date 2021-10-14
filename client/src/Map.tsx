@@ -52,6 +52,14 @@ roadImg.width = 30;
 roadImg.height = 30;
 const roadImages = ['roadImg', roadImg];
 
+
+//TODO: update this
+const figure8Img = new Image();
+figure8Img.src = road;
+figure8Img.width = 30;
+figure8Img.height = 30;
+const figure8Images = ['figure8Images', figure8Img];
+
 @observer
 export class Map extends React.Component<MapProps>
 {
@@ -157,6 +165,20 @@ export class Map extends React.Component<MapProps>
 						images={roadImages}
 					>
 						{this.props.trackInfoMachine.roadTracks.map((track, index) => (
+							this.renderFeature(track)
+						))}
+					</Layer>
+
+					<Layer
+						type="symbol"
+						id="figure8Tracks"
+						layout={{
+							"icon-image": "roadImg",
+							"icon-allow-overlap": true
+						}}
+						images={figure8Images}
+					>
+						{this.props.trackInfoMachine.figure8Tracks.map((track, index) => (
 							this.renderFeature(track)
 						))}
 					</Layer>

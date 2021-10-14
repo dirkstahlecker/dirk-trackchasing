@@ -2,6 +2,7 @@ import express from "express";
 import path from 'path';
 import { isConstructorTypeNode } from "typescript";
 import { ServerApp } from "./app";
+import { doConversion } from "./convertExcelToDB";
 import { BasicStats, Race, TrackDbObj } from "./database/dbUtils";
 import { EventObj, Track_old, TrackName, Flip } from "./Types";
 

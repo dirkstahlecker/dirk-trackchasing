@@ -12,11 +12,6 @@ export function makeDate(input: string | Date): Date
 	return fixedDate;
 }
 
-export function printDate(date: Date): string
-{
-	return `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`;
-}
-
 export class Track_old
 {
 	//data is static, so don't need to be observable (nothing changes without a page reload)

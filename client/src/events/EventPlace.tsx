@@ -1,11 +1,11 @@
 import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, runInAction} from "mobx";
-import { EventObj, Track_old, Flip_old, TrackName, printDate, Track } from '../Types';
+import { EventObj, Track_old, Flip_old, Track } from '../Types';
 import {FlipTile} from "./FlipTile";
 import { NavigationMachine } from '../NavigationMachine';
 import { TrackInfoMachine } from '../tracks/TrackInfoMachine';
-import { compareDates } from '../utilities';
+import { compareDates, printDate } from '../utilities';
 
 export class EventPlaceMachine
 {

@@ -7,11 +7,15 @@ export function compareDates(date1: Date, date2: Date): boolean
 	return makeDate(date1).getTime() === makeDate(date2).getTime();
 }
 
-export function printDate(date: Date | undefined): string
+export function printDate(date: Date | string | undefined): string
 {
 	if (date === undefined)
 	{
 		return "";
 	}
-	return date.toDateString();
+	if (date instanceof Date)
+	{
+		return date.toDateString();
+	}
+	return new Date(date).toDateString();
 }
