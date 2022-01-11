@@ -3,7 +3,7 @@ import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, runInAction} from "mobx";
 import {TrackInfoMachine} from "./tracks/TrackInfoMachine";
-import { Track_old, Track } from './Types';
+import { Track } from './Types';
 import {TrackPopup, TrackPopupMachine} from "./tracks/TrackPopup";
 import {NavigationMachine} from "./NavigationMachine";
 import mapboxgl from 'mapbox-gl';

@@ -69,10 +69,10 @@ export class TrackInfoMachine
 	public async fetchAllTracks(): Promise<void>
 	{
 		const firstRaces: {track_id: number, date: Date}[] = await API.firstRacesAtEachTrack();
-		this.firstRaces = firstRaces;
+		runInAction(() => this.firstRaces = firstRaces);
 
 		const tracks: Track[] = await API.fetchAllTracks();
-		this.tracks = tracks;
+		runInAction(() => this.tracks = tracks);
 
 
     // for (let i: number = 0; i < infos.length; i++)

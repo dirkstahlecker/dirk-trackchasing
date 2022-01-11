@@ -79,6 +79,13 @@ app.get('/races/perYear/:year', async function (req, res) {
 	res.json(racesPerYear);
 });
 
+app.get('/races/uniqueEvents', async function (req, res) {
+	console.log(`/races/uniqueEvents`);
+	res.set('Content-Type', 'application/json');
+	
+	const uniqueEvents = await ServerApp.getUniqueEvents();
+	res.json(uniqueEvents);
+});
 
 
 

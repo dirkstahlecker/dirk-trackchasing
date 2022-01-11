@@ -2,6 +2,9 @@
 --a flip has a race, and a race has a track, so a flip get things like surface from the track
 --database isn't case sensitive so all names needs to be lowercase to avoid confusion in typescript
 
+--races that have multiple configurations at the same event are entered as separate races
+--because races are unique facilities per day, we can combine the two and display them together
+
 CREATE TABLE tracks
 (
   track_id        INT GENERATED ALWAYS AS IDENTITY,
@@ -25,6 +28,9 @@ CREATE TABLE tracks
 INSERT INTO tracks (name, state, city, surface, length, type, ordernum, latitude, longitude) VALUES
 ('Seekonk Speedway', 'MA', 'Seekonk', 'Asphalt', '0.33', 'Oval', '18', '41.784545', '-71.302063');
 
+INSERT INTO races (track_id, date, classes, event_name, downloaded) VALUES
+('1', '7-13-16', 'Pro Stocks, Pro Stocks, INEX legends, pro 4 modifieds', 'US Pro Stock Nationals', FALSE);
+
 INSERT INTO tracks (name, state, city, surface, type, parent_track_id, ordernum) VALUES
 ('Seekonk Speedway (Asphalt Figure 8)', 'MA', 'Seekonk', 'Asphalt', 'Figure 8', '1', '20');
 
@@ -37,11 +43,12 @@ CREATE TABLE races
   track_id        integer NOT NULL references tracks(track_id),
   date            DATE NOT NULL,
   event_name      text, --ex. "Kokomo Smackdown" or "USAC Eastern Storm"; optional
-  classes         text NOT NULL
+  classes         text NOT NULL,
+  downloaded      boolean
 );
 
 INSERT INTO races (track_id, date, classes) VALUES
-('1', '9-02-17', 'Pro Stocks, Late Models, Street Stocks, Sport Trucks');
+('1', '9-02-17', 'Pro Stocks, Late Models, Street Stocks, Sport Trucks', FALSE);
 
 INSERT INTO races (track_id, date, event_name, classes) VALUES
 ('1', '9-04-17', 'Thrill Show', 'Enduro Cars, Enduro Trucks');

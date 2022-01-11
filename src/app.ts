@@ -58,7 +58,7 @@ export abstract class ServerApp
 		const totalRaces = totalRacesResult.rows.length;
 
 		const statesQuery: string = `SELECT state, COUNT(DISTINCT track_id) as configs, 
-		COUNT(DISTINCT track_id) - COUNT(DISTINCT parent_track_id) as facilities FROM tracks GROUP BY state; `;
+		COUNT(DISTINCT track_id) - COUNT(parent_track_id) as facilities FROM tracks GROUP BY state;`;
 		const statesResult = await makeQuery(statesQuery);
 		const states = statesResult.rows;
 
@@ -106,7 +106,17 @@ export abstract class ServerApp
 		return result.rows.length;
 	}
 	
+	//because an event can have muliple races (each configuration is a different row in races) in order to know
+	//how many unique events there are we have to look at the unique events per parent_track_id per date
+	public static async getUniqueEvents(): Promise<{raceId: string, date: Date, trackId: string, name: string, parentTrackId: string}>
+	{
+		const query = `SELECT races.race_id, races.date, tracks.track_id, tracks.name, tracks.parent_track_id FROM tracks JOIN races ON races.track_id = tracks.track_id;`;
+		const result = await makeQuery(query);
+	
+		console.log(result.rows);
 
+		return result.rows;
+	}
 
 
 

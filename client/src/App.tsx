@@ -18,28 +18,6 @@ import { JsxEmit } from 'typescript';
 import { RecapsPlace, RecapsPlaceMachine } from './RecapsPlace';
 import {Stats, StatsMachine} from "./Stats";
 
-// class QuickStats
-// {
-//   public totalRaces: number;
-//   public totalFacilities: number;
-//   public totalCountableTracks: number;
-//   public totalStates: number;
-
-//   constructor(totalRaces: number, totalFacilities: number, totalCountableTracks: number, totalStates: number)
-//   {
-//     this.totalRaces = totalRaces;
-//     this.totalFacilities = totalFacilities;
-//     this.totalCountableTracks = totalCountableTracks;
-//     this.totalStates = totalStates;
-//   }
-
-//   static fromJson(json: any): QuickStats
-//   {
-//     return new QuickStats(json["totalRaces"], json["totalFacilities"], json["totalCountableTracks"], 
-//       json["totalStates"]);
-//   }
-// }
-
 class AppMachine
 {
   public trackInfoMachine: TrackInfoMachine;
@@ -221,6 +199,8 @@ class App extends React.Component<AppProps>
       //   navbar!!.classList.remove("sticky");
       // }
     }
+
+    fetch("/races/uniqueEvents");
   }
 
   render()
@@ -257,7 +237,7 @@ class App extends React.Component<AppProps>
             this.machine.navMachine.currentPlace === CurrentPlace.EVENT &&
             this.renderEvent()
           }
-                    {
+          {
             this.machine.navMachine.currentPlace === CurrentPlace.STATS &&
             this.renderStats()
           }
@@ -280,8 +260,5 @@ export default App;
 //TODO: I think heroku think's it's running as a test so it shows the wrong recap
 //TODO: event dates still are time zone dependent (see on events page)
 //TODO: URLs in navigation machine
-//put configurations in popup with base track
 
-
-//I think event recaps shouldn't be on the server - I'll want to embed pictures with them, so they
-//can just be pulled from the client somehow
+//TODO: need to have configurations on track page, or some other way to get to the configuration track page

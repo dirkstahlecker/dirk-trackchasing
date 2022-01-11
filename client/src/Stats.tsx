@@ -1,8 +1,9 @@
 import React from 'react';
 import {observer} from "mobx-react";
-import {observable, action, makeObservable} from "mobx";
+import {observable, action, makeObservable, runInAction} from "mobx";
 import { BasicStats, StateStats, Track } from './Types';
 import { TrackInfoMachine } from './tracks/TrackInfoMachine';
+import { networkInterfaces } from 'os';
 
 // class StatsObj
 // {
@@ -35,6 +36,7 @@ import { TrackInfoMachine } from './tracks/TrackInfoMachine';
 export class StatsMachine
 {
   @observable basicStats: BasicStats | null = null;
+  @observable racesCurrentYear: number | null = null;
 
   constructor()
   {
@@ -46,9 +48,11 @@ export class StatsMachine
     const statsRaw = await fetch('/basicStats');
     this.basicStats = await statsRaw.json();
 
-    const racesPerYear2021Raw = await fetch(`/races/perYear/2021`);
-    const racesPerYear2021 = await racesPerYear2021Raw.json();
-    console.log(racesPerYear2021);
+    const currentYear = 2016 //new Date().getFullYear();
+    const racesPerYearRaw = await fetch(`/races/perYear/${currentYear}`);
+    const racesPerYear = await racesPerYearRaw.json();
+    console.log(racesPerYear);
+    runInAction(() => this.racesCurrentYear = racesPerYear);
   }
 }
 
@@ -73,6 +77,22 @@ export class Stats extends React.Component<StatsProps>
 
   render()
   {
+    const currentYear: number = new Date().getFullYear();
+    const newTracksInYear: Track[] = this.props.trackInfoMachine.getNewTracksInYear(currentYear);
+    let newTracksInYearSection: JSX.Element;
+    if (newTracksInYear.length === 0)
+    {
+      newTracksInYearSection = <>None</>;
+    }
+    else
+    {
+      newTracksInYearSection = <>
+        {newTracksInYear.map((t: Track) => {
+          return <>{t.name}, </>;
+        })}
+      </>;
+    }
+
     return <div className="recaps-place" style={{height: "100%"}}>
       <h2>Stats</h2>
       {
@@ -86,11 +106,10 @@ export class Stats extends React.Component<StatsProps>
           <br/>
           Total Days: {this.machine.basicStats.total_days}
           <br/>
-          New Tracks in 2021: {this.props.trackInfoMachine.getNewTracksInYear(2021).map((t: Track) => {
-            return <>{t.name}, </>;
-          })}
+          New Tracks in {currentYear}: {newTracksInYearSection}
+          
           <br/>
-          Races in 2021: 
+          Races in {currentYear}: {this.props.machine.racesCurrentYear}
           <br/>
           <br/>
           States: <table><tbody>

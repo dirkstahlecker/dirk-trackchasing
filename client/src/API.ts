@@ -84,4 +84,5 @@ export abstract class API
     const racesPerYearJson = await racesPerYearRaw.json();
     return racesPerYearJson;
   }
+
 }
