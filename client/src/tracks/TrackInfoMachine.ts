@@ -1,7 +1,8 @@
 import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, runInAction, computed} from "mobx";
-import { Flip, Track, TrackTypeEnum, TrackName } from '../Types';
+import { Flip_old, Track_old, TrackTypeEnum, TrackName, Track } from '../Types';
+import { API } from '../API';
 
 export class TrackInfoMachine
 {
@@ -13,11 +14,14 @@ export class TrackInfoMachine
 	@observable
 	public tracks: Track[] = [];
 
+	@observable
+	public firstRaces: {track_id: number, date: Date}[] = [];
+
 	@computed
 	public get ovalTracks(): Track[]
 	{
 		return this.tracks.filter((track: Track) => {
-			return track.trackType === TrackTypeEnum.OVAL;
+			return track.type === "Oval";
 		});
 	}
 
@@ -25,7 +29,7 @@ export class TrackInfoMachine
 	public get roadTracks(): Track[]
 	{
 		return this.tracks.filter((track: Track) => {
-			return track.trackType === TrackTypeEnum.ROAD_COURSE;
+			return track.type === "Road Course";
 		});
 	}
 
@@ -33,40 +37,72 @@ export class TrackInfoMachine
 	public get figure8Tracks(): Track[]
 	{
 		return this.tracks.filter((track: Track) => {
-			return track.trackType === TrackTypeEnum.FIGURE_8;
+			return track.type === "Figure 8";
 		});
 	}
 
-	public getTrackFromName(trackNameObj: TrackName)
+	//TODO: inefficient
+	public findFirstRaceForTrack(trackIdIn: number): Date | undefined
 	{
-		return this.tracks.find((track) => {TrackName.equals(track.trackNameObj, trackNameObj)});
+		const firstRace: {track_id: number, date: Date} | undefined = this.firstRaces.find(
+			(value: {track_id: number, date: Date}) => {
+				return value.track_id === trackIdIn;
+			});
+	
+		return firstRace?.date;
+	}
+
+	public getNewTracksInYear(year: number): Track[]
+	{
+		return this.tracks.filter((track: Track) => { //TODO: very inefficient
+			const firstRace: Date | undefined = this.findFirstRaceForTrack(track.track_id);
+			if (firstRace === undefined)
+			{
+				return undefined;
+			}
+			const actualDate = new Date(firstRace.toString());
+			return actualDate.getFullYear() === year;
+		})
 	}
 
 	//Update with new information from the server
-	public async fetchInfo(): Promise<void>
+	public async fetchAllTracks(): Promise<void>
 	{
-		const infosRaw = await fetch("/tracks/info");
-		const infos: any[] = await infosRaw.json(); //TODO: it's an array, need to get type
+		const firstRaces: {track_id: number, date: Date}[] = await API.firstRacesAtEachTrack();
+		runInAction(() => this.firstRaces = firstRaces);
 
-    for (let i: number = 0; i < infos.length; i++)
-    {
-    	const trackInfo: Track = infos[i];
+		const tracks: Track[] = await API.fetchAllTracks();
+		runInAction(() => this.tracks = tracks);
 
-    	const flips: Flip[] | null = Flip.makeFlipObjectsFromJson(trackInfo["flips"]);
+
+    // for (let i: number = 0; i < infos.length; i++)
+    // {
+    // 	const trackInfo: TrackDbObj = infos[i];
+			// switch (trackInfo.type)
+			// {
+			// 	case "OVAL":
+			// 		trackInfo.type = TrackTypeEnum.OVAL;
+			// 		break;
+			// 	case "ROAD_COURSE":
+			// 		trackInfo.type = TrackTypeEnum.ROAD_COURSE
+			// }
+
+
+    	// const flips: Flip[] | null = Flip.makeFlipObjectsFromJson(trackInfo["flips"]);
     	// const trackType: TrackTypeEnum = TrackInfoMachine.getTrackTypeEnumFromString(trackInfo.trackType);
 
-    	const trackObj: Track = new Track(
-				TrackName.parse(trackInfo.trackNameObj), 
-				trackInfo.state, 
-    		trackInfo.trackType,
-    		trackInfo.latitude, 
-    		trackInfo.longitude, 
-    		trackInfo.count,
-    		flips
-    	); 
+    	// const trackObj: Track = new Track(
+			// 	TrackName.parse(trackInfo.trackNameObj), 
+			// 	trackInfo.state, 
+    	// 	trackInfo.trackType,
+    	// 	trackInfo.latitude, 
+    	// 	trackInfo.longitude, 
+    	// 	trackInfo.count,
+    	// 	flips
+    	// ); 
 
-    	runInAction(() => this.tracks.push(trackObj));
-    }
+    	// runInAction(() => this.tracks.push(trackInfo));
+    // }
 	}
 
 	public async getRaceNum(trackName: string): Promise<void>

@@ -14,7 +14,7 @@ export class ContactPlace extends React.Component<ContactPlaceProps>
   render()
   {
     return <div className="contact-place">
-      <button onClick={this.props.navMachine.goHome}>Go Home</button>
+      {/* <button onClick={this.props.navMachine.goHome}>Go Home</button> */}
       Contact: <a href="mailto:TrackchaserDirk@gmail.com">TrackchaserDirk@gmail.com</a>
     </div>;
   }

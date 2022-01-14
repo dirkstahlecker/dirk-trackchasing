@@ -52,6 +52,14 @@ roadImg.width = 30;
 roadImg.height = 30;
 const roadImages = ['roadImg', roadImg];
 
+
+//TODO: update this
+const figure8Img = new Image();
+figure8Img.src = road;
+figure8Img.width = 30;
+figure8Img.height = 30;
+const figure8Images = ['figure8Images', figure8Img];
+
 @observer
 export class Map extends React.Component<MapProps>
 {
@@ -109,11 +117,11 @@ export class Map extends React.Component<MapProps>
 	private renderFeature(track: Track): JSX.Element
 	{
 		return <Feature
-			key={track.trackNameObj.toString()}
+			key={track.track_id}
 			// onMouseEnter={this.onToggleHover.bind(this, 'pointer')}
 			// onMouseLeave={this.onToggleHover.bind(this, '')}
 			onClick={() => this.props.machine.setTrackForPopup(track)}
-			coordinates={track.coordinates}
+			coordinates={[track.longitude!!, track.latitude!!]}
 		/>;
 	}
 
@@ -161,13 +169,26 @@ export class Map extends React.Component<MapProps>
 						))}
 					</Layer>
 
+					<Layer
+						type="symbol"
+						id="figure8Tracks"
+						layout={{
+							"icon-image": "roadImg",
+							"icon-allow-overlap": true
+						}}
+						images={figure8Images}
+					>
+						{this.props.trackInfoMachine.figure8Tracks.map((track, index) => (
+							this.renderFeature(track)
+						))}
+					</Layer>
+
 
 					{
 						this.props.machine.trackForPopup &&
 						<TrackPopup
-							track={this.props.machine.trackForPopup}
 							navMachine={this.props.navMachine}
-							machine={new TrackPopupMachine()}
+							machine={new TrackPopupMachine(this.props.machine.trackForPopup)}
 						/>
 					}
 				</>

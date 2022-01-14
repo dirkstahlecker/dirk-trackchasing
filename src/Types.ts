@@ -1,5 +1,8 @@
 //this is copied between client and server - make sure they stay in sync
 
+
+//DEPRECATED - types are in dbUtils now
+
 export function makeDate(input: string | Date): Date
 {
 	if (input instanceof Date)
@@ -17,7 +20,7 @@ export function printDate(date: Date): string
 	return `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`;
 }
 
-export class Track
+export class Track_old
 {
 	//data is static, so don't need to be observable (nothing changes without a page reload)
 	public trackNameObj: TrackName;

@@ -3,18 +3,33 @@ import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, runInAction} from "mobx";
 import {TrackInfoMachine} from "./TrackInfoMachine";
-import { Track, TrackTypeEnum } from '../Types';
+import { Track_old, Track, TrackTypeEnum } from '../Types';
 import {NavigationMachine} from "../NavigationMachine";
 import mapboxgl from 'mapbox-gl';
 import ReactMapboxGl, {Layer, Feature, Marker, Popup} from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import "./TrackPopup.css";
+import { API } from '../API';
 
 export class TrackPopupMachine
 {
-	constructor()
+	@observable public track: Track;
+	@observable public configurations: Track[] = [];
+
+	constructor(track: Track)
 	{
-		// makeObservable(this);
+		makeObservable(this);
+		this.track = track;
+		if (this.track.parent_track_id === null) //it is not a configuration itself
+		{
+			this.getConfigurations();
+		}
+	}
+
+	@action
+	private async getConfigurations(): Promise<void>
+	{
+		this.configurations = await API.fetchConfigsForTrack(this.track.track_id);
 	}
 
 	public static getMarkerSrcPathForType(trackType: TrackTypeEnum): string
@@ -41,7 +56,6 @@ export interface TrackPopupProps
 {
 	machine: TrackPopupMachine;
 	navMachine: NavigationMachine;
-	track: Track;
 }
 
 @observer
@@ -49,19 +63,44 @@ export class TrackPopup extends React.Component<TrackPopupProps>
 {
 	render()
 	{
-		const track: Track = this.props.track;
+		if (this.props.machine.track.parent_track_id !== null) //it's a configuration, so no popup
+		{
+			return undefined;
+		}
+
+		const track = this.props.machine.track;
+		const configurations = this.props.machine.configurations;
 
 		return (
 			<Popup
 				key={track.toString()}
-				coordinates={track.coordinates}	
+				coordinates={coordinatesTODO_Move(track)}	
 			>
 				<div className="track-popup-info">
-					{track.trackNameObj.print()}
+					{track.name}
+					<br/>
+
+					{
+						configurations.length > 0 && 
+						<>
+							<div>Configurations:</div>
+							{
+								configurations.map((config: Track) => {
+									return <span>{config.name}</span>
+								})
+							}
+						</>
+					}
+
 					<br/>
 					<button onClick={() => this.props.navMachine.goToTrackPage(track)}>Go to track page</button>
 				</div>
 			</Popup>
 		)
 	}
+}
+
+export function coordinatesTODO_Move(track: Track): number[]
+{
+	return [track.longitude!!, track.latitude!!]; //for some reason need to be reversed
 }

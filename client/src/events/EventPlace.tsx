@@ -1,11 +1,11 @@
 import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, runInAction} from "mobx";
-import { EventObj, Track, Flip, TrackName, printDate } from '../Types';
+import { EventObj, Track_old, Flip_old, Track } from '../Types';
 import {FlipTile} from "./FlipTile";
 import { NavigationMachine } from '../NavigationMachine';
 import { TrackInfoMachine } from '../tracks/TrackInfoMachine';
-import { compareDates } from '../utilities';
+import { compareDates, printDate } from '../utilities';
 
 export class EventPlaceMachine
 {
@@ -40,7 +40,7 @@ export class EventPlace extends React.Component<EventPlaceProps>
 {
   componentDidMount()
   {
-    this.props.machine.fetchEventRecap(this.props.event.date, this.props.track.trackNameObj.print());
+    this.props.machine.fetchEventRecap(this.props.event.date, this.props.track.name);
   }
 
   render()
@@ -48,12 +48,12 @@ export class EventPlace extends React.Component<EventPlaceProps>
     const event: EventObj = this.props.event;
     return <div className="event-place">
       <button onClick={() => this.props.navMachine.goToTrackPage(this.props.track)}>Back</button>
-      <div>Event at {this.props.track.trackNameObj.print()} on {printDate(this.props.event.date)}</div>
+      <div>Event at {this.props.track.name} on {printDate(this.props.event.date)}</div>
       <br/>
       <div>Classes: {event.classes}</div>
       <div>
         {event.flips.length} Flips:
-        {event.flips.map((flip: Flip) => {
+        {event.flips.map((flip: Flip_old) => {
           return <FlipTile
             key={flip.flipId}
             flip={flip}

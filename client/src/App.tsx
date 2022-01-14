@@ -5,7 +5,7 @@ import {observer} from "mobx-react";
 import './App.css';
 import {TrackPlace, TrackPlaceMachine} from "./tracks/TrackPlace";
 import {TrackInfoMachine} from "./tracks/TrackInfoMachine";
-import { Track } from './Types';
+import { Track_old } from './Types';
 import {Map, MapMachine} from "./Map";
 import {NavigationMachine, CurrentPlace} from "./NavigationMachine";
 import {TrackTile} from './tracks/TrackTile';
@@ -16,34 +16,14 @@ import { AllTracksPlace } from './tracks/AllTracks';
 import { CalendarPlace } from './CalendarPlace';
 import { JsxEmit } from 'typescript';
 import { RecapsPlace, RecapsPlaceMachine } from './RecapsPlace';
-
-// class QuickStats
-// {
-//   public totalRaces: number;
-//   public totalFacilities: number;
-//   public totalCountableTracks: number;
-//   public totalStates: number;
-
-//   constructor(totalRaces: number, totalFacilities: number, totalCountableTracks: number, totalStates: number)
-//   {
-//     this.totalRaces = totalRaces;
-//     this.totalFacilities = totalFacilities;
-//     this.totalCountableTracks = totalCountableTracks;
-//     this.totalStates = totalStates;
-//   }
-
-//   static fromJson(json: any): QuickStats
-//   {
-//     return new QuickStats(json["totalRaces"], json["totalFacilities"], json["totalCountableTracks"], 
-//       json["totalStates"]);
-//   }
-// }
+import {Stats, StatsMachine} from "./Stats";
 
 class AppMachine
 {
   public trackInfoMachine: TrackInfoMachine;
   public navMachine: NavigationMachine = new NavigationMachine();
   public mapMachine: MapMachine = new MapMachine();
+  public statsMachine: StatsMachine = new StatsMachine();
   
   // @observable public quickStats: QuickStats | null = null;
 
@@ -51,7 +31,7 @@ class AppMachine
   {
     // makeObservable(this);
     this.trackInfoMachine = new TrackInfoMachine();
-    this.trackInfoMachine.fetchInfo();
+    this.trackInfoMachine.fetchAllTracks();
   }
 
   // public async fetchQuickStats(): Promise<void>
@@ -109,7 +89,7 @@ class App extends React.Component<AppProps>
   {
     return <>
       <h1>Dirk Stahlecker - Trackchaser</h1>
-      <button onClick={() => this.machine.test()}>TEST</button>
+      {/* <button onClick={() => this.machine.test()}>TEST</button> */}
       {
         this.machine.trackInfoMachine.tracks != null && 
         <div>
@@ -118,9 +98,9 @@ class App extends React.Component<AppProps>
             machine={this.machine.mapMachine}
             navMachine={this.machine.navMachine}
           />
-          <div className="quick-stats-area">
+          {/* <div className="quick-stats-area">
             Quick Stats: 
-          </div>
+          </div> */}
         </div>
       }
     </>
@@ -129,6 +109,11 @@ class App extends React.Component<AppProps>
   private renderContact(): JSX.Element
   {
     return <ContactPlace navMachine={this.navMachine}/>;
+  }
+
+  private renderStats(): JSX.Element
+  {
+    return <Stats machine={this.machine.statsMachine} trackInfoMachine={this.machine.trackInfoMachine}/>;
   }
 
   private renderAllTracks(): JSX.Element
@@ -192,8 +177,9 @@ class App extends React.Component<AppProps>
     return <div id="navbar" className="sticky">
       <a onClick={this.navMachine.goHome}>Home</a>
       <a onClick={this.navMachine.goToAllTracksPage}>Tracks</a>
-      <a onClick={this.navMachine.goToCalendar}>Calendar</a>
-      <a onClick={this.navMachine.goToRecapsPage}>Recaps</a>
+      {/* <a onClick={this.navMachine.goToCalendar}>Calendar</a> */}
+      <a onClick={this.navMachine.goToRecapsPage}>Race Recaps</a>
+      <a onClick={this.navMachine.goToStatsPage}>Stats</a>
       <a onClick={this.navMachine.goToAboutPage}>About</a>
       <a onClick={this.navMachine.goToContactPage}>Contact</a>
     </div>
@@ -213,6 +199,8 @@ class App extends React.Component<AppProps>
       //   navbar!!.classList.remove("sticky");
       // }
     }
+
+    fetch("/races/uniqueEvents");
   }
 
   render()
@@ -250,6 +238,10 @@ class App extends React.Component<AppProps>
             this.renderEvent()
           }
           {
+            this.machine.navMachine.currentPlace === CurrentPlace.STATS &&
+            this.renderStats()
+          }
+          {
             this.machine.navMachine.currentPlace === CurrentPlace.CONTACT &&
             this.renderContact()
           }
@@ -264,11 +256,9 @@ class App extends React.Component<AppProps>
 
 export default App;
 
-//TODO: trackchaserDirk email doesn't forward to me properly
 //TODO: events don't work when there's no date (like with Pocatello)
 //TODO: I think heroku think's it's running as a test so it shows the wrong recap
 //TODO: event dates still are time zone dependent (see on events page)
 //TODO: URLs in navigation machine
 
-//I think event recaps shouldn't be on the server - I'll want to embed pictures with them, so they
-//can just be pulled from the client somehow
+//TODO: need to have configurations on track page, or some other way to get to the configuration track page

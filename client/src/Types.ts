@@ -12,12 +12,7 @@ export function makeDate(input: string | Date): Date
 	return fixedDate;
 }
 
-export function printDate(date: Date): string
-{
-	return `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`;
-}
-
-export class Track
+export class Track_old
 {
 	//data is static, so don't need to be observable (nothing changes without a page reload)
 	public trackNameObj: TrackName;
@@ -25,12 +20,12 @@ export class Track
 	public trackType: TrackTypeEnum;
 	public latitude: number;
 	public longitude: number;
-	public flips: Flip[];
+	public flips: Flip_old[];
 
 	public count: number;
 
 	constructor(trackNameObj: TrackName, state: string, trackType: TrackTypeEnum, latitude: number, 
-		longitude: number, count: number, flips: Flip[])
+		longitude: number, count: number, flips: Flip_old[])
 	{
 		this.trackNameObj = trackNameObj;
 		this.state = state
@@ -129,10 +124,10 @@ export class EventObj
 	public trackName: TrackName;
   public date: Date;
   public classes: string;
-  public flips: Flip[];
+  public flips: Flip_old[];
   // public notableCrashes: ; //TODO
 
-  constructor(trackName: TrackName, date: Date | string, classes: string, flips: Flip[])
+  constructor(trackName: TrackName, date: Date | string, classes: string, flips: Flip_old[])
   {
 		this.trackName = trackName;
     this.date = makeDate(date);
@@ -145,7 +140,7 @@ export class EventObj
   {
 		const jsonFlipsRaw = json["flips"];
 
-		const flips: Flip[] = Flip.makeFlipObjectsFromJson(jsonFlipsRaw);
+		const flips: Flip_old[] = Flip_old.makeFlipObjectsFromJson(jsonFlipsRaw);
 
 		// for (let i: number = 0; i < jsonFlipsRaw.length; i++)
 		// {
@@ -173,7 +168,7 @@ export class EventObj
   }
 }
 
-export class Flip
+export class Flip_old
 {
 	public trackNameObj: TrackName;
 	public flipId: string;
@@ -201,14 +196,14 @@ export class Flip
 		this.notes = notes;
 	}
 
-	public static makeFlipObjectsFromJson(flipJson: any): Flip[]
+	public static makeFlipObjectsFromJson(flipJson: any): Flip_old[]
 	{
 		if (flipJson === undefined)
 		{
 			return [];
 		}
 
-		const flips: Flip[] = [];
+		const flips: Flip_old[] = [];
 		flipJson.forEach((flipObj: any) => {
 
 			const nameRaw = flipObj["trackNameObj"];
@@ -218,7 +213,7 @@ export class Flip
 				nameRaw["isConfiguration"]
 			);
 
-			flips.push(new Flip(
+			flips.push(new Flip_old(
 				newTrackName,
 				flipObj["flipId"],
 				flipObj["date"], 
@@ -237,3 +232,140 @@ export class Flip
 }
 
 // export type EventInfo = {date: Date; classes: string; flips: Flip[]}
+
+//TODO: figure out how to keep these in sync without copy/paste server to client
+
+// export type TrackDbObj = { 
+//   track_id: number,
+//   name: string,
+//   state: string,
+//   city: string,
+//   surface: string,
+//   length: number | null,
+//   type: string,
+//   parent_track_id: number | null,
+//   ordernum: number | null,
+//   latitude: number | null, //TODO: how does this deal with negative numbers?
+//   longitude: number | null,
+//   recap: string | null
+// };
+
+export class Track
+{
+	public track_id: number;
+  public name: string;
+  public state: string;
+  public city: string;
+  public surface: string;
+  public length: number | null;
+  public type: string;
+  public parent_track_id: number | null;
+  public ordernum: number | null;
+  public latitude: number | null; //TODO: how does this deal with negative numbers?
+  public longitude: number | null;
+  public recap: string | null;
+
+	public constructor(track_id: number, name: string, state: string, city: string, surface: string,
+		length: number | null, type: string, parent_track_id: number | null, ordernum: number | null,
+		latitude: number | null, longitude: number | null, recap: string | null)
+	{
+		this.track_id = track_id;
+		this.name = name;
+		this.state = state;
+		this.city = city;
+		this.surface = surface;
+		this.length = length;
+		this.type = type;
+		this.parent_track_id = parent_track_id;
+		this.ordernum = ordernum;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.recap = recap;
+	}
+
+	public static fromJson(json: any): Track
+	{
+		return new Track(json['track_id'], json['name'], json['state'], json['city'], json['surface'], 
+			json['length'], json['type'], json['parent_track_id'], json['ordernum'], json['latitude'], 
+			json['longitude'], json['recap']);
+	}
+}
+
+// export type Race = {
+//   race_id: number,
+//   track_id: number,
+//   date: Date,
+//   event_name: string | null,
+//   classes: string
+// }
+
+export class Race
+{
+	public race_id: number;
+	public track_id: number;
+	public date: Date;
+	public event_name: string | null;
+	public classes: string;
+
+	public constructor(race_id: number, track_id: number, date: Date, event_name: string | null, classes: string)
+	{
+		this.race_id = race_id;
+		this.track_id = track_id;
+		this.date = date;
+		this.event_name = event_name;
+		this.classes = classes;
+	}
+
+	public static fromJson(json: any): Race
+	{
+		return new Race(json['race_id'], json['track_id'], json['date'], json['event_name'], json['classes']);
+	}
+}
+
+export class Flip
+{
+	public flip_id: number;
+	public race_id: number;
+	public classStr: string;
+	public rotations: string | null;
+	public notes: string | null;
+	public fullfender: boolean;
+	public occurred: string;
+	public video: boolean | null;
+	public didnotsee: boolean | null;
+
+	public constructor(flip_id: number, race_id: number, classStr: string, rotations: string | null,
+		notes: string | null, fullfender: boolean, occurred: string, video: boolean | null, 
+		didnotsee: boolean | null)
+	{
+		this.flip_id = flip_id;
+		this.race_id = race_id;
+		this.classStr = classStr;
+		this.rotations = rotations;
+		this.notes = notes;
+		this.fullfender = fullfender;
+		this.occurred = occurred;
+		this.video = video;
+		this.didnotsee = didnotsee;
+	}
+
+	public static fromJson(json: any): Flip
+	{
+		return new Flip(json['flip_id'], json['race_id'], json['class'], json['rotations'], json['notes'], json['fullfender'], json['occurred'], json['video'], json['didnotsee']);
+	}
+}
+
+
+export type BasicStats = {
+  total_races: number,
+  total_facilities: number,
+  countable_tracks: number,
+  total_days: number,
+  states: StateStats[]
+}
+
+export type StateStats = {
+  state: string,
+  facilities: number,
+  configs: number
+}

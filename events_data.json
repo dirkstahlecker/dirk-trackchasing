@@ -77,7 +77,20 @@
       "Indiana State Fairgrounds": "Indiana",
       "Gateway Motorsports Park": "Illinois",
       "Macon Speedway": "Illinois",
-      "Bridgeport Motorsports Park": "New Jersey"
+      "Bridgeport Motorsports Park": "New Jersey",
+      "Lee Pond": "New Hampshire",
+      "Berry Pond": "New Hampshire",
+      "Northeast Pond": "New Hampshire",
+      "Contoocook Lake": "New Hampshire",
+      "Rochester Fairgrounds": "New Hampshire",
+      "Bristol Motor Speedway (Dirt)": "Tennessee",
+      "Mountain Creek Speedway": "North Carolina",
+      "Millbridge Speedway": "North Carolina",
+      "Boyd's Speedway": "Georgia",
+      "Fonda Speedway": "New York",
+      "Central Cycle Club": "Connecticut",
+      "Pomfret Speedway": "Connecticut",
+      "Fulton Speedway": "New York"
     },
     "City": {
       "Seekonk Speedway": "Seekonk",
@@ -150,13 +163,26 @@
       "White Mountain Motorsports Park": "North Woodstock",
       "Londonderry Speedway": "Londonderry",
       "Rumtown Speedway": "Rumney",
-      "Lucas Oil Raceway": "Indianapolis",
+      "Lucas Oil Raceway": "Brownsburg",
       "Lucas Oil Speedway Off Road Course": "Wheatland",
       "Lucas Oil Speedway": "Wheatland",
       "Indiana State Fairgrounds": "Indianapolis",
       "Gateway Motorsports Park": "Madison",
       "Macon Speedway": "Macon",
-      "Bridgeport Motorsports Park": "Swedesboro"
+      "Bridgeport Motorsports Park": "Swedesboro",
+      "Lee Pond": "Moultonborough",
+      "Berry Pond": "Moultonborough",
+      "Northeast Pond": "Milton",
+      "Contoocook Lake": "Jaffrey",
+      "Rochester Fairgrounds": "Rochester",
+      "Bristol Motor Speedway (Dirt)": "Bristol",
+      "Mountain Creek Speedway": "Catawba",
+      "Millbridge Speedway": "Salisbury",
+      "Boyd's Speedway": "Ringgold",
+      "Fonda Speedway": "Fonda",
+      "Central Cycle Club": "Central Village",
+      "Pomfret Speedway": "Pomfret",
+      "Fulton Speedway": "Fulton"
     },
     "Surface": {
       "Seekonk Speedway": "Asphalt",
@@ -235,7 +261,20 @@
       "Indiana State Fairgrounds": "Dirt",
       "Gateway Motorsports Park": "Asphalt",
       "Macon Speedway": "Clay",
-      "Bridgeport Motorsports Park": "Clay"
+      "Bridgeport Motorsports Park": "Clay",
+      "Lee Pond": "Ice",
+      "Berry Pond": "Ice",
+      "Northeast Pond": "Ice",
+      "Contoocook Lake": "Ice",
+      "Rochester Fairgrounds": "Dirt",
+      "Bristol Motor Speedway (Dirt)": "Dirt",
+      "Mountain Creek Speedway": "Dirt",
+      "Millbridge Speedway": "Dirt",
+      "Boyd's Speedway": "Dirt",
+      "Fonda Speedway": "Dirt",
+      "Central Cycle Club": "Dirt",
+      "Pomfret Speedway": "Asphalt",
+      "Fulton Speedway": "Dirt"
     },
     "Length (miles)": {
       "Seekonk Speedway": 0.33,
@@ -311,7 +350,14 @@
       "Indiana State Fairgrounds": 1,
       "Gateway Motorsports Park": 1.25,
       "Macon Speedway": 0.2,
-      "Bridgeport Motorsports Park": 0.4
+      "Bridgeport Motorsports Park": 0.4,
+      "Bristol Motor Speedway (Dirt)": 0.5,
+      "Mountain Creek Speedway": 0.16,
+      "Millbridge Speedway": 0.16,
+      "Boyd's Speedway": 0.33,
+      "Fonda Speedway": 0.5,
+      "Pomfret Speedway": 0.125,
+      "Fulton Speedway": 0.33
     },
     "Type": {
       "Seekonk Speedway": "Oval",
@@ -390,19 +436,32 @@
       "Indiana State Fairgrounds": "Oval",
       "Gateway Motorsports Park": "Oval",
       "Macon Speedway": "Oval",
-      "Bridgeport Motorsports Park": "Oval"
+      "Bridgeport Motorsports Park": "Oval",
+      "Lee Pond": "Oval",
+      "Berry Pond": "Oval",
+      "Northeast Pond": "Oval",
+      "Contoocook Lake": "Oval",
+      "Rochester Fairgrounds": "Oval",
+      "Bristol Motor Speedway (Dirt)": "Oval",
+      "Mountain Creek Speedway": "Oval",
+      "Millbridge Speedway": "Oval",
+      "Boyd's Speedway": "Oval",
+      "Fonda Speedway": "Oval",
+      "Central Cycle Club": "Road Course",
+      "Pomfret Speedway": "Oval",
+      "Fulton Speedway": "Oval"
     },
     "Total Races": {
-      "Seekonk Speedway": 46,
-      "Thompson Speedway": 28,
+      "Seekonk Speedway": 47,
+      "Thompson Speedway": 29,
       "Thompson Speedway - Rallycross": 2,
       "Stafford Motor Speedway": 18,
       "New London Waterford Speedbowl": 7,
-      "New Hampshire Motor Speedway": 14,
+      "New Hampshire Motor Speedway": 15,
       "Star Speedway": 10,
       "Hudson Speedway": 13,
       "Albany-Saratoga Speedway": 9,
-      "Bear Ridge Speedway": 10,
+      "Bear Ridge Speedway": 12,
       "Lee USA Speedway": 5,
       "Monadnock Speedway": 2,
       "Devil's Bowl Speedway": 3,
@@ -457,7 +516,7 @@
       "Kokomo Speedway": 3,
       "Claremont Motorsports Park": 2,
       "Selinsgrove Speedway": 1,
-      "Grandview Speedway": 1,
+      "Grandview Speedway": 2,
       "Hagerstown Speedway": 1,
       "Big Diamond Speedway": 1,
       "White Mountain Motorsports Park": 1,
@@ -469,7 +528,20 @@
       "Indiana State Fairgrounds": 1,
       "Gateway Motorsports Park": 2,
       "Macon Speedway": 1,
-      "Bridgeport Motorsports Park": 3
+      "Bridgeport Motorsports Park": 3,
+      "Lee Pond": 1,
+      "Berry Pond": 1,
+      "Northeast Pond": 1,
+      "Contoocook Lake": 1,
+      "Rochester Fairgrounds": 2,
+      "Bristol Motor Speedway (Dirt)": 5,
+      "Mountain Creek Speedway": 1,
+      "Millbridge Speedway": 2,
+      "Boyd's Speedway": 1,
+      "Fonda Speedway": 1,
+      "Central Cycle Club": 1,
+      "Pomfret Speedway": 1,
+      "Fulton Speedway": 1
     },
     "Flips": {
       "Seekonk Speedway": 12,
@@ -481,7 +553,7 @@
       "Star Speedway": 0,
       "Hudson Speedway": 1,
       "Albany-Saratoga Speedway": 5,
-      "Bear Ridge Speedway": 14,
+      "Bear Ridge Speedway": 18,
       "Lee USA Speedway": 0,
       "Monadnock Speedway": 0,
       "Devil's Bowl Speedway": 1,
@@ -536,7 +608,7 @@
       "Kokomo Speedway": 9,
       "Claremont Motorsports Park": 0,
       "Selinsgrove Speedway": 1,
-      "Grandview Speedway": 1,
+      "Grandview Speedway": 2,
       "Hagerstown Speedway": 0,
       "Big Diamond Speedway": 1,
       "White Mountain Motorsports Park": 0,
@@ -548,7 +620,20 @@
       "Indiana State Fairgrounds": 5,
       "Gateway Motorsports Park": 0,
       "Macon Speedway": 3,
-      "Bridgeport Motorsports Park": 7
+      "Bridgeport Motorsports Park": 7,
+      "Lee Pond": 0,
+      "Berry Pond": 0,
+      "Northeast Pond": 0,
+      "Contoocook Lake": 0,
+      "Rochester Fairgrounds": 0,
+      "Bristol Motor Speedway (Dirt)": 4,
+      "Mountain Creek Speedway": 0,
+      "Millbridge Speedway": 0,
+      "Boyd's Speedway": 0,
+      "Fonda Speedway": 1,
+      "Central Cycle Club": 1,
+      "Pomfret Speedway": 0,
+      "Fulton Speedway": 0
     },
     "Flips / Race": {
       "Seekonk Speedway": 0.26,
@@ -560,7 +645,7 @@
       "Star Speedway": 0,
       "Hudson Speedway": 0.08,
       "Albany-Saratoga Speedway": 0.56,
-      "Bear Ridge Speedway": 1.4,
+      "Bear Ridge Speedway": 1.5,
       "Lee USA Speedway": 0,
       "Monadnock Speedway": 0,
       "Devil's Bowl Speedway": 0.33,
@@ -627,7 +712,20 @@
       "Indiana State Fairgrounds": 5,
       "Gateway Motorsports Park": 0,
       "Macon Speedway": 3,
-      "Bridgeport Motorsports Park": 2.33
+      "Bridgeport Motorsports Park": 2.33,
+      "Lee Pond": 0,
+      "Berry Pond": 0,
+      "Northeast Pond": 0,
+      "Contoocook Lake": 0,
+      "Rochester Fairgrounds": 0,
+      "Bristol Motor Speedway (Dirt)": 0.8,
+      "Mountain Creek Speedway": 0,
+      "Millbridge Speedway": 0,
+      "Boyd's Speedway": 0,
+      "Fonda Speedway": 1,
+      "Central Cycle Club": 1,
+      "Pomfret Speedway": 0,
+      "Fulton Speedway": 0
     },
     "Configurations": {
       "Seekonk Speedway": "2: Asphalt Figure 8, Asphalt Road Course",
@@ -639,9 +737,10 @@
       "Atomic Motor Raceway": "1: Inner Dirt Oval",
       "Rocky Mountain Raceways": "3: Asphalt Inner Oval, Asphalt Figure 8, Asphalt Road Course",
       "WaKeeney Speedway": null,
-      "Slinger Speedway": "2: Asphalt Figure 8, Asphalt Road Course"
+      "Slinger Speedway": "2: Asphalt Figure 8, Asphalt Road Course",
+      "Rochester Fairgrounds": "1: Dirt Road Course"
     },
-    "Races: 0": {
+    "Races: 1": {
       "Seekonk Speedway": "7-13-16: US Pro stock nationals, INEX legends, pro 4 modifieds",
       "Thompson Speedway": "8-24-16: Sunoco Modifieds, Late Models, Limited Sportsman, Mini Stocks",
       "Thompson Speedway - Rallycross": "6-03-17: Global Rallycross Championship: GRC Supercars, GRC Lites",
@@ -665,17 +764,17 @@
       "Lancaster Speedway": "9-28-18: crate late models, super stocks, pure stocks, 4 cylinders",
       "Gateway Dirt Nationals": "11-29-18: Super late models, modifieds, midgets",
       "Cure Insurance Arena": "12-15-18: 600cc Micro Sprints",
-      "Nassau Coliseum Parking Lot": "7-20-14: GRC",
+      "Nassau Coliseum Parking Lot": "7-20-14: Global Rallycross Championship: GRC Supercars, GRC Lites",
       "Port of LA": "10-09-16: Global Rallycross Championship: GRC Supercars, GRC Lites",
       "Pocatello Speedway": "at least one race",
       "Atomic Motor Raceway": "9-25-10: IMCA Modifieds, IMCA Sport Mods, Atomic Bombers",
       "Magic Valley Speedway": "2000s",
       "Rocky Mountain Raceways": "7-24-10: Figure 8 Cars, Figure 8 Trains, Modifieds, Wingless Sprint Cars, Hornets, Midgets [Asphalt Figure 8]",
       "WaKeeney Speedway": "08-01-12: Modifieds,",
-      "Stuart Speedway": "7-29-12: Sprint Cars,",
+      "Stuart Speedway": "7-29-12: 305 Sprint Cars,",
       "Miller Motorsports Park": "5-17-09: American LeMans Series",
       "Miller Motorsports Park Off Road Course": "6-23-13: Lucas oil off road racing series",
-      "Las Vegas Motor Speedway": "2003 (?): NASCAR Winston Cup Series",
+      "Las Vegas Motor Speedway": "2002: NASCAR Winston Cup Series",
       "The Dirt Track at Las Vegas Motor Speedway": "(2003?) World of Outlaws Sprint Cars",
       "Phoenix International Raceway": "2009: NASCAR Sprint Cup Series",
       "Exposition Center": "3-09-19: Indoor Auto Racing: TQ Midgets, Slingshots, Champ Karts",
@@ -718,13 +817,26 @@
       "Indiana State Fairgrounds": "8-23-20: Hoosier Hundred: USAC Silver Crown",
       "Gateway Motorsports Park": "8-29-20: NTT Indycar Series, Indy Pro 2000",
       "Macon Speedway": "8-29-20: DIRTcar Modifieds, DIRTcar Pro Modifieds, Pro Late Models, Street Stocks, IMRA Midgets, Hornets",
-      "Bridgeport Motorsports Park": "11-06-20: URC 360 Sprint Cars, 602 Sportsman Modifieds, Street Stocks"
+      "Bridgeport Motorsports Park": "11-06-20: URC 360 Sprint Cars, 602 Sportsman Modifieds, Street Stocks",
+      "Lee Pond": "1-31-21: Sprint Cars, Modifieds, Street Stocks, 4 Cylinders",
+      "Berry Pond": "2-06-21: Sprint Cars, Modifieds, Street Stocks, 4 Cylinders",
+      "Northeast Pond": "2-07-21: Stock Cars, 4 Cylinders",
+      "Contoocook Lake": "2-14-21: Modifieds, Sportsman Modifieds, Stock Cars",
+      "Rochester Fairgrounds": "3-06-21: 4 Cylinder Enduro",
+      "Bristol Motor Speedway (Dirt)": "3-19-21: Bristol Dirt Nationals: Super Late Models, Modifieds, 602 Late Models, Sport Mods",
+      "Mountain Creek Speedway": "3-21-21: Open Outlaw Karts, 450 Yamaha Outlaws, Box Stocks, Beginner Box Stocks, Cadets",
+      "Millbridge Speedway": "3-23-21: Open Outlaw Karts, Box Stocks, Beginner Box Stocks, Cadets",
+      "Boyd's Speedway": "3-26-21: Late Models, 604 Crate Late Models, 602 Sportsman Late Models, Front Wheel Drive, Beginner Stocks",
+      "Fonda Speedway": "4-17-21: Modifieds, Sportsman, Pro Stocks, Limited Sportsman, 4 Cylinders",
+      "Central Cycle Club": "5-23-21: UTVs, ATVs",
+      "Pomfret Speedway": "5-23-21: Sr. Champ Karts",
+      "Fulton Speedway": "5-29-21: Empsire Super Sprints, 358 Modifieds, Sportsman Modifieds, RUSH Late Models, Novice Sportsman"
     },
-    "Races: 1": {
+    "Races: 2": {
       "Seekonk Speedway": "7-30-16: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "10-15-16: NEMA, Sunoco Modifieds, Late Models, Limited Sportsman, Mini Stocks",
       "Thompson Speedway - Rallycross": "6-04-17: Global Rallycross Championship: GRC Supercars, GRC Lites",
-      "Stafford Motor Speedway": "6-02-17: Modified touring series, SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
+      "Stafford Motor Speedway": "6-02-17: Modified Touring Series, SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
       "New London Waterford Speedbowl": "10-21-17: 375 sportsmen, ATQMS, pro 4 modifieds, granite state pro stocks",
       "New Hampshire Motor Speedway": "9-27-15: NASCAR Sprint Cup Series",
       "Star Speedway": "8-23-17: tri track open modifieds",
@@ -745,10 +857,10 @@
       "Pocatello Speedway": "at least two races",
       "Atomic Motor Raceway": "9-16-11: Wild West Modified Tour, IMCA Sport Mods, Karts [Inner Dirt Oval]",
       "Rocky Mountain Raceways": "9-18-10: Super Stocks, Midgets, Modifieds, Figure 8 Cars, Figure 8 Trains [Asphalt Figure 8]",
-      "Las Vegas Motor Speedway": "2005 (?): NASCAR Nextel Cup Series",
+      "Las Vegas Motor Speedway": "2005: NASCAR Nextel Cup Series",
       "Phoenix International Raceway": "11-14-10: NASCAR Sprint Cup Series",
       "Lincoln Speedway": "8-24-19: All Star Circuit of Champions 410 Sprint Cars, Central PA Legends",
-      "Port Royal Speedway": "7-01-20: Pennsylvania Speekweek: 410 Sprint Cars, URC 360 Sprint Cars",
+      "Port Royal Speedway": "7-01-20: Pennsylvania Speedweek: 410 Sprint Cars, URC 360 Sprint Cars",
       "Glen Ridge Motorsports Park": "6-30-19: USAC East Coast Sprint Cars, Crate Modifieds, Limited Sportsmen, Mini Stocks, Street Stocks, Slingshots",
       "Thunder Road International Speedbowl": "9-22-19: Late Models, Street Stocks, Flying Tigers, Road Warriors",
       "Knoxville Raceway": "8-08-19: Knoxville Nationals: World of Outlaws Sprint Cars",
@@ -756,12 +868,16 @@
       "BAPS Motor Speedway": "11-16-19: 410 Sprint Cars, 358 Sprint Cars",
       "Kokomo Speedway": "8-27-20: Smackdown IX: USAC National Sprint Cars",
       "Claremont Motorsports Park": "7-31-20: Sportsman Modifieds, Late Model Sportsman, Street Stocks, Pure Stocks, Six Shooters, 4 Cylinder Enduro",
+      "Grandview Speedway": "4-22-21: USAC National Sprints, 358 Modifieds",
       "Londonderry Speedway": "11-21-20: Bandoleros, Senior Champ Karts, Mini Cups",
       "Rumtown Speedway": "8-15-20: Wingless B Sprints, Midgets, Wingless 500cc Mini Sprints",
       "Gateway Motorsports Park": "8-30-20: NTT Indycar Series, NASCAR Gander Outdoors Truck Series",
-      "Bridgeport Motorsports Park": "11-07-20: Big Block Modifieds, URC 360 Sprint Cars, 602 Sportsman Modifieds, 4 and 8 Cylinders"
+      "Bridgeport Motorsports Park": "11-07-20: Big Block Modifieds, URC 360 Sprint Cars, 602 Sportsman Modifieds, 4 and 8 Cylinders",
+      "Rochester Fairgrounds": "5-09-21: Enduro [Dirt Road Course]",
+      "Bristol Motor Speedway (Dirt)": "3-20-21: Bristol Dirt Nationals: Super Late Models, Open Modifieds, 604 Late Models, Street Stocks, Hornets",
+      "Millbridge Speedway": "3-24-21: 600cc Micro Sprints, Intermediate Karts, Jr Wing Karts"
     },
-    "Races: 2": {
+    "Races: 3": {
       "Seekonk Speedway": "8-6-16: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "10-16-16: NEMA lites, ISMA, Whelen modifieds",
       "Stafford Motor Speedway": "8-04-17: Whelen Modifieds, SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
@@ -787,9 +903,10 @@
       "Thunder Road International Speedbowl": "7-26-20: ACT Late Models, Flying Tigers, Street Stocks, Road Warriors",
       "Knoxville Raceway": "8-09-19: Knoxville Nationals: World of Outlaws Sprint Cars",
       "Kokomo Speedway": "8-28-20: Smackdown IX: USAC National Sprint Cars",
-      "Bridgeport Motorsports Park": "11-08-20: Big Block Modifieds, 602 Sportsman Modifieds, USAC SpeedSTRs, Street Stocks"
+      "Bridgeport Motorsports Park": "11-08-20: Big Block Modifieds, 602 Sportsman Modifieds, USAC SpeedSTRs, Street Stocks",
+      "Bristol Motor Speedway (Dirt)": "2-29-21: NASCAR Cup Series, NASCAR Camping World Truck Series"
     },
-    "Races: 3": {
+    "Races: 4": {
       "Seekonk Speedway": "8-07-16: Thrill Show [Asphalt Figure 8]",
       "Thompson Speedway": "4-08-17: Mr. rooter pro trucks, NEMA lites, Sunoco Modifieds, Late Models, Limited Sportsman, Mini Stocks",
       "Stafford Motor Speedway": "9-15-17: SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
@@ -808,9 +925,10 @@
       "Rocky Mountain Raceways": "7-06-13: Rocky Mountain Challenge Series late models, Modifieds, Figure 8 Trains [Asphalt Figure 8]",
       "Lincoln Speedway": "8-20-20: World of Outlaws Late Models",
       "Thunder Road International Speedbowl": "9-18-20: Late Models, Flying Tigers, Street Stocks, Road Warriors",
-      "Knoxville Raceway": "8-10-19: Knoxville Nationals: World of Outlaws Sprint Cars"
+      "Knoxville Raceway": "8-10-19: Knoxville Nationals: World of Outlaws Sprint Cars",
+      "Bristol Motor Speedway (Dirt)": "4-23-21: World of Outlaws Sprint Cars, Super DIRTcar Big Block Modifieds"
     },
-    "Races: 4": {
+    "Races: 5": {
       "Seekonk Speedway": "8-13-16: Pro Stocks, Late Models, Street Stocks, Sport Trucks, NEAR",
       "Thompson Speedway": "4-09-17: whelen modifieds, PASS",
       "Stafford Motor Speedway": "9-22-17: SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
@@ -825,9 +943,10 @@
       "Gateway Dirt Nationals": "12-20-19: Super Late Models, Modifieds, Midgets",
       "Pocatello Speedway": "at least five races",
       "Atomic Motor Raceway": "8-23-14: Wild West Modified Tour, IMCA Sport Mods",
-      "Rocky Mountain Raceways": "8-16-14: Modifieds, Double Deckers, Figure 8 Trains, Hornets [Asphalt Figure 8, Inner Asphalt Oval]"
+      "Rocky Mountain Raceways": "8-16-14: Modifieds, Double Deckers, Figure 8 Trains, Hornets [Asphalt Figure 8, Inner Asphalt Oval]",
+      "Bristol Motor Speedway (Dirt)": "4-25-21: World of Outlaws Sprint Cars, Super DIRTcar Big Block Modifieds"
     },
-    "Races: 5": {
+    "Races: 6": {
       "Seekonk Speedway": "8-20-16: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "5-21-17: mr rooter pro trucks, Sunoco Modifieds, Late Models, Limited Sportsman, Mini Stocks",
       "Stafford Motor Speedway": "10-01-17: Whelen Modifieds, SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
@@ -843,7 +962,7 @@
       "Atomic Motor Raceway": "7-22-16:",
       "Rocky Mountain Raceways": "8-15-15: Modifieds, Rocky Mountain Challenge Late Models, Midgets, Pro 4s, ISRL Sprint Cars, Jr. Stingers, Double Deckers [Asphalt Road Course]"
     },
-    "Races: 6": {
+    "Races: 7": {
       "Seekonk Speedway": "8-27-16: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "6-14-17: Whelen modifieds, NEMA lites, Sunoco Modifieds, Late Models, Limited Sportsman, Mini Stocks",
       "Stafford Motor Speedway": "5-11-18: SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
@@ -856,7 +975,7 @@
       "Wall Stadium Speedway": "10-05-19: SK Modifieds, sportsman modifieds, factory stocks, ATQMRA, 4 cylinders, limited late models [Inner Asphalt Oval]",
       "Rocky Mountain Raceways": "8-22-15: Hornets, Figure 8 Cars, Winged Sprints, Mini Cups, Pro Trucks, Figure 8 Trains [Asphalt Figure 8, Asphalt Road Course]"
     },
-    "Races: 7": {
+    "Races: 8": {
       "Seekonk Speedway": "09-03-16: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "7-08-17: K&N Pro East Series",
       "Stafford Motor Speedway": "5-18-18: SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
@@ -868,7 +987,7 @@
       "Wall Stadium Speedway": "11-29-19: Sportsman Modifieds, Factory Stocks, Limited Late Models, 4 Cylinders",
       "Rocky Mountain Raceways": "8-19-17: Winged Sprints, Limited Sprints, Super Stocks, Hornets, Figure 8 Trains [Asphalt Figure 8]"
     },
-    "Races: 8": {
+    "Races: 9": {
       "Seekonk Speedway": "9-04-16: Thrill Show [Asphalt Figure 8]",
       "Thompson Speedway": "9-10-17: Sunoco Modifieds, Late Models, Limited Sportsman, Mini Stocks, Lite Modifieds",
       "Stafford Motor Speedway": "7-13-18: SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
@@ -879,7 +998,7 @@
       "Bear Ridge Speedway": "9-25-20: Sportsman Modifieds (qualifying only), Sportsman Coupes (qualifying only), Limited Late Models, Street Stocks, 4 Cylinders",
       "Wall Stadium Speedway": "11-30-19: Tour Modifieds, SK Modifieds, INEX Legends, ATQMRA, Dirt Modifieds [Inner Asphalt Oval]"
     },
-    "Races: 9": {
+    "Races: 10": {
       "Seekonk Speedway": "9-10-16: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "10-13-17: Late Models, Lite Modifieds, Mini Stocks, NEMST, Valenti Modifieds",
       "Stafford Motor Speedway": "7-20-18: SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
@@ -889,204 +1008,1220 @@
       "Bear Ridge Speedway": "9-26-20: Sportsman Modifieds, Sportsman Coupes, Sprint Cars of New England, 4/6 Cylinder Enduro",
       "Wall Stadium Speedway": "8-08-20: SK Modifieds, Sportsman Modifieds, ATQMRA, INEX Legends, Factory Stocks [Inner Asphalt Oval]"
     },
-    "Races: 10": {
+    "Races: 11": {
       "Seekonk Speedway": "5-27-17: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "10-14-17: ACT, NEMST, Pro 4 modifieds,",
       "Stafford Motor Speedway": "7-27-18: SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models, Sr. Outlaw Karts [Inner Asphalt Oval]",
       "New Hampshire Motor Speedway": "9-22-18: Whelen modifieds, Nascar K&N Pro East Series, Nascar Pinty’s Series",
-      "Hudson Speedway": "10-20-19: V8 Run What You Brung, 6/8 Cylinder Enduro, 4 Cylinder Enduro"
+      "Hudson Speedway": "10-20-19: V8 Run What You Brung, 6/8 Cylinder Enduro, 4 Cylinder Enduro",
+      "Bear Ridge Speedway": "05-08-21: Sportsman Modifieds, Sportsman Coupes, Midgets, Limited Late Models, Street Stocks, 4 Cylinders"
     },
-    "Races: 11": {
+    "Races: 12": {
       "Seekonk Speedway": "5-28-17: Thrill Show [Asphalt Figure 8]",
       "Thompson Speedway": "10-15-17: NEMA lites, ISMA, Whelen modifieds, Valenti Modifieds",
       "Stafford Motor Speedway": "8-25-18: SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
       "New Hampshire Motor Speedway": "6-23-19: Valenti Modifieds, PASS, Street Stock Showdown Series, NEMST",
-      "Hudson Speedway": "7-12-20: Granite State Pro Stocks, Street Stocks, Mini Stocks, Pure Stocks, Six Shooters"
+      "Hudson Speedway": "7-12-20: Granite State Pro Stocks, Street Stocks, Mini Stocks, Pure Stocks, Six Shooters",
+      "Bear Ridge Speedway": "5-15-21: Sportsman Modifieds, Sportsman Coupes, Limited Late Models, Street Stocks, 4 Cylinders"
     },
-    "Races: 12": {
+    "Races: 13": {
       "Seekonk Speedway": "06-03-17: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "4-07-18: valenti modifieds, NEMA lites",
       "Stafford Motor Speedway": "09-07-18: SK Modifieds, Late Models, Lite Modifieds, Street Stocks, Limited Late Models",
       "New Hampshire Motor Speedway": "7-21-19: Monster Energy NASCAR Cup Series",
       "Hudson Speedway": "10-18-20: V8 Run What You Brung, 4 Cylinder Enduro, 8 Cylinder Enduro, 6 Cylinder Enduro"
     },
-    "Races: 13": {
+    "Races: 14": {
       "Seekonk Speedway": "6-17-17: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "4-08-18: PASS, Whelen modifieds",
       "Stafford Motor Speedway": "5-24-19: Limited Late Models, Street Stocks, Late Models, SK Lites, SK Modifieds, Tour Modifieds",
       "New Hampshire Motor Speedway": "9-12-20: Whelen Modifieds Musket 200, ACT Late Models, Legends [Asphalt Legends Oval]"
     },
-    "Races: 14": {
+    "Races: 15": {
       "Seekonk Speedway": "6-28-17: tri track open modifieds, NEMA lites, NEMA midgets",
       "Thompson Speedway": "6-14-18: Whelen Modifieds, NEMA lites",
-      "Stafford Motor Speedway": "7-12-19: Limited Late Models, Street Stocks, Late Models, SK Lites, SK Modifieds, Tour Modifieds"
+      "Stafford Motor Speedway": "7-12-19: Limited Late Models, Street Stocks, Late Models, SK Lites, SK Modifieds, Tour Modifieds",
+      "New Hampshire Motor Speedway": "4-18-20: PASS, ACT, Tour Modifieds, NEMST, Pro Trucks, Street Stocks"
     },
-    "Races: 15": {
+    "Races: 16": {
       "Seekonk Speedway": "7-19-17: US pro stock nationals, INEX legends",
       "Thompson Speedway": "8-07-18: Whelen modifieds, NEMA",
       "Stafford Motor Speedway": "7-24-20: SK Modifieds, SK Lites, Late Models, Limited Late Models, Street Stocks"
     },
-    "Races: 16": {
+    "Races: 17": {
       "Seekonk Speedway": "7-22-17: Pro Stocks, Late Models, Street Stocks, Mr. Rooter Pro Trucks",
       "Thompson Speedway": "09-08-18:",
       "Stafford Motor Speedway": "9-11-20: SK Modifieds, SK Lites, Late Models, Limited Late Models, Street Stocks"
     },
-    "Races: 17": {
+    "Races: 18": {
       "Seekonk Speedway": "7-29-17: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "10-12-18: late models, lite modifieds, GSPSS, antique modifieds",
       "Stafford Motor Speedway": "10-24-20: TTOMS, SK Lites, Street Stocks"
     },
-    "Races: 18": {
+    "Races: 19": {
       "Seekonk Speedway": "8-06-17: Thrill Show [Asphalt Figure 8]",
       "Thompson Speedway": "10-13-18: ACT, Valenti modifieds, NEMA, street stock showdown, pro truck challenge, pro 4 modifieds, NEMST"
     },
-    "Races: 19": {
+    "Races: 20": {
       "Seekonk Speedway": "8-26-17: Whelen Modifieds, Late Models, Sportsman, Sport Trucks",
       "Thompson Speedway": "10-14-18: ISMA, NEMA lites, Whelen Modifieds, limited sportsmen, mini stocks, Sunoco modifieds"
     },
-    "Races: 20": {
+    "Races: 21": {
       "Seekonk Speedway": "09-02-17: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "4-06-19: Exit Realty Pro Trucks, Valenti Modifieds, 375 Sportsmen, Lite Modifieds"
     },
-    "Races: 21": {
+    "Races: 22": {
       "Seekonk Speedway": "9-04-17: Thrill Show [Asphalt Figure 8]",
       "Thompson Speedway": "4-07-19: Sunoco Modifieds, PASS, Limited Sportsmen, Mini Stocks"
     },
-    "Races: 22": {
+    "Races: 23": {
       "Seekonk Speedway": "09-09-17: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "6-05-19: Whelen Modifieds, Sunoco Modifieds, Late Models, Limited Sportsmen, Lite Modifieds, Mini Stocks"
     },
-    "Races: 23": {
+    "Races: 24": {
       "Seekonk Speedway": "9-16-17: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "8-14-19: Whelen Modifieds, NEMA, Sunoco Modifieds, Late Models, Limited Sportsman, Lite Modifieds, Mini Stocks"
     },
-    "Races: 24": {
+    "Races: 25": {
       "Seekonk Speedway": "10-07-17: Pro Stocks, Late Models, Street Stocks, Sport Trucks + Mini Stocks",
       "Thompson Speedway": "9-03-20: Whelen Modifieds, Sunoco Modifieds, Late Models, Limited Sportsman, Lite Modifieds, Mini Stocks"
     },
-    "Races: 25": {
+    "Races: 26": {
       "Seekonk Speedway": "05-06-18: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
       "Thompson Speedway": "10-09-20: World Series 58: Open Street Stocks, Mini Stocks, Open Vintage Modifieds, STAR Modifieds, STAR Sportsman"
     },
-    "Races: 26": {
+    "Races: 27": {
       "Seekonk Speedway": "5-26-18: Thrill Show [Asphalt Figure 8]",
       "Thompson Speedway": "10-10-20: World Series 58: Exit Realty Pro Trucks, North East Mini Stock Tour, Pro 4 Modifieds, NEMA Midgets, NEMA Lites, Late Model Open, 350 Supers, PASS, Open Modifieds, SK Lites, ISMA, Limited Sportsman, Sunoco Modifieds"
     },
-    "Races: 27": {
+    "Races: 28": {
       "Seekonk Speedway": "6-02-18: Whelen Modifieds, Late Models, Sportsman, Sport Trucks",
       "Thompson Speedway": "10-11-20: World Series 58: ISMA, PASS, Sunoco Modifieds, Limited Sportsman, NEMA Lites, SK Lites, NASCAR Whelen Modified Tour"
     },
-    "Races: 28": {
-      "Seekonk Speedway": "6-16-18: Pro Stocks, Late Models, Street Stocks, Sport Trucks"
-    },
     "Races: 29": {
-      "Seekonk Speedway": "6-30-18: Pro Stocks, Late Models, Street Stocks, Sport Trucks"
+      "Seekonk Speedway": "6-16-18: Pro Stocks, Late Models, Street Stocks, Sport Trucks",
+      "Thompson Speedway": "4-10-21: Icebreaker: Open Modifieds, Sunoco Modifieds, PASS, NEMA Lites, Pro Trucks, Late Models, Open Street Stocks, Limited Sportsman, Lite Modifieds, Mini Stocks"
     },
     "Races: 30": {
-      "Seekonk Speedway": "7-14-18: Pro Stocks, Late Models, Street Stocks, Sport Trucks"
+      "Seekonk Speedway": "6-30-18: Pro Stocks, Late Models, Street Stocks, Sport Trucks"
     },
     "Races: 31": {
-      "Seekonk Speedway": "7-28-18: Pro Stocks, Late Models, Street Stocks, Sport Trucks"
+      "Seekonk Speedway": "7-14-18: Pro Stocks, Late Models, Street Stocks, Sport Trucks"
     },
     "Races: 32": {
-      "Seekonk Speedway": "8-25-18: Pro Stocks, Late Models, Street Stocks, Sport Trucks"
+      "Seekonk Speedway": "7-28-18: Pro Stocks, Late Models, Street Stocks, Sport Trucks"
     },
     "Races: 33": {
-      "Seekonk Speedway": "09-08-18: Pro Stocks, Late Models, Street Stocks, Sport Trucks"
+      "Seekonk Speedway": "8-25-18: Pro Stocks, Late Models, Street Stocks, Sport Trucks"
     },
     "Races: 34": {
-      "Seekonk Speedway": "10-06-18: Pro Stocks, Late Models, Street Stocks, Sport Trucks"
+      "Seekonk Speedway": "09-08-18: Pro Stocks, Late Models, Street Stocks, Sport Trucks"
     },
     "Races: 35": {
-      "Seekonk Speedway": "10-28-18: PASS, TTOMS, late models"
+      "Seekonk Speedway": "10-06-18: Pro Stocks, Late Models, Street Stocks, Sport Trucks"
     },
     "Races: 36": {
-      "Seekonk Speedway": "11-17-18: Thrill Show [Asphalt Figure 8]"
+      "Seekonk Speedway": "10-28-18: PASS, TTOMS, late models"
     },
     "Races: 37": {
-      "Seekonk Speedway": "5-18-19: Sport Trucks, Sportsman, Late Models, Pro Stocks"
+      "Seekonk Speedway": "11-17-18: Thrill Show [Asphalt Figure 8]"
     },
     "Races: 38": {
-      "Seekonk Speedway": "6-22-19: Sport Trucks, Sportsman, Late Models, Pro Stocks"
+      "Seekonk Speedway": "5-18-19: Sport Trucks, Sportsman, Late Models, Pro Stocks"
     },
     "Races: 39": {
-      "Seekonk Speedway": "6-27-19: Tri-Track Open Modifieds, NEMA, NEMA Lites"
+      "Seekonk Speedway": "6-22-19: Sport Trucks, Sportsman, Late Models, Pro Stocks"
     },
     "Races: 40": {
-      "Seekonk Speedway": "7-13-19: Pro Stocks, Late Models, Sportsman, Sport Trucks, STAR"
+      "Seekonk Speedway": "6-27-19: Tri-Track Open Modifieds, NEMA, NEMA Lites"
     },
     "Races: 41": {
-      "Seekonk Speedway": "7-20-19: Pro Stocks, Late Models, Sportsman, Sport Trucks"
+      "Seekonk Speedway": "7-13-19: Pro Stocks, Late Models, Sportsman, Sport Trucks, STAR"
     },
     "Races: 42": {
-      "Seekonk Speedway": "8-31-19: Thrill Show [Asphalt Figure 8]"
+      "Seekonk Speedway": "7-20-19: Pro Stocks, Late Models, Sportsman, Sport Trucks"
     },
     "Races: 43": {
-      "Seekonk Speedway": "9-21-19: Street Stocks, Late Models, Pro Stocks"
+      "Seekonk Speedway": "8-31-19: Thrill Show [Asphalt Figure 8]"
     },
     "Races: 44": {
-      "Seekonk Speedway": "10-26-19: Tri-Track Open Modifieds, PASS Super Late Models, Late Models"
+      "Seekonk Speedway": "9-21-19: Street Stocks, Late Models, Pro Stocks"
     },
     "Races: 45": {
+      "Seekonk Speedway": "10-26-19: Tri-Track Open Modifieds, PASS Super Late Models, Late Models"
+    },
+    "Races: 46": {
       "Seekonk Speedway": "11-02-19: Thrill Show [Asphalt Figure 8, Asphalt Road Course]"
+    },
+    "Races: 47": {
+      "Seekonk Speedway": "5-02-21: Pro Stocks, Late Models, Street Stocks, Sport Trucks"
     }
   },
   "Stats": {
     "Total Races": {
-      "Value": 297
+      "14": 25,
+      "24": 66,
+      "Value": 322,
+      "Races in 2021": "Races in 2020",
+      "0.06575342465753424": 0.18082191780821918,
+      "New Tracks 2021": "New Tracks 2020",
+      "Facilities": 1,
+      "Configs": 3
     },
     "Total Facilities": {
-      "Value": 77
+      "14": 20,
+      "24": 68,
+      "Value": 90,
+      "Races in 2021": "Races in 2019",
+      "0.06575342465753424": 0.1863013698630137,
+      "New Tracks 2021": "New Tracks 2019",
+      "Facilities": 6,
+      "Configs": 7
     },
     "Countable Tracks": {
-      "Value": 90
+      "14": 12,
+      "24": 65,
+      "Value": 104,
+      "Races in 2021": "Races in 2018",
+      "0.06575342465753424": 0.1780821917808219,
+      "New Tracks 2021": "New Tracks 2018",
+      "Facilities": 8,
+      "Configs": 8
+    },
+    "Total Days": {
+      "14": 11,
+      "24": 49,
+      "Value": "??",
+      "Races in 2021": "Races in 2017",
+      "0.06575342465753424": 0.13424657534246576,
+      "New Tracks 2021": "New Tracks 2017",
+      "Facilities": 16,
+      "Configs": 18
     },
     "": {},
     "Total States": {
-      "Value": 26
+      "14": 1,
+      "24": 3,
+      "Value": 28,
+      "Races in 2021": "Races in 2015",
+      "0.06575342465753424": 0.00821917808219178,
+      "New Tracks 2021": "New Tracks 2015",
+      "Facilities": 9,
+      "Configs": 9
     },
     "Paved Tracks": {
-      "Value": 33
+      "14": 2,
+      "24": 5,
+      "Value": 33,
+      "Races in 2021": "Races in 2013",
+      "0.06575342465753424": 0.0136986301369863,
+      "New Tracks 2021": "New Tracks 2013",
+      "Facilities": 5,
+      "Configs": 6
     },
     "Dirt Tracks": {
-      "Value": 41
+      "14": 2,
+      "24": 2,
+      "Value": 42,
+      "Races in 2021": "Races in 2012",
+      "0.06575342465753424": 0.005479452054794521,
+      "New Tracks 2021": "New Tracks 2012",
+      "Facilities": 2,
+      "Configs": 3
+    },
+    "Ice Tracks": {
+      "14": 0,
+      "24": 3,
+      "Value": 4,
+      "Races in 2021": "Races in 2011",
+      "0.06575342465753424": 0.00821917808219178,
+      "New Tracks 2021": "New Tracks 2011",
+      "Facilities": 8,
+      "Configs": 8
     },
     "Mixed Tracks": {
-      "Value": 3
+      "14": 3,
+      "24": 4,
+      "Value": 3,
+      "Races in 2021": "Races in 2010",
+      "0.06575342465753424": 0.010958904109589041,
+      "New Tracks 2021": "New Tracks 2010",
+      "Facilities": 1,
+      "Configs": 1
     },
     "Paved Races": {
-      "Value": 203
+      "Value": 206,
+      "Facilities": 4,
+      "Configs": 6
     },
     "Dirt Races": {
-      "Value": 90
+      "Value": 95,
+      "Facilities": 3,
+      "Configs": 6
+    },
+    "Ice Races": {
+      "Value": 4,
+      "0.06575342465753424": "Errors:",
+      "Facilities": 1,
+      "Configs": 1
     },
     "Mixed Races": {
-      "Value": 4
+      "Value": 4,
+      "Facilities": 1,
+      "Configs": 1
     },
     "Total Flips": {
-      "Value": 186
+      "Value": 198,
+      "Races in 2021": 0.8426966292134831,
+      "Facilities": 2,
+      "Configs": 2
     },
     "Dirt Flips": {
-      "Value": 151
+      "Value": 163,
+      "Races in 2021": 0.15730337078651685,
+      "Facilities": 1,
+      "Configs": 3
     },
     "Paved Flips": {
-      "Value": 35
+      "Value": 35,
+      "Races in 2021": 0,
+      "Facilities": 1,
+      "Configs": 1
     },
     "Mixed Filps": {
-      "Value": 0
+      "Value": 0,
+      "Facilities": 1,
+      "Configs": 1
     },
     "Monster Truck Shows": {
-      "Value": 37
+      "Value": 37,
+      "Facilities": 3,
+      "Configs": 3
     },
     "Average Length (paved)": {
-      "Value": 0.6
+      "Value": 0.6,
+      "Facilities": 1,
+      "Configs": 1
     },
     "Average Length (dirt)": {
-      "Value": 0.42
+      "Value": 0.46,
+      "Facilities": 1,
+      "Configs": 1
     },
     "Average Length (mixed)": {},
+    "WoO Sprint Cars": {
+      "Value": 0
+    },
+    "WoO Late Model": {},
+    "ASCoC": {},
+    "Whelen Modifieds": {
+      "Value": 0
+    },
     "TODO": {
       "Value": "Syracuse should be concrete, and formulas should work with concrete too"
+    }
+  },
+  "Track Order": {
+    "Pocatello Speedway": {
+      "State": "ID",
+      "City": "Pocatello",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 42.912684,
+      "Longitude": -112.577022
+    },
+    "Las Vegas Motor Speedway": {
+      "State": "NV",
+      "City": "Las Vegas",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 36.272028,
+      "Longitude": -115.01029
+    },
+    "The Dirt Track at Las Vegas Motor Speedway": {
+      "State": "NV",
+      "City": "Las Vegas",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 36.285462,
+      "Longitude": -115.011854
+    },
+    "Magic Valley Speedway": {
+      "State": "ID",
+      "City": "Twin Falls",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 42.486547,
+      "Longitude": -114.502064
+    },
+    "Atomic Motor Raceway (Inner Dirt Oval)": {
+      "State": "ID",
+      "City": "Atomic City",
+      "Type": "Oval",
+      "Surface": "Dirt"
+    },
+    "Miller Motorsports Park": {
+      "Date": "2009-05-17T04:00:00.000Z",
+      "State": "UT",
+      "City": "Tooele",
+      "Type": "Road Course",
+      "Surface": "Asphalt",
+      "Latitude": 40.580394,
+      "Longitude": -112.378375
+    },
+    "Phoenix International Raceway": {
+      "Date": 2009,
+      "State": "AZ",
+      "City": "Avondale",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 33.37478,
+      "Longitude": -112.310508
+    },
+    "Rocky Mountain Raceways": {
+      "Date": "2010-09-19T04:00:00.000Z",
+      "State": "UT",
+      "City": "West Valley City",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 40.71917,
+      "Longitude": -112.046914
+    },
+    "Rocky Mountain Raceways (Asphalt Figure 8)": {
+      "Date": "2010-09-19T04:00:00.000Z",
+      "State": "UT",
+      "City": "West Valley City",
+      "Type": "Figure 8",
+      "Surface": "Asphalt"
+    },
+    "Atomic Motor Raceway": {
+      "Date": "2010-09-25T04:00:00.000Z",
+      "State": "ID",
+      "City": "Atomic City",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 43.446541,
+      "Longitude": -112.811413
+    },
+    "Stuart Speedway": {
+      "Date": "2012-07-29T04:00:00.000Z",
+      "State": "NE",
+      "City": "Stuart",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 42.607193,
+      "Longitude": -99.139804
+    },
+    "Wakeeney Speedway": {
+      "Date": "2012-08-01T04:00:00.000Z",
+      "State": "KS",
+      "City": "Wakeeney",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 39.024411,
+      "Longitude": -99.86834
+    },
+    "Miller Motorsports Park Off Road Course": {
+      "Date": "2013-06-23T04:00:00.000Z",
+      "State": "UT",
+      "City": "Tooele",
+      "Type": "Road Course",
+      "Surface": "Dirt",
+      "Latitude": 40.585406,
+      "Longitude": -112.385315
+    },
+    "New Hampshire Motor Speedway": {
+      "Date": "2013-09-22T04:00:00.000Z",
+      "State": "NH",
+      "City": "Loudon",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 43.36241,
+      "Longitude": -71.460713
+    },
+    "Nassau Coliseum Parking Lot": {
+      "Date": "2014-07-20T04:00:00.000Z",
+      "State": "NY",
+      "City": "Uniondale",
+      "Type": "Road Course",
+      "Surface": "Mixed",
+      "Latitude": 40.72072,
+      "Longitude": -73.589474
+    },
+    "Rocky Mountain Raceways (Inner Asphalt Oval)": {
+      "Date": "2014-08-16T04:00:00.000Z",
+      "State": "UT",
+      "City": "West Valley City",
+      "Type": "Oval",
+      "Surface": "Asphalt"
+    },
+    "Rocky Mountain Raceways (Asphalt Road Course)": {
+      "Date": "2015-08-15T04:00:00.000Z",
+      "State": "UT",
+      "City": "West Valley City",
+      "Type": "Road Course",
+      "Surface": "Asphalt"
+    },
+    "Seekonk Speedway": {
+      "Date": "2016-07-13T04:00:00.000Z",
+      "State": "MA",
+      "City": "Seekonk",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 41.784545,
+      "Longitude": -71.302063
+    },
+    "Pocatello Speedway (Inner Dirt Oval)": {
+      "Date": "2016-07-23T04:00:00.000Z",
+      "State": "ID",
+      "City": "Pocatello",
+      "Type": "Oval",
+      "Surface": "Dirt"
+    },
+    "Seekonk Speedway (Asphalt Figure 8)": {
+      "Date": "2016-08-07T04:00:00.000Z",
+      "State": "MA",
+      "City": "Seekonk",
+      "Type": "Figure 8",
+      "Surface": "Asphalt"
+    },
+    "Thompson Speedway": {
+      "Date": "2016-08-24T04:00:00.000Z",
+      "State": "CT",
+      "City": "Thompson",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 41.981539,
+      "Longitude": -71.824777
+    },
+    "Port of LA": {
+      "Date": "2016-10-09T04:00:00.000Z",
+      "State": "CA",
+      "City": "Los Angeles",
+      "Type": "Road Course",
+      "Surface": "Mixed",
+      "Latitude": 33.715601,
+      "Longitude": -118.274313
+    },
+    "Star Speedway": {
+      "Date": "2017-04-15T04:00:00.000Z",
+      "State": "NH",
+      "City": "Epping",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 43.029218,
+      "Longitude": -71.040663
+    },
+    "Stafford Motor Speedway": {
+      "Date": "2017-04-30T04:00:00.000Z",
+      "State": "CT",
+      "City": "Stafford Springs",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 41.955244,
+      "Longitude": -72.32045
+    },
+    "Thompson Speedway - Rallycross": {
+      "Date": "2017-06-03T04:00:00.000Z",
+      "State": "CT",
+      "City": "Thompson",
+      "Type": "Road Course",
+      "Surface": "Mixed"
+    },
+    "Lee USA Speedway": {
+      "Date": "2017-07-21T04:00:00.000Z",
+      "State": "NH",
+      "City": "Lee",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 43.115867,
+      "Longitude": -71.039733
+    },
+    "Albany-Saratoga Speedway": {
+      "Date": "2017-07-28T04:00:00.000Z",
+      "State": "NY",
+      "City": "Malta",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 42.988542,
+      "Longitude": -73.78216
+    },
+    "New London Waterford Speedbowl": {
+      "Date": "2017-08-12T04:00:00.000Z",
+      "State": "CT",
+      "City": "Waterford",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 41.396765,
+      "Longitude": -72.17621
+    },
+    "Oxford Plains Speedway": {
+      "Date": "2017-08-27T04:00:00.000Z",
+      "State": "ME",
+      "City": "Oxford",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 44.153846,
+      "Longitude": -70.484541
+    },
+    "Lebanon Valley Speedway": {
+      "Date": "2017-08-31T04:00:00.000Z",
+      "State": "NY",
+      "City": "West Lebanon",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 42.491995,
+      "Longitude": -73.488908
+    },
+    "Beech Ridge Speedway": {
+      "Date": "2017-09-17T04:00:00.000Z",
+      "State": "ME",
+      "City": "Scarborough",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 43.610212,
+      "Longitude": -70.380652
+    },
+    "Wall Stadium Speedway": {
+      "Date": "2017-11-24T05:00:00.000Z",
+      "State": "NJ",
+      "City": "Wall",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 40.175186,
+      "Longitude": -74.115242
+    },
+    "Wall Stadium Speedway (Inner Asphalt Oval)": {
+      "Date": "2017-11-25T05:00:00.000Z",
+      "State": "NJ",
+      "City": "Wall",
+      "Type": "Oval",
+      "Surface": "Asphalt"
+    },
+    "Hudson Speedway": {
+      "Date": "2018-05-13T04:00:00.000Z",
+      "State": "NH",
+      "City": "Hudson",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 42.813592,
+      "Longitude": -71.410685
+    },
+    "Texas Motor Speedway": {
+      "Date": "2018-06-08T04:00:00.000Z",
+      "State": "TX",
+      "City": "Fort Worth",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 33.036961,
+      "Longitude": -97.281602
+    },
+    "Lil' Texas Motor Speedway": {
+      "Date": "2018-06-08T04:00:00.000Z",
+      "State": "TX",
+      "City": "Fort Worth",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 33.035957,
+      "Longitude": -97.27588
+    },
+    "Texas Motor Speedway (Asphalt Road Course)": {
+      "Date": "2018-06-09T04:00:00.000Z",
+      "State": "TX",
+      "City": "Fort Worth",
+      "Type": "Road Course",
+      "Surface": "Asphalt"
+    },
+    "Monadnock Speedway": {
+      "Date": "2018-07-07T04:00:00.000Z",
+      "State": "NH",
+      "City": "Winchester",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 42.831283,
+      "Longitude": -72.362489
+    },
+    "Stafford Motor Speedway (Inner Asphalt Oval)": {
+      "Date": "2018-07-27T04:00:00.000Z",
+      "State": "CT",
+      "City": "Stafford Springs",
+      "Type": "Oval",
+      "Surface": "Asphalt"
+    },
+    "Bear Ridge Speedway": {
+      "Date": "2018-08-11T04:00:00.000Z",
+      "State": "VT",
+      "City": "Bradford",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 43.998119,
+      "Longitude": -72.168196
+    },
+    "Devil's Bowl Speedway": {
+      "Date": "2018-09-16T04:00:00.000Z",
+      "State": "VT",
+      "City": "West Haven",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 43.667992,
+      "Longitude": -73.294175
+    },
+    "Lancaster Speedway": {
+      "Date": "2018-09-28T04:00:00.000Z",
+      "State": "SC",
+      "City": "Lancaster",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 34.779166,
+      "Longitude": -80.78716
+    },
+    "Charlotte Motor Speedway Roval": {
+      "Date": "2018-09-29T04:00:00.000Z",
+      "State": "NC",
+      "City": "Concord",
+      "Type": "Road Course",
+      "Surface": "Asphalt",
+      "Latitude": 35.352002,
+      "Longitude": -80.683515
+    },
+    "Gateway Dirt Nationals": {
+      "Date": "2018-11-29T05:00:00.000Z",
+      "State": "MO",
+      "City": "St. Louis",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 38.632739,
+      "Longitude": -90.188636
+    },
+    "Cure Insurance Arena": {
+      "Date": "2018-12-15T05:00:00.000Z",
+      "State": "NJ",
+      "City": "Trenton",
+      "Type": "Oval",
+      "Surface": "Clay",
+      "Latitude": 40.21272,
+      "Longitude": -74.757592
+    },
+    "Exposition Center": {
+      "Date": "2019-03-09T05:00:00.000Z",
+      "State": "NY",
+      "City": "Syracuse",
+      "Type": "Oval",
+      "Surface": "Concrete",
+      "Latitude": 43.074406,
+      "Longitude": -76.221899
+    },
+    "Lincoln Speedway": {
+      "Date": "2019-03-23T04:00:00.000Z",
+      "State": "PA",
+      "City": "Abbottstown",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 39.870591,
+      "Longitude": -76.994714
+    },
+    "Port Royal Speedway": {
+      "Date": "2019-03-24T04:00:00.000Z",
+      "State": "PA",
+      "City": "Port Royal",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 40.535688,
+      "Longitude": -77.389519
+    },
+    "Orange County Fair Speedway": {
+      "Date": "2019-04-13T04:00:00.000Z",
+      "State": "NY",
+      "City": "Middletown",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 41.447578,
+      "Longitude": -74.393426
+    },
+    "New Egypt Speedway": {
+      "Date": "2019-05-04T04:00:00.000Z",
+      "State": "NJ",
+      "City": "Plumsted",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 40.070578,
+      "Longitude": -74.467841
+    },
+    "Glen Ridge Motorsports Park": {
+      "Date": "2019-06-02T04:00:00.000Z",
+      "State": "NY",
+      "City": "Fultonville",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 42.933938,
+      "Longitude": -74.4051
+    },
+    "Utica-Rome Speedway": {
+      "Date": "2019-07-07T04:00:00.000Z",
+      "State": "NY",
+      "City": "Vernon",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 43.078706,
+      "Longitude": -75.516282
+    },
+    "Thunder Road International Speedbowl": {
+      "Date": "2019-07-18T04:00:00.000Z",
+      "State": "VT",
+      "City": "Barre",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 44.179899,
+      "Longitude": -72.487877
+    },
+    "NHMS Flat Track": {
+      "Date": "2019-07-19T04:00:00.000Z",
+      "State": "NH",
+      "City": "Loudon",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 43.34798,
+      "Longitude": -71.463928
+    },
+    "Meridian Speedway": {
+      "Date": "2019-07-27T04:00:00.000Z",
+      "State": "ID",
+      "City": "Meridian",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 43.601855,
+      "Longitude": -116.390666
+    },
+    "Slinger Speedway": {
+      "Date": "2019-08-04T04:00:00.000Z",
+      "State": "WI",
+      "City": "Slinger",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 43.340632,
+      "Longitude": -88.277351
+    },
+    "Slinger Speedway (Asphalt Figure 8)": {
+      "Date": "2019-08-04T04:00:00.000Z",
+      "State": "WI",
+      "City": "Slinger",
+      "Type": "Figure 8",
+      "Surface": "Asphalt"
+    },
+    "Slinger Speedway (Asphalt Road Course)": {
+      "Date": "2019-08-04T04:00:00.000Z",
+      "State": "WI",
+      "City": "Slinger",
+      "Type": "Road Course",
+      "Surface": "Asphalt"
+    },
+    "Southern Iowa Speedway": {
+      "Date": "2019-08-05T04:00:00.000Z",
+      "State": "IA",
+      "City": "Oskaloosa",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 41.303158,
+      "Longitude": -92.657883
+    },
+    "Knoxville Raceway": {
+      "Date": "2019-08-07T04:00:00.000Z",
+      "State": "IA",
+      "City": "Knoxville",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 41.326589,
+      "Longitude": -93.111788
+    },
+    "Proctor Speedway": {
+      "Date": "2019-08-11T04:00:00.000Z",
+      "State": "MN",
+      "City": "Proctor",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 46.750912,
+      "Longitude": -92.214314
+    },
+    "William's Grove Speedway": {
+      "Date": "2019-08-23T04:00:00.000Z",
+      "State": "PA",
+      "City": "Mechanicsburg",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 40.155486,
+      "Longitude": -77.033648
+    },
+    "BAPS Motor Speedway": {
+      "Date": "2019-08-25T04:00:00.000Z",
+      "State": "PA",
+      "City": "York Haven",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 40.112489,
+      "Longitude": -76.825789
+    },
+    "Seekonk Speedway (Asphalt Road Course)": {
+      "Date": "2019-08-31T04:00:00.000Z",
+      "State": "MA",
+      "City": "Seekonk",
+      "Type": "Road Course",
+      "Surface": "Asphalt"
+    },
+    "Eldora Speedway": {
+      "Date": "2019-09-28T04:00:00.000Z",
+      "State": "OH",
+      "City": "New Weston",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 40.318608,
+      "Longitude": -84.633776
+    },
+    "PPL Center": {
+      "Date": "2020-01-04T05:00:00.000Z",
+      "State": "PA",
+      "City": "Allentown",
+      "Type": "Oval",
+      "Surface": "Concrete",
+      "Latitude": 40.602711,
+      "Longitude": -75.473078
+    },
+    "Riverside Speedway": {
+      "Date": "2020-01-18T05:00:00.000Z",
+      "State": "NH",
+      "City": "Northumberland",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 44.596926,
+      "Longitude": -71.542518
+    },
+    "Boardwalk Hall": {
+      "Date": "2020-02-01T05:00:00.000Z",
+      "State": "NJ",
+      "City": "Atlantic City",
+      "Type": "Oval",
+      "Surface": "Concrete",
+      "Latitude": 39.355096,
+      "Longitude": -74.438648
+    },
+    "Paragon Speedway": {
+      "Date": "2020-06-16T04:00:00.000Z",
+      "State": "IN",
+      "City": "Paragon",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 39.391225,
+      "Longitude": -86.587073
+    },
+    "Gas City Speedway": {
+      "Date": "2020-06-17T04:00:00.000Z",
+      "State": "IN",
+      "City": "Gas City",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 40.483466,
+      "Longitude": -85.563242
+    },
+    "Lincoln Park Speedway": {
+      "Date": "2020-06-18T04:00:00.000Z",
+      "State": "IN",
+      "City": "Greencastle",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 39.57626,
+      "Longitude": -86.869947
+    },
+    "Tri-State Speedway": {
+      "Date": "2020-06-19T04:00:00.000Z",
+      "State": "IN",
+      "City": "Haubstadt",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 38.205983,
+      "Longitude": -87.553621
+    },
+    "Lawrenceburg Speedway": {
+      "Date": "2020-06-20T04:00:00.000Z",
+      "State": "IN",
+      "City": "Lawrenceburg",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 39.104738,
+      "Longitude": -84.856087
+    },
+    "Kokomo Speedway": {
+      "Date": "2020-06-21T04:00:00.000Z",
+      "State": "IN",
+      "City": "Kokomo",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 40.51123,
+      "Longitude": -86.143393
+    },
+    "Claremont Motorsports Park": {
+      "Date": "2020-06-26T04:00:00.000Z",
+      "State": "NH",
+      "City": "Claremont",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 43.392067,
+      "Longitude": -72.352005
+    },
+    "Selinsgrove Speedway": {
+      "Date": "2020-06-28T04:00:00.000Z",
+      "State": "PA",
+      "City": "Selinsgrove",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 40.787057,
+      "Longitude": -76.870238
+    },
+    "Grandview Speedway": {
+      "Date": "2020-06-30T04:00:00.000Z",
+      "State": "PA",
+      "City": "Bechtelsville",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 40.372544,
+      "Longitude": -75.610115
+    },
+    "Hagerstown Speedway": {
+      "Date": "2020-07-02T04:00:00.000Z",
+      "State": "MD",
+      "City": "Hagerstown",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 39.660672,
+      "Longitude": -77.843921
+    },
+    "Big Diamond Speedway": {
+      "Date": "2020-07-03T04:00:00.000Z",
+      "State": "PA",
+      "City": "Minersville",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 40.684617,
+      "Longitude": -76.303246
+    },
+    "White Mountain Motorsports Park": {
+      "Date": "2020-07-04T04:00:00.000Z",
+      "State": "NH",
+      "City": "North Woodstock",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 44.006522,
+      "Longitude": -71.681925
+    },
+    "Londonderry Speedway": {
+      "Date": "2020-08-01T04:00:00.000Z",
+      "State": "NH",
+      "City": "Londonderry",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 42.920848,
+      "Longitude": -71.414851
+    },
+    "Rumtown Speedway": {
+      "Date": "2020-08-01T04:00:00.000Z",
+      "State": "NH",
+      "City": "Rumney",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 43.818725,
+      "Longitude": -71.8937
+    },
+    "Lucas Oil Raceway": {
+      "Date": "2020-08-21T04:00:00.000Z",
+      "State": "IN",
+      "City": "Brownsburg",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 39.812582,
+      "Longitude": -86.340586
+    },
+    "Lucas Oil Speedway Off Road Course": {
+      "Date": "2020-08-22T04:00:00.000Z",
+      "State": "MO",
+      "City": "Wheatland",
+      "Type": "Road Course",
+      "Surface": "Dirt",
+      "Latitude": 37.936849,
+      "Longitude": -93.392579
+    },
+    "Lucas Oil Speedway": {
+      "Date": "2020-08-22T04:00:00.000Z",
+      "State": "MO",
+      "City": "Wheatland",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 37.940222,
+      "Longitude": -93.397699
+    },
+    "Indiana State Fairgrounds": {
+      "Date": "2020-08-23T04:00:00.000Z",
+      "State": "IN",
+      "City": "Indianapolis",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 39.829557,
+      "Longitude": -86.134228
+    },
+    "Gateway Motorsports Park": {
+      "Date": "2020-08-29T04:00:00.000Z",
+      "State": "IL",
+      "City": "Madison",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 38.651483,
+      "Longitude": -90.135503
+    },
+    "Macon Speedway": {
+      "Date": "2020-08-29T04:00:00.000Z",
+      "State": "IL",
+      "City": "Macon",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 39.712101,
+      "Longitude": -89.006834
+    },
+    "New Hampshire Motor Speedway (Asphalt Legends Oval)": {
+      "Date": "2020-09-12T04:00:00.000Z",
+      "State": "NH",
+      "City": "Loudon",
+      "Type": "Oval",
+      "Surface": "Asphalt"
+    },
+    "Bridgeport Motorsports Park": {
+      "Date": "2020-11-06T05:00:00.000Z",
+      "State": "NJ",
+      "City": "Swedesboro",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 39.819307,
+      "Longitude": -75.317575
+    },
+    "Lee Pond": {
+      "Date": "2021-01-31T05:00:00.000Z",
+      "State": "NH",
+      "City": "Moultonborough",
+      "Type": "Oval",
+      "Surface": "Ice",
+      "Latitude": 43.7416295733249,
+      "Longitude": -71.3972113377312
+    },
+    "Berry Pond": {
+      "Date": "2021-02-06T05:00:00.000Z",
+      "State": "NH",
+      "City": "Moultonborough",
+      "Type": "Oval",
+      "Surface": "Ice",
+      "Latitude": 43.7588525295176,
+      "Longitude": -71.3935907924762
+    },
+    "Northeast Pond": {
+      "Date": "2021-02-07T05:00:00.000Z",
+      "State": "NH",
+      "City": "Milton",
+      "Type": "Oval",
+      "Surface": "Ice",
+      "Latitude": 43.4442995517814,
+      "Longitude": -70.9636735387532
+    },
+    "Contoocook Lake": {
+      "Date": "2021-02-14T05:00:00.000Z",
+      "State": "NH",
+      "City": "Jaffrey",
+      "Type": "Oval",
+      "Surface": "Ice",
+      "Latitude": 42.7955399320377,
+      "Longitude": -72.0077349892875
+    },
+    "Rochester Fairgrounds": {
+      "Date": "2021-03-06T05:00:00.000Z",
+      "State": "NH",
+      "City": "Rochester",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 43.2969490477573,
+      "Longitude": -70.9832266862897
+    },
+    "Bristol Motor Speedway (Dirt)": {
+      "Date": "2021-03-19T04:00:00.000Z",
+      "State": "TN",
+      "City": "Bristol",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 36.5155905074463,
+      "Longitude": -82.2571598217224
+    },
+    "Mountain Creek Speedway": {
+      "Date": "2021-03-21T04:00:00.000Z",
+      "State": "NC",
+      "City": "Catawba",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 35.6047121721003,
+      "Longitude": -81.0757647727015
+    },
+    "Millbridge Speedway": {
+      "Date": "2021-03-23T04:00:00.000Z",
+      "State": "NC",
+      "City": "Salisbury",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 35.6533176141607,
+      "Longitude": -80.6081584281256
+    },
+    "Boyd's Speedway": {
+      "Date": "2021-03-26T04:00:00.000Z",
+      "State": "GA",
+      "City": "Ringgold",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 34.9847781036773,
+      "Longitude": -85.1945374800083
+    },
+    "Fonda Speedway": {
+      "Date": "2021-04-18T04:00:00.000Z",
+      "State": "NY",
+      "City": "Fonda",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 42.9522323308999,
+      "Longitude": -74.3674486590383
+    },
+    "Rochester Fairgrounds (Dirt Road Course)": {
+      "Date": "2021-05-08T04:00:00.000Z",
+      "State": "NH",
+      "City": "Rochester",
+      "Type": "Road Course",
+      "Surface": "Dirt"
+    },
+    "Central Cycle Club": {
+      "Date": "2021-05-23T04:00:00.000Z",
+      "State": "CT",
+      "City": "Central Village",
+      "Type": "Road Course",
+      "Surface": "Dirt",
+      "Latitude": 41.7211615227574,
+      "Longitude": -71.9230246254887
+    },
+    "Pomfret Speedway": {
+      "Date": "2021-05-23T04:00:00.000Z",
+      "State": "CT",
+      "City": "Pomfret",
+      "Type": "Oval",
+      "Surface": "Asphalt",
+      "Latitude": 41.9013745954223,
+      "Longitude": -71.9881088527105
+    },
+    "Fulton Speedway": {
+      "Date": "2021-05-29T04:00:00.000Z",
+      "State": "NY",
+      "City": "Fulton",
+      "Type": "Oval",
+      "Surface": "Dirt",
+      "Latitude": 43.28052361,
+      "Longitude": -76.38360434
     }
   },
   "Flips": {
@@ -1164,7 +2299,8 @@
       "Surface": "Dirt",
       "Open Wheel": false,
       "When": "Heat",
-      "Video": false
+      "Video": false,
+      "Notes": "Turn 3, I think went over the banking and rolled onto the roof. Came back to run the feature."
     },
     "11": {
       "Date": "2013-06-23T04:00:00.000Z",
@@ -1510,7 +2646,9 @@
       "Rotations": "1/4",
       "Surface": "Dirt",
       "Open Wheel": true,
-      "Video": false
+      "When": "Feature",
+      "Video": false,
+      "Notes": "Tyler Courtney"
     },
     "48": {
       "Date": "2018-12-15T05:00:00.000Z",
@@ -1550,7 +2688,8 @@
       "Class": "Three Quarter Midget",
       "Surface": "Concrete",
       "Open Wheel": true,
-      "Video": false
+      "Video": false,
+      "Notes": "Either went over a wheel or caught the inside tires and went into the roof entering turn 3."
     },
     "53": {
       "Date": "2019-03-09T05:00:00.000Z",
@@ -1621,7 +2760,8 @@
       "Surface": "Dirt",
       "Open Wheel": true,
       "When": "Feature",
-      "Video": false
+      "Video": true,
+      "Cut for site": "x"
     },
     "61": {
       "Date": "2019-05-17T04:00:00.000Z",
@@ -1630,7 +2770,9 @@
       "Rotations": "3+",
       "Surface": "Dirt",
       "Open Wheel": false,
-      "Video": false
+      "When": "Heat",
+      "Video": false,
+      "Notes": "One got turned exiting two and hit the rear wheel of another that flipped multiple times down the backstretch, probably rolling three times including a pirouette on the nose in the middle"
     },
     "62": {
       "Date": "2019-06-08T04:00:00.000Z",
@@ -1726,7 +2868,9 @@
       "Rotations": "1+",
       "Surface": "Dirt",
       "Open Wheel": true,
-      "Video": false
+      "Video": true,
+      "Cut for site": "x",
+      "Notes": "Lucas Wolfe"
     },
     "72": {
       "Date": "2019-07-14T04:00:00.000Z",
@@ -1735,7 +2879,7 @@
       "Rotations": "1",
       "Surface": "Dirt",
       "Open Wheel": true,
-      "Video": true
+      "Video": false
     },
     "73": {
       "Date": "2019-07-19T04:00:00.000Z",
@@ -1822,7 +2966,8 @@
       "Surface": "Dirt",
       "Open Wheel": true,
       "When": "B Main",
-      "Video": false,
+      "Video": true,
+      "Cut for site": "x",
       "Notes": "B main 1"
     },
     "81": {
@@ -1845,7 +2990,8 @@
       "Surface": "Dirt",
       "Open Wheel": true,
       "When": "D Main",
-      "Video": false,
+      "Video": true,
+      "Cut for site": "x",
       "Notes": "D main"
     },
     "83": {
@@ -1867,7 +3013,8 @@
       "Surface": "Dirt",
       "Open Wheel": true,
       "When": "B Main",
-      "Video": false,
+      "Video": true,
+      "Cut for site": "x",
       "Notes": "B main"
     },
     "85": {
@@ -2012,6 +3159,7 @@
       "Surface": "Dirt",
       "Open Wheel": false,
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Entering 1, snapped around and backed into the wall, rolled on roof. Bobby Pierce, out of third place"
     },
     "99": {
@@ -2022,6 +3170,7 @@
       "Surface": "Dirt",
       "Open Wheel": false,
       "Video": true,
+      "Cut for site": "x",
       "Notes": "High line in 1, backed in, front wheels climbed the k rail and caught the fence, slow roll onto roof"
     },
     "100": {
@@ -2031,17 +3180,21 @@
       "Rotations": "2+",
       "Surface": "Dirt",
       "Open Wheel": true,
-      "Video": false,
+      "When": "Main",
+      "Video": true,
+      "Cut for site": "x",
       "Notes": "Turn 2, side to side contact, dug in right sided and rolled several times. Simultaneous with below"
     },
     "101": {
       "Date": "2019-12-20T05:00:00.000Z",
       "Track": "Gateway Dirt Nationals",
       "Class": "Midget",
-      "Rotations": "1+",
+      "Rotations": "1/2",
       "Surface": "Dirt",
       "Open Wheel": true,
-      "Video": false,
+      "When": "Main",
+      "Video": true,
+      "Cut for site": "x",
       "Notes": "Turn 2, didn’t see cause. Rolled at least once. Simultaneous with above"
     },
     "102": {
@@ -2061,7 +3214,8 @@
       "Rotations": "1/2",
       "Surface": "Dirt",
       "Open Wheel": false,
-      "Video": false,
+      "Video": true,
+      "Cut for site": "x",
       "Notes": "turn 1, I think a bicycle and went on the roof"
     },
     "104": {
@@ -2071,6 +3225,7 @@
       "Rotations": "1/2",
       "Surface": "Dirt",
       "Open Wheel": false,
+      "When": "Main",
       "Video": true,
       "Notes": "Extended battle for 1st and 2nd, back and forth. Car got crossed below going down front stretch, entered high, then tried to cut low below the other car sliding up through the center of the corner. Caught a rut, rolled on roof"
     },
@@ -2081,7 +3236,9 @@
       "Rotations": "1/2",
       "Surface": "Dirt",
       "Open Wheel": true,
+      "When": "Main",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Caught wheels with another car, multiple flat spins, almost cartwheeling before rolling on the roof"
     },
     "106": {
@@ -2091,7 +3248,9 @@
       "Rotations": "1/2",
       "Surface": "Dirt",
       "Open Wheel": true,
-      "Video": false,
+      "When": "Main",
+      "Video": true,
+      "Cut for site": "x",
       "Notes": "Caught a rut with the left side, then with the right and went over"
     },
     "107": {
@@ -2218,17 +3377,18 @@
       "Open Wheel": true,
       "When": "Hot Laps",
       "Video": false,
-      "Notes": "Hot laps Going into turn 1, went over the top of the banking and rolled multiple times"
+      "Notes": "Hot laps Going into turn 1, went over the top of the banking and rolled multiple times. Cannon McIntosh"
     },
     "119": {
       "Date": "2020-06-16T04:00:00.000Z",
       "Track": "Paragon Speedway",
       "Class": "Midget",
-      "Rotations": "3+",
+      "Rotations": "1.5",
       "Surface": "Dirt",
       "Open Wheel": true,
       "When": "Qualifying",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Zeb Wise in qualifying, too hot into 1, bicycle into wild flips"
     },
     "120": {
@@ -2239,7 +3399,8 @@
       "Surface": "Dirt",
       "Open Wheel": true,
       "When": "Heat",
-      "Video": false,
+      "Video": true,
+      "Cut for site": "x",
       "Notes": "Heat, turn 2, car in front spun, Brady Bacon got sideways trying to stop and hit him, rolling once"
     },
     "121": {
@@ -2249,9 +3410,9 @@
       "Rotations": "3+",
       "Surface": "Dirt",
       "Open Wheel": true,
-      "When": "B Main",
+      "When": "C Main",
       "Video": false,
-      "Notes": "B main, turn 2, didn't see cause but multiple flips"
+      "Notes": "C main, turn 2, didn't see cause but multiple flips"
     },
     "122": {
       "Date": "2020-06-16T04:00:00.000Z",
@@ -2260,9 +3421,10 @@
       "Rotations": "1",
       "Surface": "Dirt",
       "Open Wheel": true,
-      "When": "B Main",
-      "Video": false,
-      "Notes": "B main, got burm on bottom of track, got sideways and did a pirouette then rolled"
+      "When": "C Main",
+      "Video": true,
+      "Cut for site": "x",
+      "Notes": "C main, got burm on bottom of track, got sideways and did a pirouette then rolled"
     },
     "123": {
       "Date": "2020-06-16T04:00:00.000Z",
@@ -2307,6 +3469,7 @@
       "Open Wheel": true,
       "When": "A Main",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Feature in turn 2. Third place tried to take first, slid in front and first place car launched over wheel and into air, clipping forward end over end at least twice with big air."
     },
     "127": {
@@ -2318,6 +3481,7 @@
       "Open Wheel": true,
       "When": "Hot Laps",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Hot laps. Wheelie coming out of two, tilted over into right side and caught front wheel, tumbling many times end over end. Max McLaughlin flip for second night in a row"
     },
     "128": {
@@ -2329,6 +3493,7 @@
       "Open Wheel": true,
       "When": "Qualifying",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Qualifying. T mez popped wheelie in 2 then caught the right front, flipping end over end"
     },
     "129": {
@@ -2427,7 +3592,8 @@
       "Surface": "Dirt",
       "Open Wheel": true,
       "When": "Heat",
-      "Video": false,
+      "Video": true,
+      "Cut for site": "x",
       "Notes": "On initial green, car in front didn't accelerate as quickly. Caught wheels, popped front end up high, came down a bit sideways then caught the lefts and rolled on side"
     },
     "138": {
@@ -2461,6 +3627,7 @@
       "Open Wheel": true,
       "When": "Heat",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Car 1 loses a front tire and slows. Car 2 goes low to avoid, clips wheels. The flat tire causes car 2 to dig into the front stretch and tumble forward several times. Car 1 also rolled, I think because of the contact broke a front tire that also dug and more slowly rolled him over."
     },
     "141": {
@@ -2472,7 +3639,8 @@
       "Open Wheel": true,
       "When": "Heat",
       "Video": true,
-      "Notes": "Described above"
+      "Cut for site": "x",
+      "Notes": "^^^^^"
     },
     "142": {
       "Date": "2020-06-20T04:00:00.000Z",
@@ -2483,6 +3651,7 @@
       "Open Wheel": true,
       "When": "Main",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Andrew Layser jumper cushion in 4 and rolled many times"
     },
     "143": {
@@ -2505,7 +3674,7 @@
       "Open Wheel": true,
       "When": "Main",
       "Video": false,
-      "Notes": "Described above"
+      "Notes": "^^^^^"
     },
     "145": {
       "Date": "2020-06-21T04:00:00.000Z",
@@ -2516,17 +3685,19 @@
       "Open Wheel": true,
       "When": "Heat",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Overran cushion, backed into wall, rolled once then did a bit of a pirouette on back and landed on roof"
     },
     "146": {
       "Date": "2020-06-21T04:00:00.000Z",
       "Track": "Kokomo Speedway",
       "Class": "Wingless 410 Sprint Car",
-      "Rotations": "4+",
+      "Rotations": "4.5",
       "Surface": "Dirt",
       "Open Wheel": true,
       "When": "B main",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Started flipping in the middle of 3 and 4, I assume a bike. Rolled violently many times."
     },
     "147": {
@@ -2538,6 +3709,7 @@
       "Open Wheel": true,
       "When": "Main",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Tyler Courtney out of the lead on a restart going into 1 caught a rut and rolled two and a half times, ending on side"
     },
     "148": {
@@ -2633,7 +3805,7 @@
     "156": {
       "Date": "2020-07-18T04:00:00.000Z",
       "Track": "Bear Ridge Speedway",
-      "Class": "Midget",
+      "Class": "D2 Midget",
       "Rotations": "1.5",
       "Surface": "Dirt",
       "Open Wheel": true,
@@ -2942,6 +4114,7 @@
       "Open Wheel": true,
       "When": "B Main",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Went too high in 3, right rear got into the wall, pulling the front into it and he rolled I think 3 times down the track, landing on the wheels."
     },
     "184": {
@@ -2953,6 +4126,7 @@
       "Open Wheel": false,
       "When": "Main",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "After taking the checkered flag, the winner kept on the gas through the cooldown lap. He got into a lapped car in 4, spinning the lapped car out and then got collected by another car and put into the front stretch wall. The right front climbed the wall and he kept on the gas, riding a wheelie shortly until the right front caught the catch fence, tearing out multiple poles and rolling the car over once, landing on the wheels at the start finish line."
     },
     "185": {
@@ -2963,7 +4137,8 @@
       "Surface": "Dirt",
       "Open Wheel": true,
       "When": "Heat",
-      "Video": false,
+      "Video": true,
+      "Cut for site": "x",
       "Notes": "Car A spun in 4. Car B had nowhere to go and hit him in the driver's side. Car B flipped over the right side wheels and did a long pirouette on the rear before landing on the roof. Car A rolled once and landed on the wheels."
     },
     "186": {
@@ -2974,19 +4149,159 @@
       "Surface": "Dirt",
       "Open Wheel": true,
       "When": "Heat",
-      "Video": false,
+      "Video": true,
+      "Cut for site": "x",
       "Notes": "Described above"
     },
     "187": {
       "Date": "2020-11-08T05:00:00.000Z",
       "Track": "Bridgeport Motorsports Park",
       "Class": "USAC SpeedSTR",
-      "Rotations": "3+",
+      "Rotations": "3",
       "Surface": "Dirt",
       "Open Wheel": true,
       "When": "Main",
       "Video": true,
+      "Cut for site": "x",
       "Notes": "Turn 3, I think spun and backed into the wall, hit with the left rear which sent him cartwheeling mutliple times down the track, landing on the wheels"
+    },
+    "188": {
+      "Date": "2021-03-19T04:00:00.000Z",
+      "Track": "Bristol Motor Speedway (Dirt)",
+      "Class": "Super Late Model",
+      "Rotations": "4",
+      "Surface": "Dirt",
+      "Open Wheel": false,
+      "When": "Qualifying",
+      "Video": true,
+      "Cut for site": "x",
+      "Notes": "Turn 4, over rotated on exit and caught a turtle and barrel rolled at least three times, landing on the wheels"
+    },
+    "189": {
+      "Date": "2021-03-19T04:00:00.000Z",
+      "Track": "Bristol Motor Speedway (Dirt)",
+      "Class": "602 Late Model",
+      "Rotations": "1/2",
+      "Surface": "Dirt",
+      "Open Wheel": false,
+      "When": "Main",
+      "Video": true,
+      "Cut for site": "x",
+      "Notes": "Front stretch, got hooked into wall and rolled into roof"
+    },
+    "190": {
+      "Date": "2021-03-20T04:00:00.000Z",
+      "Track": "Bristol Motor Speedway (Dirt)",
+      "Class": "Street Stock",
+      "Rotations": "1",
+      "Surface": "Dirt",
+      "Open Wheel": false,
+      "When": "B main",
+      "Video": true,
+      "Cut for site": "x",
+      "Notes": "Spun at end of backstretch, seemed to have caught a turtle at low speed, rolling slowly over once."
+    },
+    "191": {
+      "Date": "2021-03-20T04:00:00.000Z",
+      "Track": "Bristol Motor Speedway (Dirt)",
+      "Class": "Street Stock",
+      "Rotations": "3+",
+      "Surface": "Dirt",
+      "Open Wheel": false,
+      "When": "B main",
+      "Video": true,
+      "Cut for site": "x",
+      "Notes": "Exit of 2, two cars got into each other and hooked together, sending both hose first really hard into the wall. Bottom car started violently flipping, barrel rolling down the backstretch numerous times, maybe 4 or more, and landed on the side"
+    },
+    "192": {
+      "Date": "2021-04-18T04:00:00.000Z",
+      "Track": "Fonda Speedway",
+      "Class": "Pro Stock",
+      "Rotations": "1/2",
+      "Surface": "Dirt",
+      "Open Wheel": false,
+      "When": "Heat",
+      "Video": true,
+      "Cut for site": "x",
+      "Notes": "Initial start of the heat, before the start/finish line, two cars got together and both nosed into the wall. The car in front climbed it a bit and may have gotten some help by the other car and rolled onto the roof."
+    },
+    "193": {
+      "Date": "2021-04-22T04:00:00.000Z",
+      "Track": "Grandview Speedway",
+      "Class": "Wingless 410 Sprint Car",
+      "Rotations": "1/2",
+      "Surface": "Dirt",
+      "Open Wheel": true,
+      "When": "Main",
+      "Video": false,
+      "Notes": "Got high in turn 3, got into the wall with the side of the car. Front end caught and he spun around 90 degrees, rolling onto the side and up onto the back, staying up there for a bit before coming down on the roof."
+    },
+    "194": {
+      "Date": "2021-05-08T04:00:00.000Z",
+      "Track": "Rochester Fairgrounds (Dirt Road Course)",
+      "Class": "Enduro car",
+      "Rotations": "1",
+      "Surface": "Dirt",
+      "Open Wheel": false,
+      "When": "Enduro",
+      "Video": false,
+      "Notes": "Rolled once, not sure the cause, either caught a rut or got help. Continued on for another half lap after landing on wheels."
+    },
+    "195": {
+      "Date": "2021-05-08T04:00:00.000Z",
+      "Track": "Bear Ridge Speedway",
+      "Class": "Sportsman Modified",
+      "Rotations": "1",
+      "Surface": "Dirt",
+      "Open Wheel": false,
+      "When": "Main",
+      "Video": false,
+      "Notes": "One car slowed along the front stretch wall, I think it lost a tire. He hit a part of the wall that jutted out a bit which forced the front end into the track and another car coming by turned to avoid, hitting the front end with his right rear, rolling once."
+    },
+    "196": {
+      "Date": "2021-05-15T04:00:00.000Z",
+      "Track": "Bear Ridge Speedway",
+      "Class": "4 Cylinder",
+      "Rotations": "1",
+      "Surface": "Dirt",
+      "Open Wheel": false,
+      "When": "Heat",
+      "Video": true,
+      "Cut for site": "x",
+      "Notes": "One car got high exiting turn 4 and caught the wall. He veered back into the track and clipped the right rear of a passing car, rolling him quickly over once and back onto wheels, ending up facing backways on the track with the back end almost agains the wall."
+    },
+    "197": {
+      "Date": "2021-05-22T04:00:00.000Z",
+      "Track": "Bear Ridge Speedway",
+      "Class": "500cc Mini Sprint",
+      "Rotations": "2+",
+      "Surface": "Dirt",
+      "Open Wheel": true,
+      "When": "Heat",
+      "Video": false,
+      "Notes": "Turn 1, either caught the bike or climbed a wheel and flipped high into the air 2+ times, landing on the wheels. A surprising amount of hangtime in the air."
+    },
+    "198": {
+      "Date": "2021-05-22T04:00:00.000Z",
+      "Track": "Bear Ridge Speedway",
+      "Class": "600cc Mini Sprint",
+      "Rotations": "1.5",
+      "Surface": "Dirt",
+      "Open Wheel": true,
+      "When": "Heat",
+      "Video": false,
+      "Notes": "Front stretch, two cars side by side squeezed into the wall. One dug in with the left side tires and flipped 1.5 times, ending up against the wall with the other car pressed against him."
+    },
+    "199": {
+      "Date": "2021-05-23T04:00:00.000Z",
+      "Track": "Central Cycle Club",
+      "Class": "UTV",
+      "Rotations": "1/4",
+      "Surface": "Dirt",
+      "Open Wheel": false,
+      "When": "Moto",
+      "Video": false,
+      "Notes": "Caught a bike in the turn, rolled onto side"
     },
     "": {
       "Open Wheel": false,
@@ -2995,33 +4310,35 @@
   },
   "Helper": {
     "Asphalt Flips": {
-      "201": 2,
+      "204": 2,
       "Total Flips": 27,
       "1/4 Flips": 7,
       "> 1/4 Flips": 20,
       "Asphalt Race Total": "Concrete Race Total",
       "Asphalt": "Concrete",
-      "Oval": "Figure 8"
+      "Oval": "Figure 8",
+      "Permanent": "Temporary (Indoor)"
     },
     "Concrete Flips": {
-      "201": 83,
+      "204": 88,
       "Total Flips": 8,
       "1/4 Flips": 0,
       "> 1/4 Flips": 8,
       "Asphalt Race Total": "Dirt Race Total",
       "Asphalt": "Dirt",
-      "Oval": "Road Course"
+      "Oval": "Road Course",
+      "Permanent": "Temporary (Outdoor)"
     },
     "Dirt Flips": {
-      "201": 7,
-      "Total Flips": 146,
-      "1/4 Flips": 11,
-      "> 1/4 Flips": 135,
+      "204": 7,
+      "Total Flips": 158,
+      "1/4 Flips": 12,
+      "> 1/4 Flips": 146,
       "Asphalt Race Total": "Clay Race Total",
       "Asphalt": "Clay"
     },
     "Clay Flips": {
-      "201": 4,
+      "204": 4,
       "Total Flips": 5,
       "1/4 Flips": 1,
       "> 1/4 Flips": 4,
@@ -3029,709 +4346,321 @@
       "Asphalt": "Mixed"
     },
     "Mixed Flips": {
+      "204": 4,
       "Total Flips": 0,
       "1/4 Flips": 0,
       "> 1/4 Flips": 0,
+      "Asphalt Race Total": "Ice Race Total",
       "Asphalt": "Ice"
     },
     "": {},
     "Sum Asphalt Lengths": {
-      "Total Flips": 19.424,
+      "Total Flips": 19.549,
       "1/4 Flips": 0
     },
     "Sum Concrete Lengths": {
-      "Total Flips": 0.35,
-      "Track Type": "Venue",
-      "Oval": "Permanent"
+      "Total Flips": 0.35
     },
     "Sum Dirt Lengths": {
-      "Total Flips": 15.91,
-      "Oval": "Temporary (Indoor)"
+      "Total Flips": 17.889999999999997
     },
     "Sum Clay Lengths": {
-      "Total Flips": 1.225,
-      "Oval": "Temporary (Outdoor)"
+      "Total Flips": 1.225
     },
     "Sum Mixed Lengths": {
       "Total Flips": 0
     },
     "Series:": {},
-    "NASCAR Cup": {},
-    "NASCAR Xfinity": {},
-    "NASCAR Trucks": {},
+    "NASCAR Cup Series": {},
+    "NASCAR Xfinity Series": {},
+    "NASCAR Camping World Truck Series": {},
     "Whelen Modifieds": {},
     "IndyCar": {},
     "TTOMS": {},
     "NEMA": {},
     "NEMA Lites": {},
-    "MRS / Valenti Modifieds": {}
+    "MRS / Valenti Modifieds": {},
+    "USAC Silver Crown": {},
+    "USAC National Sprints": {},
+    "USAC National Midgets": {},
+    "World of Outlaws Sprint Cars": {},
+    "World of Outlaws Late Models": {}
   },
   "Notable Crashes": {
-    "Sun Jun 02 2019 00:00:00 GMT-0400 (Eastern Daylight Time)": {
+    "2": {
+      "Date": "2016-10-16T04:00:00.000Z",
+      "Track": "Thompson Speedway",
+      "Vehicle": "NEMA Lite",
+      "Video": "x",
+      "Cut for Site": "x"
+    },
+    "3": {
+      "Date": "2019-06-02T04:00:00.000Z",
       "Track": "Glen Ridge Motorsports Park",
       "Vehicle": "305 Sprint Car",
       "Crash": "CRSA sprint car going down the backstretch got into the k-rail and got all the way on top of it, spinning in the process. Didn't go upside down but climbed the wall and looked like he was about to flip."
     },
-    "Sat Jun 22 2019 00:00:00 GMT-0400 (Eastern Daylight Time)": {
+    "4": {
+      "Date": "2019-06-22T04:00:00.000Z",
       "Track": "Seekonk Speedway",
       "Vehicle": "Pro Stock",
       "Video": "x",
+      "Cut for Site": "x",
       "Crash": "Pro stock exiting turn 2 got loose on the bottom of three wide, came up into Austin Blais, who got into Dylan Estrella who climbed the wall. Estrella went fully 90 degrees on the side, above the wall then back on the track, then came back on all fours."
     },
-    "Sun Aug 25 2019 00:00:00 GMT-0400 (Eastern Daylight Time)": {
+    "5": {
+      "Date": "2019-08-25T04:00:00.000Z",
       "Track": "BAPS Motor Speedway",
       "Vehicle": "305 Sprint Car",
       "Crash": "305 sprint car jumped the cushion and climbed the wall straight into the catch fence, bending the fence, moving a pole, and coming to a stop entirely on top of the wall."
     },
-    "Sun Oct 06 2019 00:00:00 GMT-0400 (Eastern Daylight Time)": {
+    "6": {
+      "Date": "2019-10-06T04:00:00.000Z",
       "Track": "Lee USA Speedway",
       "Vehicle": "Tour Type Modified",
       "Crash": "Valenti modified started swerving down the backstretch, probably losing a right rear tire, and hooked right into another car. That car launched into the air and hit the wall, climbing into the short fence above it, bending the fence backward substantially. The car looked like it was going to clear the wall entirely, but ended up rotating, landing entirely on top of the other car."
     },
-    "Fri Dec 20 2019 00:00:00 GMT-0500 (Eastern Standard Time)": {
+    "7": {
+      "Date": "2019-12-20T05:00:00.000Z",
+      "Track": "Gateway Dirt Nationals",
+      "Vehicle": "Super Late Model",
+      "Crash": "Late model going down front stretch got forced into the cushion, caught the wheels and held him against the wall into 1 where he climbed the k rail and went into the fence with the front end, rotating almost 90 degrees on the side before coming to a rest upright, stuck in the fence"
+    },
+    "8": {
+      "Date": "2019-12-20T05:00:00.000Z",
       "Track": "Gateway Dirt Nationals",
       "Vehicle": "UMP Modified",
       "Crash": "Modified in hot laps went too hot into 1, backed into the k rail then the nose climbed up and caught in the catch fence. The momentum rolled him almost 90 degrees sideways, wrapping the fence up with the front end"
     },
-    "Fri Dec 04 2020 00:00:00 GMT-0500 (Eastern Standard Time)": {
+    "9": {
+      "Date": "2020-12-04T05:00:00.000Z",
       "Track": "Indoor Auto Racing - PPL Center",
       "Vehicle": "TQ Midget",
       "Crash": "Jumped a wheel, rode up the k rail and nosed into the fence about 6 feet off the ground. Did a 360 flat spin on the way back down"
     },
-    "Sat Feb 22 2020 00:00:00 GMT-0500 (Eastern Standard Time)": {
+    "10": {
+      "Date": "2020-02-22T05:00:00.000Z",
+      "Track": "Trenton Indoor Dirt Nationals",
+      "Vehicle": "600cc Micro Sprint",
+      "Crash": "Off the restart the throttle stuck going into turn 1, he went up into the wall and into the air, did a full flat spin before coming back on all fours"
+    },
+    "11": {
+      "Date": "2020-02-22T05:00:00.000Z",
       "Track": "Trenton Indoor Dirt Nationals",
       "Vehicle": "600cc Micro Sprint",
       "Crash": "Turn 1 in a stackup got hit and did about two flat spins off axis without flipping, nosing into the dirt to set up the second one. Very high velocity spins, surprising he didn't flip."
     },
-    "Sat Jun 27 2020 00:00:00 GMT-0400 (Eastern Daylight Time)": {
+    "12": {
+      "Date": "2020-06-27T04:00:00.000Z",
       "Track": "Star Speedway",
       "Vehicle": "Late Model",
       "Video": "x",
+      "Cut for Site": "x",
       "Crash": "Front straight on restart. Didn't see exact cause but I think there was a stack up taking the green. One car climbed over the front of another and into the front stretch wall, going off the ground and looking like it was going to roll as it climbed the concrete wall. Ended up on all four wheels but spun into the grass outside 1 and into a cloud of dust. Major damage to two other cars too"
     },
-    "Sat Oct 03 2020 00:00:00 GMT-0400 (Eastern Daylight Time)": {
+    "13": {
+      "Date": "2020-10-03T04:00:00.000Z",
       "Track": "New London-Waterford Speedbowl",
       "Vehicle": "SK Lite",
       "Video": "x",
       "Crash": "Backstretch, one car vaulted over the front of another, flying four wheels high into the air in an arc, landing on the left front at almost a 30 degree angle then coming back on all fours."
     },
-    "Sat Oct 24 2020 00:00:00 GMT-0400 (Eastern Daylight Time)": {
+    "14": {
+      "Date": "2020-10-24T04:00:00.000Z",
       "Track": "Stafford Motor Speedway",
       "Vehicle": "Tour Type Modified",
       "Video": "x",
+      "Cut for Site": "x",
       "Crash": "Backstretch, Jon McKennedy got pushed up into Woody Pitkat. Pitkat climbed the wall and went all the way up on his side, coming to rest with the McKennedy car pushed up against him."
     },
-    "Sat Nov 07 2020 00:00:00 GMT-0500 (Eastern Standard Time)": {
+    "15": {
+      "Date": "2019-10-26T04:00:00.000Z",
+      "Track": "Seekonk Speedway",
+      "Vehicle": "Tour Type Modified",
+      "Video": "x",
+      "Cut for Site": "x"
+    },
+    "16": {
+      "Date": "2020-11-07T05:00:00.000Z",
       "Track": "Bridgeport Motorsports Park",
       "Vehicle": "Sportsman Modified",
+      "Video": "x",
       "Crash": "Sportsman 360 on wall, in notes"
-    }
-  },
-  "Track Order": {
-    "Pocatello Speedway": {
-      "State": "ID",
-      "Type": "Oval",
-      "Latitude": 42.912684,
-      "Longitude": -112.577022
     },
-    "Las Vegas Motor Speedway": {
-      "State": "NV",
-      "Type": "Oval",
-      "Latitude": 36.272028,
-      "Longitude": -115.01029
-    },
-    "The Dirt Track at Las Vegas Motor Speedway": {
-      "State": "NV",
-      "Type": "Oval",
-      "Latitude": 36.285462,
-      "Longitude": -115.011854
-    },
-    "Magic Valley Speedway": {
-      "State": "ID",
-      "Type": "Oval",
-      "Latitude": 42.486547,
-      "Longitude": -114.502064
-    },
-    "Atomic Motor Raceway (Inner Dirt Oval)": {
-      "State": "ID",
-      "Type": "Oval",
-      "Latitude": 43.446251,
-      "Longitude": -112.81248
-    },
-    "Rocky Mountain Raceways (Asphalt Figure 8)": {
-      "State": "UT",
-      "Type": "Figure 8",
-      "Latitude": 40.71917,
-      "Longitude": -112.046914
-    },
-    "Rocky Mountain Raceways (Inner Asphalt Oval)": {
-      "State": "UT",
-      "Type": "Oval",
-      "Latitude": 40.71917,
-      "Longitude": -112.046914
-    },
-    "Rocky Mountain Raceways (Asphalt Road Course)": {
-      "State": "UT",
-      "Type": "Road Course",
-      "Latitude": 40.71917,
-      "Longitude": -112.046914
-    },
-    "Miller Motorsports Park": {
-      "Date": "2009-05-17T04:00:00.000Z",
-      "State": "UT",
-      "Type": "Road Course",
-      "Latitude": 40.580394,
-      "Longitude": -112.378375
-    },
-    "Phoenix International Raceway": {
-      "Date": 2009,
-      "State": "AZ",
-      "Type": "Oval",
-      "Latitude": 33.37478,
-      "Longitude": -112.310508
-    },
-    "Rocky Mountain Raceways": {
-      "Date": "2010-09-19T04:00:00.000Z",
-      "State": "UT",
-      "Type": "Oval",
-      "Latitude": 40.71917,
-      "Longitude": -112.046914
-    },
-    "Atomic Motor Raceway": {
-      "Date": "2010-09-25T04:00:00.000Z",
-      "State": "ID",
-      "Type": "Oval",
-      "Latitude": 43.446541,
-      "Longitude": -112.811413
-    },
-    "Stuart Speedway": {
-      "Date": "2012-07-29T04:00:00.000Z",
-      "State": "NE",
-      "Type": "Oval",
-      "Latitude": 42.607193,
-      "Longitude": -99.139804
-    },
-    "Wakeeney Speedway": {
-      "Date": "2012-08-01T04:00:00.000Z",
-      "State": "KS",
-      "Type": "Oval",
-      "Latitude": 39.024411,
-      "Longitude": -99.86834
-    },
-    "Miller Motorsports Park Off Road Course": {
-      "Date": "2013-06-23T04:00:00.000Z",
-      "State": "UT",
-      "Type": "Road Course",
-      "Latitude": 40.585406,
-      "Longitude": -112.385315
-    },
-    "New Hampshire Motor Speedway": {
-      "Date": "2013-09-22T04:00:00.000Z",
-      "State": "NH",
-      "Type": "Oval",
-      "Latitude": 43.36241,
-      "Longitude": -71.460713
-    },
-    "Nassau Coliseum Parking Lot": {
-      "Date": "2014-07-20T04:00:00.000Z",
-      "State": "NY",
-      "Type": "Road Course",
-      "Latitude": 40.72072,
-      "Longitude": -73.589474
-    },
-    "Seekonk Speedway": {
-      "Date": "2016-07-13T04:00:00.000Z",
-      "State": "MA",
-      "Type": "Oval",
-      "Latitude": 41.784545,
-      "Longitude": -71.302063
-    },
-    "Pocatello Speedway (Inner Dirt Oval)": {
-      "Date": "2016-07-23T04:00:00.000Z",
-      "State": "ID",
-      "Type": "Oval"
-    },
-    "Seekonk Speedway (Asphalt Figure 8)": {
-      "Date": "2016-08-07T04:00:00.000Z",
-      "State": "MA",
-      "Type": "Figure 8"
-    },
-    "Thompson Speedway": {
-      "Date": "2016-08-24T04:00:00.000Z",
-      "State": "CT",
-      "Type": "Oval",
-      "Latitude": 41.981539,
-      "Longitude": -71.824777
-    },
-    "Port of LA": {
-      "Date": "2016-10-09T04:00:00.000Z",
-      "State": "CA",
-      "Type": "Road Course",
-      "Latitude": 33.715601,
-      "Longitude": -118.274313
-    },
-    "Star Speedway": {
-      "Date": "2017-04-15T04:00:00.000Z",
-      "State": "NH",
-      "Type": "Oval",
-      "Latitude": 43.029218,
-      "Longitude": -71.040663
-    },
-    "Stafford Motor Speedway": {
-      "Date": "2017-04-30T04:00:00.000Z",
-      "State": "CT",
-      "Type": "Oval",
-      "Latitude": 41.955244,
-      "Longitude": -72.32045
-    },
-    "Thompson Speedway - Rallycross": {
-      "Date": "2017-06-03T04:00:00.000Z",
-      "State": "CT",
-      "Type": "Road Course",
-      "Latitude": 41.981539,
-      "Longitude": -71.824777
-    },
-    "Lee USA Speedway": {
-      "Date": "2017-07-21T04:00:00.000Z",
-      "State": "NH",
-      "Type": "Oval",
-      "Latitude": 43.115867,
-      "Longitude": -71.039733
-    },
-    "Albany-Saratoga Speedway": {
-      "Date": "2017-07-28T04:00:00.000Z",
-      "State": "NY",
-      "Type": "Oval",
-      "Latitude": 42.988542,
-      "Longitude": -73.78216
-    },
-    "New London Waterford Speedbowl": {
-      "Date": "2017-08-12T04:00:00.000Z",
-      "State": "CT",
-      "Type": "Oval",
-      "Latitude": 41.396765,
-      "Longitude": -72.17621
-    },
-    "Oxford Plains Speedway": {
-      "Date": "2017-08-27T04:00:00.000Z",
-      "State": "ME",
-      "Type": "Oval",
-      "Latitude": 44.153846,
-      "Longitude": -70.484541
-    },
-    "Lebanon Valley Speedway": {
-      "Date": "2017-08-31T04:00:00.000Z",
-      "State": "NY",
-      "Type": "Oval",
-      "Latitude": 42.491995,
-      "Longitude": -73.488908
-    },
-    "Beech Ridge Speedway": {
-      "Date": "2017-09-17T04:00:00.000Z",
-      "State": "ME",
-      "Type": "Oval",
-      "Latitude": 43.610212,
-      "Longitude": -70.380652
-    },
-    "Wall Stadium Speedway": {
-      "Date": "2017-11-24T05:00:00.000Z",
-      "State": "NJ",
-      "Type": "Oval",
-      "Latitude": 40.175186,
-      "Longitude": -74.115242
-    },
-    "Wall Stadium Speedway (Inner Asphalt Oval)": {
-      "Date": "2017-11-25T05:00:00.000Z",
-      "State": "NJ",
-      "Type": "Oval"
-    },
-    "Hudson Speedway": {
-      "Date": "2018-05-13T04:00:00.000Z",
-      "State": "NH",
-      "Type": "Oval",
-      "Latitude": 42.813592,
-      "Longitude": -71.410685
-    },
-    "Texas Motor Speedway": {
-      "Date": "2018-06-08T04:00:00.000Z",
-      "State": "TX",
-      "Type": "Oval",
-      "Latitude": 33.036961,
-      "Longitude": -97.281602
-    },
-    "Lil' Texas Motor Speedway": {
-      "Date": "2018-06-08T04:00:00.000Z",
-      "State": "TX",
-      "Type": "Oval",
-      "Latitude": 33.035957,
-      "Longitude": -97.27588
-    },
-    "Texas Motor Speedway (Asphalt Road Course)": {
-      "Date": "2018-06-09T04:00:00.000Z",
-      "State": "TX",
-      "Type": "Road Course"
-    },
-    "Monadnock Speedway": {
-      "Date": "2018-07-07T04:00:00.000Z",
-      "State": "NH",
-      "Type": "Oval",
-      "Latitude": 42.831283,
-      "Longitude": -72.362489
-    },
-    "Stafford Motor Speedway (Inner Asphalt Oval)": {
-      "Date": "2018-07-27T04:00:00.000Z",
-      "State": "CT",
-      "Type": "Oval"
-    },
-    "Bear Ridge Speedway": {
-      "Date": "2018-08-11T04:00:00.000Z",
-      "State": "VT",
-      "Type": "Oval",
-      "Latitude": 43.998119,
-      "Longitude": -72.168196
-    },
-    "Devil's Bowl Speedway": {
-      "Date": "2018-09-16T04:00:00.000Z",
-      "State": "VT",
-      "Type": "Oval",
-      "Latitude": 43.667992,
-      "Longitude": -73.294175
-    },
-    "Lancaster Speedway": {
-      "Date": "2018-09-28T04:00:00.000Z",
-      "State": "SC",
-      "Type": "Oval",
-      "Latitude": 34.779166,
-      "Longitude": -80.78716
-    },
-    "Charlotte Motor Speedway Roval": {
-      "Date": "2018-09-29T04:00:00.000Z",
-      "State": "NC",
-      "Type": "Road Course",
-      "Latitude": 35.352002,
-      "Longitude": -80.683515
-    },
-    "Gateway Dirt Nationals": {
-      "Date": "2018-11-29T05:00:00.000Z",
-      "State": "MO",
-      "Type": "Oval",
-      "Latitude": 38.632739,
-      "Longitude": -90.188636
-    },
-    "Cure Insurance Arena": {
-      "Date": "2018-12-15T05:00:00.000Z",
-      "State": "NJ",
-      "Type": "Oval",
-      "Latitude": 40.21272,
-      "Longitude": -74.757592
-    },
-    "Exposition Center": {
-      "Date": "2019-03-09T05:00:00.000Z",
-      "State": "NY",
-      "Type": "Oval",
-      "Latitude": 43.074406,
-      "Longitude": -76.221899
-    },
-    "Lincoln Speedway": {
-      "Date": "2019-03-23T04:00:00.000Z",
-      "State": "PA",
-      "Type": "Oval",
-      "Latitude": 39.870591,
-      "Longitude": -76.994714
-    },
-    "Port Royal Speedway": {
-      "Date": "2019-03-24T04:00:00.000Z",
-      "State": "PA",
-      "Type": "Oval",
-      "Latitude": 40.535688,
-      "Longitude": -77.389519
-    },
-    "Orange County Fair Speedway": {
-      "Date": "2019-04-13T04:00:00.000Z",
-      "State": "NY",
-      "Type": "Oval",
-      "Latitude": 41.447578,
-      "Longitude": -74.393426
-    },
-    "New Egypt Speedway": {
-      "Date": "2019-05-04T04:00:00.000Z",
-      "State": "NJ",
-      "Type": "Oval",
-      "Latitude": 40.070578,
-      "Longitude": -74.467841
-    },
-    "Glen Ridge Motorsports Park": {
-      "Date": "2019-06-02T04:00:00.000Z",
-      "State": "NY",
-      "Type": "Oval",
-      "Latitude": 42.933938,
-      "Longitude": -74.4051
-    },
-    "Utica-Rome Speedway": {
-      "Date": "2019-07-07T04:00:00.000Z",
-      "State": "NY",
-      "Type": "Oval",
-      "Latitude": 43.078706,
-      "Longitude": -75.516282
-    },
-    "Thunder Road International Speedbowl": {
-      "Date": "2019-07-18T04:00:00.000Z",
-      "State": "VT",
-      "Type": "Oval",
-      "Latitude": 44.179899,
-      "Longitude": -72.487877
-    },
-    "NHMS Flat Track": {
-      "Date": "2019-07-19T04:00:00.000Z",
-      "State": "NH",
-      "Type": "Oval",
-      "Latitude": 43.34798,
-      "Longitude": -71.463928
-    },
-    "Meridian Speedway": {
-      "Date": "2019-07-27T04:00:00.000Z",
-      "State": "ID",
-      "Type": "Oval",
-      "Latitude": 43.601855,
-      "Longitude": -116.390666
-    },
-    "Slinger Speedway": {
-      "Date": "2020-08-04T04:00:00.000Z",
-      "State": "WI",
-      "Type": "Oval",
-      "Latitude": 43.340632,
-      "Longitude": -88.277351
-    },
-    "Slinger Speedway (Asphalt Figure 8)": {
-      "Date": "2020-08-04T04:00:00.000Z",
-      "State": "WI",
-      "Type": "Figure 8"
-    },
-    "Slinger Speedway (Asphalt Road Course)": {
-      "Date": "2020-08-04T04:00:00.000Z",
-      "State": "WI",
-      "Type": "Road Course"
-    },
-    "Southern Iowa Speedway": {
-      "Date": "2019-08-05T04:00:00.000Z",
-      "State": "IA",
-      "Type": "Oval",
-      "Latitude": 41.303158,
-      "Longitude": -92.657883
-    },
-    "Knoxville Raceway": {
-      "Date": "2019-08-07T04:00:00.000Z",
-      "State": "IA",
-      "Type": "Oval",
-      "Latitude": 41.326589,
-      "Longitude": -93.111788
-    },
-    "Proctor Speedway": {
-      "Date": "2019-08-11T04:00:00.000Z",
-      "State": "MN",
-      "Type": "Oval",
-      "Latitude": 46.750912,
-      "Longitude": -92.214314
-    },
-    "William's Grove Speedway": {
-      "Date": "2019-08-23T04:00:00.000Z",
-      "State": "PA",
-      "Type": "Oval",
-      "Latitude": 40.155486,
-      "Longitude": -77.033648
-    },
-    "BAPS Motor Speedway": {
-      "Date": "2019-08-25T04:00:00.000Z",
-      "State": "PA",
-      "Type": "Oval",
-      "Latitude": 40.112489,
-      "Longitude": -76.825789
-    },
-    "Seekonk Speedway (Asphalt Road Course)": {
-      "Date": "2019-08-31T04:00:00.000Z",
-      "State": "MA",
-      "Type": "Road Course"
-    },
-    "Eldora Speedway": {
-      "Date": "2019-09-28T04:00:00.000Z",
-      "State": "OH",
-      "Type": "Oval",
-      "Latitude": 40.318608,
-      "Longitude": -84.633776
-    },
-    "PPL Center": {
-      "Date": "2020-01-04T05:00:00.000Z",
-      "State": "PA",
-      "Type": "Oval",
-      "Latitude": 40.602711,
-      "Longitude": -75.473078
-    },
-    "Riverside Speedway": {
-      "Date": "2020-01-18T05:00:00.000Z",
-      "State": "NH",
-      "Type": "Oval",
-      "Latitude": 44.596926,
-      "Longitude": -71.542518
-    },
-    "Boardwalk Hall": {
-      "Date": "2020-02-01T05:00:00.000Z",
-      "State": "NJ",
-      "Type": "Oval",
-      "Latitude": 39.355096,
-      "Longitude": -74.438648
-    },
-    "Paragon Speedway": {
-      "Date": "2020-06-16T04:00:00.000Z",
-      "State": "IN",
-      "Type": "Oval",
-      "Latitude": 39.391225,
-      "Longitude": -86.587073
-    },
-    "Gas City Speedway": {
-      "Date": "2020-06-17T04:00:00.000Z",
-      "State": "IN",
-      "Type": "Oval",
-      "Latitude": 40.483466,
-      "Longitude": -85.563242
-    },
-    "Lincoln Park Speedway": {
-      "Date": "2020-06-18T04:00:00.000Z",
-      "State": "IN",
-      "Type": "Oval",
-      "Latitude": 39.57626,
-      "Longitude": -86.869947
-    },
-    "Tri-State Speedway": {
-      "Date": "2020-06-19T04:00:00.000Z",
-      "State": "IN",
-      "Type": "Oval",
-      "Latitude": 38.205983,
-      "Longitude": -87.553621
-    },
-    "Lawrenceburg Speedway": {
-      "Date": "2020-06-20T04:00:00.000Z",
-      "State": "IN",
-      "Type": "Oval",
-      "Latitude": 39.104738,
-      "Longitude": -84.856087
-    },
-    "Kokomo Speedway": {
-      "Date": "2020-06-21T04:00:00.000Z",
-      "State": "IN",
-      "Type": "Oval",
-      "Latitude": 40.51123,
-      "Longitude": -86.143393
-    },
-    "Claremont Motorsports Park": {
-      "Date": "2020-06-26T04:00:00.000Z",
-      "State": "NH",
-      "Type": "Oval",
-      "Latitude": 43.392067,
-      "Longitude": -72.352005
-    },
-    "Selinsgrove Speedway": {
-      "Date": "2020-06-28T04:00:00.000Z",
-      "State": "PA",
-      "Type": "Oval",
-      "Latitude": 40.787057,
-      "Longitude": -76.870238
-    },
-    "Grandview Speedway": {
-      "Date": "2020-06-30T04:00:00.000Z",
-      "State": "PA",
-      "Type": "Oval",
-      "Latitude": 40.372544,
-      "Longitude": -75.610115
-    },
-    "Hagerstown Speedway": {
-      "Date": "2020-07-02T04:00:00.000Z",
-      "State": "PA",
-      "Type": "Oval",
-      "Latitude": 39.660672,
-      "Longitude": -77.843921
-    },
-    "Big Diamond Speedway": {
-      "Date": "2020-07-03T04:00:00.000Z",
-      "State": "PA",
-      "Type": "Oval",
-      "Latitude": 40.684617,
-      "Longitude": -76.303246
-    },
-    "White Mountain Motorsports Park": {
-      "Date": "2020-07-04T04:00:00.000Z",
-      "State": "NH",
-      "Type": "Oval",
-      "Latitude": 44.006522,
-      "Longitude": -71.681925
-    },
-    "Londonderry Speedway": {
-      "Date": "2020-08-01T04:00:00.000Z",
-      "State": "NH",
-      "Type": "Oval",
-      "Latitude": 42.920848,
-      "Longitude": -71.414851
-    },
-    "Rumtown Speedway": {
-      "Date": "2020-08-01T04:00:00.000Z",
-      "State": "NH",
-      "Type": "Oval",
-      "Latitude": 43.818725,
-      "Longitude": -71.8937
-    },
-    "Lucas Oil Raceway": {
-      "Date": "2020-08-21T04:00:00.000Z",
-      "State": "IN",
-      "Type": "Oval",
-      "Latitude": 39.812582,
-      "Longitude": -86.340586
-    },
-    "Lucas Oil Speedway Off Road Course": {
-      "Date": "2020-08-22T04:00:00.000Z",
-      "State": "MO",
-      "Type": "Road Course",
-      "Latitude": 37.936849,
-      "Longitude": -93.392579
-    },
-    "Lucas Oil Speedway": {
-      "Date": "2020-08-22T04:00:00.000Z",
-      "State": "MO",
-      "Type": "Oval",
-      "Latitude": 37.940222,
-      "Longitude": -93.397699
-    },
-    "Indiana State Fairgrounds": {
-      "Date": "2020-08-23T04:00:00.000Z",
-      "State": "IN",
-      "Type": "Oval",
-      "Latitude": 39.829557,
-      "Longitude": -86.134228
-    },
-    "Gateway Motorsports Park": {
-      "Date": "2020-08-29T04:00:00.000Z",
-      "State": "IL",
-      "Type": "Oval",
-      "Latitude": 38.651483,
-      "Longitude": -90.135503
-    },
-    "Macon Speedway": {
-      "Date": "2020-08-29T04:00:00.000Z",
-      "State": "IL",
-      "Type": "Oval",
-      "Latitude": 39.712101,
-      "Longitude": -89.006834
-    },
-    "New Hampshire Motor Speedway (Asphalt Legends Oval)": {
-      "Date": "2020-09-12T04:00:00.000Z",
-      "State": "NH",
-      "Type": "Oval"
-    },
-    "Bridgeport Motorsports Park": {
-      "Date": "2020-11-06T05:00:00.000Z",
-      "State": "NJ",
-      "Type": "Oval",
-      "Latitude": 39.819307,
-      "Longitude": -75.317575
-    }
+    "17": {},
+    "18": {},
+    "19": {},
+    "20": {},
+    "21": {},
+    "22": {},
+    "23": {},
+    "24": {},
+    "25": {},
+    "26": {},
+    "27": {},
+    "28": {},
+    "29": {},
+    "30": {},
+    "31": {},
+    "32": {},
+    "33": {},
+    "34": {},
+    "35": {},
+    "36": {},
+    "37": {},
+    "38": {},
+    "39": {},
+    "40": {},
+    "41": {},
+    "42": {},
+    "43": {},
+    "44": {},
+    "45": {},
+    "46": {},
+    "47": {},
+    "48": {},
+    "49": {},
+    "50": {},
+    "51": {},
+    "52": {},
+    "53": {},
+    "54": {},
+    "55": {},
+    "56": {},
+    "57": {},
+    "58": {},
+    "59": {},
+    "60": {},
+    "61": {},
+    "62": {},
+    "63": {},
+    "64": {},
+    "65": {},
+    "66": {},
+    "67": {},
+    "68": {},
+    "69": {},
+    "70": {},
+    "71": {},
+    "72": {},
+    "73": {},
+    "74": {},
+    "75": {},
+    "76": {},
+    "77": {},
+    "78": {},
+    "79": {},
+    "80": {},
+    "81": {},
+    "82": {},
+    "83": {},
+    "84": {},
+    "85": {},
+    "86": {},
+    "87": {},
+    "88": {},
+    "89": {},
+    "90": {},
+    "91": {},
+    "92": {},
+    "93": {},
+    "94": {},
+    "95": {},
+    "96": {},
+    "97": {},
+    "98": {},
+    "99": {},
+    "100": {},
+    "101": {},
+    "102": {},
+    "103": {},
+    "104": {},
+    "105": {},
+    "106": {},
+    "107": {},
+    "108": {},
+    "109": {},
+    "110": {},
+    "111": {},
+    "112": {},
+    "113": {},
+    "114": {},
+    "115": {},
+    "116": {},
+    "117": {},
+    "118": {},
+    "119": {},
+    "120": {},
+    "121": {},
+    "122": {},
+    "123": {},
+    "124": {},
+    "125": {},
+    "126": {},
+    "127": {},
+    "128": {},
+    "129": {},
+    "130": {},
+    "131": {},
+    "132": {},
+    "133": {},
+    "134": {},
+    "135": {},
+    "136": {},
+    "137": {},
+    "138": {},
+    "139": {},
+    "140": {},
+    "141": {},
+    "142": {},
+    "143": {},
+    "144": {},
+    "145": {},
+    "146": {},
+    "147": {},
+    "148": {},
+    "149": {},
+    "150": {},
+    "151": {},
+    "152": {},
+    "153": {},
+    "154": {},
+    "155": {},
+    "156": {},
+    "157": {},
+    "158": {},
+    "159": {},
+    "160": {},
+    "161": {},
+    "162": {},
+    "163": {},
+    "164": {},
+    "165": {},
+    "166": {},
+    "167": {},
+    "168": {},
+    "169": {},
+    "170": {},
+    "171": {},
+    "172": {},
+    "173": {},
+    "174": {},
+    "175": {},
+    "176": {},
+    "177": {},
+    "178": {},
+    "179": {},
+    "180": {},
+    "181": {},
+    "182": {},
+    "183": {},
+    "184": {},
+    "185": {},
+    "186": {},
+    "187": {},
+    "188": {},
+    "189": {},
+    "": {}
   },
   "Miles": {
     "Sat Aug 01 2020 00:00:00 GMT-0400 (Eastern Daylight Time)": {
@@ -4058,9 +4987,10 @@
       "Driver": "Randy Brown"
     }
   },
-  "Other Motorsports": {
+  "Non-TC Motorsports": {
     "Monster Energy Supercross": {
-      "Venue": "Gillette Stadium"
+      "Venue": "Gillette Stadium",
+      "Flips": "Millbridge Speedway"
     },
     "NHRA Drag Racing": {
       "Venue": "The Strip at Las Vegas Motor Speedway"
@@ -4129,21 +5059,13 @@
       "New York": "Norch Carolina",
       "Drove by": "Walked inside facilities"
     },
-    "Kokomo Speedway": {
-      "New York": "Indiana",
-      "Drove by": "Saw engine heat before rain out"
-    },
     "Yas Marina Circuit": {
       "New York": "Abu Dhabi",
       "Drove by": "Tour of track and facilities"
     },
-    "Gas City Speedway": {
-      "New York": "Indiana",
-      "Drove by": "Drove by"
-    },
     "Rocky Mountain Raceways (drag strip)": {
       "New York": "Utah",
-      "Drove by": "Walked inside facilities"
+      "Drove by": "Walked across track"
     },
     "Primm Off Road Track": {
       "New York": "Nevada",
@@ -4163,7 +5085,43 @@
     },
     "Gateway drag strip": {
       "New York": "Illinois",
-      "Drove by": "Walked across"
+      "Drove by": "Walked across track"
+    },
+    "Chicagoland Speedway": {
+      "New York": "Illinois",
+      "Drove by": "Drove by"
+    },
+    "Davenport Speedway": {
+      "New York": "Iowa",
+      "Drove by": "Drove by"
+    },
+    "LaSalle Speedway": {
+      "New York": "Iowa",
+      "Drove by": "Drove by"
+    },
+    "Grundy County Speedway": {
+      "New York": "Illinois",
+      "Drove by": "Drove by"
+    },
+    "Route 66 Speedway": {
+      "New York": "Illinois",
+      "Drove by": "Drove by"
+    },
+    "Hickory Motor Speedway": {
+      "New York": "North Carolina",
+      "Drove by": "Drove by"
+    },
+    "Mountain View Speedway": {
+      "New York": "North Carolina",
+      "Drove by": "Drove by"
+    },
+    "Bowman Gray Stadium": {
+      "New York": "North Carolina",
+      "Drove by": "Drove by"
+    },
+    "North Wilkesboro Speedway": {
+      "New York": "North Carolina",
+      "Drove by": "Drove by"
     }
   },
   "Tracks to keep an eye on": {
@@ -4210,6 +5168,11 @@
       "Area": "Charlotte",
       "Dates": "November",
       "Notes": "WoO Sprints, WoO Late Models, Super DIRTcar Big Blocks"
+    },
+    "World 240": {
+      "Track(s)": "Paradise Valley Speedway",
+      "Area": "New Zealand",
+      "Notes": "Huge number of NZ stock cars"
     }
   }
 }
