@@ -17,6 +17,7 @@ import { CalendarPlace } from './CalendarPlace';
 import { JsxEmit } from 'typescript';
 import { RecapsPlace, RecapsPlaceMachine } from './RecapsPlace';
 import {Stats, StatsMachine} from "./Stats";
+import {Link} from "react-router-dom";
 
 class AppMachine
 {
@@ -175,6 +176,7 @@ class App extends React.Component<AppProps>
   private renderToolbar(): JSX.Element
   {
     return <div id="navbar" className="sticky">
+      <Link to="/test">TEST</Link>
       <a onClick={this.navMachine.goHome}>Home</a>
       <a onClick={this.navMachine.goToAllTracksPage}>Tracks</a>
       {/* <a onClick={this.navMachine.goToCalendar}>Calendar</a> */}
