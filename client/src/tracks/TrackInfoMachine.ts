@@ -41,6 +41,13 @@ export class TrackInfoMachine
 		});
 	}
 
+	public getTrackFromId(trackId: number): Track | undefined
+	{
+		return this.tracks.find((track: Track) => {
+			return track.track_id === trackId;
+		});
+	}
+
 	//TODO: inefficient
 	public findFirstRaceForTrack(trackIdIn: number): Date | undefined
 	{

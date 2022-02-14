@@ -4,7 +4,6 @@ import {observer} from "mobx-react";
 import {observable, action, makeObservable, runInAction} from "mobx";
 import {TrackInfoMachine} from "./TrackInfoMachine";
 import { Track_old, Track, TrackTypeEnum } from '../Types';
-import {NavigationMachine} from "../NavigationMachine";
 import mapboxgl from 'mapbox-gl';
 import ReactMapboxGl, {Layer, Feature, Marker, Popup} from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -55,7 +54,6 @@ export class TrackPopupMachine
 export interface TrackPopupProps
 {
 	machine: TrackPopupMachine;
-	navMachine: NavigationMachine;
 }
 
 @observer

@@ -1,7 +1,6 @@
 import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, computed} from "mobx";
-import { NavigationMachine } from '../NavigationMachine';
 import { TrackInfoMachine } from './TrackInfoMachine';
 import { TrackTile } from './TrackTile';
 import { Track } from '../Types';
@@ -9,7 +8,6 @@ import { printDate } from '../utilities';
 
 export interface AllTracksPlaceProps
 {
-  navMachine: NavigationMachine;
   trackInfoMachine: TrackInfoMachine;
 }
 

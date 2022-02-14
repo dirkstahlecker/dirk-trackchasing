@@ -1,7 +1,6 @@
 import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, computed, runInAction} from "mobx";
-import {NavigationMachine} from "../NavigationMachine";
 import {TrackInfoMachine} from "./TrackInfoMachine";
 import { RaceTile } from '../events/RaceTile';
 import { Flip, EventObj, Track_old, TrackName, Track, Race } from '../Types';
@@ -37,7 +36,7 @@ export interface TrackPlaceProps
 {
 	machine: TrackPlaceMachine;
 	trackInfo: TrackInfoMachine;
-	navMachine: NavigationMachine;
+	trackId: number;
 }
 
 @observer
@@ -50,10 +49,10 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 
 	private get currentTrack(): Track
 	{
-		const currentTrack: Track | null = this.props.navMachine.currentTrack;
-		if (currentTrack != null)
+		const currentTrack: Track | undefined = this.props.trackInfo.getTrackFromId(this.props.trackId);
+		if (currentTrack)
 		{
-			return currentTrack
+			return currentTrack;
 		}
 		throw Error("current track is null");
 	}

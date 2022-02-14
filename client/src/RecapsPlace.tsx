@@ -1,7 +1,6 @@
 import React, { SyntheticEvent } from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, runInAction} from "mobx";
-import { NavigationMachine } from './NavigationMachine';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './CalendarPlace.css';
 import { EventObj, Track_old, TrackName } from './Types';
@@ -49,7 +48,6 @@ export class RecapsPlaceMachine
 export interface RecapsPlaceProps
 {
   machine: RecapsPlaceMachine;
-  navMachine: NavigationMachine;
 }
 
 @observer
