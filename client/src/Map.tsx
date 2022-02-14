@@ -185,7 +185,6 @@ export class Map extends React.Component<MapProps>
 					{
 						this.props.machine.trackForPopup &&
 						<TrackPopup
-							navMachine={this.props.navMachine}
 							machine={new TrackPopupMachine(this.props.machine.trackForPopup)}
 						/>
 					}

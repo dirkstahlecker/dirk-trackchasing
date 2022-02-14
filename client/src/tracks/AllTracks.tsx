@@ -5,6 +5,7 @@ import { TrackInfoMachine } from './TrackInfoMachine';
 import { TrackTile } from './TrackTile';
 import { Track } from '../Types';
 import { printDate } from '../utilities';
+import { Link } from 'react-router-dom';
 
 export interface AllTracksPlaceProps
 {
@@ -66,9 +67,7 @@ export class AllTracksPlace extends React.Component<AllTracksPlaceProps>
             <tr key={track.track_id}>
               <td>{track.ordernum}</td>
               <td>
-                <a onClick={() => this.props.navMachine.goToTrackPage(track)}>
-                  {track.name}
-                </a>
+                <Link to={`/track/${track.track_id}`}>{track.name}</Link>
               </td>
               <td>{printDate(this.props.trackInfoMachine.findFirstRaceForTrack(track.track_id))}</td>
               <td>{track.state}</td>

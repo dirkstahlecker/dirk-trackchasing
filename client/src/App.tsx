@@ -185,7 +185,7 @@ class App extends React.Component<AppProps>
             <Route path="/" element={this.renderHome()}/>
             <Route path="/about" element={this.renderAbout()}/>
             <Route path="/tracks" element={this.renderAllTracks()}/>
-            <Route path="/track/:id" element={<RenderTrack />}/>
+            <Route path="/track/:id" element={<RenderTrack trackInfoMachine={this.machine.trackInfoMachine}/>}/>
             <Route path="/recaps" element={this.renderRecaps()}/>
             <Route path="/stats" element={this.renderStats()}/>
             <Route path="/contact" element={this.renderContact()}/>
@@ -193,10 +193,6 @@ class App extends React.Component<AppProps>
           </Routes>
 
           {/*
-          {
-            this.machine.navMachine.currentPlace === CurrentPlace.TRACK &&
-            this.renderTrack()
-          }
           {
             this.machine.navMachine.currentPlace === CurrentPlace.EVENT &&
             this.renderEvent()
@@ -219,7 +215,10 @@ export default App;
 
 //TODO: need to have configurations on track page, or some other way to get to the configuration track page
 
-const RenderTrack = (props: any): JSX.Element => {
+interface RenderTrackProps {
+  trackInfoMachine: TrackInfoMachine;
+}
+const RenderTrack = (props: RenderTrackProps): JSX.Element => {
   const { id } = useParams();
   if (!id)
   {
@@ -228,9 +227,8 @@ const RenderTrack = (props: any): JSX.Element => {
   const parsedId: number = Number.parseInt(id);
 
   return <TrackPlace
-    {...props}
-    // machine={new TrackPlaceMachine() /* TODO: look at this */}
-    // trackInfo={trackInfoMachine}
-    // trackId={parsedId}
+    machine={new TrackPlaceMachine() /* TODO: look at this */}
+    trackInfo={props.trackInfoMachine}
+    trackId={parsedId}
   />;
 }
