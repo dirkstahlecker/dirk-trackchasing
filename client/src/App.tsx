@@ -3,25 +3,22 @@ import React from 'react';
 import {observer} from "mobx-react";
 // import {observable, action, makeObservable} from "mobx";
 import './App.css';
-import {TrackPlace, TrackPlaceMachine} from "./tracks/TrackPlace";
+import {TrackPlace, TrackPlaceMachine, TrackPlaceProps} from "./tracks/TrackPlace";
 import {TrackInfoMachine} from "./tracks/TrackInfoMachine";
-import { Track_old } from './Types';
 import {Map, MapMachine} from "./Map";
-import {NavigationMachine, CurrentPlace} from "./NavigationMachine";
 import {TrackTile} from './tracks/TrackTile';
 import {AboutPlace} from "./AboutPlace";
 import { EventPlace, EventPlaceMachine } from './events/EventPlace';
 import { ContactPlace } from './ContactPlace';
 import { AllTracksPlace } from './tracks/AllTracks';
 import { CalendarPlace } from './CalendarPlace';
-import { JsxEmit } from 'typescript';
 import { RecapsPlace, RecapsPlaceMachine } from './RecapsPlace';
 import {Stats, StatsMachine} from "./Stats";
+import {Routes, Route, Link, BrowserRouter, useParams} from "react-router-dom";
 
 class AppMachine
 {
   public trackInfoMachine: TrackInfoMachine;
-  public navMachine: NavigationMachine = new NavigationMachine();
   public mapMachine: MapMachine = new MapMachine();
   public statsMachine: StatsMachine = new StatsMachine();
   
@@ -40,14 +37,6 @@ class AppMachine
   //   const stats = await statsRaw.json();
   //   // this.quickStats = QuickStats.fromJson(stats);
   // }
-
-  public async test(): Promise<void>
-  {
-    const testInfo = await fetch("/recaps");
-    const infos = await testInfo.json();
-    
-    console.log(infos);
-  }
 }
 
 // { process.env.NODE_ENV === 'production' ?
@@ -75,40 +64,33 @@ class App extends React.Component<AppProps>
     this.machine = new AppMachine();
   }
 
-  private get navMachine(): NavigationMachine
+  private renderAbout(): any
   {
-    return this.machine.navMachine;
+    return <AboutPlace/>;
   }
 
-  private renderAbout(): JSX.Element
+  private renderHome(): React.ReactNode
   {
-    return <AboutPlace navMachine={this.machine.navMachine}/>;
-  }
-
-  private renderHome(): JSX.Element
-  {
-    return <>
+    return <div>
       <h1>Dirk Stahlecker - Trackchaser</h1>
-      {/* <button onClick={() => this.machine.test()}>TEST</button> */}
       {
         this.machine.trackInfoMachine.tracks != null && 
         <div>
           <Map
             trackInfoMachine={this.machine.trackInfoMachine}
             machine={this.machine.mapMachine}
-            navMachine={this.machine.navMachine}
           />
           {/* <div className="quick-stats-area">
             Quick Stats: 
           </div> */}
         </div>
       }
-    </>
+    </div>
   }
 
   private renderContact(): JSX.Element
   {
-    return <ContactPlace navMachine={this.navMachine}/>;
+    return <ContactPlace/>;
   }
 
   private renderStats(): JSX.Element
@@ -119,7 +101,6 @@ class App extends React.Component<AppProps>
   private renderAllTracks(): JSX.Element
   {
     return <AllTracksPlace 
-      navMachine={this.navMachine}
       trackInfoMachine={this.machine.trackInfoMachine}
     />;
   }
@@ -128,39 +109,29 @@ class App extends React.Component<AppProps>
   {
     return <RecapsPlace
       machine={new RecapsPlaceMachine()}
-      navMachine={this.navMachine}
     />;
   }
 
   private renderCalendar(): JSX.Element
   {
     return <CalendarPlace
-      navMachine={this.navMachine}
-    />;
-  }
-
-  private renderTrack(): JSX.Element
-  {
-    return <TrackPlace
-      machine={new TrackPlaceMachine() /* TODO: look at this */}
-      trackInfo={this.machine.trackInfoMachine}
-      navMachine={this.machine.navMachine}
     />;
   }
 
   private renderEvent(): JSX.Element
   {
-    if (this.navMachine.currentEvent == null || this.navMachine.currentTrack == null)
-    {
-      throw new Error("To render event page, currentEvent and currentTrack must be defined");
-    }
+    return <></>;
+    //TODO: fix
+    // if (this.navMachine.currentEvent == null || this.navMachine.currentTrack == null)
+    // {
+    //   throw new Error("To render event page, currentEvent and currentTrack must be defined");
+    // }
 
-    return <EventPlace
-      machine={new EventPlaceMachine()}
-      navMachine={this.navMachine}
-      event={this.machine.navMachine.currentEvent!}
-      track={this.machine.navMachine.currentTrack!}
-    />;
+    // return <EventPlace
+    //   machine={new EventPlaceMachine()}
+    //   event={this.machine.navMachine.currentEvent!}
+    //   track={this.machine.navMachine.currentTrack!}
+    // />;
   }
 
   private renderFooter(): JSX.Element
@@ -175,13 +146,13 @@ class App extends React.Component<AppProps>
   private renderToolbar(): JSX.Element
   {
     return <div id="navbar" className="sticky">
-      <a onClick={this.navMachine.goHome}>Home</a>
-      <a onClick={this.navMachine.goToAllTracksPage}>Tracks</a>
+      <Link to="/">Home</Link>
+      <Link to="/tracks">Tracks</Link>
+      <Link to="/recaps">Race Recaps</Link>
+      <Link to="/stats">Stats</Link>
+      <Link to="/about">About</Link>
+      <Link to="/contact">Contact</Link>
       {/* <a onClick={this.navMachine.goToCalendar}>Calendar</a> */}
-      <a onClick={this.navMachine.goToRecapsPage}>Race Recaps</a>
-      <a onClick={this.navMachine.goToStatsPage}>Stats</a>
-      <a onClick={this.navMachine.goToAboutPage}>About</a>
-      <a onClick={this.navMachine.goToContactPage}>Contact</a>
     </div>
   }
 
@@ -207,44 +178,25 @@ class App extends React.Component<AppProps>
   {
     return (
       <div className="App">
+
         {this.renderToolbar()}
         <div className="App-body">
-          {
-            this.machine.navMachine.currentPlace === CurrentPlace.ABOUT &&
-            this.renderAbout()
-          }
-          {
-            this.machine.navMachine.currentPlace === CurrentPlace.HOME &&
-            this.renderHome()
-          }
-          {
-            this.machine.navMachine.currentPlace === CurrentPlace.ALL_TRACKS &&
-            this.renderAllTracks()
-          }
-          {
-            this.machine.navMachine.currentPlace === CurrentPlace.CALENDAR &&
-            this.renderCalendar()
-          }
-          {
-            this.machine.navMachine.currentPlace === CurrentPlace.RECAPS &&
-            this.renderRecaps()
-          }
-          {
-            this.machine.navMachine.currentPlace === CurrentPlace.TRACK &&
-            this.renderTrack()
-          }
+          <Routes>
+            <Route path="/" element={this.renderHome()}/>
+            <Route path="/about" element={this.renderAbout()}/>
+            <Route path="/tracks" element={this.renderAllTracks()}/>
+            <Route path="/track/:id" element={<RenderTrack trackInfoMachine={this.machine.trackInfoMachine}/>}/>
+            <Route path="/recaps" element={this.renderRecaps()}/>
+            <Route path="/stats" element={this.renderStats()}/>
+            <Route path="/contact" element={this.renderContact()}/>
+            {/* TODO: individual track, event */}
+          </Routes>
+
+          {/*
           {
             this.machine.navMachine.currentPlace === CurrentPlace.EVENT &&
             this.renderEvent()
-          }
-          {
-            this.machine.navMachine.currentPlace === CurrentPlace.STATS &&
-            this.renderStats()
-          }
-          {
-            this.machine.navMachine.currentPlace === CurrentPlace.CONTACT &&
-            this.renderContact()
-          }
+          } */}
         </div>
         <div className="footer">
           {this.renderFooter()}
@@ -262,3 +214,21 @@ export default App;
 //TODO: URLs in navigation machine
 
 //TODO: need to have configurations on track page, or some other way to get to the configuration track page
+
+interface RenderTrackProps {
+  trackInfoMachine: TrackInfoMachine;
+}
+const RenderTrack = (props: RenderTrackProps): JSX.Element => {
+  const { id } = useParams();
+  if (!id)
+  {
+    throw Error("Invalid track URL")
+  }
+  const parsedId: number = Number.parseInt(id);
+
+  return <TrackPlace
+    machine={new TrackPlaceMachine() /* TODO: look at this */}
+    trackInfo={props.trackInfoMachine}
+    trackId={parsedId}
+  />;
+}

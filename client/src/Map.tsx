@@ -5,7 +5,6 @@ import {observable, action, makeObservable, runInAction} from "mobx";
 import {TrackInfoMachine} from "./tracks/TrackInfoMachine";
 import { Track } from './Types';
 import {TrackPopup, TrackPopupMachine} from "./tracks/TrackPopup";
-import {NavigationMachine} from "./NavigationMachine";
 import mapboxgl from 'mapbox-gl';
 import ReactMapboxGl, {Layer, Feature, Marker} from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -32,7 +31,6 @@ export class MapMachine
 export interface MapProps
 {
 	machine: MapMachine;
-	navMachine: NavigationMachine;
 	trackInfoMachine: TrackInfoMachine;
 }
 
@@ -187,7 +185,6 @@ export class Map extends React.Component<MapProps>
 					{
 						this.props.machine.trackForPopup &&
 						<TrackPopup
-							navMachine={this.props.navMachine}
 							machine={new TrackPopupMachine(this.props.machine.trackForPopup)}
 						/>
 					}
