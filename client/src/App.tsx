@@ -14,10 +14,10 @@ import { EventPlace, EventPlaceMachine } from './events/EventPlace';
 import { ContactPlace } from './ContactPlace';
 import { AllTracksPlace } from './tracks/AllTracks';
 import { CalendarPlace } from './CalendarPlace';
-import { JsxEmit } from 'typescript';
-import {Link} from "react-router-dom";
 import { RecapsPlace, RecapsPlaceMachine } from './RecapsPlace';
 import {Stats, StatsMachine} from "./Stats";
+import {Routes, Route, Link} from "react-router-dom";
+import { isThisTypeNode } from 'typescript';
 
 class AppMachine
 {
@@ -41,14 +41,6 @@ class AppMachine
   //   const stats = await statsRaw.json();
   //   // this.quickStats = QuickStats.fromJson(stats);
   // }
-
-  public async test(): Promise<void>
-  {
-    const testInfo = await fetch("/recaps");
-    const infos = await testInfo.json();
-    
-    console.log(infos);
-  }
 }
 
 // { process.env.NODE_ENV === 'production' ?
@@ -81,14 +73,14 @@ class App extends React.Component<AppProps>
     return this.machine.navMachine;
   }
 
-  private renderAbout(): JSX.Element
+  private renderAbout(): any
   {
     return <AboutPlace navMachine={this.machine.navMachine}/>;
   }
 
-  private renderHome(): JSX.Element
+  private renderHome(): React.ReactNode
   {
-    return <>
+    return <div>
       <h1>Dirk Stahlecker - Trackchaser</h1>
       {/* <button onClick={() => this.machine.test()}>TEST</button> */}
       {
@@ -104,7 +96,7 @@ class App extends React.Component<AppProps>
           </div> */}
         </div>
       }
-    </>
+    </div>
   }
 
   private renderContact(): JSX.Element
@@ -176,8 +168,8 @@ class App extends React.Component<AppProps>
   private renderToolbar(): JSX.Element
   {
     return <div id="navbar" className="sticky">
-      <Link to="/test">TEST</Link>
-      <a onClick={this.navMachine.goHome}>Home</a>
+      <Link to="/">HOME</Link>
+      <Link to="/about">ABOUT</Link>
       <a onClick={this.navMachine.goToAllTracksPage}>Tracks</a>
       {/* <a onClick={this.navMachine.goToCalendar}>Calendar</a> */}
       <a onClick={this.navMachine.goToRecapsPage}>Race Recaps</a>
@@ -209,9 +201,15 @@ class App extends React.Component<AppProps>
   {
     return (
       <div className="App">
+
         {this.renderToolbar()}
         <div className="App-body">
-          {
+          <Routes>
+            <Route path="/" element={this.renderHome()}/>
+            <Route path="/about" element={this.renderAbout()}/>
+          </Routes>
+
+          {/* {
             this.machine.navMachine.currentPlace === CurrentPlace.ABOUT &&
             this.renderAbout()
           }
@@ -246,7 +244,7 @@ class App extends React.Component<AppProps>
           {
             this.machine.navMachine.currentPlace === CurrentPlace.CONTACT &&
             this.renderContact()
-          }
+          } */}
         </div>
         <div className="footer">
           {this.renderFooter()}
@@ -264,3 +262,20 @@ export default App;
 //TODO: URLs in navigation machine
 
 //TODO: need to have configurations on track page, or some other way to get to the configuration track page
+
+function Home(machine: AppMachine): JSX.Element
+{
+  return <>
+    <h1>Dirk Stahlecker - Trackchaser</h1>
+    {
+      machine.trackInfoMachine.tracks != null && 
+      <div>
+        <Map
+          trackInfoMachine={machine.trackInfoMachine}
+          machine={machine.mapMachine}
+          navMachine={machine.navMachine}
+        />
+      </div>
+    }
+  </>
+}
