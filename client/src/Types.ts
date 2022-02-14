@@ -12,44 +12,44 @@ export function makeDate(input: string | Date): Date
 	return fixedDate;
 }
 
-export class Track_old
-{
-	//data is static, so don't need to be observable (nothing changes without a page reload)
-	public trackNameObj: TrackName;
-	public state: string;
-	public trackType: TrackTypeEnum;
-	public latitude: number;
-	public longitude: number;
-	public flips: Flip_old[];
+// {
+// 	//data is static, so don't need to be observable (nothing changes without a page reload)
+// 	public trackNameObj: TrackName;
+// 	public state: string;
+// 	public trackType: TrackTypeEnum;
+// 	public latitude: number;
+// 	public longitude: number;
+// 	public flips: Flip_old[];
 
-	public count: number;
+// 	public count: number;
 
-	constructor(trackNameObj: TrackName, state: string, trackType: TrackTypeEnum, latitude: number, 
-		longitude: number, count: number, flips: Flip_old[])
-	{
-		this.trackNameObj = trackNameObj;
-		this.state = state
-		this.trackType = trackType;
-		this.latitude = latitude
-		this.longitude = longitude
-		this.count = count;
-		this.flips = flips;
-	}
+// 	constructor(trackNameObj: TrackName, state: string, trackType: TrackTypeEnum, latitude: number, 
+// 		longitude: number, count: number, flips: Flip_old[])
+// 	{
+// 		this.trackNameObj = trackNameObj;
+// 		this.state = state
+// 		this.trackType = trackType;
+// 		this.latitude = latitude
+// 		this.longitude = longitude
+// 		this.count = count;
+// 		this.flips = flips;
+// 	}
 
-	public get coordinates(): number[]
-	{
-		return [this.longitude, this.latitude]; //need to be reversed for some reason
-	}
+// 	public get coordinates(): number[]
+// 	{
+// 		return [this.longitude, this.latitude]; //need to be reversed for some reason
+// 	}
 
-	//unique key
-	public print(): string
-	{
-		return this.trackNameObj.print() + this.state + this.trackType;
-	}
+// 	//unique key
+// 	public print(): string
+// 	{
+// 		return this.trackNameObj.print() + this.state + this.trackType;
+// 	}
 
-	//more to come...
-}
+// 	//more to come...
+// }
 
+//TODO: can this be removed?
 export class TrackName
 {
 	public baseName: string;

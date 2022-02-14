@@ -1,7 +1,7 @@
 import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, runInAction} from "mobx";
-import { EventObj, Track_old, Flip_old, Race } from '../Types';
+import { Race } from '../Types';
 import { printDate } from '../utilities';
 
 export interface RaceTileProps

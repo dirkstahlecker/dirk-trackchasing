@@ -117,4 +117,15 @@ export abstract class API
     return racesPerYearJson;
   }
 
+  public static async fetchMostRecentRace(): Promise<Race | null>
+  {
+    if (API.makeNoApiCallsBecauseDbOnHerokuIsBroken)
+    {
+      return Promise.resolve(null);
+    }
+
+    const mostRecentRaceRaw = await fetch('/races/mostRecent');
+    const mostRecentRaceJson: Race[] = await mostRecentRaceRaw.json();
+    return mostRecentRaceJson[0]; //ordered in the query, so first is most recent
+  }
 }

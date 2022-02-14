@@ -1,19 +1,13 @@
 import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable} from "mobx";
-import { NavigationMachine } from '../NavigationMachine';
-import { Track_old, Track } from '../Types';
+import { Track } from '../Types';
 import './TrackTile.css'; // Tell webpack that Button.js uses these styles
-
-export class TrackTileMachine
-{
-
-}
+import { Link } from 'react-router-dom';
 
 export interface TrackTileProps
 {
   track: Track;
-  navMachine: NavigationMachine;
 }
 
 @observer
@@ -25,9 +19,7 @@ export class TrackTile extends React.Component<TrackTileProps>
 
     return (
       <div className={"track-tile"}>
-        <button onClick={() => this.props.navMachine.goToTrackPage(track)}>
-          {track.name}
-        </button>
+        <Link to={`/track/${track.track_id}`}>{track.name}</Link>
       </div>
     );
   }

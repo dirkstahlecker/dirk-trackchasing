@@ -15,12 +15,15 @@ import { CalendarPlace } from './CalendarPlace';
 import { RecapsPlace, RecapsPlaceMachine } from './RecapsPlace';
 import {Stats, StatsMachine} from "./Stats";
 import {Routes, Route, Link, BrowserRouter, useParams} from "react-router-dom";
+import { RaceInfoMachine } from './events/RaceInfoMachine';
+import { RaceTile } from './events/RaceTile';
 
 class AppMachine
 {
   public trackInfoMachine: TrackInfoMachine;
   public mapMachine: MapMachine = new MapMachine();
   public statsMachine: StatsMachine = new StatsMachine();
+  public raceInfoMachine: RaceInfoMachine = new RaceInfoMachine();
   
   // @observable public quickStats: QuickStats | null = null;
 
@@ -29,6 +32,8 @@ class AppMachine
     // makeObservable(this);
     this.trackInfoMachine = new TrackInfoMachine();
     this.trackInfoMachine.fetchAllTracks();
+
+    this.raceInfoMachine.fetchMostRecent();
   }
 
   // public async fetchQuickStats(): Promise<void>
@@ -73,6 +78,17 @@ class App extends React.Component<AppProps>
   {
     return <div>
       <h1>Dirk Stahlecker - Trackchaser</h1>
+      <div>
+        Last race: 
+        {
+          this.machine.raceInfoMachine.mostRecentRace && 
+          <RaceTile race={this.machine.raceInfoMachine.mostRecentRace}/>
+        }
+      </div>
+      <div>
+        Most recent new track:
+        
+      </div>
       {
         this.machine.trackInfoMachine.tracks != null && 
         <div>

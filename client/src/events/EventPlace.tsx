@@ -1,7 +1,7 @@
 import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, runInAction} from "mobx";
-import { EventObj, Track_old, Flip_old, Track } from '../Types';
+import { EventObj, Flip_old, Track } from '../Types';
 import {FlipTile} from "./FlipTile";
 import { TrackInfoMachine } from '../tracks/TrackInfoMachine';
 import { compareDates, printDate } from '../utilities';
@@ -45,7 +45,6 @@ export class EventPlace extends React.Component<EventPlaceProps>
   {
     const event: EventObj = this.props.event;
     return <div className="event-place">
-      <button onClick={() => this.props.navMachine.goToTrackPage(this.props.track)}>Back</button>
       <div>Event at {this.props.track.name} on {printDate(this.props.event.date)}</div>
       <br/>
       <div>Classes: {event.classes}</div>

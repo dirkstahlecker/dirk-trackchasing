@@ -3,46 +3,46 @@ import {observer} from "mobx-react";
 import {observable, action, makeObservable, runInAction} from "mobx";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './CalendarPlace.css';
-import { EventObj, Track_old, TrackName } from './Types';
+import { EventObj, TrackName } from './Types';
 
-type EventWithTrackObj = {eventObj: EventObj, trackObj: Track_old};
+// type EventWithTrackObj = {eventObj: EventObj, trackObj: Track_old};
 
 export class RecapsPlaceMachine
 {
-  @observable public eventsWithRecap: EventWithTrackObj[] = [];
+  // @observable public eventsWithRecap: EventWithTrackObj[] = [];
 
   constructor()
   {
-    makeObservable(this);
+    // makeObservable(this);
   }
 
-  public async fetchEventsWithRecap(): Promise<void>
-  {
-    const recapRaw = await fetch(`/recaps`);
-    const recapJson: EventObj[] = await recapRaw.json();
+  // public async fetchEventsWithRecap(): Promise<void>
+  // {
+  //   const recapRaw = await fetch(`/recaps`);
+  //   const recapJson: EventObj[] = await recapRaw.json();
 
-    recapJson.forEach(async(eventObj: EventObj) => {
-      const trackObjRaw = await this.fetchTrackObj(eventObj.trackName);
-      const trackObj: Track_old = new Track_old(
-        new TrackName(trackObjRaw.trackNameObj.baseName, trackObjRaw.trackNameObj.configuration, 
-          trackObjRaw.trackNameObj.isConfiguration), 
-        trackObjRaw.state, trackObjRaw.trackType, 
-        trackObjRaw.latitude, trackObjRaw.longitude, trackObjRaw.count, trackObjRaw.flips);
-      runInAction(() => this.eventsWithRecap.push({eventObj, trackObj}))
-    });
+  //   recapJson.forEach(async(eventObj: EventObj) => {
+  //     const trackObjRaw = await this.fetchTrackObj(eventObj.trackName);
+  //     const trackObj: Track_old = new Track_old(
+  //       new TrackName(trackObjRaw.trackNameObj.baseName, trackObjRaw.trackNameObj.configuration, 
+  //         trackObjRaw.trackNameObj.isConfiguration), 
+  //       trackObjRaw.state, trackObjRaw.trackType, 
+  //       trackObjRaw.latitude, trackObjRaw.longitude, trackObjRaw.count, trackObjRaw.flips);
+  //     runInAction(() => this.eventsWithRecap.push({eventObj, trackObj}))
+  //   });
 
-    console.log(this.eventsWithRecap);
-  }
+  //   console.log(this.eventsWithRecap);
+  // }
 
-  public async fetchTrackObj(trackName: TrackName): Promise<Track_old>
-  {
-    const trackNameObj: TrackName = new TrackName(trackName.baseName, trackName.configuration, trackName.isConfiguration);
-    const trackObjRaw = await fetch(`/tracks/trackObjForName/${trackNameObj.print()}`)
-    const trackObjJson: Track_old  = await trackObjRaw.json();
+  // public async fetchTrackObj(trackName: TrackName): Promise<Track_old>
+  // {
+  //   const trackNameObj: TrackName = new TrackName(trackName.baseName, trackName.configuration, trackName.isConfiguration);
+  //   const trackObjRaw = await fetch(`/tracks/trackObjForName/${trackNameObj.print()}`)
+  //   const trackObjJson: Track_old  = await trackObjRaw.json();
 
-    console.log(trackObjJson);
-    return trackObjJson
-  }
+  //   console.log(trackObjJson);
+  //   return trackObjJson
+  // }
 }
 
 export interface RecapsPlaceProps
@@ -55,7 +55,7 @@ export class RecapsPlace extends React.Component<RecapsPlaceProps>
 {
   componentDidMount()
   {
-    this.props.machine.fetchEventsWithRecap();
+    // this.props.machine.fetchEventsWithRecap();
   }
 
   private recapObjects: {href: string; title: string}[] = [

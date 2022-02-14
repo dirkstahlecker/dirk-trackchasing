@@ -87,7 +87,13 @@ app.get('/races/uniqueEvents', async function (req, res) {
 	res.json(uniqueEvents);
 });
 
-
+app.get('/races/mostRecent', async function (req, res) {
+	console.log(`/races/mostRecent`);
+	res.set('Content-Type', 'application/json');
+	
+	const racesPerYear = await ServerApp.getMostRecentRace();
+	res.json(racesPerYear);
+})
 
 
 

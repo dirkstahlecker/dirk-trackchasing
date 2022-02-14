@@ -118,7 +118,17 @@ export abstract class ServerApp
 		return result.rows;
 	}
 
+	public static async getMostRecentRace(): Promise<Race | null>
+	{
+		const query = `SELECT DISTINCT ON (date) * FROM races ORDER  BY date DESC NULLS LAST;`;
+		const result = await makeQuery(query);
 
+		console.log(result.rows)
+
+		return result.rows;
+
+		//TODO: Deal with multiple races on the most recent date
+	}
 
 
 
