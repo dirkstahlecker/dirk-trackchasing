@@ -5,6 +5,8 @@ import { Flip, Race, Track } from './Types';
  */
 export abstract class API
 {
+  private static makeNoApiCallsBecauseDbOnHerokuIsBroken: boolean = true;
+
   private static tracksJsonToTracks(tracksJson: any): Track[]
   {
     if (this.tracksJsonToTracks === null)
@@ -22,6 +24,11 @@ export abstract class API
 
   public static async fetchAllTracks(): Promise<Track[]>
   {
+    if (API.makeNoApiCallsBecauseDbOnHerokuIsBroken)
+    {
+      return Promise.resolve([]);
+    }
+
     const tracksRaw = await fetch(`/tracks`);
     const tracksJson = await tracksRaw.json();
     return this.tracksJsonToTracks(tracksJson);
@@ -29,6 +36,11 @@ export abstract class API
 
 	public static async fetchAllRaces(trackId: number): Promise<Race[]>
 	{
+    if (API.makeNoApiCallsBecauseDbOnHerokuIsBroken)
+    {
+      return Promise.resolve([]);
+    }
+
 		const racesRaw = await fetch(`/tracks/${trackId}/races`);
 		const racesJson = await racesRaw.json();
 
@@ -42,6 +54,11 @@ export abstract class API
 
   public static async fetchAllFlips(trackId: number): Promise<Flip[]>
   {
+    if (API.makeNoApiCallsBecauseDbOnHerokuIsBroken)
+    {
+      return Promise.resolve([]);
+    }
+
     const flipsRaw = await fetch(`/tracks/${trackId}/flips`);
     const flipsJson = await flipsRaw.json();
 
@@ -59,6 +76,11 @@ export abstract class API
    */
   public static async fetchConfigsForTrack(trackId: number): Promise<Track[]>
   {
+    if (API.makeNoApiCallsBecauseDbOnHerokuIsBroken)
+    {
+      return Promise.resolve([]);
+    }
+
     const configsRaw = await fetch(`/tracks/${trackId}/configurations`);
     const configsJson = await configsRaw.json();
     return this.tracksJsonToTracks(configsJson);
@@ -66,6 +88,11 @@ export abstract class API
 
   public static async firstRacesAtEachTrack(): Promise<{track_id: number, date: Date}[]>
   {
+    if (API.makeNoApiCallsBecauseDbOnHerokuIsBroken)
+    {
+      return Promise.resolve([]);
+    }
+
     const firstRacesRaw = await fetch('/firstRaceEachTrack');
     const firstRacesJson: {track_id: number, date: Date}[] = await firstRacesRaw.json();
 
@@ -80,6 +107,11 @@ export abstract class API
 
   public static async racesPerYear(year: number): Promise<number>
   {
+    if (API.makeNoApiCallsBecauseDbOnHerokuIsBroken)
+    {
+      return Promise.resolve(0);
+    }
+
     const racesPerYearRaw = await fetch(`/races/perYear/${year}`);
     const racesPerYearJson = await racesPerYearRaw.json();
     return racesPerYearJson;

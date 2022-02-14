@@ -171,7 +171,7 @@ class App extends React.Component<AppProps>
       // }
     }
 
-    fetch("/races/uniqueEvents");
+    // fetch("/races/uniqueEvents"); //why was this here?
   }
 
   render()

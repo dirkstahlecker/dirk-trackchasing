@@ -2,6 +2,7 @@
 //this is copied between client and server - make sure they stay in sync
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Flip = exports.EventObj = exports.TrackTypeEnum = exports.TrackName = exports.Track_old = exports.printDate = exports.makeDate = void 0;
+//DEPRECATED - types are in dbUtils now
 function makeDate(input) {
     if (input instanceof Date) {
         const d = new Date(Date.UTC(input.getFullYear(), input.getMonth(), input.getUTCDate(), 12));

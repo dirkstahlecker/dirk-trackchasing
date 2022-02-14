@@ -32,6 +32,36 @@ app.get('/tracks/:trackId/configurations', async function (req, res) {
     const tracks = await app_1.ServerApp.getConfigurationsForTrack(Number.parseInt(req.params.trackId));
     res.json(tracks);
 });
+app.get('/tracks/:trackId/flips', async function (req, res) {
+    console.log(`/tracks/${req.params.trackId}/flips`);
+    res.set('Content-Type', 'application/json');
+    const flips = await app_1.ServerApp.getFlipsForTrack(Number.parseInt(req.params.trackId));
+    res.json(flips);
+});
+app.get('/basicStats', async function (req, res) {
+    console.log(`/basicStats`);
+    res.set('Content-Type', 'application/json');
+    const basicStats = await app_1.ServerApp.getBasicStats();
+    res.json(basicStats);
+});
+app.get('/firstRaceEachTrack', async function (req, res) {
+    console.log('/firstRaceEachTrack');
+    res.set('Content-Type', 'application/json');
+    const firstRaces = await app_1.ServerApp.getFirstRaceAtEachTrack();
+    res.json(firstRaces);
+});
+app.get('/races/perYear/:year', async function (req, res) {
+    console.log(`/races/perYear/${req.params.year}`);
+    res.set('Content-Type', 'application/json');
+    const racesPerYear = await app_1.ServerApp.getRacesPerYear(req.params.year);
+    res.json(racesPerYear);
+});
+app.get('/races/uniqueEvents', async function (req, res) {
+    console.log(`/races/uniqueEvents`);
+    res.set('Content-Type', 'application/json');
+    const uniqueEvents = await app_1.ServerApp.getUniqueEvents();
+    res.json(uniqueEvents);
+});
 //////////////////////////////////////////////////////
 //Below are old
 //get a list of all the tracks, name only
