@@ -3,12 +3,13 @@ import React from 'react';
 import {observer} from "mobx-react";
 import {observable, action, makeObservable, runInAction} from "mobx";
 import {TrackInfoMachine} from "./TrackInfoMachine";
-import { Track_old, Track, TrackTypeEnum } from '../Types';
+import { Track, TrackTypeEnum } from '../Types';
 import mapboxgl from 'mapbox-gl';
 import ReactMapboxGl, {Layer, Feature, Marker, Popup} from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import "./TrackPopup.css";
 import { API } from '../API';
+import { Link } from 'react-router-dom';
 
 export class TrackPopupMachine
 {
@@ -91,7 +92,8 @@ export class TrackPopup extends React.Component<TrackPopupProps>
 					}
 
 					<br/>
-					<button onClick={() => this.props.navMachine.goToTrackPage(track)}>Go to track page</button>
+					<Link to={`/track/${track.track_id}`}>Go to track page</Link>
+					{/* <button onClick={() => this.props.navMachine.goToTrackPage(track)}>Go to track page</button> */}
 				</div>
 			</Popup>
 		)

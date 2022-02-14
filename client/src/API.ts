@@ -5,7 +5,7 @@ import { Flip, Race, Track } from './Types';
  */
 export abstract class API
 {
-  private static makeNoApiCallsBecauseDbOnHerokuIsBroken: boolean = true;
+  private static makeNoApiCallsBecauseDbOnHerokuIsBroken: boolean = false;
 
   private static tracksJsonToTracks(tracksJson: any): Track[]
   {
