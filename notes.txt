@@ -15,3 +15,9 @@ if not logged in to heroku:
 Database:
 
 psql postgres
+
+
+Local to Heroku:
+  pg_dump -f /Users/dirkstahlecker/test6 trackchasing
+  heroku pg:psql --app dirk-trackchasing < test6
+

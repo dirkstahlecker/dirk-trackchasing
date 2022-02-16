@@ -86,8 +86,8 @@ class App extends React.Component<AppProps>
         }
       </div>
       <div>
-        Most recent new track:
-        
+        {/* Most recent new track: */}
+
       </div>
       {
         this.machine.trackInfoMachine.tracks != null && 

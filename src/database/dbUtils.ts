@@ -58,7 +58,8 @@ export type StateStats = {
 
 const connString = process.env.DATABASE_URL
   || 'postgresql://dirkstahlecker@localhost:5432/trackchasing';
-// console.log("connString: " + connString);
+  
+console.log("connString: " + connString);
 
 let pool: Pool;
 if (process.env.DATABASE_URL)
