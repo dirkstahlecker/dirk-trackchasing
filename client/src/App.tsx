@@ -122,6 +122,11 @@ class App extends React.Component<AppProps>
     return <ContactPlace/>;
   }
 
+  private renderPageNotFound(): JSX.Element
+  {
+    return <div>Page Not Found</div>
+  }
+
   private renderStats(): JSX.Element
   {
     return <Stats machine={this.machine.statsMachine} trackInfoMachine={this.machine.trackInfoMachine}/>;
@@ -218,6 +223,7 @@ class App extends React.Component<AppProps>
             <Route path="/recaps" element={this.renderRecaps()}/>
             <Route path="/stats" element={this.renderStats()}/>
             <Route path="/contact" element={this.renderContact()}/>
+            <Route path='*' element={this.renderPageNotFound()} />
             {/* TODO: individual track, event */}
           </Routes>
 
@@ -238,9 +244,7 @@ class App extends React.Component<AppProps>
 export default App;
 
 //TODO: events don't work when there's no date (like with Pocatello)
-//TODO: I think heroku think's it's running as a test so it shows the wrong recap
 //TODO: event dates still are time zone dependent (see on events page)
-//TODO: URLs in navigation machine
 
 //TODO: need to have configurations on track page, or some other way to get to the configuration track page
 
@@ -271,6 +275,5 @@ TODO:
 -add all races into database
 -flip videos
 -favicon
-
 
 */

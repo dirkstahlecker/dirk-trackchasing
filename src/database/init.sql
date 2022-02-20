@@ -59,14 +59,15 @@ INSERT INTO races (track_id, date, event_name, classes) VALUES
 CREATE TABLE flips
 (
   flip_id       SERIAL PRIMARY KEY NOT NULL,
-  race_id       integer NOT NULL references races(race_id),
+  race_id       integer references races(race_id),
   class         text NOT NULL,
   rotations     text,
   notes         text,
   fullfender    boolean NOT NULL,
   occurred      text NOT NULL, --qualifying, heat, main, etc
+  driver        text,
   video         boolean,
-  didnotsee     boolean
+  didnotsee     boolean DEFAULT FALSE
 );
 
 INSERT INTO flips (race_id, class, rotations, notes, fullfender, occurred, video) VALUES

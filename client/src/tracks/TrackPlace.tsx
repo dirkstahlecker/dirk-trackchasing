@@ -6,12 +6,28 @@ import { RaceTile } from '../events/RaceTile';
 import { Flip, EventObj, TrackName, Track, Race } from '../Types';
 import { API } from '../API';
 import { RecapsDataMachine } from '../RecapsPlace';
+import { Link } from 'react-router-dom';
 
 export class TrackPlaceMachine
 {
 	constructor(private trackId: number, public trackInfoMachine: TrackInfoMachine)
 	{
 		makeObservable(this);
+
+		this.makeCalls();
+	}
+
+	private async makeCalls(): Promise<void>
+	{
+		const trackId: number | undefined = this.currentTrack?.track_id;
+		if (trackId)
+		{
+			const configs = await API.fetchConfigsForTrack(trackId);
+			if (configs.length > 0)
+			{
+				runInAction(() => this.configs = configs);
+			}
+		}
 	}
 
 	public get currentTrack(): Track | null
@@ -31,6 +47,9 @@ export class TrackPlaceMachine
 
 	@observable
 	public flips: Flip[] = [];
+
+	@observable
+	public configs: Track[] | null = null;
 
 	@action
 	public async fetchAllRaces(): Promise<void>
@@ -121,6 +140,18 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 					this.machine.currentTrack.length !== null && 
 					<>Length: {this.machine.currentTrack.length}<br/></>
 				}
+				<br/>
+				{
+					this.machine.configs &&
+					<>
+						{`${this.machine.configs.length} additional configuration${this.machine.configs.length > 1 ? "s" : ""}: `}
+						{this.machine.configs.map((config: Track) => {
+							return <Link to={`/track/${config.track_id}`}>{config.name}</Link>
+						})}
+					</>
+				}
+
+				<br/>
 				Type: {this.machine.currentTrack.type}
 				<br/>
 				Total Races: {this.machine.races.length}
@@ -151,3 +182,5 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 		);
 	}
 }
+
+//TODO: link to configurations 
