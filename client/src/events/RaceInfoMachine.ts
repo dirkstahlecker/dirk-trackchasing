@@ -12,7 +12,7 @@ export class RaceInfoMachine
 	}
 
 	@observable
-	public mostRecentRace: Race | null = null;
+	public mostRecentRace: any | null = null;
 
 	public async fetchMostRecent(): Promise<void>
 	{

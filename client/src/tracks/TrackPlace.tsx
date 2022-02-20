@@ -1,66 +1,82 @@
 import React from 'react';
 import {observer} from "mobx-react";
-import {observable, action, makeObservable, computed, runInAction} from "mobx";
+import {observable, action, makeObservable, computed, runInAction, when} from "mobx";
 import {TrackInfoMachine} from "./TrackInfoMachine";
 import { RaceTile } from '../events/RaceTile';
-import { Flip, EventObj, Track_old, TrackName, Track, Race } from '../Types';
+import { Flip, EventObj, TrackName, Track, Race } from '../Types';
 import { API } from '../API';
+import { RecapsDataMachine } from '../RecapsPlace';
 
 export class TrackPlaceMachine
 {
+	constructor(private trackId: number, public trackInfoMachine: TrackInfoMachine)
+	{
+		makeObservable(this);
+	}
+
+	public get currentTrack(): Track | null
+	{
+		//TODO: need to wait for trackInfoMachine to be populated
+
+		const currentTrack: Track | undefined = this.trackInfoMachine.getTrackFromId(this.trackId);
+		if (currentTrack)
+		{
+			return currentTrack;
+		}
+		return null;
+	}
+
 	@observable
 	public races: Race[] = [];
 
 	@observable
 	public flips: Flip[] = [];
 
-	constructor()
+	@action
+	public async fetchAllRaces(): Promise<void>
 	{
-		makeObservable(this);
+		this.races = await API.fetchAllRaces(this.trackId);
 	}
 
 	@action
-	public async fetchAllRaces(trackId: number): Promise<void>
+	public async fetchAllFlips(): Promise<void>
 	{
-		this.races = await API.fetchAllRaces(trackId);
-	}
-
-	@action
-	public async fetchAllFlips(trackId: number): Promise<void>
-	{
-		this.flips = await API.fetchAllFlips(trackId);
+		this.flips = await API.fetchAllFlips(this.trackId);
 	}
 }
 
 export interface TrackPlaceProps
 {
 	machine: TrackPlaceMachine;
-	trackInfo: TrackInfoMachine;
-	trackId: number;
+	// trackInfo: TrackInfoMachine;
+	// trackId: number;
 }
 
 @observer
 export class TrackPlace extends React.Component<TrackPlaceProps>
-{
+{	
+	constructor(props: TrackPlaceProps)
+	{
+		super(props);
+
+		// when(() => this.machine.trackInfoMachine.populated,
+		// () => this.fetchRecapIfAvailable())
+	}
+
 	private get machine(): TrackPlaceMachine
 	{
 		return this.props.machine;
 	}
 
-	private get currentTrack(): Track
-	{
-		const currentTrack: Track | undefined = this.props.trackInfo.getTrackFromId(this.props.trackId);
-		if (currentTrack)
-		{
-			return currentTrack;
-		}
-		throw Error("current track is null");
-	}
-
 	componentDidMount()
 	{
-		this.props.machine.fetchAllRaces(this.currentTrack.track_id);
-		this.props.machine.fetchAllFlips(this.currentTrack.track_id);
+		//for cold load, need to wait for data to arrive
+		when(() => this.machine.trackInfoMachine.populated,
+			() => {
+				this.machine.fetchAllRaces();
+				this.machine.fetchAllFlips();
+			}
+		)
 	}
 
 	private renderEventTiles(): JSX.Element
@@ -69,7 +85,7 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 
 		return <>
 			<table>
-			{this.props.machine.races.map((race: Race) => (
+			{this.machine.races.map((race: Race) => (
 				// <button onClick={() => this.props.navMachine.goToEventPage(this.currentTrack, event)}>
 					<RaceTile
 						key={race.race_id}
@@ -83,29 +99,33 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 
 	render()
 	{
-		if (this.currentTrack== null)
+		if (!this.machine.trackInfoMachine.populated || this.machine.currentTrack== null)
 		{
 			return <></>;
 		}
+
+		const trackName = this.machine.currentTrack.name;
+		const recaps: string[] | undefined = RecapsDataMachine.recapDatesForTrack(trackName);
+		const hasRecaps = recaps !== undefined && recaps.length > 0;
 
 		return (
 			<div id="track-place">
 				{/* <button onClick={this.props.navMachine.goHome}>Go Home</button> */}
 				<br/>
 				<h2>
-					{this.currentTrack.name}
+					{this.machine.currentTrack.name}
 				</h2>
-				{this.currentTrack.city}, {this.currentTrack.state}
+				{this.machine.currentTrack.city}, {this.machine.currentTrack.state}
 				<br/>
 				{
-					this.currentTrack.length !== null && 
-					<>Length: {this.currentTrack.length}<br/></>
+					this.machine.currentTrack.length !== null && 
+					<>Length: {this.machine.currentTrack.length}<br/></>
 				}
-				Type: {this.currentTrack.type}
+				Type: {this.machine.currentTrack.type}
 				<br/>
-				Total Races: {this.props.machine.races.length}
+				Total Races: {this.machine.races.length}
 				<br/>
-				Flips: {this.props.machine.flips.length}
+				Flips: {this.machine.flips.length}
 				<br/>
 				Flips per Event: {this.machine.flips.length > 0 ? 
 					this.machine.flips.length / this.machine.races.length : 
@@ -114,7 +134,19 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 
 				<br/>
 				Events: {this.renderEventTiles()}
-				
+
+				<br/>
+				{
+					hasRecaps &&
+					<>
+						Recaps:{" "}
+						{
+							recaps.map((date: string) => {
+								return RecapsDataMachine.renderLink({trackName, date})
+							})
+						}
+					</>
+				}
 			</div>
 		);
 	}

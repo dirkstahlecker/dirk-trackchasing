@@ -118,9 +118,11 @@ export abstract class ServerApp
 		return result.rows;
 	}
 
-	public static async getMostRecentRace(): Promise<Race | null>
+	public static async getMostRecentRace(): Promise<any | null>
 	{
-		const query = `SELECT DISTINCT ON (date) * FROM races ORDER  BY date DESC NULLS LAST;`;
+		const query = `SELECT DISTINCT ON (races.date) races.date, tracks.name, tracks.state, tracks.city, 
+			races.event_name, races.classes FROM races INNER JOIN tracks ON tracks.track_id=races.track_id 
+			ORDER BY date DESC NULLS LAST;`;
 		const result = await makeQuery(query);
 
 		console.log(result.rows)

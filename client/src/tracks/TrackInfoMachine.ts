@@ -12,6 +12,9 @@ export class TrackInfoMachine
 	}
 
 	@observable
+	public populated: boolean = false;
+
+	@observable
 	public tracks: Track[] = [];
 
 	@observable
@@ -80,6 +83,9 @@ export class TrackInfoMachine
 
 		const tracks: Track[] = await API.fetchAllTracks();
 		runInAction(() => this.tracks = tracks);
+
+		//indicate that we have data now
+		runInAction(() => this.populated = true);
 
 
     // for (let i: number = 0; i < infos.length; i++)

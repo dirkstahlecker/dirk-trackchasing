@@ -17,6 +17,7 @@ import {Stats, StatsMachine} from "./Stats";
 import {Routes, Route, Link, BrowserRouter, useParams} from "react-router-dom";
 import { RaceInfoMachine } from './events/RaceInfoMachine';
 import { RaceTile } from './events/RaceTile';
+import { printDate } from './utilities';
 
 class AppMachine
 {
@@ -76,13 +77,25 @@ class App extends React.Component<AppProps>
 
   private renderHome(): React.ReactNode
   {
+    const mostRecent = this.machine.raceInfoMachine.mostRecentRace;
     return <div>
       <h1>Dirk Stahlecker - Trackchaser</h1>
       <div>
-        Last race: 
+        Most recent race:&nbsp;
         {
-          this.machine.raceInfoMachine.mostRecentRace && 
-          <RaceTile race={this.machine.raceInfoMachine.mostRecentRace}/>
+          mostRecent && 
+          <>
+            <span>
+              {mostRecent.name} on {printDate(mostRecent.date)}
+            </span>
+            <span>
+              {mostRecent.city}, {mostRecent.state}
+            </span>
+            <span>
+              {mostRecent.classes}
+            </span>
+          </>
+          
         }
       </div>
       <div>
@@ -243,8 +256,21 @@ const RenderTrack = (props: RenderTrackProps): JSX.Element => {
   const parsedId: number = Number.parseInt(id);
 
   return <TrackPlace
-    machine={new TrackPlaceMachine() /* TODO: look at this */}
-    trackInfo={props.trackInfoMachine}
-    trackId={parsedId}
+    machine={new TrackPlaceMachine(parsedId, props.trackInfoMachine) /* TODO: look at this */}
+    // trackInfo={props.trackInfoMachine}
+    // trackId={parsedId}
   />;
 }
+
+/*
+TODO:
+
+-change icons in map
+-figure out how to display track and event tiles
+-stop map from zooming out upon clicking an icon
+-add all races into database
+-flip videos
+-favicon
+
+
+*/

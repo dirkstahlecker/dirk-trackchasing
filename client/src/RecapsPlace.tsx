@@ -5,7 +5,91 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './CalendarPlace.css';
 import { EventObj, TrackName } from './Types';
 
-// type EventWithTrackObj = {eventObj: EventObj, trackObj: Track_old};
+export abstract class RecapsDataMachine
+{
+  private static internalData: {trackName: string, dates: string[]}[] = [
+    {trackName: "Boardwalk Hall", dates: ["2-01-20"]},
+    {trackName: "Tri-State Speedway", dates: ["6-19-20"]},
+    {trackName: "Big Diamond Speedway", dates: ["7-03-20"]},
+    {trackName: "Lucas Oil Raceway", dates: ["8-21-20"]},
+    {trackName: "Indiana State Fairgrounds", dates: ["8-23-20"]},
+    {trackName: "Boyd's Speedway", dates: ["3-26-21"]},
+    {trackName: "Fulton Speedway", dates: ["5-29-21"]},
+    {trackName: "Action Track USA", dates: ["6-13-21"]},
+    {trackName: "Wayne County Speedway", dates: ["6-14-21"]},
+    {trackName: "Path Valley Speedway Park", dates: ["6-19-21"]},
+    {trackName: "Selinsgrove Raceway Park", dates: ["6-20-21"]},
+    {trackName: "Bloomsburg Fairgrounds Speedway", dates: ["6-20-21"]},
+    {trackName: "Riverhead Raceway", dates: ["6-26-21"]},
+    {trackName: "KRA Speedway", dates: ["7-08-21"]},
+    {trackName: "ERX Motor Park", dates: ["7-10-21"]},
+    {trackName: "Mason City Motor Speedway", dates: ["7-11-21"]},
+    {trackName: "Clyde Martin Memorial Speedway", dates: ["8-07-21"]},
+    {trackName: "Perris Auto Speedway", dates: ["8-21-21"]},
+    {trackName: "Huset's Speedway", dates: ["9-10-21"]},
+    {trackName: "Talladega Superspeedway", dates: ["10-02-21"]},
+    {trackName: "Talladega Short Track", dates: ["10-02-21"]},
+    {trackName: "Arizona Speedway", dates: ["11-12-21"]},
+    {trackName: "Cocopah Speedway", dates: ["1-27-22"]},
+    {trackName: "Irwindale Speedway", dates: ["2-05-22"]},
+    {trackName: "Los Angeles Memorial Coliseum", dates: ["2-06-22"]},
+  ];
+
+  /**
+   * internalData has an array of dates for each track to make filtering and
+   * displaying by track easier. This is a helper to flatten them out to
+   * make it easier to map in the renderer.
+   */
+  public static recapsData(): {trackName: string, date: string}[]
+  {
+    const ret: {trackName: string, date: string}[] = [];
+    this.internalData.forEach((value: {trackName: string, dates: string[]}) => {
+      value.dates.forEach((date: string) => {
+        ret.push({trackName: value.trackName, date: date});
+      });
+    });
+    return ret;
+  }
+
+  //TODO: how to represent this?
+  private recapObjects: {href: string; title: string}[] = [
+    {href: "/recaps/5-23-21.pdf", title: "5-23-21: Central Cycle Club and Pomfret Speedway"},
+  ]
+
+  // public static getTracks(): string[]
+  // {
+  //   return Object.keys(this.data);
+  // }
+
+  public static recapDatesForTrack(trackName: string): string[] | undefined
+  {
+    return this.internalData.find((value: {trackName: string, dates: string[]}) => {
+      return value.trackName === trackName;
+    })?.dates;
+  }
+
+  public static makeUrl(trackName: string, date: string): string
+  {
+    const trackNameFixed = trackName.replaceAll(" ", "_").replaceAll("'", "");
+    return `/recaps/${date}_${trackNameFixed}.pdf`;
+  }
+
+  public static makeDisplayName(trackName: string, date: string): string
+  {
+    return `${date}: ${trackName}`;
+  }
+
+  public static renderLink(recapObj: {trackName: string, date: string}): JSX.Element
+  {
+    return <a href={RecapsDataMachine.makeUrl(recapObj.trackName, recapObj.date)} target="_blank">
+      {RecapsDataMachine.makeDisplayName(recapObj.trackName, recapObj.date)}
+    </a>
+  }
+
+// Cocopah Speedway|1-27-22;
+// Boardwalk Hall|2-01-20;
+// Irwindale Speedway|2-05-22;
+}
 
 export class RecapsPlaceMachine
 {
@@ -58,34 +142,7 @@ export class RecapsPlace extends React.Component<RecapsPlaceProps>
     // this.props.machine.fetchEventsWithRecap();
   }
 
-  private recapObjects: {href: string; title: string}[] = [
-    {href: "/recaps/2-01-20_Boardwalk_Hall.pdf", title: "2-01-20: Boardwalk Hall"},
-    {href: "/recaps/6-19-20_Tri-State_Speedway.pdf", title: "6-19-20: Tri-State Speedway"},
-    {href: "/recaps/7-03-20_Big_Diamond.pdf", title: "7-03-20: Big Diamond Speedway"},
-    {href: "/recaps/8-21-20_Lucas_Oil_Raceway.pdf", title: "8-21-20: Lucas Oil Raceway"},
-    {href: "/recaps/8-23-20_Indiana_State_Fairgrounds.pdf", title: "8-23-20: Indiana State Fairgrounds"},
-    {href: "/recaps/3-26-21_Boyds_Speedway.pdf", title: "3-26-21: Boyd's Speedway"},
-    {href: "/recaps/5-23-21.pdf", title: "5-23-21: Central Cycle Club and Pomfret Speedway"},
-    {href: "/recaps/5-29-21_Fulton_Speedway.pdf", title: "5-29-21: Fulton Speedway"},
-    {href: "/recaps/6-13-21_ActionTrackUSA.pdf", title: "6-13-21: Action Track USA"},
-    {href: "/recaps/6-14-21_Wayne_County_Speedway.pdf", title: "6-14-21: Wayne County Speedway"},
-    {href: "/recaps/6-19-21_Path_Valley_Speedway_Park.pdf", title: "6-19-21: Path Valley Speedway Park"},
-    {href: "/recaps/6-20-21_Selinsgrove_Raceway_Park.pdf", title: "6-20-21: Selinsgrove Raceway Park"},
-    {href: "/recaps/6-20-21_Bloomsburg_Fairgrounds_Speedway.pdf", title: "6-20-21: Bloomsburg Fairgrounds Speedway"},
-    {href: "/recaps/6-26-21_Riverhead_Raceway.pdf", title: "6-26-21: Riverhead Raceway"},
-    {href: "/recaps/7-08-21_KRA_Speedway.pdf", title: "7-08-21: KRA Speedway"},
-    {href: "/recaps/7-10-21_ERX_Motor_Park.pdf", title: "7-10-21: ERX Motor Park"},
-    {href: "/recaps/7-11-21_Mason_City_Motor_Speedway.pdf", title: "7-11-21: Mason City Motor Speedway"},
-    {href: "/recaps/8-07-21_Clyde_Martin_Memorial_Speedway.pdf", title: "8-07-21: Clyde Martin Memorial Speedway"},
-    {href: "/recaps/8-21-21_Perris_Auto_Speedway.pdf", title: "8-21-21: Perris Auto Speedway"},
-    {href: "/recaps/9-10-21_Husets_Speedway.pdf", title: "9-10-21: Huset's Speedway"},
-    {href: "/recaps/10-02-21_Talladega.pdf", title: "10-02-21: Talladega Superspeedway"},
-    {href: "/recaps/10-02-21_Talladega_Short_Track.pdf", title: "10-02-21: Talladega Short Track"},
-    {href: "/recaps/11-12-21_Arizona_Speedway.pdf", title: "11-12-21: Arizona Speedway"},
-    {href: "/recaps/1-27-22_Cocopah_Speedway.pdf", title: "1-27-22: Cocopah Speedway"},
-    {href: "/recaps/2-05-22_Irwindale_Speedway.pdf", title: "2-05-22: Irwindale Speedway"},
-    {href: "/recaps/2-06-22_Los_Angeles_Memorial_Coliseum.pdf", title: "2-06-22: Los Angeles Memorial Coliseum"},
-  ]
+
 
   render()
   {
@@ -103,9 +160,9 @@ export class RecapsPlace extends React.Component<RecapsPlaceProps>
 
       <h2>Event Recaps</h2>      
       {
-        this.recapObjects.map((recapObj: {href: string, title: string}) => {
+        RecapsDataMachine.recapsData().map((recapObj: {trackName: string, date: string}) => {
           return <>
-            <a href={recapObj.href} target="_blank">{recapObj.title}</a>
+            {RecapsDataMachine.renderLink(recapObj)}
             <br/>
           </>
         })

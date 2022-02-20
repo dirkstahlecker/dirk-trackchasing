@@ -117,7 +117,7 @@ export abstract class API
     return racesPerYearJson;
   }
 
-  public static async fetchMostRecentRace(): Promise<Race | null>
+  public static async fetchMostRecentRace(): Promise<any | null>
   {
     if (API.makeNoApiCallsBecauseDbOnHerokuIsBroken)
     {
