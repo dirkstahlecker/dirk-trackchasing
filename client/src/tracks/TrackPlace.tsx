@@ -13,11 +13,25 @@ export class TrackPlaceMachine
 	constructor(private trackId: number, public trackInfoMachine: TrackInfoMachine)
 	{
 		makeObservable(this);
-
-		this.makeCalls();
 	}
 
-	private async makeCalls(): Promise<void>
+	@observable
+	public races: Race[] = [];
+
+	@observable
+	public flips: Flip[] | null = null;
+
+	@observable
+	public configs: Track[] | null = null;
+
+	public fetchData(): void
+	{
+		this.fetchAllRaces();
+		this.fetchConfigs();
+		this.fetchAllFlips();
+	}
+
+	private async fetchConfigs(): Promise<void>
 	{
 		const trackId: number | undefined = this.currentTrack?.track_id;
 		if (trackId)
@@ -42,25 +56,20 @@ export class TrackPlaceMachine
 		return null;
 	}
 
-	@observable
-	public races: Race[] = [];
-
-	@observable
-	public flips: Flip[] = [];
-
-	@observable
-	public configs: Track[] | null = null;
-
 	@action
-	public async fetchAllRaces(): Promise<void>
+	private async fetchAllRaces(): Promise<void>
 	{
 		this.races = await API.fetchAllRaces(this.trackId);
 	}
 
 	@action
-	public async fetchAllFlips(): Promise<void>
+	private async fetchAllFlips(): Promise<void>
 	{
-		this.flips = await API.fetchAllFlips(this.trackId);
+		const flips = await API.fetchAllFlips(this.trackId);
+		if (flips.length > 0)
+		{
+			this.flips = flips;
+		}
 	}
 }
 
@@ -91,10 +100,7 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 	{
 		//for cold load, need to wait for data to arrive
 		when(() => this.machine.trackInfoMachine.populated,
-			() => {
-				this.machine.fetchAllRaces();
-				this.machine.fetchAllFlips();
-			}
+			() => this.machine.fetchData()
 		)
 	}
 
@@ -138,30 +144,40 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 				<br/>
 				{
 					this.machine.currentTrack.length !== null && 
-					<>Length: {this.machine.currentTrack.length}<br/></>
+					<>
+						Length: {this.machine.currentTrack.length}
+						<br/>
+					</>
 				}
-				<br/>
+
 				{
 					this.machine.configs &&
 					<>
+						<br/>
 						{`${this.machine.configs.length} additional configuration${this.machine.configs.length > 1 ? "s" : ""}: `}
 						{this.machine.configs.map((config: Track) => {
 							return <Link to={`/track/${config.track_id}`}>{config.name}</Link>
 						})}
+					<br/>
 					</>
 				}
 
-				<br/>
 				Type: {this.machine.currentTrack.type}
 				<br/>
 				Total Races: {this.machine.races.length}
 				<br/>
-				Flips: {this.machine.flips.length}
-				<br/>
-				Flips per Event: {this.machine.flips.length > 0 ? 
-					this.machine.flips.length / this.machine.races.length : 
-					"0"
+				{
+					this.machine.flips != null &&
+					<>
+						Flips: {this.machine.flips.length}
+						<br/>
+						Flips per Event: {this.machine.flips.length > 0 ? 
+							this.machine.flips.length / this.machine.races.length : 
+							"0"
+						}
+					</>
 				}
+				<br/>
 
 				<br/>
 				Events: {this.renderEventTiles()}

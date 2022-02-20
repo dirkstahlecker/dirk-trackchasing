@@ -28,7 +28,10 @@ export abstract class ServerApp
 
 		//TODO: I think flips need a track_id for ease of querying
 
-		const query: string = `SELECT * FROM flips WHERE race_id = ${trackId};`; //TODO: wrong
+		const query: string = `SELECT flips.*, tracks.name from races 
+		INNER JOIN flips ON races.race_id=flips.race_id 
+		INNER JOIN tracks ON races.track_id=tracks.track_id
+		WHERE tracks.track_id=${trackId};`;
 		const result = await makeQuery(query);
 
 		return result.rows as Flip[];
