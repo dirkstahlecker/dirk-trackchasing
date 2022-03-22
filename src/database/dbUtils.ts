@@ -35,7 +35,11 @@ export type Flip = {
   fullfender: boolean,
   occurred: string,
   video: boolean | null,
-  didnotsee: boolean | null
+  didnotsee: boolean | null,
+  date: Date | null,
+  trackName: string,
+  surface: string,
+  driver: string | null,
 }
 
 export type BasicStats = {

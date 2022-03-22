@@ -52,7 +52,25 @@ export abstract class API
     return races;
 	}
 
-  public static async fetchAllFlips(trackId: number): Promise<Flip[]>
+  public static async fetchAllFlips(): Promise<Flip[]>
+  {
+    if (API.makeNoApiCallsBecauseDbOnHerokuIsBroken)
+    {
+      return Promise.resolve([]);
+    }
+
+    const flipsRaw = await fetch(`/flips`);
+    const flipsJson = await flipsRaw.json();
+
+    const flips: Flip[] = [];
+    flipsJson.forEach((flipInfo: any) => {
+      flips.push(Flip.fromJson(flipInfo));
+    });
+
+    return flips;
+  }
+
+  public static async fetchAllFlipsForTrack(trackId: number): Promise<Flip[]>
   {
     if (API.makeNoApiCallsBecauseDbOnHerokuIsBroken)
     {

@@ -18,6 +18,8 @@ import {Routes, Route, Link, BrowserRouter, useParams} from "react-router-dom";
 import { RaceInfoMachine } from './events/RaceInfoMachine';
 import { RaceTile } from './events/RaceTile';
 import { printDate } from './utilities';
+import { AllFlipsPlace } from './flips/AllFlipsPlace';
+import { FlipInfoMachine } from './flips/FlipInfoMachine';
 
 class AppMachine
 {
@@ -25,6 +27,7 @@ class AppMachine
   public mapMachine: MapMachine = new MapMachine();
   public statsMachine: StatsMachine = new StatsMachine();
   public raceInfoMachine: RaceInfoMachine = new RaceInfoMachine();
+  public flipInfoMachine: FlipInfoMachine = new FlipInfoMachine();
   
   // @observable public quickStats: QuickStats | null = null;
 
@@ -138,6 +141,11 @@ class App extends React.Component<AppProps>
       trackInfoMachine={this.machine.trackInfoMachine}
     />;
   }
+
+  private renderAllFlips(): JSX.Element
+  {
+    return <AllFlipsPlace flipInfoMachine={this.machine.flipInfoMachine}/>
+  }
   
   private renderRecaps(): JSX.Element
   {
@@ -182,6 +190,7 @@ class App extends React.Component<AppProps>
     return <div id="navbar" className="sticky">
       <Link to="/">Home</Link>
       <Link to="/tracks">Tracks</Link>
+      <Link to="/flips">Flips</Link>
       <Link to="/recaps">Race Recaps</Link>
       <Link to="/stats">Stats</Link>
       <Link to="/about">About</Link>
@@ -221,6 +230,7 @@ class App extends React.Component<AppProps>
             <Route path="/tracks" element={this.renderAllTracks()}/>
             <Route path="/track/:id" element={<RenderTrack trackInfoMachine={this.machine.trackInfoMachine}/>}/>
             <Route path="/recaps" element={this.renderRecaps()}/>
+            <Route path="/flips" element={this.renderAllFlips()}/>
             <Route path="/stats" element={this.renderStats()}/>
             <Route path="/contact" element={this.renderContact()}/>
             <Route path='*' element={this.renderPageNotFound()} />

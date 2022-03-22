@@ -1,9 +1,7 @@
-import { textSpanContainsTextSpan } from "typescript";
-import { BasicStats, makeQuery, Race, StateStats, TrackDbObj } from "./database/dbUtils";
+import { BasicStats, Flip, makeQuery, Race, StateStats, TrackDbObj } from "./database/dbUtils";
 import { EventRecaps } from "./eventRecaps";
 import { getRecapStringForTrackAndDate } from "./EventsWithRecap";
 import {Parser} from './parser';
-import {EventObj, Flip, TrackName, Track_old, TrackTypeEnum, makeDate} from "./Types";
 import { compareDates } from "./utilities";
 
 const TRACK_ORDER_HEADER = "Track Order"; //track order sheet, the main reference for each track
@@ -23,15 +21,20 @@ export abstract class ServerApp
 
 	public static async getFlipsForTrack(trackId: number): Promise<Flip[]>
 	{
-		// const trackIdQuery = `SELECT race_id FROM races WHERE track_id = ${trackId};`;
-		// const trackId: string = await makeQuery(trackIdQuery);
-
-		//TODO: I think flips need a track_id for ease of querying
-
-		const query: string = `SELECT flips.*, tracks.name from races 
+		const query: string = `SELECT flips.*, tracks.name, races.date, tracks.surface FROM races 
 		INNER JOIN flips ON races.race_id=flips.race_id 
 		INNER JOIN tracks ON races.track_id=tracks.track_id
 		WHERE tracks.track_id=${trackId};`;
+		const result = await makeQuery(query);
+
+		return result.rows as Flip[];
+	}
+
+	public static async getAllFlips(): Promise<Flip[]>
+	{
+		const query: string = `SELECT flips.*, tracks.name, races.date, tracks.surface FROM races 
+		INNER JOIN flips ON races.race_id=flips.race_id 
+		INNER JOIN tracks ON races.track_id=tracks.track_id;`;
 		const result = await makeQuery(query);
 
 		return result.rows as Flip[];
@@ -174,21 +177,21 @@ export abstract class ServerApp
 	// 	return filteredList;
 	// }
 
-	public static getTrackTypeEnumForString(typeStr: string): TrackTypeEnum
-	{
-		switch (typeStr)
-		{
-			case "Oval":
-				return TrackTypeEnum.OVAL;
-			case "Figure 8":
-				return TrackTypeEnum.FIGURE_8;
-			case "Road Course":
-				return TrackTypeEnum.ROAD_COURSE;
-			default:
-				console.log("###############")
-				throw new Error("Invalid type string " + typeStr + "; cannot convert to TrackTypeEnum")
-		}
-	}
+	// public static getTrackTypeEnumForString(typeStr: string): TrackTypeEnum
+	// {
+	// 	switch (typeStr)
+	// 	{
+	// 		case "Oval":
+	// 			return TrackTypeEnum.OVAL;
+	// 		case "Figure 8":
+	// 			return TrackTypeEnum.FIGURE_8;
+	// 		case "Road Course":
+	// 			return TrackTypeEnum.ROAD_COURSE;
+	// 		default:
+	// 			console.log("###############")
+	// 			throw new Error("Invalid type string " + typeStr + "; cannot convert to TrackTypeEnum")
+	// 	}
+	// }
 
 	public static async getTrackFullInfo(): Promise<TrackDbObj[]>
 	{
@@ -228,98 +231,98 @@ export abstract class ServerApp
 		// return tracksAndCoords
 	}
 
-	public static async getTrackObjForName(trackName: TrackName): Promise<Track_old>
-	{
-		// await Parser.parse();
-		// const tracksFullInfo: Track[] = await this.getTrackFullInfo();
-		// const theTrack: Track | undefined = tracksFullInfo.find((value: Track) => {
-		// 	return TrackName.equals(value.trackNameObj, trackName);
-		// });
+	// public static async getTrackObjForName(trackName: TrackName): Promise<Track_old>
+	// {
+	// 	// await Parser.parse();
+	// 	// const tracksFullInfo: Track[] = await this.getTrackFullInfo();
+	// 	// const theTrack: Track | undefined = tracksFullInfo.find((value: Track) => {
+	// 	// 	return TrackName.equals(value.trackNameObj, trackName);
+	// 	// });
 
-		const theTrack: any = undefined;
+	// 	const theTrack: any = undefined;
 
-		if (theTrack === undefined)
-		{
-			throw new Error("Could not locate track object for trackName: " + trackName.print());
-		}
-		return theTrack;
-	}
+	// 	if (theTrack === undefined)
+	// 	{
+	// 		throw new Error("Could not locate track object for trackName: " + trackName.print());
+	// 	}
+	// 	return theTrack;
+	// }
 
-	public static async getCountForTrack(trackNameObj: TrackName): Promise<number>
-	{
-		let json = await Parser.parse();
-		json = json[RACES_HEADER];
+	// public static async getCountForTrack(trackNameObj: TrackName): Promise<number>
+	// {
+	// 	let json = await Parser.parse();
+	// 	json = json[RACES_HEADER];
 	
-		let count = 0;
-		let i = 0;
-		while (true)
-		{
-			const jsonRowHeader = "Races: " + i;
-			const raceRow = json[jsonRowHeader];
-			if (raceRow === undefined)
-			{
-				break;
-			}
+	// 	let count = 0;
+	// 	let i = 0;
+	// 	while (true)
+	// 	{
+	// 		const jsonRowHeader = "Races: " + i;
+	// 		const raceRow = json[jsonRowHeader];
+	// 		if (raceRow === undefined)
+	// 		{
+	// 			break;
+	// 		}
 	
-			//TODO: consolidate with getEventsForTrack, some property bag thing
-			if (raceRow[trackNameObj.baseName] != null)
-			{
-				if (trackNameObj.isConfiguration)
-				{
-					//need to look into the specifics and see if there configuration is in brackets at the end
-					if (raceRow[trackNameObj.baseName].includes(trackNameObj.configuration))
-					{
-						count++
-					}
-				}
-				else
-				{
-					count++;
-				}
-			}
-			i++;
-		}
+	// 		//TODO: consolidate with getEventsForTrack, some property bag thing
+	// 		if (raceRow[trackNameObj.baseName] != null)
+	// 		{
+	// 			if (trackNameObj.isConfiguration)
+	// 			{
+	// 				//need to look into the specifics and see if there configuration is in brackets at the end
+	// 				if (raceRow[trackNameObj.baseName].includes(trackNameObj.configuration))
+	// 				{
+	// 					count++
+	// 				}
+	// 			}
+	// 			else
+	// 			{
+	// 				count++;
+	// 			}
+	// 		}
+	// 		i++;
+	// 	}
 	
-		return count;
-	}
+	// 	return count;
+	// }
 
-	//returns only the event string as stored in the json
-	public static async getEventStringsForTrack(trackNameObj: TrackName): Promise<string[]>
-	{
-		let json = await Parser.parse();
-		json = json[RACES_HEADER];
-		const events = [];
+	// //returns only the event string as stored in the json
+	// public static async getEventStringsForTrack(trackNameObj: TrackName): Promise<string[]>
+	// {
+	// 	let json = await Parser.parse();
+	// 	json = json[RACES_HEADER];
+	// 	const events = [];
 
-		let i = 0;
-		while (true)
-		{
-			const jsonRowHeader = "Races: " + i;
-			const raceRow = json[jsonRowHeader];
-			if (raceRow === undefined)
-			{
-				break;
-			}
+	// 	let i = 0;
+	// 	while (true)
+	// 	{
+	// 		const jsonRowHeader = "Races: " + i;
+	// 		const raceRow = json[jsonRowHeader];
+	// 		if (raceRow === undefined)
+	// 		{
+	// 			break;
+	// 		}
 			
-			const event = raceRow[trackNameObj.baseName];
-			if (event != null)
-			{
-				if (trackNameObj.isConfiguration)
-				{
-					if (event.includes(trackNameObj.configuration))
-					{
-						events.push(event);
-					}
-				}
-				else //not a configuration, add all
-				{
-					events.push(event);
-				}
-			}
-			i++;
-		}
+	// 		const event = raceRow[trackNameObj.baseName];
+	// 		if (event != null)
+	// 		{
+	// 			if (trackNameObj.isConfiguration)
+	// 			{
+	// 				if (event.includes(trackNameObj.configuration))
+	// 				{
+	// 					events.push(event);
+	// 				}
+	// 			}
+	// 			else //not a configuration, add all
+	// 			{
+	// 				events.push(event);
+	// 			}
+	// 		}
+	// 		i++;
+	// 	}
 
-		return events;
-	}
+	// 	return events;
+	// }
 
 	// public static async getFlipsForTrack(trackNameObj: TrackName): Promise<Flip[]>
 	// {
@@ -332,103 +335,103 @@ export abstract class ServerApp
 	// 	return foundFlips;
 	// }
 
-	private static getDateFromFlip(flip: any): Date
-	{
-		return makeDate(flip.date);
-	}
+	// private static getDateFromFlip(flip: any): Date
+	// {
+	// 	return makeDate(flip.date);
+	// }
 
-	public static async getFlipsForEvent(trackNameObj: TrackName, date: Date): Promise<Flip[]>
-	{
-		const dateObj = makeDate(date);
-		// const flipsForTrack: Flip[] = await this.getFlipsForTrack(trackNameObj); //TODO: inefficient
+	// public static async getFlipsForEvent(trackNameObj: TrackName, date: Date): Promise<Flip[]>
+	// {
+	// 	const dateObj = makeDate(date);
+	// 	// const flipsForTrack: Flip[] = await this.getFlipsForTrack(trackNameObj); //TODO: inefficient
 
-		const flipsForEvent: Flip[] = []; //flipsForTrack.filter((flip: Flip) => {
-		// 	return this.getDateFromFlip(flip).getTime() === dateObj.getTime();
-		// });
+	// 	const flipsForEvent: Flip[] = []; //flipsForTrack.filter((flip: Flip) => {
+	// 	// 	return this.getDateFromFlip(flip).getTime() === dateObj.getTime();
+	// 	// });
 
-		return flipsForEvent;
-	}
+	// 	return flipsForEvent;
+	// }
 
-	public static getDateFromEventString(eventString: string): Date
-	{
-		let dateRaw = eventString.split(":")[0];
-		// return utilities.cleanDate(dateRaw);
-		// return new Date(new Date(dateRaw).getTime());
-		console.log(dateRaw);
-		return makeDate(dateRaw);
-	}
+	// public static getDateFromEventString(eventString: string): Date
+	// {
+	// 	let dateRaw = eventString.split(":")[0];
+	// 	// return utilities.cleanDate(dateRaw);
+	// 	// return new Date(new Date(dateRaw).getTime());
+	// 	console.log(dateRaw);
+	// 	return makeDate(dateRaw);
+	// }
 
-	public static async makeEnrichedEventInfoHelper(eventString: string, trackNameObj: TrackName, dateObj: Date): Promise<EventObj>
-	{
-		if (eventString === undefined)
-		{
-			throw Error("Event for track " + trackNameObj.baseName + " on date " + dateObj + " cannot be found");
-		}
+	// public static async makeEnrichedEventInfoHelper(eventString: string, trackNameObj: TrackName, dateObj: Date): Promise<EventObj>
+	// {
+	// 	if (eventString === undefined)
+	// 	{
+	// 		throw Error("Event for track " + trackNameObj.baseName + " on date " + dateObj + " cannot be found");
+	// 	}
 	
-		const flipsForEvent = await this.getFlipsForEvent(trackNameObj, dateObj)
+	// 	const flipsForEvent = await this.getFlipsForEvent(trackNameObj, dateObj)
 			
-		const classes = eventString.substring(eventString.indexOf(":") + 2);
+	// 	const classes = eventString.substring(eventString.indexOf(":") + 2);
 	
-		// const eventInfoObj: EventObj = {
-		// 	date: dateObj, 
-		// 	classes: classes, 
-		// 	flips: flipsForEvent
-		// };
-		//TODO: notable crashes
+	// 	// const eventInfoObj: EventObj = {
+	// 	// 	date: dateObj, 
+	// 	// 	classes: classes, 
+	// 	// 	flips: flipsForEvent
+	// 	// };
+	// 	//TODO: notable crashes
 
-		const eventObj: EventObj = new EventObj(trackNameObj, dateObj, classes, flipsForEvent);
-		return eventObj;
-	}
+	// 	const eventObj: EventObj = new EventObj(trackNameObj, dateObj, classes, flipsForEvent);
+	// 	return eventObj;
+	// }
 
 	//events are based on base name, and may or may not have a configuration
-	public static async getEnrichedEventInfoForDate(trackNameObj: TrackName, date: Date | string): Promise<EventObj>
-	{
-		let dateObj: Date = makeDate(date);
+	// public static async getEnrichedEventInfoForDate(trackNameObj: TrackName, date: Date | string): Promise<EventObj>
+	// {
+	// 	let dateObj: Date = makeDate(date);
 		
-		//TODO: deal with invalid dates that come from old events where I don't know the date
-		const eventStrings = await this.getEventStringsForTrack(trackNameObj); //TODO: inefficient - stop when we find it
-		const eventString = eventStrings.find((event) => {
-			const eventDate = this.getDateFromEventString(event);
-			return compareDates(eventDate, dateObj);
-		});
+	// 	//TODO: deal with invalid dates that come from old events where I don't know the date
+	// 	const eventStrings = await this.getEventStringsForTrack(trackNameObj); //TODO: inefficient - stop when we find it
+	// 	const eventString = eventStrings.find((event) => {
+	// 		const eventDate = this.getDateFromEventString(event);
+	// 		return compareDates(eventDate, dateObj);
+	// 	});
 
-		return this.makeEnrichedEventInfoHelper(eventString, trackNameObj, dateObj);
-	}
+	// 	return this.makeEnrichedEventInfoHelper(eventString, trackNameObj, dateObj);
+	// }
 
-	public static async getAllEnrichedEventInfosForTrack(trackNameObj: TrackName): Promise<EventObj[]>
-	{
-		const eventStrings = await this.getEventStringsForTrack(trackNameObj); //TODO: inefficient - stop when we find it
+	// public static async getAllEnrichedEventInfosForTrack(trackNameObj: TrackName): Promise<EventObj[]>
+	// {
+	// 	const eventStrings = await this.getEventStringsForTrack(trackNameObj); //TODO: inefficient - stop when we find it
 	
-		const promises = eventStrings.map(async(eventStr) => {
-			const date = this.getDateFromEventString(eventStr);
-			// if (date.getTime() != date.getTime()) //getTime is NaN for invalid dates, NaN never equals NaN, so invalid
-			// {
-			// 	console.error("Invalid date")
-			// 	return null;
-			// }
-			//TODO: error handling for invalid date
-			const eventobj: EventObj = await this.getEnrichedEventInfoForDate(trackNameObj, date);
-			return eventobj;
-		});
+	// 	const promises = eventStrings.map(async(eventStr) => {
+	// 		const date = this.getDateFromEventString(eventStr);
+	// 		// if (date.getTime() != date.getTime()) //getTime is NaN for invalid dates, NaN never equals NaN, so invalid
+	// 		// {
+	// 		// 	console.error("Invalid date")
+	// 		// 	return null;
+	// 		// }
+	// 		//TODO: error handling for invalid date
+	// 		const eventobj: EventObj = await this.getEnrichedEventInfoForDate(trackNameObj, date);
+	// 		return eventobj;
+	// 	});
 		
-		const eventInfos = await Promise.all(promises);
-		return eventInfos;
-	}
+	// 	const eventInfos = await Promise.all(promises);
+	// 	return eventInfos;
+	// }
 
 	//returns a list of EventInfos, all the event infos that have recaps
-	public static async getEventsWithRecaps(): Promise<EventObj[]>
-	{
-		await EventRecaps.parse();
-		return EventRecaps.getListOfEventsWithRecap();
-	}
+	// public static async getEventsWithRecaps(): Promise<EventObj[]>
+	// {
+	// 	await EventRecaps.parse();
+	// 	return EventRecaps.getListOfEventsWithRecap();
+	// }
 
-	//this was originally written to return the full text of the recap.
-	//I've since changed it to instead send the URL of the HTML recap page
-	public static async getSpecificEventRecap(date: Date | string, trackName: TrackName): Promise<string | null>
-	{
-		// await EventRecaps.parse();
-		// return EventRecaps.getRecapForEvent(date, trackName);
+	// //this was originally written to return the full text of the recap.
+	// //I've since changed it to instead send the URL of the HTML recap page
+	// public static async getSpecificEventRecap(date: Date | string, trackName: TrackName): Promise<string | null>
+	// {
+	// 	// await EventRecaps.parse();
+	// 	// return EventRecaps.getRecapForEvent(date, trackName);
 
-		return getRecapStringForTrackAndDate(makeDate(date), trackName);
-  }
+	// 	return getRecapStringForTrackAndDate(makeDate(date), trackName);
+  // }
 }

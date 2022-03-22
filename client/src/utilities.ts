@@ -7,9 +7,9 @@ export function compareDates(date1: Date, date2: Date): boolean
 	return makeDate(date1).getTime() === makeDate(date2).getTime();
 }
 
-export function printDate(date: Date | string | undefined): string
+export function printDate(date: Date | string | undefined | null): string
 {
-	if (date === undefined)
+	if (date === undefined || date === null)
 	{
 		return "";
 	}

@@ -65,7 +65,7 @@ export class TrackPlaceMachine
 	@action
 	private async fetchAllFlips(): Promise<void>
 	{
-		const flips = await API.fetchAllFlips(this.trackId);
+		const flips = await API.fetchAllFlipsForTrack(this.trackId);
 		if (flips.length > 0)
 		{
 			this.flips = flips;

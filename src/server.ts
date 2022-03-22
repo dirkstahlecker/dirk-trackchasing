@@ -1,10 +1,8 @@
 import express from "express";
 import path from 'path';
-import { isConstructorTypeNode } from "typescript";
 import { ServerApp } from "./app";
 import { doConversion } from "./convertExcelToDB";
-import { BasicStats, Race, TrackDbObj } from "./database/dbUtils";
-import { EventObj, Track_old, TrackName, Flip } from "./Types";
+import { BasicStats, Flip, Race, TrackDbObj } from "./database/dbUtils";
 
 // const server: ServerApp = new ServerApp();
 const app = express();
@@ -43,6 +41,15 @@ app.get('/tracks/:trackId/configurations', async function (req, res) {
 	const tracks: TrackDbObj[] = await ServerApp.getConfigurationsForTrack(Number.parseInt(req.params.trackId));
 
 	res.json(tracks);
+});
+
+app.get('/flips', async function (req, res) {
+	console.log(`/flips`);
+	res.set('Content-Type', 'application/json');
+
+	const flips: Flip[] = await ServerApp.getAllFlips();
+
+	res.json(flips);
 });
 
 app.get('/tracks/:trackId/flips', async function (req, res) {

@@ -330,13 +330,17 @@ export class Flip
 	public rotations: string | null;
 	public notes: string | null;
 	public fullfender: boolean;
-	public occurred: string;
-	public video: boolean | null;
-	public didnotsee: boolean | null;
+	public occurred: string | null;
+	public video: boolean;
+	public didnotsee: boolean;
+	public date: Date | null;
+	public trackName: string | null;
+	public surface: string;
+	public driver: string | null;
 
 	public constructor(flip_id: number, race_id: number, classStr: string, rotations: string | null,
-		notes: string | null, fullfender: boolean, occurred: string, video: boolean | null, 
-		didnotsee: boolean | null)
+		notes: string | null, fullfender: boolean, occurred: string | null, video: boolean, 
+		didnotsee: boolean, date: Date | null, trackName: string | null, surface: string, driver: string | null)
 	{
 		this.flip_id = flip_id;
 		this.race_id = race_id;
@@ -347,14 +351,19 @@ export class Flip
 		this.occurred = occurred;
 		this.video = video;
 		this.didnotsee = didnotsee;
+		this.date = date;
+		this.trackName = trackName;
+		this.surface = surface;
+		this.driver = driver;
 	}
 
 	public static fromJson(json: any): Flip
 	{
-		return new Flip(json['flip_id'], json['race_id'], json['class'], json['rotations'], json['notes'], json['fullfender'], json['occurred'], json['video'], json['didnotsee']);
+		return new Flip(json['flip_id'], json['race_id'], json['class'], json['rotations'], json['notes'], 
+			json['fullfender'], json['occurred'], json['video'], json['didnotsee'], json['date'], json['name'],
+			json['surface'], json['driver']);
 	}
 }
-
 
 export type BasicStats = {
   total_races: number,

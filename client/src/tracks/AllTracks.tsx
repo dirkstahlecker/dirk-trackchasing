@@ -47,9 +47,8 @@ export class AllTracksPlace extends React.Component<AllTracksPlaceProps>
 
   render()
   {
-    return <div className="contact-place">
+    return <div className="all-tracks-place">
       <h2>Tracks I've Visited</h2>
-      {/* <button onClick={this.props.navMachine.goHome}>Go Home</button> */}
       {
         this.sortedTracks.length > 0 &&
         <div>
