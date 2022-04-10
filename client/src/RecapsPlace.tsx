@@ -3,7 +3,6 @@ import {observer} from "mobx-react";
 import {observable, action, makeObservable, runInAction} from "mobx";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './CalendarPlace.css';
-import { EventObj, TrackName } from './Types';
 
 export abstract class RecapsDataMachine
 {
@@ -34,6 +33,7 @@ export abstract class RecapsDataMachine
     {trackName: "Irwindale Speedway", dates: ["2-05-22"]},
     {trackName: "Los Angeles Memorial Coliseum", dates: ["2-06-22"]},
     {trackName: "Hickory Motor Speedway and Carolina Speedway", dates: ["3-18-22"]},
+    {trackName: "Cherokee Speedway", dates: ["3-16-22"]},
   ];
 
   /**
