@@ -1,4 +1,4 @@
-import { TrackName } from "./Types";
+import { TrackName } from "./DEPRECATED_Types";
 
 export function getRecapStringForTrackAndDate(date: Date, track: TrackName): string | null
 {
