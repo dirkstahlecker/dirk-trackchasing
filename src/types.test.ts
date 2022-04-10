@@ -1,4 +1,4 @@
-import {Track_old, TrackName, TrackTypeEnum} from "./Types";
+import { TrackName, TrackTypeEnum, Track_old } from "./DEPRECATED_Types";
 
 it('Track utility functions', () => {
   const track = new Track_old(TrackName.parse("Seekonk Speedway"), "MA", TrackTypeEnum.OVAL, 100, -200, 46, []);

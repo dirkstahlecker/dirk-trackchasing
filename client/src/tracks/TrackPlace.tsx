@@ -188,7 +188,7 @@ export class TrackPlace extends React.Component<TrackPlaceProps>
 					<>
 						Recaps:{" "}
 						{
-							recaps.map((date: string) => {
+							recaps?.map((date: string) => {
 								return RecapsDataMachine.renderLink({trackName, date})
 							})
 						}

@@ -1,8 +1,4 @@
 import { BasicStats, Flip, makeQuery, Race, StateStats, TrackDbObj } from "./database/dbUtils";
-import { EventRecaps } from "./eventRecaps";
-import { getRecapStringForTrackAndDate } from "./EventsWithRecap";
-import {Parser} from './parser';
-import { compareDates } from "./utilities";
 
 const TRACK_ORDER_HEADER = "Track Order"; //track order sheet, the main reference for each track
 const RACES_HEADER = "Races";

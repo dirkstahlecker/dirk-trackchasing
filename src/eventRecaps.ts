@@ -1,7 +1,8 @@
 import path from 'path';
 import { ServerApp } from './app';
+import { EventObj, makeDate, TrackName } from './DEPRECATED_Types';
 import { runningJestTest } from './parser';
-import { EventObj, makeDate, TrackName } from './Types';
+
 var fs = require('fs');
 
 
@@ -94,9 +95,10 @@ export abstract class EventRecaps
     //return a list of strings, where the string is the date and track made by the makeKey function
     for (let objKey in EventRecaps.fullEventsObj)
     {
-      const {date, track} = unpackFromKey(objKey);
-      const eventInfo: EventObj = await ServerApp.getEnrichedEventInfoForDate(track, date);
-      ret.push(eventInfo);
+      //TODO
+      // const {date, track} = unpackFromKey(objKey);
+      // const eventInfo: EventObj = await ServerApp.getEnrichedEventInfoForDate(track, date);
+      // ret.push(eventInfo);
     }
 
     return ret;

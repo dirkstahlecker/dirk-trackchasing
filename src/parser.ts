@@ -1,6 +1,6 @@
 
 import path from 'path';
-import {Flip, makeDate, TrackName} from "./Types";
+import { Flip, makeDate, TrackName } from './DEPRECATED_Types';
 var fs = require('fs');
 
 let parsedJson: any = null;
