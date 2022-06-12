@@ -34,6 +34,7 @@ export abstract class RecapsDataMachine
     {trackName: "Los Angeles Memorial Coliseum", dates: ["2-06-22"]},
     {trackName: "Hickory Motor Speedway and Carolina Speedway", dates: ["3-18-22"]},
     {trackName: "Cherokee Speedway", dates: ["3-26-22"]},
+    {trackName: "Ventura Raceway", dates: ["6-11-22"]},
   ];
 
   /**
