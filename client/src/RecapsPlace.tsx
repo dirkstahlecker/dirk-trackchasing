@@ -35,6 +35,8 @@ export abstract class RecapsDataMachine
     {trackName: "Hickory Motor Speedway and Carolina Speedway", dates: ["3-18-22"]},
     {trackName: "Cherokee Speedway", dates: ["3-26-22"]},
     {trackName: "Ventura Raceway", dates: ["6-11-22"]},
+    {trackName: "Circle City Raceway", dates: ["7-25-22"]},
+    {trackName: "Pendleton County Fairgrounds", dates: ["7-27-22"]},
   ];
 
   /**
