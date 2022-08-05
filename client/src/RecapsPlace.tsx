@@ -37,6 +37,7 @@ export abstract class RecapsDataMachine
     {trackName: "Ventura Raceway", dates: ["6-11-22"]},
     {trackName: "Circle City Raceway", dates: ["7-25-22"]},
     {trackName: "Pendleton County Fairgrounds", dates: ["7-27-22"]},
+    {trackName: "Greenwood Valley Action Tracks", dates: ["7-18-22"]},
   ];
 
   /**
