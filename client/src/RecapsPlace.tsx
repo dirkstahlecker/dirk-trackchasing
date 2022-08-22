@@ -38,6 +38,7 @@ export abstract class RecapsDataMachine
     {trackName: "Circle City Raceway", dates: ["7-25-22"]},
     {trackName: "Pendleton County Fairgrounds", dates: ["7-27-22"]},
     {trackName: "Greenwood Valley Action Tracks", dates: ["7-18-22"]},
+    {trackName: "Five Mile Point Speedway", dates: ["8-20-22"]},
   ];
 
   /**
